@@ -37,7 +37,7 @@ public:
     ///Recieve the Mine rotation
     virtual const float getDrawRotation();
 	///Mine object destructor
-	~Mine();
+	virtual ~Mine();
 
 
 private:

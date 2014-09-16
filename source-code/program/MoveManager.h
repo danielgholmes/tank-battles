@@ -14,7 +14,8 @@
 
 //Includes
 #include "Manager.h"
-#include "Game.h"
+#include "Structures.h"
+#include "Movable.h"
 #include <vector>
 
 class MoveManager: public Manager
@@ -30,7 +31,7 @@ public:
     void addNewEntity(std::weak_ptr<Movable> new_entity);
 
 	/// Destructor for MoveManager
-	~MoveManager();
+	virtual ~MoveManager();
 
 private:
     // Pointers to all moveable entities within the game world

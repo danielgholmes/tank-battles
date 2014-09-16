@@ -23,7 +23,7 @@ public:
     Manager();
 
     ///Destructor
-	~Manager();
+	virtual ~Manager();
 
 };
 

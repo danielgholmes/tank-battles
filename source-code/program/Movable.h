@@ -35,7 +35,7 @@ public:
 	///Check state of entity to see if it has been blocked by another object
 	virtual const bool isBlocked() = 0;
 	///Destructor
-	virtual ~Movable();
+	virtual ~Movable() = 0;
 
 protected:
     ///Define the movement speed of a missile entity

@@ -50,7 +50,7 @@ public:
     ///Recieve the Missile rotation
     virtual const float getDrawRotation();
 	///Missile object destructor
-	~Missile();
+	virtual ~Missile();
 
 private:
 
