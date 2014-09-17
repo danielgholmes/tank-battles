@@ -7,7 +7,7 @@
 
 #include "Orientation.h"
 
-Orientation::Orientation(int origin_x, int origin_y, float width, float height, float rotation):
+Orientation::Orientation(float origin_x, float origin_y, float width, float height, float rotation):
 	_origin_x(origin_x),
 	_origin_y(origin_y),
 	_width(width),
@@ -15,12 +15,12 @@ Orientation::Orientation(int origin_x, int origin_y, float width, float height, 
 	_rotation(rotation)
 	{}
 
-int Orientation::getOriginX()
+float Orientation::getOriginX()
 {
 	return _origin_x;
 }
 
-int Orientation::getOriginY()
+float Orientation::getOriginY()
 {
 	return _origin_y;
 }

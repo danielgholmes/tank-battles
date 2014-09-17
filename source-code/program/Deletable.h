@@ -14,7 +14,6 @@
 
 //Includes
 #include "Structures.h"
-#include "SFML/Graphics.hpp"
 
 class Deletable
 {
@@ -26,8 +25,10 @@ public:
 	virtual const bool isDeleted() = 0;
 	///Recieve the identification of the created object
     virtual const entity_type& getType() const = 0;
-    ///Retrieve the entity's Position
-    virtual const sf::Vector2f& getDrawPosition() = 0;
+    ///Retrieve the entity's x Position
+    virtual const float getDrawPositionX() = 0;
+    ///Retrieve the entity's y Position
+    virtual const float getDrawPositionY() = 0;
     ///Retrieve the entity's Position
     virtual const float getDrawRotation() = 0;
 	///Destructor

@@ -7,17 +7,17 @@
  */
 
 #ifndef ORIENTATION_H_
-#define ORIENTATION_H_ 
+#define ORIENTATION_H_
 
 class Orientation
 {
 public:
 	///Constructor that initialises all data members of the class
-	Orientation(int origin_x, int origin_y, float width, float height, float rotation);
+	Orientation(float origin_x, float origin_y, float width, float height, float rotation);
 	///Returns the entity origin x value
-	int getOriginX();
+	float getOriginX();
 	///Returns the entity origin y value
-	int getOriginY();
+	float getOriginY();
 	///Returns the entity width
 	float getWidth();
 	///Returns the entity height
@@ -28,8 +28,8 @@ public:
 	~Orientation();
 
 private:
-	int _origin_x;
-	int _origin_y;
+	float _origin_x;
+	float _origin_y;
 	float _width;
 	float _height;
 	float _rotation;
