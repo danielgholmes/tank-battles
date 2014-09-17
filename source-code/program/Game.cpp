@@ -17,9 +17,12 @@ Game::Game():
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
 
-    sf::Vector2f _player1_start_pos;
-    sf::Vector2f _player2_start_pos;
-    sf::Vector2f _barrier_start_pos;
+    _player1_start_posX = 50;
+    _player1_start_posY = 50;
+    _player2_start_posX = 500;
+    _player2_start_posY = 50;
+    _barrier_start_posX = 200;
+    _barrier_start_posY = 200;
 
 	loadTextures();
 	addNewSprites();
@@ -39,9 +42,12 @@ Game::Game(int width, int height):
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
 
-    sf::Vector2f _player1_start_pos;
-    sf::Vector2f _player2_start_pos;
-    sf::Vector2f _barrier_start_pos;
+    _player1_start_posX = 50;
+    _player1_start_posY = 50;
+    _player2_start_posX = 500;
+    _player2_start_posY = 50;
+    _barrier_start_posX = 200;
+    _barrier_start_posY = 200;
 
 	loadTextures();
 	addNewSprites();
@@ -51,9 +57,9 @@ Game::Game(int width, int height):
 	addNewTank(p2_tank, _player2_start_pos);
 }
 
-void Game::addNewTank(entity_type player_tank, sf::Vector2f tank_position)
+void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation)
 {
-	std::shared_ptr<Deletable> new_tank_del(new Tank(tank_position, 0.0, player_tank));
+	std::shared_ptr<Deletable> new_tank_del(new Tank(tank_positionX, tank_positionY, 5.0, 5.0 ,rotation, player_tank));
 	_world_entities.push_back(new_tank_del);
     _draw_manager.addNewEntity(new_tank_del);
     _destruction_manager.addNewEntity(new_tank_del);
@@ -72,8 +78,7 @@ void Game::addNewTank(entity_type player_tank, sf::Vector2f tank_position)
 
 void Game::addBarriers()
 {
-    ///Note: I've followed a naming convention here where the type of the smart pointer is used eg: _del, _col etc.
-	std::shared_ptr<Deletable> new_barrier_del(new Barrier(_barrier_start_pos, barrier));
+	std::shared_ptr<Deletable> new_barrier_del(new Barrier(_barrier_start_posX, _barrier_start_posY, barrier));
 	_world_entities.push_back(new_barrier_del);
 	_draw_manager.addNewEntity(new_barrier_del);
 	//Cast as Collidable
@@ -95,8 +100,7 @@ void Game::runWorld()
 		pollEvents(window);
 		checkKeyboardInput(actions);
 		addNewWorldEntity(actions);
-		runAllManagers(actions);
-		//displayAllSprites(window); //This can only be done in int main() apparently
+		runAllManagers(actions,window);
 	}
 
 	return;
@@ -204,7 +208,7 @@ void Game::addNewWorldEntity(const actions_info& actions)
 	{
 		if (actions.attack_1 == fire_missile)
 		{	// will use addNewMissile
-		    std::shared_ptr<Deletable> p1_missile_del_sp(new Missile(_tracking_manager.getP1Position(), _tracking_manager.getP1Rotation(), p1_missile));
+		    std::shared_ptr<Deletable> p1_missile_del_sp(new Missile(_tracking_manager.getP1PositionX(),_tracking_manager.getP1PositionY(),  _tracking_manager.getP1Rotation(), p1_missile));
 			_world_entities.push_back(p1_missile_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p1_missile_del_wp = p1_missile_del_sp;
@@ -220,7 +224,7 @@ void Game::addNewWorldEntity(const actions_info& actions)
 
         if (actions.attack_1 == lay_mine)
 		{	// will use addNewMine
-			std::shared_ptr<Deletable> p1_mine_del_sp(new Mine(_tracking_manager.getP1Position(), p1_mine));
+			std::shared_ptr<Deletable> p1_mine_del_sp(new Mine(_tracking_manager.getP1PositionX(), _tracking_manager.getP1PositionY(), p1_mine));
 			_world_entities.push_back(p1_mine_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p1_mine_del_wp = p1_mine_del_sp;
@@ -236,7 +240,7 @@ void Game::addNewWorldEntity(const actions_info& actions)
 	{
 		if (actions.attack_2 == fire_missile)
 		{	// will use addNewMissile
-			std::shared_ptr<Deletable> p2_missile_del_sp(new Missile(_tracking_manager.getP2Position(), _tracking_manager.getP1Rotation(), p2_missile));
+			std::shared_ptr<Deletable> p2_missile_del_sp(new Missile(_tracking_manager.getP2PositionX(), _tracking_manager.getP2PositionY(), _tracking_manager.getP2Rotation(), p2_missile));
 			_world_entities.push_back(p2_missile_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p2_missile_del_wp = p2_missile_del_sp;
@@ -252,7 +256,7 @@ void Game::addNewWorldEntity(const actions_info& actions)
 
         if (actions.attack_2 == lay_mine)
 		{	// will use addNewMine
-			std::shared_ptr<Deletable> p2_mine_del_sp(new Mine(_tracking_manager.getP1Position(), p2_mine));
+			std::shared_ptr<Deletable> p2_mine_del_sp(new Mine(_tracking_manager.getP2PositionX(),_tracking_manager.getP2PositionY(), p2_mine));
 			_world_entities.push_back(p2_mine_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p2_mine_del_wp = p2_mine_del_sp;
@@ -285,15 +289,6 @@ void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window)
 	_tracking_manager.manage();
 	_destruction_manager.manage();
 	_draw_manager.manage(_sprites, window);
-}
-
-//Currently not used
-void Game::displayAllSprites(sf::RenderWindow& window)
-{
-	window.clear();
-	for (auto sprite: _sprites)
-		window.draw(sprite);
-	window.display();
 }
 
 void Game::addNewSprites()

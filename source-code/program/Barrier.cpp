@@ -8,10 +8,9 @@
 #include "Barrier.h"
 
 ///Barrier entity constructor
-Barrier::Barrier(sf::Vector2f position, entity_type barrierTypeSet)
+Barrier::Barrier(float positionX, float positionY, entity_type barrierTypeSet):
+     _barrier(positionX,positionY,5.0,5.0,0.0) //These arbitary values will have to change
 {
-    sf::Sprite _barrier;
-    _barrier.setPosition(position);
     _type = barrierTypeSet;
 }
 
@@ -28,7 +27,7 @@ void Barrier::draw()
 }
 
 ///Provide the bounding box for the Barrier entity
-const sf::FloatRect& Barrier::getBoundingBox() const
+const rect_corners& Barrier::getBoundingBox()
 {
     return _barrier.getGlobalBounds();
 }
@@ -57,10 +56,16 @@ const bool Barrier::isDeleted()
     return 0;
 }
 
-///Retrieve the Barrier Position
-const sf::Vector2f& Barrier::getDrawPosition()
+///Retrieve the Barrier x Position
+const float Barrier::getDrawPositionX()
 {
-    return _barrier.getPosition();
+    return _barrier.getOriginX();
+}
+
+///Retrieve the Barrier y Position
+const float Barrier::getDrawPositionY()
+{
+    return _barrier.getOriginY();
 }
 
 ///Recieve the Barrier rotation

@@ -55,8 +55,8 @@ struct textures
 
 struct coordinate
 {
-    int x;
-    int y;
+    float x;
+    float y;
 };
 
 ///Contains x and y corners of a rectangle, used in the algorithm for collision detection

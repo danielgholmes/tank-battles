@@ -52,9 +52,6 @@ private:
 	int _window_height;
 	std::string _window_title = "Tank v0.1";
 
-	// const int _num_of_barriers = 2;
-	// const int _num_of_tanks = 2; // only 2 for initial testing
-
 	textures _game_textures;
 
 	// Texture file names
@@ -71,9 +68,12 @@ private:
 	/// Map container for the sprites that will be drawn
 	std::map<entity_type, std::shared_ptr<sf::Sprite>>  _sprites;
 
-    sf::Vector2f _player1_start_pos;
-    sf::Vector2f _player2_start_pos;
-    sf::Vector2f _barrier_start_pos; // only 1 barrier for now
+    const float _player1_start_posX;
+    const float _player1_start_posY;
+    const float _player2_start_posX;
+    const float _player2_start_posY;
+    const float _barrier_start_posX; // only 1 barrier for now
+    const float _barrier_start_posY;
 
 	// All world managers
 	MoveManager _move_manager;
@@ -101,14 +101,12 @@ private:
 	void addNewSprites();
 
 	/// Function that adds a new tank to the world
-	void addNewTank(entity_type player_tank, sf::Vector2f tank_position);
+	void addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation);
 
 	void addBarriers();
 
 	/// Function that loads all textures into memory
 	void loadTextures();
 
-	/// Function that displays all sprites at the end of the main program loop
-	void displayAllSprites(sf::RenderWindow& window);
 };
 #endif // GAME_H_

@@ -21,8 +21,10 @@ class Trackable: virtual public Deletable
 public:
     ///Constructor
     Trackable();
-    ///Get the current co-ordinates of Trackable object
-    virtual const sf::Vector2f& getPosition() = 0;
+    ///Get the current x co-ordinates of Trackable object
+    virtual const float getPositionX() = 0;
+    ///Get the current y co-ordinates of Trackable object
+    virtual const float getPositionY() = 0;
     ///Get the current orientation of Trackable object
     virtual const float getOrientation() = 0;
     ///Destructor

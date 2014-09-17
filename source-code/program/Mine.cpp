@@ -8,10 +8,9 @@
 #include "Mine.h"
 
 ///Mine entity constructor
-Mine::Mine(sf::Vector2f position, entity_type mineOwner)
+Mine::Mine(float positionX, float positionY, entity_type mineOwner)
 {
-    sf::Sprite _mine;
-    _mine.setPosition(position),
+    Orientation _mine(positionX,positionY,5.0,5.0,0.0); //Need to change these values
     _type = mineOwner;
     _collidedStatus = 0;
 }
@@ -23,7 +22,7 @@ const entity_type& Mine::getType() const
 }
 
 ///Provide the bounding box for the mine entity
-const sf::FloatRect& Mine::getBoundingBox() const
+const rect_corners& Mine::getBoundingBox() const
 {
     return _mine.getGlobalBounds();
 }
@@ -52,10 +51,16 @@ const bool Mine::isDeleted()
     return _collidedStatus;
 }
 
-///Retrieve the Mine Position
-const sf::Vector2f& Mine::getDrawPosition()
+///Retrieve the Mine x Position
+const float Mine::getDrawPositionX()
 {
-    return _mine.getPosition();
+    return _mine.getOriginX();
+}
+
+///Retrieve the Mine y Position
+const float Mine::getDrawPositionY()
+{
+    return _mine.getOriginY();
 }
 
 ///Recieve the Mine rotation

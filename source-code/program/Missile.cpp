@@ -8,14 +8,12 @@
 #include "Missile.h"
 
 ///Missile object constructor
-Missile::Missile(sf::Vector2f  position, float rotation, entity_type missileOwner):
+Missile::Missile(float positionX, float positionY, float rotation, entity_type missileOwner):
 
     _rotation(rotation),
     _type(missileOwner)
 {
-    sf::Sprite _missile;
-    _missile.setPosition(position),
-    _missile.setRotation(rotation),
+    Orientation _missile(positionX,positionY,5.0,5.0,rotation);
     _blockedStatus = 0;
     _collidedStatus = 0;
 }
@@ -54,7 +52,7 @@ void Missile::rotateRight()
 }
 
 ///Provide the bounding box for the missile entity
-const sf::FloatRect& Missile::getBoundingBox() const
+const rect_corners& Missile::getBoundingBox() const
 {
     return _missile.getGlobalBounds();
 }
@@ -89,11 +87,18 @@ const bool Missile::isDeleted()
     return _collidedStatus;
 }
 
-///Retrieve the Missile Position
-const sf::Vector2f& Missile::getDrawPosition()
+///Retrieve the Missile x Position
+const float Missile::getDrawPositionX()
 {
-    return _missile.getPosition();
+    return _missile.getOriginX();
 }
+
+///Retrieve the Missile y Position
+const float Missile::getDrawPositionY()
+{
+    return _missile.getOriginY();
+}
+
 
 ///Recieve the Missile rotation
 const float Missile::getDrawRotation()

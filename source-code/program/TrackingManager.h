@@ -13,7 +13,6 @@
 
 //Includes
 #include "Manager.h"
-#include "SFML/Graphics.hpp"
 #include "Trackable.h"
 
 class TrackingManager: public Manager
@@ -29,14 +28,20 @@ public:
 	///Add Trackable-type shared_ptr's to the TrackingManagers internal data members
     void addNewEntity(std::weak_ptr<Trackable> new_entity);
 
-	///Return position of P1 Tank
-	const sf::Vector2f getP1Position();
+	///Return x position of P1 Tank
+	const float getP1PositionX();
+
+    ///Return y position of P1 Tank
+	const float getP1PositionY();
 
 	///Return rotation of P1 Tank
 	const float getP1Rotation();
 
-	///Return position of P2 Tank
-	const sf::Vector2f getP2Position();
+    ///Return x position of P2 Tank
+	const float getP2PositionX();
+
+    ///Return y position of P2 Tank
+	const float getP2PositionY();
 
 	///Return rotation of P2 Tank
 	const float getP2Rotation();
@@ -49,14 +54,20 @@ private:
 
 	// Pointers to all trackable entities within the game world
     std::vector<std::weak_ptr<Trackable>> _trackables;
+
     //P1's tank current rotation
     float _p1Rotation;
-    //P1's tank current position
-    sf::Vector2f _p1Position;
+    //P1's tank current x position
+    float _p1PositionX;
+    //P1's tank current y position
+    float _p1PositionY;
+
     //P2's tank current rotation
     float _p2Rotation;
-    //P2's tank current position
-    sf::Vector2f _p2Position;
+    //P2's tank current x position
+    float _p2PositionX;
+    //P2's tank current y position
+    float _p2PositionY;
 
 
 };

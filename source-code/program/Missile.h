@@ -22,7 +22,7 @@ class Missile: virtual public Movable, virtual public Collidable
 public:
 
     ///Missile object constructor
-    Missile(sf::Vector2f position, float rotation, entity_type missileOwner);
+    Missile(float positionX, float positionY, float rotation, entity_type missileOwner);
     ///Return the ownership and type of the Missile entity
     virtual const entity_type& getType() const;
     ///Forward movement for a missile entity
@@ -34,7 +34,7 @@ public:
     ///Right rotation for a missile entity
 	virtual void rotateRight();
     ///Provide the bounding box for the missile entity
-	virtual const sf::FloatRect& getBoundingBox() const;
+	virtual const rect_corners& getBoundingBox() const;
     ///Instruct the missile entity that it cannot move along its trajectory
 	virtual void setBlocked();
 	///Instruct the tank entity that it can move
@@ -45,8 +45,10 @@ public:
 	virtual const bool isBlocked();
     ///Boolean state of the missile entity's life
 	virtual bool const isDeleted();
-	///Retrieve the Missile Position
-    virtual const sf::Vector2f& getDrawPosition();
+	///Retrieve the Missile x Position
+    virtual const float getDrawPositionX();
+    ///Retrieve the Missile y Position
+    virtual const float getDrawPositionY();
     ///Recieve the Missile rotation
     virtual const float getDrawRotation();
 	///Missile object destructor
@@ -61,7 +63,7 @@ private:
     ///The angle of rotation for the Missile entity
     float _rotation;
     ///SFML Co-ordinate system for the Missile
-    sf::Sprite _missile;
+    Orientation _missile;
     ///Enumeration type defining the Missile
     entity_type _type;
 

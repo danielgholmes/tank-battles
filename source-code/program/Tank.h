@@ -17,6 +17,7 @@
 #include "Collidable.h"
 #include "Trackable.h"
 #include "Structures.h"
+#include "Orientation.h"
 
 
 class Tank: virtual public Movable, virtual public Collidable, public Trackable
@@ -24,7 +25,7 @@ class Tank: virtual public Movable, virtual public Collidable, public Trackable
 public:
 
     ///Default Tank object constructor
-    Tank(sf::Vector2f position, float rotation, entity_type tankOwner);
+    Tank(float positionX, float positionY, float rotation, entity_type tankOwner);
     ///Provided ownership
     virtual const entity_type& getType() const;
     ///Allow the object to be rendered
@@ -38,7 +39,7 @@ public:
     ///Right rotation for a tank entity
 	virtual void rotateRight();
     ///Provide the bounding box for the tank entity
-	virtual const sf::FloatRect& getBoundingBox() const;
+	virtual const rect_corners& getBoundingBox() const;
     ///Instruct the tank entity that it cannot move
 	virtual void setBlocked();
 	///Instruct the tank entity that it can move
@@ -49,12 +50,16 @@ public:
 	virtual const bool isBlocked();
     ///Boolean state of the tank entity's life
 	virtual bool const isDeleted();
-	///Get the current co-ordinates of Trackable object
-    virtual const sf::Vector2f& getPosition();
+	///Get the current x co-ordinate of Trackable object
+    virtual const float getPositionX();
+    ///Get the current y co-ordinate of Trackable object
+    virtual const float getPositionY();
     ///Get the current orientation of Trackable object
     virtual const float getOrientation();
-    ///Retrieve the Tank Position
-    virtual const sf::Vector2f& getDrawPosition();
+    ///Retrieve the Tank x Position
+    virtual const float getDrawPositionX();
+    ///Retrieve the Tank y Position
+    virtual const float getDrawPositionY();
     ///Recieve the Tank rotation
     virtual const float getDrawRotation();
 	///Tank object destructor
@@ -69,7 +74,7 @@ private:
     ///The angle of rotation for the Tank entity
     float _rotation;
     ///SFML co-ordinate system for the Tank
-    sf::Sprite _tank;
+    Orientation _tank;
     ///Enumeration type defining the tank
     entity_type _type;
 };

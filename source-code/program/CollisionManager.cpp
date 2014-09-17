@@ -23,7 +23,7 @@ void CollisionManager::manage()
 		//Convert weak_ptr to shared_ptr
 		std::shared_ptr<Collidable> entity_sp = entity_wp.lock();
 
-		const sf::FloatRect& entity_box = (entity_sp)->getBoundingBox(); //Must fix this!!
+		const rect_corners& entity_box = (entity_sp)->getBoundingBox(); //Must fix this!!
 
         //Always one position ahead of itterator i
         auto j =  i+1;
@@ -34,10 +34,10 @@ void CollisionManager::manage()
 			//Convert weak_ptr to shared_ptr
             std::shared_ptr<Collidable> obstacle_sp = obstacle_wp.lock();
 
-			const sf::FloatRect& obstacle_box = (obstacle_sp)->getBoundingBox();
+			const rect_corners& obstacle_box = (obstacle_sp)->getBoundingBox();
 
-			if (entity_box.intersects(obstacle_box))
-				setCollisionStates(entity_sp, obstacle_sp);
+//			if (entity_box.intersects(obstacle_box))
+//				setCollisionStates(entity_sp, obstacle_sp);
 		}
 	}
 }

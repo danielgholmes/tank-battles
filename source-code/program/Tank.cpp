@@ -8,13 +8,11 @@
 #include "Tank.h"
 
 ///Default Tank object constructor
-Tank::Tank(sf::Vector2f position, float rotation, entity_type tankOwner):
+Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwner):
     _rotation(rotation),
     _type(tankOwner)
 {
-    sf::Sprite _tank;
-    _tank.setPosition(position);
-    _tank.setRotation(rotation);
+    Orientation _tank(positionX,positionY,5.0,5.0,rotation); //Need to change these values
     _blockedStatus = 0;
     _collidedStatus = 0;
 }
@@ -93,10 +91,16 @@ const bool Tank::isDeleted()
     return _collidedStatus;
 }
 
-///Get the current co-ordinates of Trackable object
-const sf::Vector2f& Tank::getPosition()
+///Get the current x co-ordinates of Trackable object
+const float Tank::getPositionX()
 {
-    return _tank.getPosition();
+    return _tank.getOriginX();
+}
+
+///Get the current y co-ordinates of Trackable object
+const float Tank::getPositionY()
+{
+    return _tank.getOriginy();
 }
 
 ///Get the current orientation of Trackable object
@@ -105,10 +109,16 @@ const float Tank::getOrientation()
     return _tank.getRotation();
 }
 
-///Retrieve the Tank Position
-const sf::Vector2f& Tank::getDrawPosition()
+///Retrieve the x Tank Position
+const float Tank::getDrawPositionX()
 {
-    return _tank.getPosition();
+    return _tank.getOriginX();
+}
+
+///Retrieve the y Tank Position
+const float Tank::getDrawPositionY()
+{
+    return _tank.getOriginY();
 }
 
 ///Recieve the Tank rotation

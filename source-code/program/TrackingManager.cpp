@@ -33,13 +33,15 @@ void TrackingManager::manage()
 
         if(entity_track_sp->getType() == p1_tank)
         {
-            _p1Position = entity_track_sp->getPosition();
+            _p1PositionX = entity_track_sp->getPositionX();
+            _p1PositionY = entity_track_sp->getPositionY();
             _p1Rotation = entity_track_sp->getOrientation();
         }
 
         if(entity_track_sp->getType() == p2_tank)
         {
-            _p2Position = entity_track_sp->getPosition();
+            _p2PositionX = entity_track_sp->getPositionX();
+            _p2PositionY = entity_track_sp->getPositionY();
             _p2Rotation = entity_track_sp->getOrientation();
         }
 
@@ -47,10 +49,16 @@ void TrackingManager::manage()
 
 }
 
-///Return position of P1 Tank
-const sf::Vector2f TrackingManager::getP1Position()
+///Return x position of P1 Tank
+const float TrackingManager::getP1PositionX()
 {
-    return _p1Position;
+    return _p1PositionX;
+}
+
+///Return y position of P1 Tank
+const float TrackingManager::getP1PositionY()
+{
+    return _p1PositionY;
 }
 
 
@@ -60,10 +68,16 @@ const float TrackingManager::getP1Rotation()
     return _p1Rotation;
 }
 
-///Return position of P2 Tank
-const sf::Vector2f TrackingManager::getP2Position()
+///Return x position of P2 Tank
+const float TrackingManager::getP2PositionX()
 {
-    return _p2Position;
+    return _p2PositionX;
+}
+
+///Return y position of P2 Tank
+const float TrackingManager::getP2PositionY()
+{
+    return _p2PositionY;
 }
 
 ///Return rotation of P2 Tank
