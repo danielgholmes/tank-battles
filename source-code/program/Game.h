@@ -63,7 +63,7 @@ private:
 	const std::string _mine_texture_file = "mine.png";
  	const std::string _barrier_texture_file = "barrier.png";
  	const std::string _map_texture_file = "map.png";
-	//const std::string _map_texture_file = "filename";
+
 
 	/// Container for all entities on the game world
 	std::vector<std::shared_ptr<Deletable>> _world_entities;
@@ -82,7 +82,7 @@ private:
 	DestructionManager _destruction_manager;
 
 	/// Handles all events in main game loop
-	void pollEvents(sf::Window& window);
+	void pollEvents(sf::RenderWindow& window);
 
 	///
 	void initialiseActions(actions_info& actions);
@@ -108,6 +108,6 @@ private:
 	void loadTextures();
 
 	/// Function that displays all sprites at the end of the main program loop
-	void displayAllSprites(sf::Window& window);
+	void displayAllSprites(sf::RenderWindow& window);
 };
 #endif // GAME_H_

@@ -31,7 +31,7 @@ public:
     ///Retrieve the entity's Position
     virtual const float getDrawRotation() = 0;
 	///Destructor
-	~Deletable();
+	virtual ~Deletable() = 0;
 
 private:
 

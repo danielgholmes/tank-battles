@@ -31,7 +31,7 @@ public:
     ///Set collision state of entity
     virtual void setCollided() = 0;
     ///Destructor
-    ~Collidable();
+    virtual ~Collidable() = 0;
 
 private:
 

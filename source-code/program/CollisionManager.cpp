@@ -7,24 +7,10 @@
 
 #include "CollisionManager.h"
 
-//void CollisionManager::manage()
-//{
-//    auto i = _collidables.begin();
-//
-//	for (; i != _collidables.end(); ++i)
-//	{
-//		auto entity = _collidables[i];
-//		auto entity_box = entity->getBoundingBox();
-//		for (int j = i+1; j < _collidables.length(); ++j)
-//		{
-//			auto obstacle = _collidables[j];
-//			auto obstacle_box = obstacle->getBoundingBox();
-//
-//			if (entity_box->intersects(obstacle_box))
-//				setCollisionStates(entity, obstacle);
-//		}
-//	}
-//}
+CollisionManager::CollisionManager()
+{
+
+}
 
 void CollisionManager::manage()
 {
@@ -180,4 +166,9 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 void CollisionManager::addNewEntity(std::weak_ptr<Collidable> new_entity)
 {
 	_collidables.push_back(new_entity);
+}
+
+CollisionManager::~CollisionManager()
+{
+
 }

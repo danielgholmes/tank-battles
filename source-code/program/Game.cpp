@@ -17,9 +17,9 @@ Game::Game():
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
 
-   sf::Vector2f _player1_start_pos;
-   sf::Vector2f _player2_start_pos;
-   sf::Vector2f _barrier_start_pos;
+    sf::Vector2f _player1_start_pos;
+    sf::Vector2f _player2_start_pos;
+    sf::Vector2f _barrier_start_pos;
 
 	loadTextures();
 
@@ -31,7 +31,23 @@ Game::Game():
 Game::Game(int width, int height):
 	_window_width(width),
 	_window_height(height)
-{}
+{
+	MoveManager _move_manager;
+	CollisionManager _collision_manager;
+	TrackingManager _tracking_manager;
+	DrawManager _draw_manager;
+	DestructionManager _destruction_manager;
+
+   sf::Vector2f _player1_start_pos;
+   sf::Vector2f _player2_start_pos;
+   sf::Vector2f _barrier_start_pos;
+
+	loadTextures();
+
+	addBarriers(); // only 1 barrier for now
+	addNewTank(p1_tank, _player1_start_pos);
+	addNewTank(p2_tank, _player2_start_pos);
+}
 
 void Game::addNewTank(entity_type player_tank, sf::Vector2f tank_position)
 {
@@ -65,7 +81,7 @@ void Game::addBarriers()
 void Game::runWorld()
 {
 	// initialise objects and variables to be used within the main program loop
-	sf::Window window(sf::VideoMode(_window_width, _window_height), _window_title);
+	sf::RenderWindow window(sf::VideoMode(_window_width, _window_height), _window_title);
 	window.setFramerateLimit(60); // may need to synchronise things another way later on
 
 	actions_info actions; // create the struct
@@ -83,7 +99,7 @@ void Game::runWorld()
 	return;
 }
 
-void Game::pollEvents(sf::Window& window)
+void Game::pollEvents(sf::RenderWindow& window)
 {
 	sf::Event event;
 
@@ -248,14 +264,6 @@ void Game::addNewWorldEntity(const actions_info& actions)
 	return;
 }
 
-// void Game::addNewSprites(const std::string texture_filename, int num_of_sprites)
-// {
-// 	sf::Texture texture;
-// 	texture.loadFromFile(texture_filename);
-// 	for (int i = 0; i < num_of_sprites; ++i)
-// 		_sprites.push_back(sf::Sprite(texture));
-// }
-
 
 void Game::loadTextures()
 {
@@ -276,11 +284,16 @@ void Game::runAllManagers(const actions_info& actions)
 	_draw_manager.manage(_sprites, _game_textures);
 }
 
-void Game::displayAllSprites(sf::Window& window)
+void Game::displayAllSprites(sf::RenderWindow& window)
 {
-//	window.clear();
-//	for (auto sprite: _sprites)
-//		window.draw(sprite);
-//	window.display();
+	window.clear();
+	for (auto sprite: _sprites)
+		window.draw(sprite);
+	window.display();
+}
+
+Game::~Game()
+{
+
 }
 

@@ -30,7 +30,7 @@ public:
     void addNewEntity(const std::weak_ptr<Deletable> new_entity);
 
 	/// Destructor for DrawManager
-	~DrawManager();
+	virtual ~DrawManager();
 
 private:
     // Pointers to all drawable entites within the game world

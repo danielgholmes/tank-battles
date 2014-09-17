@@ -30,7 +30,7 @@ public:
     void addNewEntity(std::weak_ptr<Deletable> new_entity);
 
     /// Destructor for the destruction manager
-	~DestructionManager();
+	virtual ~DestructionManager();
 
 private:
     // Pointers to all destructable entities within the game world

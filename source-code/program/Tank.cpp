@@ -9,12 +9,12 @@
 
 ///Default Tank object constructor
 Tank::Tank(sf::Vector2f position, float rotation, entity_type tankOwner):
-
-    _tank.setPosition{position}, //**Should be changed to C++ code**
-    _tank.setRotation{rotation},
-    _rotation{rotation},
-    _type{tankOwner}
+    _rotation(rotation),
+    _type(tankOwner)
 {
+    sf::Sprite _tank;
+    _tank.setPosition(position);
+    _tank.setRotation(rotation);
     _blockedStatus = 0;
     _collidedStatus = 0;
 }
@@ -58,7 +58,7 @@ void Tank::rotateRight()
 }
 
 ///Provide the bounding box for the tank entity
-const sf::FloatRect& getBoundingBox() const
+const sf::FloatRect& Tank::getBoundingBox() const
 {
     return _tank.getGlobalBounds();
 }
@@ -72,7 +72,7 @@ void Tank::setBlocked()
 ///Instruct the tank entity that it can move
 void Tank::setUnblocked()
 {
-    _blockeStatus = 0;
+    _blockedStatus = 0;
 }
 
 ///Instruct the tank entity that it has collided with another object
@@ -112,7 +112,7 @@ const sf::Vector2f& Tank::getDrawPosition()
 }
 
 ///Recieve the Tank rotation
-const float getDrawRotation() = 0;
+const float Tank::getDrawRotation()
 {
     return _tank.getRotation();
 }
