@@ -22,6 +22,7 @@ Game::Game():
     sf::Vector2f _barrier_start_pos;
 
 	loadTextures();
+	addNewSprites();
 
 	addBarriers(); // only 1 barrier for now
 	addNewTank(p1_tank, _player1_start_pos);
@@ -38,11 +39,12 @@ Game::Game(int width, int height):
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
 
-   sf::Vector2f _player1_start_pos;
-   sf::Vector2f _player2_start_pos;
-   sf::Vector2f _barrier_start_pos;
+    sf::Vector2f _player1_start_pos;
+    sf::Vector2f _player2_start_pos;
+    sf::Vector2f _barrier_start_pos;
 
 	loadTextures();
+	addNewSprites();
 
 	addBarriers(); // only 1 barrier for now
 	addNewTank(p1_tank, _player1_start_pos);
@@ -55,6 +57,7 @@ void Game::addNewTank(entity_type player_tank, sf::Vector2f tank_position)
 	_world_entities.push_back(new_tank_del);
     _draw_manager.addNewEntity(new_tank_del);
     _destruction_manager.addNewEntity(new_tank_del);
+
     //Change to derived classes
     //Cast as Collidable
 	std::weak_ptr<Collidable> new_tank_col = std::dynamic_pointer_cast<Collidable>(new_tank_del);
@@ -275,21 +278,61 @@ void Game::loadTextures()
 	_game_textures.map.loadFromFile(_map_texture_file);
 }
 
-void Game::runAllManagers(const actions_info& actions)
+void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window)
 {
 	_move_manager.manage(actions);
 	_collision_manager.manage();
 	_tracking_manager.manage();
 	_destruction_manager.manage();
-	_draw_manager.manage(_sprites, _game_textures);
+	_draw_manager.manage(_sprites, window);
 }
 
+//Currently not used
 void Game::displayAllSprites(sf::RenderWindow& window)
 {
 	window.clear();
 	for (auto sprite: _sprites)
 		window.draw(sprite);
 	window.display();
+}
+
+void Game::addNewSprites()
+{
+    //Create P_1 Tank Sprite
+    std::shared_ptr<sf::Sprite> TankOne_sp = new(sf::Sprite);
+    TankOne_sp->setTexture(_tank1_texture_file);
+    _sprites[p1_tank] = TankOne_sp;
+
+    //Create P_2 Tank Sprite
+    std::shared_ptr<sf::Sprite> TankTwo_sp = new(sf::Sprite);
+    TankTwo_sp->setTexture(_tank2_texture_file);
+    _sprites[p2_tank] = TankTwo_sp;
+
+    //Create Barrier Sprite
+    std::shared_ptr<sf::Sprite> Barrier_sp = new(sf::Sprite);
+    Barrier_sp->setTexture(_barrier_texture_file);
+    _sprites[barrier] = Barrier_sp;
+
+    //Create P_1 Missile Sprite
+    std::shared_ptr<sf::Sprite> MissileOne_sp = new(sf::Sprite);
+    MissileOne_sp->setTexture(_missile_texture_file);
+    _sprites[p1_missile] = MissileOne_sp;
+
+    //Create P_2 Missile Sprite
+    std::shared_ptr<sf::Sprite> MissileTwo_sp = new(sf::Sprite);
+    MissileTwo_sp->setTexture(_missile_texture_file);
+    _sprites[p2_missile] = MissileTwo_sp;
+
+    //Create P_1 Mine Sprite
+    std::shared_ptr<sf::Sprite> MineOne_sp = new(sf::Sprite);
+    MineOne_sp->setTexture(_mine_texture_file);
+    _sprites[p1_mine] = MineOne_sp;
+
+    //Create P_2 Mine Sprite
+    std::shared_ptr<sf::Sprite> MineTwo_sp = new(sf::Sprite);
+    MineTwo_sp->setTexture(_mine_texture_file);
+    _sprites[p2_mine] = MissileTwo_sp;
+
 }
 
 Game::~Game()

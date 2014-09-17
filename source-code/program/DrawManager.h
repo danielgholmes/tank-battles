@@ -24,7 +24,7 @@ public:
     DrawManager();
 
     /// Drawing management cycle. The manager will render all the entites within the game world.
-	virtual void manage(std::vector<sf::Sprite>& game_sprites, const textures& game_textures);
+	virtual void manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game_sprites, sf::RenderWindow& window);
 
 	/// Add Drawable-type shared_ptr's to the DrawManagers internal data members
     void addNewEntity(const std::weak_ptr<Deletable> new_entity);

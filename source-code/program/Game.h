@@ -13,6 +13,7 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include <vector>
+#include <map>
 
 //Structures and enums
 #include "Structures.h"
@@ -67,8 +68,8 @@ private:
 
 	/// Container for all entities on the game world
 	std::vector<std::shared_ptr<Deletable>> _world_entities;
-	/// Container for the sprites that will be drawn
-	std::vector<sf::Sprite> _sprites;
+	/// Map container for the sprites that will be drawn
+	std::map<entity_type, std::shared_ptr<sf::Sprite>>  _sprites;
 
     sf::Vector2f _player1_start_pos;
     sf::Vector2f _player2_start_pos;
@@ -84,20 +85,20 @@ private:
 	/// Handles all events in main game loop
 	void pollEvents(sf::RenderWindow& window);
 
-	///
+	/// Initially populate the actions_info structure
 	void initialiseActions(actions_info& actions);
 
 	/// Checks realtime input of keyboard controls in main game loop
 	void checkKeyboardInput(actions_info& actions);
 
 	/// Function thats tells all managers to operate
-	void runAllManagers(const actions_info& actions);
+	void runAllManagers(const actions_info& actions, sf::RenderWindow& window);
 
 	/// Function that will add new entity based on action
 	void addNewWorldEntity(const actions_info& actions);
 
-	/// Function that adds new sprites to the _sprites vector
-	void addNewSprites(const std::string texture_filename, int num_of_sprites);
+	/// Function which creates the base stamp sprites for the Game
+	void addNewSprites();
 
 	/// Function that adds a new tank to the world
 	void addNewTank(entity_type player_tank, sf::Vector2f tank_position);
