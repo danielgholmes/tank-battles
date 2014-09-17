@@ -53,7 +53,20 @@ struct textures
 	sf::Texture map;
 };
 
+struct coordinate
+{
+    int x;
+    int y;
+};
 
+///Contains x and y corners of a rectangle, used in the algorithm for collision detection
+struct rect_corners
+{
+    coordinate upper_left;
+    coordinate upper_right;
+    coordinate lower_left;
+    coordinate lower_right;
+};
 
 #endif
 
