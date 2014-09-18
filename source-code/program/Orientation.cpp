@@ -74,3 +74,8 @@ rect_corners& Orientation::getGlobalBounds()
 {
     return _collison_box;
 }
+
+Orientation::~Orientation()
+{
+    //Possibly add code
+}

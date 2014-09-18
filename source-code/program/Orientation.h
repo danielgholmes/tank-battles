@@ -32,7 +32,7 @@ public:
     void rotate(float angle);
     ///Retrieve Rectangular co-ordinates for collision detection
     rect_corners& getGlobalBounds();
-
+    ///Destructor
 	virtual ~Orientation();
 
 private:
