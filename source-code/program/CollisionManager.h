@@ -36,6 +36,14 @@ private:
     // Pointers to all collidable entities within the game world
     std::vector<std::weak_ptr<Collidable>> _collidables;
 
+    bool isCollision(const rect_corners& rect_A, const rect_corners& rect_B);
+
+    bool isOverlap(const coordinate& axis, const rect_corners& rect_A, const rect_corners& rect_B);
+
+    void calculateAllProjections(std::vector<coordinate>& axis_projections, const rect_corners& rect, const coordinate& axis);
+
+    void calculateMaxAndMinProjections(const std::vector<coordinate>& axis_projections,const rect_corners& rect,const coordinate& axis, float& max, float& min);
+
 	/// Set collision state based on the types of entities that have collided
 	void setCollisionStates(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2);
 
