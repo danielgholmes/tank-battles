@@ -33,15 +33,19 @@ public:
 	virtual ~CollisionManager();
 
 private:
-    // Pointers to all collidable entities within the game world
+    /// Pointers to all collidable entities within the game world
     std::vector<std::weak_ptr<Collidable>> _collidables;
 
+    /// Function that determines if there is a collision between two rectangles
     bool isCollision(const rect_corners& rect_A, const rect_corners& rect_B);
 
+    /// Function that checks the actual overlap of the rectangles using the separating axis theorem
     bool isOverlap(const coordinate& axis, const rect_corners& rect_A, const rect_corners& rect_B);
 
+    /// Calculates all the projections of the vertices of a rectangle onto an axis
     void calculateAllProjections(std::vector<coordinate>& axis_projections, const rect_corners& rect, const coordinate& axis);
 
+    /// Determines the maximum and minimum projections of the rectangle vertices
     void calculateMaxAndMinProjections(const std::vector<coordinate>& axis_projections,const rect_corners& rect,const coordinate& axis, float& max, float& min);
 
 	/// Set collision state based on the types of entities that have collided
