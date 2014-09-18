@@ -6,11 +6,12 @@
  */
 
 #include <gtest/gtest.h>
-#include "Manager.h"
-#include "CollisionManager.h"
+#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Manager.h"
+#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\CollisionManager.h"
 
-#include "Tank.h"
-#include "Missile.h"
+#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Tank.h"
+#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Missile.h"
+#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Orientation.h"
 
 /*NOTE: All exceptions are incomplete and commented out*/
 
@@ -54,7 +55,49 @@ TEST(CollisionManager, returnsCorrectOverlapOutcome)
 }
 
 ///calculateAllProjections
-TEST(CollisionManager, )
+TEST(CollisionManager, correctlyCalculatesAllCollisions)
+{
+
+}
+//*================================================*/
+
+
+//*==============Tests for Orientation Class=======*/
+TEST(Orientation, constructorCorrectlyAssignsInitialParameters)
+{
+    float originX = 10.0;
+    float originY = 12.0;
+    float rotation = 20.0;
+    float height = 5;
+    float width = 10;
+
+    Orientation orientationTest(originX,originY,width,height,rotation);
+
+    EXPECT_EQ(orientationTest.getOriginX(), originX);
+    EXPECT_EQ(orientationTest.getOriginY(), originY);
+    EXPECT_EQ(orientationTest.getRotation(), rotation);
+    EXPECT_EQ(orientationTest.getHeight(), height);
+    EXPECT_EQ(orientationTest.getWidth(), width);
+}
+
+TEST(Orientation, moveFunctionCorrectlyChangesCoodinates)
+{
+    float originX = 10.0;
+    float originY = 12.0;
+    float rotation = 20.0;
+    float height = 5;
+    float width = 10;
+
+    Orientation orientationTest(originX,originY,width,height,rotation);
+}
+
+//TEST(Orientation, throwsExceptionForInvalidConstructorParameters)
+//{
+//
+//}
+
+//*================================================*/
+
 
 //*================Tests for Tank Class============*/
 //TEST(Tank, ifInvalidCoOrdinatesThrowsException)

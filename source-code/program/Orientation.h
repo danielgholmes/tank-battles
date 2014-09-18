@@ -34,6 +34,8 @@ public:
     rect_corners& getGlobalBounds();
     ///Destructor
 	virtual ~Orientation();
+	///Equality operator overload for testing
+	bool operator==(const Orientation& rhs) const;
 
 private:
 	float _origin_x;
