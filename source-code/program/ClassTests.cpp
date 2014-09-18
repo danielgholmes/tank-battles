@@ -5,26 +5,18 @@
  * \brief 	Unit tests for all classes. Included in single file for regression testing purposes.
  */
 
-#include "Manager.h"
-#include "CollisionManager.h"
 #include <gtest/gtest.h>
 
-//#include "Tank.h"
-//#include "Missile.h"
-
-<<<<<<< HEAD:source-code/program/ClassTests.cpp
-=======
 //Needed to compile the tests in my project:
-//#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Manager.h"
-//#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\CollisionManager.h"
-//
-//#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Tank.h"
-//#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Missile.h"
-//#include "C:\Users\Priscilla Gerrand\Desktop\Wits 2014\ELEN3009 - Software\Project\Workspace\tank-battles\source-code\program\Orientation.h"
+#include "Manager.h"
+#include "CollisionManager.h"
+#include "Tank.h"
+#include "Missile.h"
+#include "Orientation.h"
+#include "Structures.h"
 
-/*NOTE: All exceptions are incomplete and commented out*/
 
->>>>>>> origin/master:source-code/google-tests/ClassTests.cpp
+
 ///*================Tests for CollisionManager Class============*/
 
 ///addNewEntity
@@ -67,7 +59,7 @@ TEST(CollisionTest, indicatesCollisionHasTakenPlace)
     rect_B.lower_right.x = 6.0;
     rect_B.lower_right.y = 2.0;
 
-    EXPECT_TRUE(isCollision(rect_A, rect_B));
+   // EXPECT_TRUE(isCollision(rect_A, rect_B));
 }
 
 //TEST(CollisionManager, indicatesNoCollisionHasTakenPlace)
@@ -193,9 +185,41 @@ TEST(Orientation, moveFunctionCorrectlyChangesCoodinates)
 TEST(Orientation, rotateFunctionCorrectlyChangesCoordinates)
 {
     Orientation orientationTest1(10,10,10,10,10);
-    Orientation orientationTest2(20,20,10,10,10);
+    Orientation orientationTest2(10,10,10,10,20);
 
-    orientationTest1.rotate()
+    orientationTest1.rotate(10);
+
+    EXPECT_TRUE(orientationTest1 == orientationTest2);
+
+    orientationTest2.rotate(360);
+
+    EXPECT_TRUE(orientationTest1 == orientationTest2);
+}
+
+TEST(Orientation, getGlobalBoundsCorrectlyReturnsBoundingBox)
+{
+    Orientation orientationTest1(10,10,10,10,10);
+    Orientation orientationTest2(10,10,10,10,10);
+
+    auto boundBox1 = orientationTest1.getGlobalBounds();
+    auto boundBox2 = orientationTest2.getGlobalBounds();
+
+    EXPECT_EQ(boundBox1.upper_left.x, boundBox2.upper_left.x);
+    EXPECT_EQ(boundBox1.upper_left.y, boundBox2.upper_left.y);
+
+    orientationTest1.move(10,10);
+
+    boundBox1 = orientationTest1.getGlobalBounds();
+
+    EXPECT_NE(boundBox1.upper_left.x, boundBox2.upper_left.x);
+    EXPECT_NE(boundBox1.upper_left.y, boundBox2.upper_left.y);
+
+    orientationTest2.move(10,10);
+
+    boundBox2 = orientationTest2.getGlobalBounds();
+
+    EXPECT_EQ(boundBox1.lower_left.x, boundBox2.lower_left.x);
+    EXPECT_EQ(boundBox1.lower_left.y, boundBox2.lower_left.y);
 }
 
 //TEST(Orientation, throwsExceptionForInvalidConstructorParameters)

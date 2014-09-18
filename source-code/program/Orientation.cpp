@@ -91,11 +91,6 @@ void Orientation::setGlobalBounds()
 
 bool Orientation::operator==(Orientation& rhs) const
 {
-    float orgX = rhs.getOriginX();
-    float orgY = rhs.getOriginY();
-    float orgR = rhs.getRotation();
-    float orgH = rhs.getHeight();
-    float orgW = rhs.getWidth();
 
     if(_origin_x != rhs.getOriginX()) return false;
     if(_origin_y != rhs.getOriginY()) return false;
