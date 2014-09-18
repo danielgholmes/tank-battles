@@ -14,18 +14,7 @@ Orientation::Orientation(float origin_x, float origin_y, float width, float heig
 	_height(height),
 	_rotation(rotation)
 	{
-	    //Note that these are all default values and need to be changed
-        _collison_box.lower_left.x = 0.0;
-        _collison_box.lower_left.y = 0.0;
-
-        _collison_box.lower_right.x = 0.0;
-        _collison_box.lower_right.y = 0.0;
-
-        _collison_box.upper_left.x = 0.0;
-        _collison_box.upper_left.y = 0.0;
-
-        _collison_box.upper_right.x = 0.0;
-        _collison_box.upper_right.y = 0.0;
+        setGlobalBounds();
 	}
 
 const float Orientation::getOriginX()
@@ -72,10 +61,30 @@ void Orientation::rotate(float angle)
 
 rect_corners& Orientation::getGlobalBounds()
 {
+    setGlobalBounds();
     return _collison_box;
 }
 
 Orientation::~Orientation()
 {
     //Possibly add code
+}
+
+void Orientation::setGlobalBounds()
+{
+    //Bottom-left corner assignment
+    _collison_box.lower_left.x = (_origin_x - _width/2);
+    _collison_box.lower_left.y = (_origin_y - _height/2);
+
+    //Bottom-right corner assignment
+    _collison_box.lower_right.x = (_origin_x + _width/2);
+    _collison_box.lower_right.y = (_origin_y - _height/2);
+
+    //Top-left corner assignment
+    _collison_box.upper_left.x = (_origin_x - _width/2);
+    _collison_box.upper_left.y = (_origin_y + _height/2);
+
+    //Top-right corner assignment
+    _collison_box.upper_right.x = (_origin_x + _width/2);
+    _collison_box.upper_right.y = (_origin_y + _height/2);
 }

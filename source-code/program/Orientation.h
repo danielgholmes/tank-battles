@@ -42,5 +42,8 @@ private:
 	float _height;
 	float _rotation;
 	rect_corners _collison_box;
+
+	//Helper functions
+    void setGlobalBounds();
 };
 #endif // ORIENTATION_H_
