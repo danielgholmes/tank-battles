@@ -39,7 +39,7 @@ public:
     ///Right rotation for a tank entity
 	virtual void rotateRight();
     ///Provide the bounding box for the tank entity
-	virtual const rect_corners& getBoundingBox() const;
+	virtual const rect_corners& getBoundingBox();
     ///Instruct the tank entity that it cannot move
 	virtual void setBlocked();
 	///Instruct the tank entity that it can move

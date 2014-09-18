@@ -15,6 +15,7 @@
 #include "Movable.h"
 #include "Collidable.h"
 #include "Structures.h"
+#include "Orientation.h"
 
 
 class Missile: virtual public Movable, virtual public Collidable
@@ -34,7 +35,7 @@ public:
     ///Right rotation for a missile entity
 	virtual void rotateRight();
     ///Provide the bounding box for the missile entity
-	virtual const rect_corners& getBoundingBox() const;
+	virtual const rect_corners& getBoundingBox();
     ///Instruct the missile entity that it cannot move along its trajectory
 	virtual void setBlocked();
 	///Instruct the tank entity that it can move

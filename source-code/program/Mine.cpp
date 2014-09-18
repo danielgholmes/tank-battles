@@ -8,9 +8,9 @@
 #include "Mine.h"
 
 ///Mine entity constructor
-Mine::Mine(float positionX, float positionY, entity_type mineOwner)
+Mine::Mine(float positionX, float positionY, entity_type mineOwner):
+    _mine(positionX,positionY,5.0,5.0,0.0) //Need to change these values
 {
-    Orientation _mine(positionX,positionY,5.0,5.0,0.0); //Need to change these values
     _type = mineOwner;
     _collidedStatus = 0;
 }
@@ -22,7 +22,7 @@ const entity_type& Mine::getType() const
 }
 
 ///Provide the bounding box for the mine entity
-const rect_corners& Mine::getBoundingBox() const
+const rect_corners& Mine::getBoundingBox()
 {
     return _mine.getGlobalBounds();
 }

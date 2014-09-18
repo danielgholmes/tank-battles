@@ -10,9 +10,9 @@
 ///Default Tank object constructor
 Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwner):
     _rotation(rotation),
-    _type(tankOwner)
+    _type(tankOwner),
+    _tank(positionX,positionY,5.0,5.0,rotation) //Need to change these values
 {
-    Orientation _tank(positionX,positionY,5.0,5.0,rotation); //Need to change these values
     _blockedStatus = 0;
     _collidedStatus = 0;
 }
@@ -56,7 +56,7 @@ void Tank::rotateRight()
 }
 
 ///Provide the bounding box for the tank entity
-const sf::FloatRect& Tank::getBoundingBox() const
+const rect_corners& Tank::getBoundingBox()
 {
     return _tank.getGlobalBounds();
 }
@@ -100,7 +100,7 @@ const float Tank::getPositionX()
 ///Get the current y co-ordinates of Trackable object
 const float Tank::getPositionY()
 {
-    return _tank.getOriginy();
+    return _tank.getOriginY();
 }
 
 ///Get the current orientation of Trackable object

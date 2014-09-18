@@ -13,6 +13,7 @@
 //Includes
 #include "Collidable.h"
 #include "Structures.h"
+#include "Orientation.h"
 
 class Mine: virtual public Collidable
 {
@@ -23,7 +24,7 @@ public:
     ///Mine is able to provide its identification
     virtual const entity_type& getType() const;
     ///Provide the bounding box for the mine entity
-	virtual const rect_corners& getBoundingBox() const;
+	virtual const rect_corners& getBoundingBox();
 	///This function is not used by the mine
 	virtual void setUnblocked();
     ///This function is not used by mine

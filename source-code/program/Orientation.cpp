@@ -28,27 +28,27 @@ Orientation::Orientation(float origin_x, float origin_y, float width, float heig
         _collison_box.upper_right.y = 0.0;
 	}
 
-float Orientation::getOriginX()
+const float Orientation::getOriginX()
 {
 	return _origin_x;
 }
 
-float Orientation::getOriginY()
+const float Orientation::getOriginY()
 {
 	return _origin_y;
 }
 
-float Orientation::getWidth()
+const float Orientation::getWidth()
 {
 	return _width;
 }
 
-float Orientation::getHeight()
+const float Orientation::getHeight()
 {
 	return _height;
 }
 
-float Orientation::getRotation()
+const float Orientation::getRotation()
 {
 	return _rotation;
 }

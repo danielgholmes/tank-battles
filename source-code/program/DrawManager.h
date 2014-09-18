@@ -16,6 +16,7 @@
 #include "Deletable.h"
 #include "Structures.h"
 #include <vector>
+#include <map>
 
 class DrawManager: public Manager
 {

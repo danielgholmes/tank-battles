@@ -33,7 +33,7 @@ public:
     ///Retrieve Rectangular co-ordinates for collision detection
     rect_corners& getGlobalBounds();
 
-	~Orientation();
+	virtual ~Orientation();
 
 private:
 	float _origin_x;

@@ -29,49 +29,93 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
         std::weak_ptr<Deletable> draw_entity_wp = (*draw_itterator);
         //Convert to shared pointer
         std::shared_ptr<Deletable> draw_entity_sp = draw_entity_wp.lock();
+        //Map itterator to traverse container
+        std::map<entity_type,std::shared_ptr<sf::Sprite>>::iterator sprite_map_iterator;
 
         switch (draw_entity_sp->getType())
         {
             case p1_tank:
-                game_sprites[p1_tank].setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
-                game_sprites[p1_tank].setRotation(draw_entity_sp->getDrawRotation());
-                window.draw(game_sprites[p1_tank]);
+                //Search the map for p1_tank sprite
+                sprite_map_iterator = game_sprites.find(p1_tank);
+                if (sprite_map_iterator != game_sprites.end())
+                {
+                    std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                    sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                    sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                    window.draw(*sprite_sp);
+                }
                 break;
 
             case p2_tank:
-                game_sprites[p2_tank].setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
-                game_sprites[p2_tank].setRotation(draw_entity_sp->getDrawRotation());
-                window.draw(game_sprites[p2_tank]);
+                 //Search the map for p2_tank sprite
+                sprite_map_iterator = game_sprites.find(p2_tank);
+                if (sprite_map_iterator != game_sprites.end())
+                {
+                    std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                    sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                    sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                    window.draw(*sprite_sp);
+                }
                 break;
 
             case barrier:
-                game_sprites[barrier].setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
-                game_sprites[barrier].setRotation(draw_entity_sp->getDrawRotation());
-                window.draw(game_sprites[barrier]);
+                //Search the map for barrier sprite
+                sprite_map_iterator = game_sprites.find(barrier);
+                if (sprite_map_iterator != game_sprites.end())
+                {
+                    std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                    sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                    sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                    window.draw(*sprite_sp);
+                }
                 break;
 
             case p1_missile:
-                game_sprites[p1_missile].setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
-                game_sprites[p1_missile].setRotation(draw_entity_sp->getDrawRotation());
-                window.draw(game_sprites[p1_missile]);
+                 //Search the map for p1_missile sprite
+                sprite_map_iterator = game_sprites.find(p1_missile);
+                if (sprite_map_iterator != game_sprites.end())
+                {
+                    std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                    sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                    sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                    window.draw(*sprite_sp);
+                }
                 break;
 
             case p2_missile:
-                game_sprites[p2_missile].setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
-                game_sprites[p2_missile].setRotation(draw_entity_sp->getDrawRotation());
-                window.draw(game_sprites[p2_missile]);
+                //Search the map for p2_missile sprite
+                sprite_map_iterator = game_sprites.find(p2_missile);
+                if (sprite_map_iterator != game_sprites.end())
+                {
+                    std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                    sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                    sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                    window.draw(*sprite_sp);
+                }
                 break;
 
             case p1_mine:
-                game_sprites[p1_mine].setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
-                game_sprites[p1_mine].setRotation(draw_entity_sp->getDrawRotation());
-                window.draw(game_sprites[p1_mine]);
+                 //Search the map for p1_mine sprite
+                sprite_map_iterator = game_sprites.find(p1_mine);
+                if (sprite_map_iterator != game_sprites.end())
+                {
+                    std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                    sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                    sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                    window.draw(*sprite_sp);
+                }
                 break;
 
             case p2_mine:
-                game_sprites[p2_mine].setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
-                game_sprites[p2_mine].setRotation(draw_entity_sp->getDrawRotation());
-                window.draw(game_sprites[p2_mine]);
+                //Search the map for p2_mine sprite
+                sprite_map_iterator = game_sprites.find(p2_mine);
+                if (sprite_map_iterator != game_sprites.end())
+                {
+                    std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                    sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                    sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                    window.draw(*sprite_sp);
+                }
                 break;
 
             default:
@@ -81,7 +125,6 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
             window.display();
         }
     }
-
 }
 ///Destructor for DrawManager
 DrawManager::~DrawManager()

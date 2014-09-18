@@ -11,9 +11,9 @@
 Missile::Missile(float positionX, float positionY, float rotation, entity_type missileOwner):
 
     _rotation(rotation),
-    _type(missileOwner)
+    _type(missileOwner),
+    _missile(positionX,positionY,5.0,5.0,rotation)
 {
-    Orientation _missile(positionX,positionY,5.0,5.0,rotation);
     _blockedStatus = 0;
     _collidedStatus = 0;
 }
@@ -52,7 +52,7 @@ void Missile::rotateRight()
 }
 
 ///Provide the bounding box for the missile entity
-const rect_corners& Missile::getBoundingBox() const
+const rect_corners& Missile::getBoundingBox()
 {
     return _missile.getGlobalBounds();
 }

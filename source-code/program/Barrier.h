@@ -29,7 +29,7 @@ public:
     ///Barrier entity is able to be rendered
     virtual void draw();
     ///Provide the bounding box for the Barrier entity
-	virtual const rect_corners& getBoundingBox();
+	virtual const rect_corners& getBoundingBox() ;
     ///This function is not used by barrier
 	virtual void setBlocked();
 	///This function is not used by barrier
