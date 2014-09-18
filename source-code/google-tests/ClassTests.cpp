@@ -14,7 +14,8 @@
 
 /*NOTE: All exceptions are incomplete and commented out*/
 
-/*================Tests for CollisionManager Class============*/
+///*================Tests for CollisionManager Class============*/
+
 ///addNewEntity
 //TEST(CollisionManager, ifInvalidPointerTypeGivenThrowsException)
 //{
@@ -54,7 +55,57 @@ TEST(CollisionManager, returnsCorrectOverlapOutcome)
 }
 
 ///calculateAllProjections
-TEST(CollisionManager, )
+//TEST(CollisionManager, ifInvalidVectorArgumentGivenThrowsException)
+//{
+//
+//}
+//
+//TEST(CollisionManager, ifInvalidRectangleGivenThrowsException)
+//{
+//
+//}
+
+TEST(CollisionManager,  modifiesAxisProjectionsVectorCorrectly)
+{
+
+}
+
+///calculateMaxAndMinProjections
+//TEST(CollisionManager, ifInvalidVectorArgumentGivenThrowsException)
+//{
+//
+//}
+//
+//TEST(CollisionManager, ifInvalidRectangleGivenThrowsException)
+//{
+//
+//}
+
+TEST(CollisionManager, modifiesMaxVectorProjectionCorrectly)
+{
+
+}
+
+TEST(CollisionManager, modifiesMinVectorProjectionsCorrectly)
+{
+
+}
+
+///setCollisionStates
+//TEST(CollisionManager, ifInvalidPointerGivenThrowsException)
+//{
+//
+//}
+//
+//TEST(CollisionManger, ifInvalidPointerObjectGivenThrowsException)
+//{
+//
+//}
+
+TEST(CollisionManager, collisionStatesSetCorrectly)
+{
+
+}
 
 //*================Tests for Tank Class============*/
 //TEST(Tank, ifInvalidCoOrdinatesThrowsException)
