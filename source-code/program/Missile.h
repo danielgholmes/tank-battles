@@ -17,6 +17,8 @@
 #include "Structures.h"
 #include "Orientation.h"
 
+//Exception Throw Classes
+class InvalidConstructorArgumentsMissile{};
 
 class Missile: virtual public Movable, virtual public Collidable
 {

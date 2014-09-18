@@ -14,6 +14,12 @@ Missile::Missile(float positionX, float positionY, float rotation, entity_type m
     _type(missileOwner),
     _missile(positionX,positionY,5.0,5.0,rotation)
 {
+     //Error input checking
+    if (_missile.getOriginX() < 0) throw InvalidConstructorArgumentsMissile();
+    if (_missile.getOriginY() < 0) throw InvalidConstructorArgumentsMissile();
+    if (_missile.getRotation() < 0) throw InvalidConstructorArgumentsMissile();
+    if ((_type != p1_missile) && (_type != p2_missile)) throw InvalidConstructorArgumentsMissile();
+
     _blockedStatus = 0;
     _collidedStatus = 0;
 }
@@ -34,7 +40,7 @@ void Missile::moveForward()
 ///Backward movement for a missile entity
 void Missile::moveBackward()
 {
-    _missile.move(_missileMovementSpeed*cos((_rotation*PI)/180.0),_missileMovementSpeed*sin((_rotation*PI)/180.0));
+    _missile.move(-_missileMovementSpeed*cos((_rotation*PI)/180.0),-_missileMovementSpeed*sin((_rotation*PI)/180.0));
 }
 
 ///Left rotation for a missile entity

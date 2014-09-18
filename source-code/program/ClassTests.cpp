@@ -365,44 +365,123 @@ TEST(Tank, booleanVariablesAreCorrectlySetAndRetrieved)
     EXPECT_FALSE(TestTank1.isBlocked());
 
 }
+///*===================================================*/
 
-//*================Tests for Missile Class============*/
-//TEST(Missile, ifInvalidCoOrdinatesThrowsException)
-//{
-//
-//}
-//
-//TEST(Missile, returnsCorrectEntityType)
-//{
-//
-//}
-//
-//TEST(Missile, movesForwardCorrectly)
-//{
-//
-//}
-//
-//TEST(Missile, movesBackwardCorrectly)
-//{
-//
-//}
-//
-//TEST(Missile, rotatesLeftCorrectly)
-//{
-//
-//}
-//
-//TEST(Missile, rotatesRightCorrectly)
-//{
-//
-//}
-//
-//TEST(Missile, CollidableStateCorrectlyReadAndSet)
-//{
-//
-//}
-//
-//TEST(Missile, BlockableStateCorrectlyReadAndSet)
-//{
-//
-//}
+///*================Tests for Missile Class============*/
+
+TEST(Missile, ifInvalidCoOrdinatesThrowsException)
+{
+    EXPECT_THROW({Missile TestMissile(-10,10,10,p1_missile);},InvalidConstructorArgumentsMissile);
+    EXPECT_THROW({Missile TestMissile(10,-10,10,p1_missile);},InvalidConstructorArgumentsMissile);
+    EXPECT_THROW({Missile TestMissile(10,10,-10,p1_missile);},InvalidConstructorArgumentsMissile);
+    EXPECT_NO_THROW({Missile TestMissile(10,10,10,p1_missile);});
+    EXPECT_THROW({Missile TestMissile(10,10,10,p1_mine);},InvalidConstructorArgumentsMissile);
+}
+
+
+TEST(Missile, returnsCorrectEntityType)
+{
+    Missile TestMissile1(10,10,10,p1_missile);
+    Missile TestMissile2(10,10,10,p2_missile);
+
+    EXPECT_EQ(TestMissile1.getType(),p1_missile);
+    EXPECT_EQ(TestMissile2.getType(),p2_missile);
+}
+
+TEST(Missile, returnsCorrectCoordinatesFromGetDrawPosition)
+{
+    Missile TestMissile1(10,10,10,p1_missile);
+    Missile TestMissile2(20,20,10,p2_missile);
+
+    EXPECT_EQ(TestMissile1.getDrawPositionX(),10);
+    EXPECT_EQ(TestMissile1.getDrawPositionY(),10);
+
+    EXPECT_EQ(TestMissile2.getDrawPositionX(),20);
+    EXPECT_EQ(TestMissile2.getDrawPositionY(),20);
+}
+
+TEST(Missile, returnsCorrectDrawRotationValue)
+{
+    Missile TestMissile1(10,10,10,p1_missile);
+    EXPECT_EQ(TestMissile1.getDrawRotation(),10);
+}
+
+TEST(Missile, movesForwardCorrectly)
+{
+    Missile TestMissile1(10,10,0,p1_missile);
+    TestMissile1.moveForward();
+    EXPECT_EQ(TestMissile1.getDrawPositionX(),30);
+    EXPECT_EQ(TestMissile1.getDrawPositionY(),10);
+
+    Missile TestMissile2(10,10,90,p1_missile);
+    TestMissile2.moveForward();
+    EXPECT_EQ(TestMissile2.getDrawPositionX(),10);
+    EXPECT_EQ(TestMissile2.getDrawPositionY(),30);
+
+    Missile TestMissile3(10,10,180,p1_missile);
+    TestMissile3.moveForward();
+    EXPECT_EQ(TestMissile3.getDrawPositionX(),-10);
+    EXPECT_EQ(TestMissile3.getDrawPositionY(),10);
+
+    Missile TestMissile4(10,10,270,p1_missile);
+    TestMissile4.moveForward();
+    EXPECT_EQ(TestMissile4.getDrawPositionX(),10);
+    EXPECT_EQ(TestMissile4.getDrawPositionY(),-10);
+}
+
+TEST(Missile, movesBackwardsCorrectly)
+{
+    Missile TestMissile1(10,10,0,p1_missile);
+    TestMissile1.moveBackward();
+    EXPECT_EQ(TestMissile1.getDrawPositionX(),-10);
+    EXPECT_EQ(TestMissile1.getDrawPositionY(),10);
+
+    Missile TestMissile2(10,10,90,p1_missile);
+    TestMissile2.moveBackward();
+    EXPECT_EQ(TestMissile2.getDrawPositionX(),10);
+    EXPECT_EQ(TestMissile2.getDrawPositionY(),-10);
+
+    Missile TestMissile3(10,10,180,p1_missile);
+    TestMissile3.moveBackward();
+    EXPECT_EQ(TestMissile3.getDrawPositionX(),30);
+    EXPECT_EQ(TestMissile3.getDrawPositionY(),10);
+
+    Missile TestMissile4(10,10,270,p1_missile);
+    TestMissile4.moveBackward();
+    EXPECT_EQ(TestMissile4.getDrawPositionX(),10);
+    EXPECT_EQ(TestMissile4.getDrawPositionY(),30);
+}
+
+TEST(Missile, rotatesLeftAndRightCorrectly)
+{
+    Missile TestMissile1(10,10,0,p1_missile);
+    TestMissile1.rotateLeft();
+    EXPECT_EQ(TestMissile1.getDrawRotation(), 45);
+
+    TestMissile1.rotateRight();
+    TestMissile1.rotateRight();
+    EXPECT_EQ(TestMissile1.getDrawRotation(), 315);
+
+    Missile TestMissile2(10,10,315,p1_missile);
+    TestMissile2.rotateLeft();
+    TestMissile2.rotateLeft();
+    EXPECT_EQ(TestMissile2.getDrawRotation(), 45);
+}
+
+TEST(Missile, booleanVariablesAreCorrectlySetAndRetrieved)
+{
+    Missile TestMissile1(10,10,0,p1_missile);
+
+    TestMissile1.setBlocked();
+    TestMissile1.setCollided();
+
+    EXPECT_TRUE(TestMissile1.isBlocked());
+    EXPECT_TRUE(TestMissile1.isDeleted());
+
+    TestMissile1.setUnblocked();
+
+    EXPECT_FALSE(TestMissile1.isBlocked());
+}
+
+///*===================================================*/
+
