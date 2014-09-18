@@ -35,7 +35,7 @@ public:
     ///Destructor
 	virtual ~Orientation();
 	///Equality operator overload for testing
-	bool operator==(const Orientation& rhs) const;
+	bool operator==(Orientation& rhs) const ;
 
 private:
 	float _origin_x;

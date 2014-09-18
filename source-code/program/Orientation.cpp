@@ -89,12 +89,19 @@ void Orientation::setGlobalBounds()
     _collison_box.upper_right.y = (_origin_y + _height/2);
 }
 
-bool Orientation::operator==(const Orientation& rhs) const
+bool Orientation::operator==(Orientation& rhs) const
 {
-    auto OrientationObject = rhs;
-    if(_origin_x != OrientationObject.getOriginX()) return false;
-    if(_origin_y != OrientationObject.getOriginY()) return false;
-    if(_rotation != OrientationObject.getRotation()) return false;
-    if(_height != OrientationObject.getHeight()) return false;
-    if(_width != OrientationObject.getHeight()) return false;
+    float orgX = rhs.getOriginX();
+    float orgY = rhs.getOriginY();
+    float orgR = rhs.getRotation();
+    float orgH = rhs.getHeight();
+    float orgW = rhs.getWidth();
+
+    if(_origin_x != rhs.getOriginX()) return false;
+    if(_origin_y != rhs.getOriginY()) return false;
+    if(_rotation != rhs.getRotation()) return false;
+    if(_height != rhs.getHeight()) return false;
+    if(_width != rhs.getHeight()) return false;
+
+    return true;
 }

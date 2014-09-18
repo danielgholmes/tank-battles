@@ -164,15 +164,38 @@ TEST(Orientation, constructorCorrectlyAssignsInitialParameters)
     EXPECT_EQ(orientationTest.getWidth(), width);
 }
 
+TEST(Orientation, equalityOpperatorCorresctlyReturnsValues)
+{
+    Orientation orientationTest1(10,10,10,10,10);
+    Orientation orientationTest2(10,10,10,10,10);
+    Orientation orientationTest3(0,10,10,10,10);
+
+    EXPECT_TRUE(orientationTest1 == orientationTest2);
+    EXPECT_FALSE(orientationTest1 == orientationTest3);
+}
+
 TEST(Orientation, moveFunctionCorrectlyChangesCoodinates)
 {
-    float originX = 10.0;
-    float originY = 12.0;
-    float rotation = 0.0;
-    float height = 5;
-    float width = 10;
 
-    Orientation orientationTest(originX,originY,width,height,rotation);
+    Orientation orientationTest1(10,10,10,10,10);
+    Orientation orientationTest2(20,20,10,10,10);
+
+    orientationTest1.move(10,10);
+
+    EXPECT_TRUE(orientationTest1 == orientationTest2);
+
+    orientationTest1.move(-10,-10);
+    orientationTest2.move(-10,-10);
+
+    EXPECT_TRUE(orientationTest1 == orientationTest2);
+}
+
+TEST(Orientation, rotateFunctionCorrectlyChangesCoordinates)
+{
+    Orientation orientationTest1(10,10,10,10,10);
+    Orientation orientationTest2(20,20,10,10,10);
+
+    orientationTest1.rotate()
 }
 
 //TEST(Orientation, throwsExceptionForInvalidConstructorParameters)
