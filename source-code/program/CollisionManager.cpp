@@ -6,6 +6,7 @@
  */
 
 #include "CollisionManager.h"
+#include <cmath>
 
 CollisionManager::CollisionManager()
 {
@@ -69,7 +70,7 @@ bool CollisionManager::isCollision(const rect_corners& rect_A, const rect_corner
     auto axis = axes.begin();
     for (; axis != axes.end(); ++axis)
     {
-    	if (!isOverlap(axis, rect_A, rect_B));
+    	if (!isOverlap(*axis, rect_A, rect_B));
     		return false; // if there is at least one axis where no overlap has occurred, then there is no collision
     }
     return true; // return true if each axis has an overlap
@@ -98,20 +99,20 @@ void CollisionManager::calculateAllProjections(std::vector<coordinate>& axis_pro
 {
 	coordinate point;
 
-    point.x = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.x;
-    point.y = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.y;
+    point.x = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+    point.y = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
     axis_projections.push_back(point);
 
-    point.x = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.x;
-    point.y = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.y;
+    point.x = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+    point.y = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
     axis_projections.push_back(point);
 
-    point.x = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.x;
-    point.y = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.y;
+    point.x = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+    point.y = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
     axis_projections.push_back(point);
 
-    point.x = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.x;
-    point.y = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/((axis.x)^2 + (axis.y)^2))*axis.y;
+    point.x = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+    point.y = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
     axis_projections.push_back(point);
 }
 
@@ -121,8 +122,8 @@ void CollisionManager::calculateMaxAndMinProjections(const std::vector<coordinat
 	std::vector<float> projection_pos; // container that will indicate the projection position along axis
 
 	auto projection = axis_projections.begin();
-	for (; projection != .end(); ++projection)
-		projection_pos.push_back((projection.x*axis.x) + (projection.y*axis.y));
+	for (; projection != axis_projections.end(); ++projection)
+		projection_pos.push_back(((projection->x)*axis.x) + ((projection->y)*axis.y));
 
 	min = *std::min_element(projection_pos.begin(), projection_pos.end());
 	max = *std::max_element(projection_pos.begin(), projection_pos.end());
