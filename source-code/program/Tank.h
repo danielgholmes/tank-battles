@@ -18,6 +18,10 @@
 #include "Trackable.h"
 #include "Structures.h"
 #include "Orientation.h"
+#include "math.h"
+
+//Exception Throws
+class InvalidConstructorArguments {};
 
 
 class Tank: virtual public Movable, virtual public Collidable, public Trackable

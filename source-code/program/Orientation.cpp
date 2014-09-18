@@ -50,10 +50,17 @@ void Orientation::move(float movement_in_x, float movement_in_y)
 
 void Orientation::rotate(float angle)
 {
+    //Positive revolution
     if ((_rotation+angle) > 360 )
     {
        _rotation += angle;
        _rotation -= 360;
+    }
+    //Negative revolution
+    else if ((_rotation+angle) < 0)
+    {
+        _rotation += angle;
+        _rotation += 360;
     }
     else
        _rotation += angle;

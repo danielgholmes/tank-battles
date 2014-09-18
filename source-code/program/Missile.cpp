@@ -28,13 +28,13 @@ const entity_type& Missile::getType() const
 ///Forward movement for a missile entity
 void Missile::moveForward()
 {
-    _missile.move(_missileMovementSpeed*cos(_rotation),_missileMovementSpeed*sin(_rotation));
+    _missile.move(_missileMovementSpeed*cos((_rotation*PI)/180.0),_missileMovementSpeed*sin((_rotation*PI)/180.0));
 }
 
 ///Backward movement for a missile entity
 void Missile::moveBackward()
 {
-    _missile.move(_missileMovementSpeed*cos(_rotation),_missileMovementSpeed*sin(_rotation));
+    _missile.move(_missileMovementSpeed*cos((_rotation*PI)/180.0),_missileMovementSpeed*sin((_rotation*PI)/180.0));
 }
 
 ///Left rotation for a missile entity

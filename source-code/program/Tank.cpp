@@ -13,6 +13,12 @@ Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwn
     _type(tankOwner),
     _tank(positionX,positionY,5.0,5.0,rotation) //Need to change these values
 {
+    //Error input checking
+    if (_tank.getOriginX() < 0) throw InvalidConstructorArguments();
+    if (_tank.getOriginY() < 0) throw InvalidConstructorArguments();
+    if (_tank.getRotation() < 0) throw InvalidConstructorArguments();
+    if ((_type != p1_tank) && (_type != p2_tank)) throw InvalidConstructorArguments();
+
     _blockedStatus = 0;
     _collidedStatus = 0;
 }
@@ -32,13 +38,13 @@ void Tank::draw()
 ///Forward movement for a tank entity
 void Tank::moveForward()
 {
-    _tank.move(_tankMovementSpeed*cos(_rotation), _tankMovementSpeed*sin(_rotation));
+    _tank.move(_tankMovementSpeed*cos((_rotation*PI)/180.0), _tankMovementSpeed*sin((_rotation*PI)/180.0));
 }
 
 ///Backward movement for a tank entity
 void Tank::moveBackward()
 {
-    _tank.move(-_tankMovementSpeed*cos(_rotation), -_tankMovementSpeed*sin(_rotation));
+    _tank.move(-_tankMovementSpeed*cos((_rotation*PI)/180.0), -_tankMovementSpeed*sin((_rotation*PI)/180.0));
 }
 
 ///Left rotation for a tank entity

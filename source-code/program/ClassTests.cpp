@@ -138,7 +138,7 @@ TEST(CollisionTest, indicatesCollisionHasTakenPlace)
 //}
 
 
-//*==============Tests for Orientation Class=======*/
+///*==============Tests for Orientation Class=======*/
 TEST(Orientation, constructorCorrectlyAssignsInitialParameters)
 {
     float originX = 10.0;
@@ -227,51 +227,145 @@ TEST(Orientation, getGlobalBoundsCorrectlyReturnsBoundingBox)
 //
 //}
 
-//*================================================*/
+///*================================================*/
 
 
 
-//*================Tests for Tank Class============*/
-//TEST(Tank, ifInvalidCoOrdinatesThrowsException)
-//{
-//
-//}
-//
-//TEST(Tank, returnsCorrectEntityType)
-//{
-//
-//}
-//
-//TEST(Tank, movesForwardCorrectly)
-//{
-//
-//}
-//
-//TEST(Tank, movesBackwardCorrectly)
-//{
-//
-//}
-//
-//TEST(Tank, rotatesLeftCorrectly)
-//{
-//
-//}
-//
-//TEST(Tank, rotatesRightCorrectly)
-//{
-//
-//}
-//
-//TEST(Tank, CollidableStateCorrectlyReadAndSet)
-//{
-//
-//}
-//
-//TEST(Tank, BlockableStateCorrectlyReadAndSet)
-//{
-//
-//}
-//
+///*================Tests for Tank Class============*/
+
+TEST(Tank, ifInvalidCoOrdinatesThrowsException)
+{
+    EXPECT_THROW({Tank TestTank1(-10,10,10,p1_tank);},InvalidConstructorArguments);
+    EXPECT_THROW({Tank TestTank1(10,-10,10,p1_tank);},InvalidConstructorArguments);
+    EXPECT_THROW({Tank TestTank1(10,10,-10,p1_tank);},InvalidConstructorArguments);
+    EXPECT_NO_THROW({Tank TestTank1(10,10,10,p1_tank);});
+    EXPECT_THROW({Tank TestTank1(10,10,10,p1_mine);},InvalidConstructorArguments);
+}
+
+
+TEST(Tank, returnsCorrectEntityType)
+{
+    Tank TestTank1(10,10,10,p1_tank);
+    Tank TestTank2(10,10,10,p2_tank);
+
+    EXPECT_EQ(TestTank1.getType(),p1_tank);
+    EXPECT_EQ(TestTank2.getType(),p2_tank);
+}
+
+TEST(Tank, returnsCorrectCoordinatesFromGetPosition)
+{
+    Tank TestTank1(10,10,10,p1_tank);
+    Tank TestTank2(20,20,10,p2_tank);
+
+    EXPECT_EQ(TestTank1.getPositionX(),10);
+    EXPECT_EQ(TestTank1.getPositionY(),10);
+
+    EXPECT_EQ(TestTank2.getPositionX(),20);
+    EXPECT_EQ(TestTank2.getPositionY(),20);
+}
+
+TEST(Tank, returnsCorrectCoordinatesFromGetDrawPosition)
+{
+    Tank TestTank1(10,10,10,p1_tank);
+    Tank TestTank2(20,20,10,p2_tank);
+
+    EXPECT_EQ(TestTank1.getDrawPositionX(),10);
+    EXPECT_EQ(TestTank1.getDrawPositionY(),10);
+
+    EXPECT_EQ(TestTank2.getDrawPositionX(),20);
+    EXPECT_EQ(TestTank2.getDrawPositionY(),20);
+}
+
+TEST(Tank, returnsCorrectOrientationValue)
+{
+    Tank TestTank1(10,10,10,p1_tank);
+    EXPECT_EQ(TestTank1.getOrientation(),10);
+}
+
+TEST(Tank, returnsCorrectDrawRotationValue)
+{
+    Tank TestTank1(10,10,10,p1_tank);
+    EXPECT_EQ(TestTank1.getDrawRotation(),10);
+}
+
+TEST(Tank, movesForwardCorrectly)
+{
+    Tank TestTank1(10,10,0,p1_tank);
+    TestTank1.moveForward();
+    EXPECT_EQ(TestTank1.getPositionX(),15);
+    EXPECT_EQ(TestTank1.getPositionY(),10);
+
+    Tank TestTank2(10,10,90,p1_tank);
+    TestTank2.moveForward();
+    EXPECT_EQ(TestTank2.getPositionX(),10);
+    EXPECT_EQ(TestTank2.getPositionY(),15);
+
+    Tank TestTank3(10,10,180,p1_tank);
+    TestTank3.moveForward();
+    EXPECT_EQ(TestTank3.getPositionX(),5);
+    EXPECT_EQ(TestTank3.getPositionY(),10);
+
+    Tank TestTank4(10,10,270,p1_tank);
+    TestTank4.moveForward();
+    EXPECT_EQ(TestTank4.getPositionX(),10);
+    EXPECT_EQ(TestTank4.getPositionY(),5);
+}
+
+TEST(Tank, movesBackwardCorrectly)
+{
+    Tank TestTank1(10,10,0,p1_tank);
+    TestTank1.moveBackward();
+    EXPECT_EQ(TestTank1.getPositionX(),5);
+    EXPECT_EQ(TestTank1.getPositionY(),10);
+
+    Tank TestTank2(10,10,90,p1_tank);
+    TestTank2.moveBackward();
+    EXPECT_EQ(TestTank2.getPositionX(),10);
+    EXPECT_EQ(TestTank2.getPositionY(),5);
+
+    Tank TestTank3(10,10,180,p1_tank);
+    TestTank3.moveBackward();
+    EXPECT_EQ(TestTank3.getPositionX(),15);
+    EXPECT_EQ(TestTank3.getPositionY(),10);
+
+    Tank TestTank4(10,10,270,p1_tank);
+    TestTank4.moveBackward();
+    EXPECT_EQ(TestTank4.getPositionX(),10);
+    EXPECT_EQ(TestTank4.getPositionY(),15);
+}
+
+TEST(Tank, rotatesLeftAndRightCorrectly)
+{
+    Tank TestTank1(10,10,0,p1_tank);
+    TestTank1.rotateLeft();
+    EXPECT_EQ(TestTank1.getOrientation(), 2);
+
+    TestTank1.rotateRight();
+    TestTank1.rotateRight();
+    EXPECT_EQ(TestTank1.getOrientation(), 358);
+
+    Tank TestTank2(10,10,358,p1_tank);
+    TestTank2.rotateLeft();
+    TestTank2.rotateLeft();
+    EXPECT_EQ(TestTank2.getOrientation(), 2);
+}
+
+TEST(Tank, booleanVariablesAreCorrectlySetAndRetrieved)
+{
+    Tank TestTank1(10,10,0,p1_tank);
+
+    TestTank1.setBlocked();
+    TestTank1.setCollided();
+
+    EXPECT_TRUE(TestTank1.isBlocked());
+    EXPECT_TRUE(TestTank1.isDeleted());
+
+    TestTank1.setUnblocked();
+
+    EXPECT_FALSE(TestTank1.isBlocked());
+
+}
+
 //*================Tests for Missile Class============*/
 //TEST(Missile, ifInvalidCoOrdinatesThrowsException)
 //{
