@@ -5,14 +5,12 @@
  * \brief 	Unit tests for all classes. Included in single file for regression testing purposes.
  */
 
-#include <gtest/gtest.h>
 #include "Manager.h"
 #include "CollisionManager.h"
+#include <gtest/gtest.h>
 
 //#include "Tank.h"
 //#include "Missile.h"
-
-/*NOTE: All exceptions are incomplete and commented out*/
 
 ///*================Tests for CollisionManager Class============*/
 
@@ -33,10 +31,37 @@
 //
 //}
 
-TEST(CollisionManager, returnsCorrectCollisionOutcome)
+TEST(CollisionTest, indicatesCollisionHasTakenPlace)
 {
+    rect_corners rect_A;
+    rect_corners rect_B;
 
+    rect_A.upper_left.x = 1.0;
+    rect_A.upper_left.y = 8.0;
+    rect_A.upper_right.x = 5.0;
+    rect_A.upper_right.y = 8.0;
+    rect_A.lower_left.x = 1.0;
+    rect_A.lower_left.y = 1.0;
+    rect_A.lower_right.x = 5.0;
+    rect_A.lower_right.y = 1.0;
+
+    rect_B.upper_left.x = 2.0;
+    rect_B.upper_left.y = 9.0;
+    rect_B.upper_right.x = 6.0;
+    rect_B.upper_right.y = 8.0;
+    rect_B.lower_left.x = 2.0;
+    rect_B.lower_left.y = 2.0;
+    rect_B.lower_right.x = 6.0;
+    rect_B.lower_right.y = 2.0;
+
+    EXPECT_TRUE(isCollision(rect_A, rect_B));
 }
+
+//TEST(CollisionManager, indicatesNoCollisionHasTakenPlace)
+//{
+//
+//
+//}
 
 ///isOverlap
 //TEST(CollisionManager, ifInvalidAxisGivenThrowsException)
@@ -49,10 +74,10 @@ TEST(CollisionManager, returnsCorrectCollisionOutcome)
 //
 //}
 
-TEST(CollisionManager, returnsCorrectOverlapOutcome)
-{
-
-}
+//TEST(CollisionManager, returnsCorrectOverlapOutcome)
+//{
+//
+//}
 
 ///calculateAllProjections
 //TEST(CollisionManager, ifInvalidVectorArgumentGivenThrowsException)
@@ -65,10 +90,10 @@ TEST(CollisionManager, returnsCorrectOverlapOutcome)
 //
 //}
 
-TEST(CollisionManager,  modifiesAxisProjectionsVectorCorrectly)
-{
-
-}
+//TEST(CollisionManager,  modifiesAxisProjectionsVectorCorrectly)
+//{
+//
+//}
 
 ///calculateMaxAndMinProjections
 //TEST(CollisionManager, ifInvalidVectorArgumentGivenThrowsException)
@@ -81,15 +106,15 @@ TEST(CollisionManager,  modifiesAxisProjectionsVectorCorrectly)
 //
 //}
 
-TEST(CollisionManager, modifiesMaxVectorProjectionCorrectly)
-{
+//TEST(CollisionManager, modifiesMaxVectorProjectionCorrectly)
+//{
+//
+//}
 
-}
-
-TEST(CollisionManager, modifiesMinVectorProjectionsCorrectly)
-{
-
-}
+//TEST(CollisionManager, modifiesMinVectorProjectionsCorrectly)
+//{
+//
+//}
 
 ///setCollisionStates
 //TEST(CollisionManager, ifInvalidPointerGivenThrowsException)
@@ -102,10 +127,10 @@ TEST(CollisionManager, modifiesMinVectorProjectionsCorrectly)
 //
 //}
 
-TEST(CollisionManager, collisionStatesSetCorrectly)
-{
-
-}
+//TEST(CollisionManager, collisionStatesSetCorrectly)
+//{
+//
+//}
 
 //*================Tests for Tank Class============*/
 //TEST(Tank, ifInvalidCoOrdinatesThrowsException)
