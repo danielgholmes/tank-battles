@@ -8,13 +8,15 @@
 #include <gtest/gtest.h>
 
 //Needed to compile the tests in my project:
-#include "Manager.h"
-#include "CollisionManager.h"
+#include "Structures.h"
+#include "Orientation.h"
+
+//#include "Manager.h"
+//#include "CollisionManager.h"
+
 #include "Tank.h"
 #include "Missile.h"
-#include "Orientation.h"
-#include "Structures.h"
-
+#include "Barrier.h"
 
 
 ///*================Tests for CollisionManager Class============*/
@@ -36,31 +38,31 @@
 //
 //}
 
-TEST(CollisionTest, indicatesCollisionHasTakenPlace)
-{
-    rect_corners rect_A;
-    rect_corners rect_B;
-
-    rect_A.upper_left.x = 1.0;
-    rect_A.upper_left.y = 8.0;
-    rect_A.upper_right.x = 5.0;
-    rect_A.upper_right.y = 8.0;
-    rect_A.lower_left.x = 1.0;
-    rect_A.lower_left.y = 1.0;
-    rect_A.lower_right.x = 5.0;
-    rect_A.lower_right.y = 1.0;
-
-    rect_B.upper_left.x = 2.0;
-    rect_B.upper_left.y = 9.0;
-    rect_B.upper_right.x = 6.0;
-    rect_B.upper_right.y = 8.0;
-    rect_B.lower_left.x = 2.0;
-    rect_B.lower_left.y = 2.0;
-    rect_B.lower_right.x = 6.0;
-    rect_B.lower_right.y = 2.0;
-
-   // EXPECT_TRUE(isCollision(rect_A, rect_B));
-}
+//TEST(CollisionTest, indicatesCollisionHasTakenPlace)
+//{
+//    rect_corners rect_A;
+//    rect_corners rect_B;
+//
+//    rect_A.upper_left.x = 1.0;
+//    rect_A.upper_left.y = 8.0;
+//    rect_A.upper_right.x = 5.0;
+//    rect_A.upper_right.y = 8.0;
+//    rect_A.lower_left.x = 1.0;
+//    rect_A.lower_left.y = 1.0;
+//    rect_A.lower_right.x = 5.0;
+//    rect_A.lower_right.y = 1.0;
+//
+//    rect_B.upper_left.x = 2.0;
+//    rect_B.upper_left.y = 9.0;
+//    rect_B.upper_right.x = 6.0;
+//    rect_B.upper_right.y = 8.0;
+//    rect_B.lower_left.x = 2.0;
+//    rect_B.lower_left.y = 2.0;
+//    rect_B.lower_right.x = 6.0;
+//    rect_B.lower_right.y = 2.0;
+//
+//    EXPECT_TRUE(isCollision(rect_A, rect_B));
+//}
 
 //TEST(CollisionManager, indicatesNoCollisionHasTakenPlace)
 //{
@@ -482,6 +484,68 @@ TEST(Missile, booleanVariablesAreCorrectlySetAndRetrieved)
 
     EXPECT_FALSE(TestMissile1.isBlocked());
 }
+
+///*===================================================*/
+
+///*================Tests for Barrier Class============*/
+
+TEST(Barrier, ifInvalidCoOrdinatesThrowsException)
+{
+    EXPECT_THROW({Barrier TestBarrier(-10,10,barrier);},InvalidConstructorArgumentsMissile);
+    EXPECT_THROW({Barrier TestBarrier(10,-10,barrier);},InvalidConstructorArgumentsMissile);
+    EXPECT_NO_THROW({Barrier TestBarrier(10,10,barrier);});
+    EXPECT_THROW({Barrier TestBarrier(10,10,p1_mine);},InvalidConstructorArgumentsMissile);
+}
+
+TEST(Barrier, returnsCorrectEntityType)
+{
+    Barrier TestBarrier(10,10,barrier);
+
+    EXPECT_EQ(TestBarrier.getType(),barrier);
+}
+
+TEST(Barrier, returnCorrectRectangleVertices)
+{
+    //barriers are 5x5
+    Barrier TestBarrier(10,10,barrier);
+    rect_corners rect;
+
+    rect.upper_left.x = 7.5;
+    rect.upper_left.y = 12.5;
+    rect.upper_right.x = 12.5;
+    rect.upper_right.y = 12.5;
+    rect.lower_left.x = 7.5;
+    rect.lower_left.y = 7.5;
+    rect.lower_right.x = 12.5;
+    rect.lower_right.y = 7.5;
+
+    //EXPECT_EQ(TestBarrier.getBoundingBox(),rect);
+}
+
+TEST(Barrier, returnsCorrectCoordinatesFromGetDrawPosition)
+{
+    Barrier TestBarrier1(10,10,barrier);
+    Barrier TestBarrier2(20,20,barrier);
+
+    EXPECT_EQ(TestBarrier1.getDrawPositionX(),10);
+    EXPECT_EQ(TestBarrier1.getDrawPositionY(),10);
+
+    EXPECT_EQ(TestBarrier2.getDrawPositionX(),20);
+    EXPECT_EQ(TestBarrier2.getDrawPositionY(),20);
+}
+
+TEST(Barrier, returnsCorrectDrawRotationValue)
+{
+    Barrier TestBarrier(10,10,barrier);
+    EXPECT_EQ(TestBarrier.getDrawRotation(),0);
+}
+
+
+///*===================================================*/
+
+///*================Tests for Mine Class============*/
+
+
 
 ///*===================================================*/
 
