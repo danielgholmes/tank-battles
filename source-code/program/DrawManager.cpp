@@ -6,11 +6,16 @@
  */
 
 #include "DrawManager.h"
+#include <iostream>
 
 ///Constructor for DrawManager
 DrawManager::DrawManager()
 {
-
+   if (!_mapText.loadFromFile("map.png"))
+   {
+        std::cout << "Unable to load Map file!" <<std::endl;
+   }
+   _map.setTexture(_mapText);
 }
 
 ///Drawing management cycle. The manager will render all the entites within the game world.
@@ -18,6 +23,9 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
 {
     //Clear the screen
     window.clear();
+
+    //Draw the Map
+    window.draw(_map);
 
     //Used to traverse the vector of drawables held by DrawManager
     auto draw_itterator = _drawables.begin();
@@ -120,11 +128,10 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
 
             default:
                 break;
-
-            //Draw all the sprites
-            window.display();
         }
     }
+
+    window.display();
 }
 ///Destructor for DrawManager
 DrawManager::~DrawManager()

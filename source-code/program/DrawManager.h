@@ -36,6 +36,9 @@ public:
 private:
     // Pointers to all drawable entites within the game world
     std::vector<std::weak_ptr<Deletable>> _drawables;
+
+    sf::Sprite _map;
+    sf::Texture _mapText;
 };
 
 #endif // DRAWMANAGER_H_

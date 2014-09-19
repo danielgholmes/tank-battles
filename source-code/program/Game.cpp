@@ -23,9 +23,6 @@ Game::Game():
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
 
-
-
-
 	loadTextures();
 	addNewSprites();
 
