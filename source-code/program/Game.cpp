@@ -272,12 +272,12 @@ void Game::addNewWorldEntity(const actions_info& actions)
 
 void Game::loadTextures()
 {
-	_game_textures.tank_1.loadFromFile(_tank1_texture_file);
-	_game_textures.tank_2.loadFromFile(_tank2_texture_file);
-	_game_textures.missile.loadFromFile(_missile_texture_file);
-	_game_textures.mine.loadFromFile(_mine_texture_file);
-	_game_textures.barrier.loadFromFile(_barrier_texture_file);
-	_game_textures.map.loadFromFile(_map_texture_file);
+	_game_textures.tank_1.loadFromFile(_tank1_texture_file, sf::IntRect(0,0,150,100));
+	_game_textures.tank_2.loadFromFile(_tank2_texture_file, sf::IntRect(0,0,150,100));
+	_game_textures.missile.loadFromFile(_missile_texture_file, sf::IntRect(0,0,20,20));
+	_game_textures.mine.loadFromFile(_mine_texture_file, sf::IntRect(0,0,100,100 ));
+	_game_textures.barrier.loadFromFile(_barrier_texture_file, sf::IntRect(0,0,200,200 ));
+	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,5000,5000));
 }
 
 void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window)
