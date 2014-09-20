@@ -166,12 +166,12 @@ void Game::checkKeyboardInput(actions_info& actions)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
     	actions.change_2 = true; // tank 2 rotate left
-    	actions.move_2 = rotate_left;
+    	actions.move_2 = rotate_right;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
     	actions.change_2 = true; // tank 2 rotate right
-    	actions.move_2 = rotate_right;
+    	actions.move_2 = rotate_left;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
@@ -188,7 +188,7 @@ void Game::checkKeyboardInput(actions_info& actions)
     	actions.change_2 = true; // tank 2 plant mine
     	actions.attack_2 = lay_mine;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
 	{
     	actions.change_2 = true; // tank 2 fire missile
     	actions.attack_2 = fire_missile;
@@ -299,32 +299,32 @@ void Game::addNewSprites()
     //Create P_2 Tank Sprite
     std::shared_ptr<sf::Sprite> TankTwo_sp(new(sf::Sprite));
     TankTwo_sp->setTexture(_game_textures.tank_2);
-    _sprites[p2_tank] = TankTwo_sp;
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p2_tank,TankTwo_sp));
 
     //Create Barrier Sprite
     std::shared_ptr<sf::Sprite> Barrier_sp(new(sf::Sprite));
     Barrier_sp->setTexture(_game_textures.barrier);
-    _sprites[barrier] = Barrier_sp;
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(barrier,Barrier_sp));
 
     //Create P_1 Missile Sprite
     std::shared_ptr<sf::Sprite> MissileOne_sp(new(sf::Sprite));
     MissileOne_sp->setTexture(_game_textures.missile);
-    _sprites[p1_missile] = MissileOne_sp;
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p1_missile,MissileOne_sp));
 
     //Create P_2 Missile Sprite
     std::shared_ptr<sf::Sprite> MissileTwo_sp(new(sf::Sprite));
     MissileTwo_sp->setTexture(_game_textures.missile);
-    _sprites[p2_missile] = MissileTwo_sp;
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p2_missile,MissileTwo_sp));
 
     //Create P_1 Mine Sprite
     std::shared_ptr<sf::Sprite> MineOne_sp(new(sf::Sprite));
     MineOne_sp->setTexture(_game_textures.mine);
-    _sprites[p1_mine] = MineOne_sp;
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p1_mine,MineOne_sp));
 
     //Create P_2 Mine Sprite
     std::shared_ptr<sf::Sprite> MineTwo_sp(new(sf::Sprite));
     MineTwo_sp->setTexture(_game_textures.mine);
-    _sprites[p2_mine] = MissileTwo_sp;
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p2_mine,MineTwo_sp));
 
 }
 

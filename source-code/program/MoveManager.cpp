@@ -92,25 +92,29 @@ void MoveManager::manage(const actions_info& managerInstructions)
         //Missiles will always move along their trajectory each management cycle
         //Exception if a missile hits a barrier
 
-        //P1 Missile has hit a barrier
+        //Missile has hit a barrier
         if ((entity_mov_sp->getType() == p1_missile) && (entity_mov_sp->isBlocked()))
         {
             entity_mov_sp->rotateLeft();
             entity_mov_sp->moveForward();
         }
-        //P1 Missile moves forward
+        //Missile moves forward
         else if (entity_mov_sp->getType() == p1_missile)
-           entity_mov_sp->moveForward();
+        {
+            entity_mov_sp->moveForward();
+        }
 
         //P2 Missile has hit a barrier
-        if ((entity_mov_sp->getType() == p1_missile) && (entity_mov_sp->isBlocked()))
+        if ((entity_mov_sp->getType() == p2_missile) && (entity_mov_sp->isBlocked()))
         {
             entity_mov_sp->rotateLeft();
             entity_mov_sp->moveForward();
         }
-        //P2 Missile moves forward
-        else if (entity_mov_sp->getType() == p1_missile)
-           entity_mov_sp->moveForward();
+ //      P2 Missile moves forward
+        else if (entity_mov_sp->getType() == p2_missile)
+        {
+            entity_mov_sp->moveForward();
+        }
 
 
     }//Range-based for
