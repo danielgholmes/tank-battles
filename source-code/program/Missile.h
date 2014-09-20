@@ -41,7 +41,7 @@ public:
 	virtual const rect_corners& getBoundingBox();
     ///Instruct the missile entity that it cannot move along its trajectory
 	virtual void setBlocked();
-	///Instruct the tank entity that it can move
+	///Instruct the missile entity that it can move
 	virtual void setUnblocked();
     ///Instruct the missile entity that it has collided with another object
 	virtual void setCollided();
@@ -49,11 +49,11 @@ public:
 	virtual const bool isBlocked();
     ///Boolean state of the missile entity's life
 	virtual bool const isDeleted();
-	///Retrieve the Missile x Position
+	///Retrieve the missile x Position
     virtual const float getDrawPositionX();
-    ///Retrieve the Missile y Position
+    ///Retrieve the missile y Position
     virtual const float getDrawPositionY();
-    ///Recieve the Missile rotation
+    ///Receive the missile rotation
     virtual const float getDrawRotation();
 	///Missile object destructor
 	virtual ~Missile();
