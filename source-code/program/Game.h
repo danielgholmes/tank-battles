@@ -17,6 +17,7 @@
 
 //Structures and enums
 #include "Structures.h"
+#include "SpriteDimensions.h"
 
 //include all entites
 #include "Tank.h"
@@ -52,9 +53,12 @@ private:
 	int _window_height;
 	std::string _window_title = "Tank v0.1";
 
+	//Sprite dimensions
+    SpriteDimensions _game_sprite_dimensions;
+
 	textures _game_textures;
 
-	// Texture file names
+	//Texture file names
 	const std::string _tank1_texture_file = "tank1_red.png";
 	const std::string _tank2_texture_file = "tank2_green.png";
 	const std::string _missile_texture_file = "missile.png";

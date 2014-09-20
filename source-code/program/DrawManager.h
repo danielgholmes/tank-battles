@@ -15,6 +15,7 @@
 #include "Manager.h"
 #include "Deletable.h"
 #include "Structures.h"
+#include "SpriteDimensions.h"
 #include <vector>
 #include <map>
 
@@ -39,6 +40,7 @@ private:
 
     sf::Sprite _map;
     sf::Texture _mapText;
+    SpriteDimensions _sprite_dimensions;
 };
 
 #endif // DRAWMANAGER_H_

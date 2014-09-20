@@ -68,5 +68,6 @@ struct rect_corners
     coordinate lower_right;
 };
 
+
 #endif
 
