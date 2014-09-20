@@ -42,6 +42,16 @@ const float Orientation::getRotation()
 	return _rotation;
 }
 
+void Orientation::setWidth(const float width)
+{
+    _width = width;
+}
+
+void Orientation::setHeight(const float height)
+{
+    _height = height;
+}
+
 void Orientation::move(float movement_in_x, float movement_in_y)
 {
     _origin_x += movement_in_x;

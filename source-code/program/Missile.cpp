@@ -12,7 +12,8 @@ Missile::Missile(float positionX, float positionY, float rotation, entity_type m
 
     _rotation(rotation),
     _type(missileOwner),
-    _missile(positionX,positionY,5.0,5.0,rotation)
+    _missile(positionX,positionY,0,0,rotation),
+    _sprite_dimensions()
 {
      //Error input checking
     if (_missile.getOriginX() < 0) throw InvalidConstructorArgumentsMissile();
@@ -20,6 +21,8 @@ Missile::Missile(float positionX, float positionY, float rotation, entity_type m
     if (_missile.getRotation() < 0) throw InvalidConstructorArgumentsMissile();
     if ((_type != p1_missile) && (_type != p2_missile)) throw InvalidConstructorArgumentsMissile();
 
+    _missile.setWidth(_sprite_dimensions.missile_sprite_x);
+    _missile.setHeight(_sprite_dimensions.missile_sprite_y);
     _blockedStatus = 0;
     _collidedStatus = 0;
 }

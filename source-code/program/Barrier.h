@@ -15,7 +15,7 @@
 #include "Collidable.h"
 #include "Structures.h"
 #include "Orientation.h"
-
+#include "SpriteDimensions.h"
 
 
 class Barrier: virtual public Collidable
@@ -50,10 +50,12 @@ public:
 
 private:
 
-    ///SFML Co-cordinate system for Barrier entity
-    Orientation _barrier; //**Needs to change**
+    ///Co-cordinate system for Barrier entity
+    Orientation _barrier;
     ///Enumeration type defining the Barrier
     entity_type _type;
+    ///Dimensions of Barrier
+    SpriteDimensions _sprite_dimensions;
 
 };
 

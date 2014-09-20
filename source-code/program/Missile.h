@@ -16,6 +16,7 @@
 #include "Collidable.h"
 #include "Structures.h"
 #include "Orientation.h"
+#include "SpriteDimensions.h"
 
 //Exception Throw Classes
 class InvalidConstructorArgumentsMissile{};
@@ -69,7 +70,8 @@ private:
     Orientation _missile;
     ///Enumeration type defining the Missile
     entity_type _type;
-
+    ///Missile Sprite dimensions
+    SpriteDimensions _sprite_dimensions;
 };
 
 #endif // TANK_H_

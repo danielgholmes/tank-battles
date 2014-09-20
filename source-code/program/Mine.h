@@ -14,6 +14,7 @@
 #include "Collidable.h"
 #include "Structures.h"
 #include "Orientation.h"
+#include "SpriteDimensions.h"
 
 class Mine: virtual public Collidable
 {
@@ -51,6 +52,8 @@ private:
     entity_type _type;
     ///Collision state of the Mine entity: 1 for collided, 0 for not
     bool _collidedStatus;
+    ///Mine sprite dimensions
+    SpriteDimensions _sprite_dimensions;
 };
 
 #endif // TANK_H_

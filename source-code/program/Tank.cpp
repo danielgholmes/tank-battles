@@ -11,7 +11,8 @@
 Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwner):
     _rotation(rotation),
     _type(tankOwner),
-    _tank(positionX,positionY,5.0,5.0,rotation) //Need to change these values
+    _tank(positionX,positionY,0,0,rotation),
+    _sprite_dimensions()
 {
     //Error input checking
     if (_tank.getOriginX() < 0) throw InvalidConstructorArguments();
@@ -19,6 +20,8 @@ Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwn
     if (_tank.getRotation() < 0) throw InvalidConstructorArguments();
     if ((_type != p1_tank) && (_type != p2_tank)) throw InvalidConstructorArguments();
 
+    _tank.setWidth(_sprite_dimensions.tank_sprite_x);
+    _tank.setHeight(_sprite_dimensions.tank_sprite_y);
     _blockedStatus = 0;
     _collidedStatus = 0;
 }

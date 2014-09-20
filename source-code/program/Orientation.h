@@ -26,6 +26,10 @@ public:
 	const float getHeight();
 	///Returns the entity rotation
 	const float getRotation();
+	///Set the Width Value
+	void setWidth(const float width);
+	///Set the Height Value
+	void setHeight(const float height);
 	///Move the entity by a distance
 	void move(float movement_in_x, float movement_in_y);
 	///Rotate the entity by a supplied angle

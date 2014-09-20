@@ -9,8 +9,11 @@
 
 ///Mine entity constructor
 Mine::Mine(float positionX, float positionY, entity_type mineOwner):
-    _mine(positionX,positionY,5.0,5.0,0.0) //Need to change these values
+    _mine(positionX,positionY,0.0,0.0,0.0),
+    _sprite_dimensions()
 {
+    _mine.setWidth(_sprite_dimensions.mine_sprite_x);
+    _mine.setHeight(_sprite_dimensions.mine_sprite_y);
     _type = mineOwner;
     _collidedStatus = 0;
 }

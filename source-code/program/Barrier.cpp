@@ -9,8 +9,11 @@
 
 ///Barrier entity constructor
 Barrier::Barrier(float positionX, float positionY, entity_type barrierTypeSet):
-     _barrier(positionX,positionY,5.0,5.0,0.0) //These arbitary values will have to change
+    _sprite_dimensions(),
+    _barrier(positionX,positionY,0,0,0.0)
 {
+    _barrier.setWidth(_sprite_dimensions.barrier_sprite_x);
+    _barrier.setHeight(_sprite_dimensions.barrier_sprite_y);
     _type = barrierTypeSet;
 }
 

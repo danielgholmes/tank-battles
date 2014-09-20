@@ -11,11 +11,11 @@ Game::Game():
 	_window_width(800),
 	_window_height(600),
     _player1_start_posX(50),
-    _player1_start_posY (50),
-    _player2_start_posX (500),
-    _player2_start_posY (50),
-    _barrier_start_posX (200),
-    _barrier_start_posY (200),
+    _player1_start_posY(50),
+    _player2_start_posX(500),
+    _player2_start_posY(50),
+    _barrier_start_posX(200),
+    _barrier_start_posY(200),
     _game_sprite_dimensions()
 {
 	MoveManager _move_manager;
@@ -36,11 +36,11 @@ Game::Game(int width, int height):
 	_window_width(width),
 	_window_height(height),
 	_player1_start_posX(50),
-    _player1_start_posY (50),
-    _player2_start_posX (500),
-    _player2_start_posY (50),
-    _barrier_start_posX (200),
-    _barrier_start_posY (200)
+    _player1_start_posY(50),
+    _player2_start_posX(500),
+    _player2_start_posY(50),
+    _barrier_start_posX(200),
+    _barrier_start_posY(200)
 {
 	MoveManager _move_manager;
 	CollisionManager _collision_manager;

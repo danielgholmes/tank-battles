@@ -19,6 +19,7 @@
 #include "Structures.h"
 #include "Orientation.h"
 #include "math.h"
+#include "SpriteDimensions.h"
 
 //Exception Throws
 class InvalidConstructorArguments {};
@@ -81,6 +82,8 @@ private:
     Orientation _tank;
     ///Enumeration type defining the tank
     entity_type _type;
+    ///Tank Sprite Dimensions
+    SpriteDimensions _sprite_dimensions;
 };
 
 #endif // TANK_H_
