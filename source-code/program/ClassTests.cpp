@@ -519,7 +519,10 @@ TEST(Barrier, returnCorrectRectangleVertices)
     rect.lower_right.x = 12.5;
     rect.lower_right.y = 7.5;
 
-    //EXPECT_EQ(TestBarrier.getBoundingBox(),rect);
+    EXPECT_EQ(TestBarrier.getBoundingBox().upper_left.x,rect.upper_left.x);
+    EXPECT_EQ(TestBarrier.getBoundingBox().upper_left.y,rect.upper_left.y);
+    EXPECT_EQ(TestBarrier.getBoundingBox().upper_right.x,rect.upper_right.x);
+    EXPECT_EQ(TestBarrier.getBoundingBox().upper_right.y,rect.upper_right.y);
 }
 
 TEST(Barrier, returnsCorrectCoordinatesFromGetDrawPosition)
