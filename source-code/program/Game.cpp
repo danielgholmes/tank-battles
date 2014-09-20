@@ -27,7 +27,7 @@ Game::Game():
 	loadTextures();
 	addNewSprites();
 
-//	addBarriers(); // only 1 barrier for now
+	addBarriers();
 	addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
 	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 0);
 }
@@ -51,7 +51,7 @@ Game::Game(int width, int height):
 	loadTextures();
 	addNewSprites();
 
-//	addBarriers(); // only 1 barrier for now
+	addBarriers();
     addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
 	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
 }

@@ -16,7 +16,8 @@ CollisionManager::CollisionManager()
 
 void CollisionManager::manage()
 {
-    //Clear all deleted entities from the _collidables vector
+
+	 //Clear all deleted entities from the _collidables vector
     auto removal = _collidables.begin();
     for (; removal != _collidables.end();)
     {
@@ -38,30 +39,40 @@ void CollisionManager::manage()
     auto i = _collidables.begin();
 	for (; i != _collidables.end(); ++i)
 	{
-		std::weak_ptr<Collidable> entity_wp = (*i);
-		//Convert weak_ptr to shared_ptr
-		std::shared_ptr<Collidable> entity_sp = entity_wp.lock();
+        std::weak_ptr<Collidable> entity_wp = (*i);
+        //Convert weak_ptr to shared_ptr
+        std::shared_ptr<Collidable> entity_sp = entity_wp.lock();
 
-		const rect_corners& entity_box = (entity_sp)->getBoundingBox(); //Must fix this!!
+        const rect_corners& entity_box = (entity_sp)->getBoundingBox();
 
         //Always one position ahead of iterator i
         auto j =  i+1;
 
-		for (; j != _collidables.end(); ++j)
-		{
-			std::weak_ptr<Collidable> obstacle_wp = (*j);
-			//Convert weak_ptr to shared_ptr
+        for (; j != _collidables.end(); ++j)
+        {
+            bool entity_blocked = false;
+            std::weak_ptr<Collidable> obstacle_wp = (*j);
+            //Convert weak_ptr to shared_ptr
             std::shared_ptr<Collidable> obstacle_sp = obstacle_wp.lock();
 
-			const rect_corners& obstacle_box = (obstacle_sp)->getBoundingBox();
+            const rect_corners& obstacle_box = (obstacle_sp)->getBoundingBox();
 
             CollisionHelper collision_helper;// create object of helper class
 
-			if (collision_helper.isCollision(entity_box, obstacle_box))
-				setCollisionStates(entity_sp, obstacle_sp);
-		}
-	}
+            if (collision_helper.isCollision(entity_box, obstacle_box))
+            {
+                entity_blocked = true;
+                setCollisionStates(entity_sp, obstacle_sp);
+            }
+            else
+            {
+                resetBlockedState(entity_sp);
+                resetBlockedState(obstacle_sp);
+            }
+        }
+    }
 }
+
 
 void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
@@ -182,6 +193,11 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 				break;
 		}
 	}
+}
+
+void CollisionManager::resetBlockedState(std::shared_ptr<Collidable>& entity)
+{
+  entity->setUnblocked();
 }
 
 void CollisionManager::addNewEntity(std::weak_ptr<Collidable> new_entity)

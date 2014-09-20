@@ -16,29 +16,20 @@
 ///Destruction management process for the Destruction Manager
 void DestructionManager::manage()
 {
-//    auto j = _destructables.begin();
-//    for(; j != _destructables.end();)
-//    {
-//        std::shared_ptr<Deletable> entity_sp = (*j);
-//        if(entity_sp)
-//        {
-//            j++;
-//        }
-//        else
-//        {
-//            _destructables.erase(j);
-//        }
-//    }
-
     auto i = _destructables.begin();
-    for(; i != _destructables.end(); i++)
+    for(; i != _destructables.end();)
     {
             std::shared_ptr<Deletable> entity_sp = (*i);
 
             //The manager checks each entity to see if it has recieved a 'death state'
             if(entity_sp->isDeleted())
             {
-                delete (&entity_sp); //---> This flags a warning
+                _destructables.erase(i);
+                //delete (&entity_sp); //---> This flags a warning
+            }
+            else
+            {
+                i++;
             }
     }
 }

@@ -51,6 +51,9 @@ private:
 	/// Set collision state based on the types of entities that have collided
 	void setCollisionStates(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2);
 
+	/// Resets the blocked states of blocks that were previously blocked, by are not colliding with anything
+	void resetBlockedState(std::shared_ptr<Collidable>& entity);
+
 };
 
 #endif // COLLISIONMANAGER_H_
