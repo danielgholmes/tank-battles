@@ -51,6 +51,7 @@ void Missile::rotateLeft()
 {
     _rotation += _missileRotationSpeed;
     _missile.rotate(_missileRotationSpeed);
+    _blockedStatus = 0;
 }
 
 ///Right rotation for a missile entity
@@ -58,6 +59,7 @@ void Missile::rotateRight()
 {
     _rotation -= _missileRotationSpeed;
     _missile.rotate(-_missileRotationSpeed);
+    _blockedStatus = 0;
 }
 
 ///Provide the bounding box for the missile entity
