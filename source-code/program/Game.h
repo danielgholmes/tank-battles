@@ -113,6 +113,8 @@ private:
 
 	void addBarriers();
 
+	void createBarrier(int x, int y);
+
 	/// Function that loads all textures into memory
 	void loadTextures();
 
