@@ -19,14 +19,11 @@ void DestructionManager::manage()
     auto i = _destructables.begin();
     for(; i != _destructables.end(); i++)
     {
-        std::weak_ptr<Deletable> entity_wp = (*i);
-        //convert weak_ptr to shared ptr
-        std::shared_ptr<Deletable> entity_sp = entity_wp.lock();
-
+        std::shared_ptr<Deletable> entity_sp = (*i);
         //The manager checks each entity to see if it has recieved a 'death state'
         if(entity_sp->isDeleted())
         {
-            delete (&entity_wp); //---> This flags a warning
+            delete (&entity_sp); //---> This flags a warning
         }
     }
 }
@@ -37,7 +34,7 @@ DestructionManager::~DestructionManager()
     //Possible arguments to be added here
 }
 
-void DestructionManager::addNewEntity(std::weak_ptr<Deletable> new_entity)
+void DestructionManager::addNewEntity(std::shared_ptr<Deletable> new_entity)
 {
 	_destructables.push_back(new_entity);
 }

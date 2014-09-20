@@ -27,14 +27,14 @@ public:
     void manage();
 
 	/// Add Deletable-type shared_ptr's to the DestructionManagers internal data members
-    void addNewEntity(std::weak_ptr<Deletable> new_entity);
+    void addNewEntity(std::shared_ptr<Deletable> new_entity);
 
     /// Destructor for the destruction manager
 	virtual ~DestructionManager();
 
 private:
     // Pointers to all destructable entities within the game world
-    std::vector<std::weak_ptr<Deletable>> _destructables;
+    std::vector<std::shared_ptr<Deletable>> _destructables;
 };
 
 #endif // DESTRUCTIONMANAGER_H_

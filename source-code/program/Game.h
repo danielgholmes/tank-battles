@@ -72,7 +72,7 @@ private:
 
 
 	/// Container for all entities on the game world
-	std::vector<std::shared_ptr<Deletable>> _world_entities;
+	std::vector<std::weak_ptr<Deletable>> _world_entities;
 	/// Map container for the sprites that will be drawn
 	std::map<entity_type, std::shared_ptr<sf::Sprite>>  _sprites;
 

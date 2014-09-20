@@ -13,7 +13,7 @@ SpriteDimensions::SpriteDimensions():
     map_sprite_x(5000),
     map_sprite_y(5000),
     tank_sprite_x(130),
-    tank_sprite_y(70),
+    tank_sprite_y(72),
     missile_sprite_x(12),
     missile_sprite_y(12),
     barrier_sprite_x(100),
