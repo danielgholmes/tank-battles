@@ -14,6 +14,7 @@
 #include "SFML/Window.hpp"
 #include <vector>
 #include <map>
+#include "math.h"
 
 //Structures and enums
 #include "Structures.h"
@@ -31,6 +32,9 @@
 #include "TrackingManager.h"
 #include "DrawManager.h"
 #include "DestructionManager.h"
+
+//Defines
+#define PI          3.141592653589793238462643383279502884L
 
 class Game
 {

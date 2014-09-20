@@ -203,11 +203,25 @@ void Game::addNewWorldEntity(const actions_info& actions)
 {
 	// *IMPROVEMENT* the following two if statements are similar
 	// could consider adding another function
+
+	//Offset for creating a missile
+	const float missile_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.missile_creation_offset;
+
+	//Offset for creating a mine
+    const float mine_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.mine_creation_offset;
+
 	if (actions.change_1 == true)
 	{
+        const float p1_x_component = cos((_tracking_manager.getP1Rotation()*PI)/180);
+        const float p1_y_component = sin((_tracking_manager.getP1Rotation()*PI)/180);
+
 		if (actions.attack_1 == fire_missile)
 		{	// will use addNewMissile
-		    std::shared_ptr<Deletable> p1_missile_del_sp(new Missile(_tracking_manager.getP1PositionX(),_tracking_manager.getP1PositionY(),  _tracking_manager.getP1Rotation(), p1_missile));
+
+		    //get P1_tank rotation components
+		    std::shared_ptr<Deletable> p1_missile_del_sp(new Missile(_tracking_manager.getP1PositionX() + p1_x_component*missile_offset,
+                                                                    _tracking_manager.getP1PositionY() + p1_y_component*missile_offset,
+                                                                    _tracking_manager.getP1Rotation(), p1_missile));
 			_world_entities.push_back(p1_missile_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p1_missile_del_wp = p1_missile_del_sp;
@@ -223,7 +237,9 @@ void Game::addNewWorldEntity(const actions_info& actions)
 
         if (actions.attack_1 == lay_mine)
 		{	// will use addNewMine
-			std::shared_ptr<Deletable> p1_mine_del_sp(new Mine(_tracking_manager.getP1PositionX(), _tracking_manager.getP1PositionY(), p1_mine));
+			std::shared_ptr<Deletable> p1_mine_del_sp(new Mine(_tracking_manager.getP1PositionX() - p1_x_component*mine_offset,
+                                                               _tracking_manager.getP1PositionY() - p1_y_component*mine_offset,
+                                                               p1_mine));
 			_world_entities.push_back(p1_mine_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p1_mine_del_wp = p1_mine_del_sp;
@@ -237,9 +253,14 @@ void Game::addNewWorldEntity(const actions_info& actions)
 	}
 	else if (actions.change_2 == true)
 	{
+        const float p2_x_component = cos((_tracking_manager.getP2Rotation()*PI)/180);
+        const float p2_y_component = sin((_tracking_manager.getP2Rotation()*PI)/180);
+
 		if (actions.attack_2 == fire_missile)
 		{	// will use addNewMissile
-			std::shared_ptr<Deletable> p2_missile_del_sp(new Missile(_tracking_manager.getP2PositionX(), _tracking_manager.getP2PositionY(), _tracking_manager.getP2Rotation(), p2_missile));
+			std::shared_ptr<Deletable> p2_missile_del_sp(new Missile(_tracking_manager.getP2PositionX() + p2_x_component*missile_offset,
+                                                                    _tracking_manager.getP2PositionY() + p2_y_component*missile_offset,
+                                                                    _tracking_manager.getP2Rotation(), p2_missile));
 			_world_entities.push_back(p2_missile_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p2_missile_del_wp = p2_missile_del_sp;
@@ -255,7 +276,9 @@ void Game::addNewWorldEntity(const actions_info& actions)
 
         if (actions.attack_2 == lay_mine)
 		{	// will use addNewMine
-			std::shared_ptr<Deletable> p2_mine_del_sp(new Mine(_tracking_manager.getP2PositionX(),_tracking_manager.getP2PositionY(), p2_mine));
+			std::shared_ptr<Deletable> p2_mine_del_sp(new Mine(_tracking_manager.getP2PositionX() - p2_x_component*mine_offset,
+                                                               _tracking_manager.getP2PositionY() - p2_y_component*mine_offset,
+                                                               p2_mine));
 			_world_entities.push_back(p2_mine_del_sp);
 			//Convert to weak pointer
 			std::weak_ptr<Deletable> p2_mine_del_wp = p2_mine_del_sp;

@@ -28,6 +28,9 @@ public:
     const float map_sprite_y;
     const float barrier_sprite_y;
 
+    const float mine_creation_offset;
+    const float missile_creation_offset;
+
     ///Destructor
     ~SpriteDimensions();
 
