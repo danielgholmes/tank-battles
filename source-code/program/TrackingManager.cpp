@@ -24,28 +24,36 @@ void TrackingManager::manage()
 {
 
     auto _trackables_itterator = _trackables.begin();
-    for(; _trackables_itterator != _trackables.end(); _trackables_itterator++)
+    for(; _trackables_itterator != _trackables.end();)
     {
         //Convert Itterator to Weak Pointer
         std::weak_ptr<Trackable> entity_track_wp = (*_trackables_itterator);
         //Convert Weak Pointer to Shared Pointer
         std::shared_ptr<Trackable> entity_track_sp = entity_track_wp.lock();
-
-        if(entity_track_sp->getType() == p1_tank)
+        //Check to see if entity still exists
+        if (entity_track_sp)
         {
-            _p1PositionX = entity_track_sp->getPositionX();
-            _p1PositionY = entity_track_sp->getPositionY();
-            _p1Rotation = entity_track_sp->getOrientation();
-        }
+            if(entity_track_sp->getType() == p1_tank)
+            {
+                _p1PositionX = entity_track_sp->getPositionX();
+                _p1PositionY = entity_track_sp->getPositionY();
+                _p1Rotation = entity_track_sp->getOrientation();
+            }
 
-        if(entity_track_sp->getType() == p2_tank)
+            if(entity_track_sp->getType() == p2_tank)
+            {
+                _p2PositionX = entity_track_sp->getPositionX();
+                _p2PositionY = entity_track_sp->getPositionY();
+                _p2Rotation = entity_track_sp->getOrientation();
+            }
+
+            _trackables_itterator++;
+        }//If (shared pointer)
+        else
         {
-            _p2PositionX = entity_track_sp->getPositionX();
-            _p2PositionY = entity_track_sp->getPositionY();
-            _p2Rotation = entity_track_sp->getOrientation();
+            _trackables.erase(_trackables_itterator);
         }
-
-    }
+    }//For
 
 }
 
@@ -89,5 +97,5 @@ const float TrackingManager::getP2Rotation()
 /// Add Trackable-type shared_ptr's to the TrackingManagers internal data members
 void TrackingManager::addNewEntity(std::weak_ptr<Trackable> new_entity)
 {
-	_trackables.push_back(new_entity);
+    _trackables.push_back(new_entity);
 }

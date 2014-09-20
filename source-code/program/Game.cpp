@@ -27,9 +27,9 @@ Game::Game():
 	loadTextures();
 	addNewSprites();
 
-	addBarriers(); // only 1 barrier for now
+//	addBarriers(); // only 1 barrier for now
 	addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
-	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
+	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 0);
 }
 
 Game::Game(int width, int height):
@@ -51,7 +51,7 @@ Game::Game(int width, int height):
 	loadTextures();
 	addNewSprites();
 
-	addBarriers(); // only 1 barrier for now
+//	addBarriers(); // only 1 barrier for now
     addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
 	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
 }
@@ -274,7 +274,6 @@ void Game::addNewWorldEntity(const actions_info& actions)
             //Cast as Collidable (Weak pointer)
             std::weak_ptr<Collidable> p1_mine_mov_wp = std::dynamic_pointer_cast<Collidable>(p1_mine_del_sp);
             _collision_manager.addNewEntity(p1_mine_mov_wp);
-
 		}
 	}
 	else if (actions.change_2 == true)

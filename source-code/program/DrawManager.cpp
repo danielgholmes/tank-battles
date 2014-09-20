@@ -32,7 +32,7 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
     auto draw_itterator = _drawables.begin();
 
     //Loop through Array of Drawables and draw the corresponding sprite
-    for(; draw_itterator != _drawables.end(); draw_itterator++)
+    for(;draw_itterator != _drawables.end();)
     {
         //Deref itterator to weak pointer
         std::weak_ptr<Deletable> draw_entity_wp = (*draw_itterator);
@@ -40,10 +40,12 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
         std::shared_ptr<Deletable> draw_entity_sp = draw_entity_wp.lock();
         //Map itterator to traverse container
         std::map<entity_type,std::shared_ptr<sf::Sprite>>::iterator sprite_map_iterator;
-
-        switch (draw_entity_sp->getType())
+        //Check to see if the entity still exists
+        if(draw_entity_sp)
         {
-            case p1_tank:
+            switch (draw_entity_sp->getType())
+            {
+                case p1_tank:
                 //Search the map for p1_tank sprite
                 sprite_map_iterator = game_sprites.find(p1_tank);
                 if (sprite_map_iterator != game_sprites.end())
@@ -56,7 +58,7 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 }
                 break;
 
-            case p2_tank:
+                case p2_tank:
                  //Search the map for p2_tank sprite
                 sprite_map_iterator = game_sprites.find(p2_tank);
                 if (sprite_map_iterator != game_sprites.end())
@@ -69,7 +71,7 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 }
                 break;
 
-            case barrier:
+                case barrier:
                 //Search the map for barrier sprite
                 sprite_map_iterator = game_sprites.find(barrier);
                 if (sprite_map_iterator != game_sprites.end())
@@ -82,7 +84,7 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 }
                 break;
 
-            case p1_missile:
+                case p1_missile:
                  //Search the map for p1_missile sprite
                 sprite_map_iterator = game_sprites.find(p1_missile);
                 if (sprite_map_iterator != game_sprites.end())
@@ -95,7 +97,7 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 }
                 break;
 
-            case p2_missile:
+                case p2_missile:
                 //Search the map for p2_missile sprite
                 sprite_map_iterator = game_sprites.find(p2_missile);
                 if (sprite_map_iterator != game_sprites.end())
@@ -108,7 +110,7 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 }
                 break;
 
-            case p1_mine:
+                case p1_mine:
                  //Search the map for p1_mine sprite
                 sprite_map_iterator = game_sprites.find(p1_mine);
                 if (sprite_map_iterator != game_sprites.end())
@@ -121,7 +123,7 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 }
                 break;
 
-            case p2_mine:
+                case p2_mine:
                 //Search the map for p2_mine sprite
                 sprite_map_iterator = game_sprites.find(p2_mine);
                 if (sprite_map_iterator != game_sprites.end())
@@ -134,10 +136,17 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 }
                 break;
 
-            default:
+                default:
                 break;
-        }
-    }
+
+            } //Switch
+            draw_itterator++;
+        } //if (pointer still valid)
+        else
+            {
+                _drawables.erase(draw_itterator);
+            }
+    } //for
 
     window.display();
 }

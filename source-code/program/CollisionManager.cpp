@@ -16,9 +16,26 @@ CollisionManager::CollisionManager()
 
 void CollisionManager::manage()
 {
+    //Clear all deleted entities from the _collidables vector
+    auto removal = _collidables.begin();
+    for (; removal != _collidables.end();)
+    {
+        std::weak_ptr<Collidable> removal_wp = (*removal);
+		//Convert weak_ptr to shared_ptr
+		std::shared_ptr<Collidable> removal_sp = removal_wp.lock();
+		//Test if pointer still valid
+		if(removal_sp)
+        {
+            removal++;
+        }
+        else
+        {
+            _collidables.erase(removal);
+        }
+    }
+
     //Iterator at initial position within vector
     auto i = _collidables.begin();
-
 	for (; i != _collidables.end(); ++i)
 	{
 		std::weak_ptr<Collidable> entity_wp = (*i);

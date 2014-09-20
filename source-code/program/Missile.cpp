@@ -15,7 +15,7 @@ Missile::Missile(float positionX, float positionY, float rotation, entity_type m
     _missile(positionX,positionY,0,0,rotation),
     _sprite_dimensions()
 {
-     //Error input checking
+    //Error input checking
     if (_missile.getOriginX() < 0) throw InvalidConstructorArgumentsMissile();
     if (_missile.getOriginY() < 0) throw InvalidConstructorArgumentsMissile();
     if (_missile.getRotation() < 0) throw InvalidConstructorArgumentsMissile();
