@@ -10,12 +10,12 @@
 Game::Game():
 	_window_width(800),
 	_window_height(600),
-    _player1_start_posX(50),
-    _player1_start_posY (50),
-    _player2_start_posX (500),
-    _player2_start_posY (50),
-    _barrier_start_posX (200),
-    _barrier_start_posY (200),
+    _player1_start_posX(600),
+    _player1_start_posY (300),
+    _player2_start_posX (200),
+    _player2_start_posY (300),
+    _barrier_start_posX (400),
+    _barrier_start_posY (400),
     _game_sprite_dimensions()
 {
 	MoveManager _move_manager;
@@ -75,14 +75,33 @@ void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_
 	_tracking_manager.addNewEntity(new_tank_track);
 }
 
+//based off 800x600 map
 void Game::addBarriers()
 {
-	std::shared_ptr<Deletable> new_barrier_del(new Barrier(_barrier_start_posX, _barrier_start_posY, barrier));
-	_world_entities.push_back(new_barrier_del);
-	_draw_manager.addNewEntity(new_barrier_del);
-	//Cast as Collidable
-	std::weak_ptr<Collidable> new_barrier_col = std::dynamic_pointer_cast<Collidable>(new_barrier_del);
-	_collision_manager.addNewEntity(new_barrier_col);
+    //top border
+    for (int i = 1; i <= 8; i++)
+        createBarrier(100*i, 10);
+    //bottom border
+    for (int i = 8; i > 0; i--)
+        createBarrier(100*i, 675);
+    //right border
+    for (int i = 1; i <= 6; i++)
+        createBarrier(875, 110*i);
+    //left border
+    for (int i = 6; i > 0; i--)
+        createBarrier(7, 110*i);
+
+    createBarrier(450, 300);
+}
+
+void Game::createBarrier(int x, int y)
+{
+    std::shared_ptr<Deletable> new_barrier_del(new Barrier(x, y, barrier));
+    _world_entities.push_back(new_barrier_del);
+    _draw_manager.addNewEntity(new_barrier_del);
+    //Cast as Collidable
+    std::weak_ptr<Collidable> new_barrier_col = std::dynamic_pointer_cast<Collidable>(new_barrier_del);
+    _collision_manager.addNewEntity(new_barrier_col);
 }
 
 void Game::runWorld()
