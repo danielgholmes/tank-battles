@@ -15,10 +15,10 @@ Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwn
     _sprite_dimensions()
 {
     //Error input checking
-    if (_tank.getOriginX() < 0) throw InvalidConstructorArguments();
-    if (_tank.getOriginY() < 0) throw InvalidConstructorArguments();
-    if (_tank.getRotation() < 0) throw InvalidConstructorArguments();
-    if ((_type != p1_tank) && (_type != p2_tank)) throw InvalidConstructorArguments();
+    if (_tank.getOriginX() < 0) throw InvalidConstructorArgumentsTank();
+    if (_tank.getOriginY() < 0) throw InvalidConstructorArgumentsTank();
+    if (_tank.getRotation() < 0) throw InvalidConstructorArgumentsTank();
+    if ((_type != p1_tank) && (_type != p2_tank)) throw InvalidConstructorArgumentsTank();
 
     _tank.setWidth(_sprite_dimensions.tank_sprite_x);
     _tank.setHeight(_sprite_dimensions.tank_sprite_y);

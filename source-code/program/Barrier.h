@@ -17,6 +17,8 @@
 #include "Orientation.h"
 #include "SpriteDimensions.h"
 
+//Exception Throws
+class InvalidConstructorArgumentsBarrier{};
 
 class Barrier: virtual public Collidable
 {

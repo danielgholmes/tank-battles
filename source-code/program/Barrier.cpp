@@ -12,6 +12,10 @@ Barrier::Barrier(float positionX, float positionY, entity_type barrierTypeSet):
     _sprite_dimensions(),
     _barrier(positionX,positionY,0,0,0.0)
 {
+    if(positionX < 0) throw InvalidConstructorArgumentsBarrier();
+    if(positionY < 0) throw InvalidConstructorArgumentsBarrier();
+    if(barrierTypeSet != barrier) throw InvalidConstructorArgumentsBarrier();
+
     _barrier.setWidth(_sprite_dimensions.barrier_sprite_x);
     _barrier.setHeight(_sprite_dimensions.barrier_sprite_y);
     _type = barrierTypeSet;

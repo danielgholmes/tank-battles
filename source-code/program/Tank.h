@@ -22,7 +22,7 @@
 #include "SpriteDimensions.h"
 
 //Exception Throws
-class InvalidConstructorArguments {};
+class InvalidConstructorArgumentsTank{};
 
 
 class Tank: virtual public Movable, virtual public Collidable, public Trackable

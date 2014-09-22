@@ -18,6 +18,7 @@
 #include "Tank.h"
 #include "Missile.h"
 #include "Barrier.h"
+#include "Mine.h"
 
 
 ///*================Tests for CollisionManager Class============*/
@@ -238,11 +239,11 @@ TEST(Orientation, getGlobalBoundsCorrectlyReturnsBoundingBox)
 
 TEST(Tank, ifInvalidCoOrdinatesThrowsException)
 {
-    EXPECT_THROW({Tank TestTank1(-10,10,10,p1_tank);},InvalidConstructorArguments);
-    EXPECT_THROW({Tank TestTank1(10,-10,10,p1_tank);},InvalidConstructorArguments);
-    EXPECT_THROW({Tank TestTank1(10,10,-10,p1_tank);},InvalidConstructorArguments);
+    EXPECT_THROW({Tank TestTank1(-10,10,10,p1_tank);},InvalidConstructorArgumentsTank);
+    EXPECT_THROW({Tank TestTank1(10,-10,10,p1_tank);},InvalidConstructorArgumentsTank);
+    EXPECT_THROW({Tank TestTank1(10,10,-10,p1_tank);},InvalidConstructorArgumentsTank);
     EXPECT_NO_THROW({Tank TestTank1(10,10,10,p1_tank);});
-    EXPECT_THROW({Tank TestTank1(10,10,10,p1_mine);},InvalidConstructorArguments);
+    EXPECT_THROW({Tank TestTank1(10,10,10,p1_mine);},InvalidConstructorArgumentsTank);
 }
 
 
@@ -490,13 +491,13 @@ TEST(Missile, booleanVariablesAreCorrectlySetAndRetrieved)
 
 ///*================Tests for Barrier Class============*/
 
-//TEST(Barrier, ifInvalidCoOrdinatesThrowsException)
-//{
-//    EXPECT_THROW({Barrier TestBarrier(-10,10,barrier);},InvalidConstructorArgumentsMissile);
-//    EXPECT_THROW({Barrier TestBarrier(10,-10,barrier);},InvalidConstructorArgumentsMissile);
-//    EXPECT_NO_THROW({Barrier TestBarrier(10,10,barrier);});
-//    EXPECT_THROW({Barrier TestBarrier(10,10,p1_mine);},InvalidConstructorArgumentsMissile);
-//}
+TEST(Barrier, ifInvalidCoOrdinatesThrowsException)
+{
+    EXPECT_THROW({Barrier TestBarrier(-10,10,barrier);},InvalidConstructorArgumentsBarrier);
+    EXPECT_THROW({Barrier TestBarrier(10,-10,barrier);},InvalidConstructorArgumentsBarrier);
+    EXPECT_NO_THROW({Barrier TestBarrier(10,10,barrier);});
+    EXPECT_THROW({Barrier TestBarrier(10,10,p1_mine);},InvalidConstructorArgumentsBarrier);
+}
 
 TEST(Barrier, returnsCorrectEntityType)
 {
@@ -507,18 +508,21 @@ TEST(Barrier, returnsCorrectEntityType)
 
 TEST(Barrier, returnCorrectRectangleVertices)
 {
-    //barriers are 5x5
-    Barrier TestBarrier(10,10,barrier);
+    SpriteDimensions _dimensions;
+    float origin_x = 100;
+    float origin_y = 100;
+
+    Barrier TestBarrier(_dimensions.barrier_sprite_x,_dimensions.barrier_sprite_y,barrier);
     rect_corners rect;
 
-    rect.upper_left.x = 7.5;
-    rect.upper_left.y = 12.5;
-    rect.upper_right.x = 12.5;
-    rect.upper_right.y = 12.5;
-    rect.lower_left.x = 7.5;
-    rect.lower_left.y = 7.5;
-    rect.lower_right.x = 12.5;
-    rect.lower_right.y = 7.5;
+    rect.upper_left.x = origin_x - _dimensions.barrier_sprite_x/2;
+    rect.upper_left.y = origin_y + _dimensions.barrier_sprite_y/2;
+    rect.upper_right.x = origin_x + _dimensions.barrier_sprite_x/2;
+    rect.upper_right.y = origin_y + _dimensions.barrier_sprite_y/2;
+    rect.lower_left.x = origin_x - _dimensions.barrier_sprite_x/2;
+    rect.lower_left.y = origin_y - _dimensions.barrier_sprite_y/2;
+    rect.lower_right.x = origin_x + _dimensions.barrier_sprite_x/2;
+    rect.lower_right.y = origin_y - _dimensions.barrier_sprite_y/2;
 
     EXPECT_EQ(TestBarrier.getBoundingBox().upper_left.x,rect.upper_left.x);
     EXPECT_EQ(TestBarrier.getBoundingBox().upper_left.y,rect.upper_left.y);
@@ -549,6 +553,10 @@ TEST(Barrier, returnsCorrectDrawRotationValue)
 
 ///*================Tests for Mine Class============*/
 
+//TEST(Mine,throwsExceptionIfInvalidCoordinatesGiven)
+//{
+//    EXPECT_THROW()
+//}
 
 
 ///*===================================================*/
@@ -743,15 +751,6 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisThree)
     rect_A.lower_left.y = 1.0;
     rect_A.lower_right.x = 5.0;
     rect_A.lower_right.y = 1.0;
-
-//    rect_B.upper_left.x = 12.0;
-//    rect_B.upper_left.y = 19.0;
-//    rect_B.upper_right.x = 16.0;
-//    rect_B.upper_right.y = 19.0;
-//    rect_B.lower_left.x = 12.0;
-//    rect_B.lower_left.y = 12.0;
-//    rect_B.lower_right.x = 16.0;
-//    rect_B.lower_right.y = 12.0;
 
     rect_B.upper_left.x = 12.0;
     rect_B.upper_left.y = 19.0;
