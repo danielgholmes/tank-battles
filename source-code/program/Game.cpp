@@ -6,10 +6,13 @@
  */
 
 #include "Game.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
 
 Game::Game():
-	_window_width(800),
-	_window_height(600),
+	_window_width(1600),
+	_window_height(900),
     _player1_start_posX(600),
     _player1_start_posY (300),
     _player2_start_posX (200),
@@ -52,13 +55,7 @@ Game::Game(int width, int height):
 	loadTextures();
 	addNewSprites();
 
-//	addBarriers();
-    createBarrier(700,98);
-    createBarrier(700,199);
-	createBarrier(700,300);
-	createBarrier(700,400);
-    createBarrier(700,500);
-    createBarrier(700,603);
+	addBarriers();
 
     addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
 	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
@@ -84,23 +81,40 @@ void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_
 	_tracking_manager.addNewEntity(new_tank_track_wp);
 }
 
-//based off 800x600 map
 void Game::addBarriers()
 {
-    //top border
-    for (int i = 1; i <= 8; i++)
-        createBarrier(100*i, 10);
-    //bottom border
-    for (int i = 8; i > 0; i--)
-        createBarrier(100*i, 675);
-    //right border
-    for (int i = 1; i <= 6; i++)
-        createBarrier(875, 110*i);
-    //left border
-    for (int i = 6; i > 0; i--)
-        createBarrier(7, 110*i);
+	std::ifstream map_grid("map_grid.txt");
+  	std::vector<std::vector<char>> map_vector;
+  	std::vector<char> grid_line;
 
-    createBarrier(450, 300);
+ 	if (map_grid.is_open())
+  	{
+		std::string line;
+		while ( getline(map_grid,line) )
+		{
+	  		std::istringstream ss(line);
+	  		char symbol;
+	  		while (ss >> symbol)
+	  		{
+				grid_line.push_back(symbol);
+	  		}
+	  		map_vector.push_back(grid_line);
+	  		grid_line.clear();
+		}
+		map_grid.close();
+	}
+  	else std::cout << "Unable to open map file";
+
+  	int barrier_size = 100;
+  	for (int i = 0; i < map_vector.size(); i++)
+  	{
+  	    auto temp_vector = map_vector[i];
+  		for (int j = 0; j < temp_vector.size(); j++)
+  		{
+  			if (temp_vector[j] == '#')
+                createBarrier(j*100, i*100);
+  		}
+  	}
 }
 
 void Game::createBarrier(int x, int y)
