@@ -13,7 +13,7 @@ using namespace std;
 
 int main()
 {
-    Game StartNewGame;
+    Game StartNewGame(1200,675);
 
     StartNewGame.runWorld();
 

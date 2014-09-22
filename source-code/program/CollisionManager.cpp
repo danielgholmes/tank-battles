@@ -35,10 +35,12 @@ void CollisionManager::manage()
         }
     }
 
+
     //Iterator at initial position within vector
     auto i = _collidables.begin();
 	for (; i != _collidables.end(); ++i)
 	{
+        bool entity_blocked = false;
         std::weak_ptr<Collidable> entity_wp = (*i);
         //Convert weak_ptr to shared_ptr
         std::shared_ptr<Collidable> entity_sp = entity_wp.lock();
@@ -46,32 +48,36 @@ void CollisionManager::manage()
         const rect_corners& entity_box = (entity_sp)->getBoundingBox();
 
         //Always one position ahead of iterator i
-        auto j =  i+1;
-
+        auto j = _collidables.begin();
         for (; j != _collidables.end(); ++j)
         {
-            bool entity_blocked = false;
-            std::weak_ptr<Collidable> obstacle_wp = (*j);
-            //Convert weak_ptr to shared_ptr
-            std::shared_ptr<Collidable> obstacle_sp = obstacle_wp.lock();
-
-            const rect_corners& obstacle_box = (obstacle_sp)->getBoundingBox();
-
-            CollisionHelper collision_helper;// create object of helper class
-
-            if (collision_helper.isCollision(entity_box, obstacle_box))
+            if (i != j)
             {
-                entity_blocked = true;
-                setCollisionStates(entity_sp, obstacle_sp);
-            }
-            else
-            {
-                resetBlockedState(entity_sp);
-                resetBlockedState(obstacle_sp);
-            }
-        }
-    }
-}
+                std::weak_ptr<Collidable> obstacle_wp = (*j);
+                //Convert weak_ptr to shared_ptr
+                std::shared_ptr<Collidable> obstacle_sp = obstacle_wp.lock();
+
+                //This excludes comparing barrier collisions
+                if ((obstacle_sp->getType() != barrier) || (entity_sp->getType() != barrier))
+                {
+                    const rect_corners& obstacle_box = (obstacle_sp)->getBoundingBox();
+
+                    CollisionHelper collision_helper;// create object of helper class
+
+                    if (collision_helper.isCollision(entity_box, obstacle_box))
+                    {
+                        entity_blocked = true;
+                        setCollisionStates(entity_sp, obstacle_sp);
+                    }
+                    if (!entity_blocked)
+                    {
+                        resetBlockedState(entity_sp);
+                    }
+                }//Barrier comparison if
+            }//itterator if
+        }//inner-for
+    }//outer-for
+}//Manage function
 
 
 void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
@@ -82,12 +88,12 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 		{
 			case p1_tank:
 				entity_1->setBlocked(); // tank
-				entity_2->setBlocked(); // tank
+//				entity_2->setBlocked(); // tank
 				break;
 
             case p2_tank:
 				entity_1->setBlocked(); // tank
-				entity_2->setBlocked(); // tank
+//				entity_2->setBlocked(); // tank
 				break;
 
 			case p1_missile:
@@ -164,6 +170,9 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 				entity_2->setCollided(); // tank
 				break;
 
+            case barrier:
+                entity_1->setCollided(); //mine
+
 			default:
 				break;
 		}
@@ -188,6 +197,14 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
             case p2_missile:
 				entity_2->setBlocked(); // missile rebounds
 				break;
+
+            case p1_mine:
+                entity_2->setCollided();
+                break;
+
+            case p2_mine:
+                entity_2->setCollided();
+                break;
 
 			default:
 				break;

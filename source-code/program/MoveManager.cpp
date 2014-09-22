@@ -80,20 +80,23 @@ void MoveManager::manage(const actions_info& managerInstructions)
                 switch(managerInstructions.move_1)
                 {
                     case forward:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->moveBackward();
                     break;
 
                     case reverse:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->moveForward();
                         break;
 
                     case rotate_left:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->rotateRight();
                         break;
 
                     case rotate_right:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->rotateLeft();
-
                     case do_nothing:
                         break;
                 }
@@ -131,21 +134,24 @@ void MoveManager::manage(const actions_info& managerInstructions)
             {
                 switch(managerInstructions.move_2)
                 {
-                    case forward:
+                case forward:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->moveBackward();
                     break;
 
                     case reverse:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->moveForward();
                         break;
 
                     case rotate_left:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->rotateRight();
                         break;
 
                     case rotate_right:
+                        for (int i = 0; i < 5 ; i++)
                         entity_mov_sp->rotateLeft();
-
                     case do_nothing:
                         break;
                 }
@@ -159,6 +165,7 @@ void MoveManager::manage(const actions_info& managerInstructions)
         if ((entity_mov_sp->getType() == p1_missile) && (entity_mov_sp->isBlocked()))
         {
             entity_mov_sp->rotateLeft();
+            entity_mov_sp->rotateLeft();
             entity_mov_sp->moveForward();
         }
         //Missile moves forward
@@ -170,6 +177,7 @@ void MoveManager::manage(const actions_info& managerInstructions)
         //P2 Missile has hit a barrier
         if ((entity_mov_sp->getType() == p2_missile) && (entity_mov_sp->isBlocked()))
         {
+            entity_mov_sp->rotateLeft();
             entity_mov_sp->rotateLeft();
             entity_mov_sp->moveForward();
         }

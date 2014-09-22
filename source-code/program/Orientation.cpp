@@ -6,6 +6,9 @@
  */
 
 #include "Orientation.h"
+#include <cmath>
+
+#define PI          3.141592653589793238462643383279502884L
 
 Orientation::Orientation(float origin_x, float origin_y, float width, float height, float rotation):
 	_origin_x(origin_x),
@@ -89,21 +92,24 @@ Orientation::~Orientation()
 
 void Orientation::setGlobalBounds()
 {
+    float angle = _rotation*(PI/180);
+
     //Bottom-left corner assignment
-    _collison_box.lower_left.x = (_origin_x - _width/2);
-    _collison_box.lower_left.y = (_origin_y - _height/2);
+    _collison_box.lower_left.x = (-_width/2)*cos(angle) - (-_height/2)*sin(angle) + _origin_x;
+    _collison_box.lower_left.y = (-_width/2)*sin(angle) + (-_height/2)*cos(angle) + _origin_y;
 
     //Bottom-right corner assignment
-    _collison_box.lower_right.x = (_origin_x + _width/2);
-    _collison_box.lower_right.y = (_origin_y - _height/2);
+    _collison_box.lower_right.x = (+_width/2)*cos(angle) - (-_height/2)*sin(angle) + _origin_x;
+    _collison_box.lower_right.y = (+_width/2)*sin(angle) + (-_height/2)*cos(angle) + _origin_y;
 
-    //Top-left corner assignment
-    _collison_box.upper_left.x = (_origin_x - _width/2);
-    _collison_box.upper_left.y = (_origin_y + _height/2);
+     //Top-left corner assignment
+    _collison_box.upper_left.x = (-_width/2)*cos(angle) - (+_height/2)*sin(angle) + _origin_x;
+    _collison_box.upper_left.y = (-_width/2)*sin(angle) + (+_height/2)*cos(angle) + _origin_y;
 
     //Top-right corner assignment
-    _collison_box.upper_right.x = (_origin_x + _width/2);
-    _collison_box.upper_right.y = (_origin_y + _height/2);
+    _collison_box.upper_right.x = (+_width/2)*cos(angle) - (+_height/2)*sin(angle) + _origin_x;
+    _collison_box.upper_right.y = (+_width/2)*sin(angle) + (+_height/2)*cos(angle) + _origin_y;
+
 }
 
 bool Orientation::operator==(Orientation& rhs) const

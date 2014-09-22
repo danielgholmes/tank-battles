@@ -29,18 +29,19 @@ Game::Game():
 
 	addBarriers();
 	addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
-	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 0);
+	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
 }
 
 Game::Game(int width, int height):
 	_window_width(width),
 	_window_height(height),
-	_player1_start_posX(50),
-    _player1_start_posY(50),
-    _player2_start_posX(500),
-    _player2_start_posY(50),
-    _barrier_start_posX(200),
-    _barrier_start_posY(200)
+    _player1_start_posX (600),
+    _player1_start_posY (300),
+    _player2_start_posX (200),
+    _player2_start_posY (300),
+    _barrier_start_posX (400),
+    _barrier_start_posY (400),
+    _game_sprite_dimensions()
 {
 	MoveManager _move_manager;
 	CollisionManager _collision_manager;
@@ -51,7 +52,14 @@ Game::Game(int width, int height):
 	loadTextures();
 	addNewSprites();
 
-	addBarriers();
+//	addBarriers();
+    createBarrier(700,98);
+    createBarrier(700,199);
+	createBarrier(700,300);
+	createBarrier(700,400);
+    createBarrier(700,500);
+    createBarrier(700,603);
+
     addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
 	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
 }
@@ -225,8 +233,6 @@ void Game::checkKeyboardInput(actions_info& actions)
 // Note: here is some more logic
 void Game::addNewWorldEntity(const actions_info& actions)
 {
-	// *IMPROVEMENT* the following two if statements are similar
-	// could consider adding another function
 
 	//Offset for creating a missile
 	const float missile_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.missile_creation_offset;
@@ -334,8 +340,8 @@ void Game::loadTextures()
 
 void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window)
 {
+    _collision_manager.manage();
 	_move_manager.manage(actions);
-	_collision_manager.manage();
 	_tracking_manager.manage();
 	_destruction_manager.manage();
 	_draw_manager.manage(_sprites, window);
