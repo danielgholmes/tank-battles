@@ -14,12 +14,6 @@ Game::Game():
 	_window_width(800),
 	_window_height(600),
 	_game_activity(true),
-    _player1_start_posX(600),
-    _player1_start_posY (300),
-    _player2_start_posX (200),
-    _player2_start_posY (300),
-    _barrier_start_posX (400),
-    _barrier_start_posY (400),
     _game_sprite_dimensions()
 {
 	MoveManager _move_manager;
@@ -32,21 +26,13 @@ Game::Game():
 	loadTextures();
 	addNewSprites();
 
-	addBarriers();
-	addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
-	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
+    setupInitialMap();
 }
 
 Game::Game(int width, int height):
 	_window_width(width),
 	_window_height(height),
 	_game_activity(true),
-    _player1_start_posX (600),
-    _player1_start_posY (300),
-    _player2_start_posX (200),
-    _player2_start_posY (300),
-    _barrier_start_posX (400),
-    _barrier_start_posY (400),
     _game_sprite_dimensions()
 {
 	MoveManager _move_manager;
@@ -59,10 +45,7 @@ Game::Game(int width, int height):
 	loadTextures();
 	addNewSprites();
 
-	addBarriers();
-
-    addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
-	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
+	setupInitialMap();
 }
 
 void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation)
@@ -85,7 +68,7 @@ void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_
 	_tracking_manager.addNewEntity(new_tank_track_wp);
 }
 
-void Game::addBarriers()
+void Game::setupInitialMap()
 {
 	std::ifstream map_grid("map_grid.txt");
   	std::vector<std::vector<char>> map_vector;
@@ -109,14 +92,17 @@ void Game::addBarriers()
 	}
   	else std::cout << "Unable to open map file";
 
-  	int barrier_size = 100;
   	for (int i = 0; i < map_vector.size(); i++)
   	{
   	    auto temp_vector = map_vector[i];
   		for (int j = 0; j < temp_vector.size(); j++)
   		{
   			if (temp_vector[j] == '#')
-                createBarrier(j*100, i*100);
+                createBarrier(j*_game_sprite_dimensions.barrier_sprite_x, i*_game_sprite_dimensions.barrier_sprite_y);
+            if (temp_vector[j] == '1')
+                addNewTank(p1_tank, j*_game_sprite_dimensions.barrier_sprite_x, i*_game_sprite_dimensions.barrier_sprite_y, 0);
+            if (temp_vector[j] == '2')
+                addNewTank(p2_tank, j*_game_sprite_dimensions.barrier_sprite_x, i*_game_sprite_dimensions.barrier_sprite_y, 180);
   		}
   	}
 }
@@ -139,7 +125,7 @@ void Game::runWorld()
 {
 	// initialise objects and variables to be used within the main program loop
 	sf::RenderWindow window(sf::VideoMode(_window_width, _window_height), _window_title);
-	window.setFramerateLimit(60); // may need to synchronise things another way later on
+	window.setFramerateLimit(45); // may need to synchronise things another way later on
 
 	actions_info actions; // create the struct
 

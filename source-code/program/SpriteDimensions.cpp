@@ -10,17 +10,17 @@
 
 
 SpriteDimensions::SpriteDimensions():
-    map_sprite_x(5000),
-    map_sprite_y(5000),
+    map_sprite_x(2000),
+    map_sprite_y(2000),
     tank_sprite_x(50),
     tank_sprite_y(50),
-    missile_sprite_x(12),
-    missile_sprite_y(12),
-    barrier_sprite_x(100),
-    barrier_sprite_y(100),
-    mine_sprite_x(20),
-    mine_sprite_y(20),
-    mine_creation_offset(80),
+    missile_sprite_x(5),
+    missile_sprite_y(5),
+    barrier_sprite_x(50),
+    barrier_sprite_y(50),
+    mine_sprite_x(40),
+    mine_sprite_y(40),
+    mine_creation_offset(40),
     missile_creation_offset(20)
 
     {}

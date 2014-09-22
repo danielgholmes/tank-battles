@@ -77,13 +77,6 @@ private:
 	/// Map container for the sprites that will be drawn
 	std::map<entity_type, std::shared_ptr<sf::Sprite>>  _sprites;
 
-    const float _player1_start_posX;
-    const float _player1_start_posY;
-    const float _player2_start_posX;
-    const float _player2_start_posY;
-    const float _barrier_start_posX; // only 1 barrier for now
-    const float _barrier_start_posY;
-
 	// All world managers
 	MoveManager _move_manager;
 	CollisionManager _collision_manager;
@@ -113,11 +106,13 @@ private:
 	/// Function which creates the base stamp sprites for the Game
 	void addNewSprites();
 
-	/// Function that adds a new tank to the world
+	/// Function used to create base map sprites from a .txt file template
+	void setupInitialMap();
+
+	/// Helper function for setupInitialMap
 	void addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation);
 
-	void addBarriers();
-
+    /// Helper function for setupInitialMap
 	void createBarrier(int x, int y);
 
 	/// Function that loads all textures into memory

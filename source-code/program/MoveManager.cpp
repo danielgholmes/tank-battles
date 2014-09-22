@@ -80,22 +80,22 @@ void MoveManager::manage(const actions_info& managerInstructions)
                 switch(managerInstructions.move_1)
                 {
                     case forward:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->moveBackward();
                     break;
 
                     case reverse:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->moveForward();
                         break;
 
                     case rotate_left:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->rotateRight();
                         break;
 
                     case rotate_right:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->rotateLeft();
                     case do_nothing:
                         break;
@@ -135,22 +135,22 @@ void MoveManager::manage(const actions_info& managerInstructions)
                 switch(managerInstructions.move_2)
                 {
                 case forward:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->moveBackward();
                     break;
 
                     case reverse:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->moveForward();
                         break;
 
                     case rotate_left:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->rotateRight();
                         break;
 
                     case rotate_right:
-                        for (int i = 0; i < 5 ; i++)
+                        for (int i = 0; i < 3 ; i++)
                         entity_mov_sp->rotateLeft();
                     case do_nothing:
                         break;
