@@ -10,6 +10,7 @@
 Game::Game():
 	_window_width(800),
 	_window_height(600),
+	_game_activity(true),
     _player1_start_posX(600),
     _player1_start_posY (300),
     _player2_start_posX (200),
@@ -23,6 +24,7 @@ Game::Game():
 	TrackingManager _tracking_manager;
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
+	GameStateManager _state_manager;
 
 	loadTextures();
 	addNewSprites();
@@ -35,6 +37,7 @@ Game::Game():
 Game::Game(int width, int height):
 	_window_width(width),
 	_window_height(height),
+	_game_activity(true),
     _player1_start_posX (600),
     _player1_start_posY (300),
     _player2_start_posX (200),
@@ -48,17 +51,12 @@ Game::Game(int width, int height):
 	TrackingManager _tracking_manager;
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
+	GameStateManager _state_manager;
 
 	loadTextures();
 	addNewSprites();
 
-//	addBarriers();
-    createBarrier(700,98);
-    createBarrier(700,199);
-	createBarrier(700,300);
-	createBarrier(700,400);
-    createBarrier(700,500);
-    createBarrier(700,603);
+	addBarriers();
 
     addNewTank(p1_tank, _player1_start_posX, _player1_start_posY, 0);
 	addNewTank(p2_tank, _player2_start_posX, _player2_start_posY, 180);
@@ -125,13 +123,13 @@ void Game::runWorld()
 
 	actions_info actions; // create the struct
 
-	while(window.isOpen())
+	while(window.isOpen() && (_game_activity))
 	{
 		initialiseActions(actions);
 		pollEvents(window);
 		checkKeyboardInput(actions);
 		addNewWorldEntity(actions);
-		runAllManagers(actions,window);
+		runAllManagers(actions,window,_game_activity);
 	}
 
 	return;
@@ -338,12 +336,13 @@ void Game::loadTextures()
 	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
 }
 
-void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window)
+void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window, bool& game_state)
 {
     _collision_manager.manage();
 	_move_manager.manage(actions);
 	_tracking_manager.manage();
-	_destruction_manager.manage();
+	_destruction_manager.manage(game_state);
+	_state_manager.manage(game_state);
 	_draw_manager.manage(_sprites, window);
 }
 
