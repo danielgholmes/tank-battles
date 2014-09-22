@@ -56,7 +56,7 @@ private:
 
 	int _window_width;
 	int _window_height;
-	std::string _window_title = "Tank v0.1";
+	std::string _window_title = "Tank Battles v1.0";
 
 	//Sprite dimensions
     SpriteDimensions _game_sprite_dimensions;
