@@ -35,7 +35,6 @@ void CollisionManager::manage()
         }
     }
 
-
     //Iterator at initial position within vector
     auto i = _collidables.begin();
 	for (; i != _collidables.end(); ++i)

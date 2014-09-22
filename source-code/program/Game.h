@@ -32,6 +32,7 @@
 #include "TrackingManager.h"
 #include "DrawManager.h"
 #include "DestructionManager.h"
+#include "GameStateManager.h"
 
 //Defines
 #define PI          3.141592653589793238462643383279502884L
@@ -89,6 +90,10 @@ private:
 	TrackingManager _tracking_manager;
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
+    GameStateManager _state_manager;
+
+    //Boolean value defining whether the game is running or not
+    bool _game_activity;
 
 	/// Handles all events in main game loop
 	void pollEvents(sf::RenderWindow& window);
@@ -100,7 +105,7 @@ private:
 	void checkKeyboardInput(actions_info& actions);
 
 	/// Function thats tells all managers to operate
-	void runAllManagers(const actions_info& actions, sf::RenderWindow& window);
+	void runAllManagers(const actions_info& actions, sf::RenderWindow& window, bool& game_state);
 
 	/// Function that will add new entity based on action
 	void addNewWorldEntity(const actions_info& actions);
