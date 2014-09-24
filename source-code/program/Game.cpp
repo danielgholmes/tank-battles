@@ -13,7 +13,6 @@
 Game::Game():
 	_window_width(800),
 	_window_height(600),
-	_game_activity(true),
     _game_sprite_dimensions()
 {
 	MoveManager _move_manager;
@@ -32,7 +31,6 @@ Game::Game():
 Game::Game(int width, int height):
 	_window_width(width),
 	_window_height(height),
-	_game_activity(true),
     _game_sprite_dimensions()
 {
 	MoveManager _move_manager;
@@ -128,14 +126,16 @@ void Game::runWorld()
 	window.setFramerateLimit(45); // may need to synchronise things another way later on
 
 	actions_info actions; // create the struct
+	game_state_info game_state;
+	game_state.finished = false;
 
-	while(window.isOpen() && (_game_activity))
+	while(window.isOpen() && (!game_state.finished))
 	{
 		initialiseActions(actions);
 		pollEvents(window);
 		checkKeyboardInput(actions);
 		addNewWorldEntity(actions);
-		runAllManagers(actions,window,_game_activity);
+		runAllManagers(actions,window,game_state);
 	}
 
 	return;
@@ -342,14 +342,14 @@ void Game::loadTextures()
 	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
 }
 
-void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window, bool& game_state)
+void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window, game_state_info& game_state)
 {
     _collision_manager.manage();
 	_move_manager.manage(actions);
 	_tracking_manager.manage();
 	_destruction_manager.manage(game_state);
 	_state_manager.manage(game_state);
-	_draw_manager.manage(_sprites, window);
+	_draw_manager.manage(_sprites, window, game_state);
 }
 
 void Game::addNewSprites()

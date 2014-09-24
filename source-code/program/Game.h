@@ -85,9 +85,6 @@ private:
 	DestructionManager _destruction_manager;
     GameStateManager _state_manager;
 
-    //Boolean value defining whether the game is running or not
-    bool _game_activity;
-
 	/// Handles all events in main game loop
 	void pollEvents(sf::RenderWindow& window);
 
@@ -98,7 +95,7 @@ private:
 	void checkKeyboardInput(actions_info& actions);
 
 	/// Function thats tells all managers to operate
-	void runAllManagers(const actions_info& actions, sf::RenderWindow& window, bool& game_state);
+	void runAllManagers(const actions_info& actions, sf::RenderWindow& window, game_state_info& game_state);
 
 	/// Function that will add new entity based on action
 	void addNewWorldEntity(const actions_info& actions);

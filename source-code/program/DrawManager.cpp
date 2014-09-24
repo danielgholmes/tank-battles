@@ -7,6 +7,7 @@
 
 #include "DrawManager.h"
 #include <iostream>
+#include <sstream>
 
 ///Constructor for DrawManager
 DrawManager::DrawManager():
@@ -14,13 +15,24 @@ DrawManager::DrawManager():
 {
    if (!_mapText.loadFromFile("map.png"))
    {
-        std::cout << "Unable to load Map file!" <<std::endl;
+        std::cout << "Unable to load Map file!" << std::endl;
    }
    _map.setTexture(_mapText);
+
+   if (!_font.loadFromFile("futura_light.ttf"))
+   {
+       std::cout << "Unable to load font file!" << std::endl;
+   }
+    // select the font
+    _game_time_text.setFont(_font);
+    _game_time_text.setCharacterSize(20);
+    _game_time_text.setColor(sf::Color::White);
+    _game_time_text.setStyle(sf::Text::Bold);
+    _game_time_text.setPosition(550,0);
 }
 
 ///Drawing management cycle. The manager will render all the entites within the game world.
-void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game_sprites, sf::RenderWindow& window)
+void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game_sprites, sf::RenderWindow& window, game_state_info& game_state)
 {
     //Clear the screen
     window.clear();
@@ -147,6 +159,13 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                 _drawables.erase(draw_itterator);
             }
     } //for
+
+    std::ostringstream strs; // convert time double to string
+    strs << game_state.runtime;
+    std::string str = strs.str();
+
+    _game_time_text.setString(str);
+    window.draw(_game_time_text);
 
     window.display();
 }

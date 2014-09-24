@@ -12,12 +12,25 @@ GameStateManager::GameStateManager():
     _p2_score(0)
     //Constructor for timer goes here
 {
-
+    _game_timer.start();
 }
 
-void GameStateManager::manage(bool& game_state)
+void GameStateManager::manage(game_state_info& game_state)
 {
-    //Do nothing for now
+    if (!_game_timer.isRunning())
+        _game_timer.start();
+
+    double current_time = _game_runtime - _game_timer.getTimerValue();// makes the timer countdown
+
+    if (current_time <= 0 )
+    {
+        _game_timer.stop();
+        game_state.finished = true; // finish the game
+    }
+    else
+        game_state.runtime = current_time;
+
+
 }
 
 GameStateManager::~GameStateManager()

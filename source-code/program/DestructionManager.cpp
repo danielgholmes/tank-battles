@@ -14,7 +14,7 @@
  }
 
 ///Destruction management process for the Destruction Manager
-void DestructionManager::manage(bool& game_state)
+void DestructionManager::manage(game_state_info& game_state)
 {
     auto i = _destructables.begin();
     for(; i != _destructables.end();)
@@ -24,8 +24,8 @@ void DestructionManager::manage(bool& game_state)
             //The manager checks each entity to see if it has recieved a 'death state'
             if(entity_sp->isDeleted())
             {
-                if (entity_sp->getType() == p1_tank) game_state = 0;
-                if (entity_sp->getType() == p2_tank) game_state = 0;
+                if (entity_sp->getType() == p1_tank) game_state.finished = true;
+                if (entity_sp->getType() == p2_tank) game_state.finished = true;
 
                 _destructables.erase(i);
                 //delete (&entity_sp); //---> This flags a warning

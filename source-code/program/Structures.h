@@ -68,6 +68,15 @@ struct rect_corners
     coordinate lower_right;
 };
 
+///Contains information about the game state
+struct game_state_info
+{
+    bool finished;
+    double runtime;
+    // int player1_score;
+    // int player2_score;
+};
+
 
 #endif
 

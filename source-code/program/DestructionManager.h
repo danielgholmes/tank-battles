@@ -24,7 +24,7 @@ public:
     DestructionManager();
 
     /// Destruction management process for the Destruction Manager
-    void manage(bool& game_state);
+    void manage(game_state_info& game_state);
 
 	/// Add Deletable-type shared_ptr's to the DestructionManagers internal data members
     void addNewEntity(std::shared_ptr<Deletable> new_entity);
