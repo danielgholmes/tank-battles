@@ -11,7 +11,7 @@
 Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwner):
     _rotation(rotation),
     _type(tankOwner),
-    _tank(positionX,positionY,0,0,rotation),
+    _tank(positionX,positionY,0,0,rotation, true),
     _sprite_dimensions()
 {
     //Error input checking
@@ -134,6 +134,12 @@ const float Tank::getDrawPositionY()
 const float Tank::getDrawRotation()
 {
     return _tank.getRotation();
+}
+
+///Set the movement direction of the entity
+void Tank::setMovementDirection(const movement_direction Movement_input)
+{
+    _tank.setMoveDirection(Movement_input);
 }
 
 ///Tank object destructor

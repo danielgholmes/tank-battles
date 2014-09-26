@@ -9,7 +9,7 @@
 
 ///Mine entity constructor
 Mine::Mine(float positionX, float positionY, entity_type mineOwner):
-    _mine(positionX,positionY,0.0,0.0,0.0),
+    _mine(positionX,positionY,0.0,0.0,0.0, false),
     _sprite_dimensions()
 {
     _mine.setWidth(_sprite_dimensions.mine_sprite_x);

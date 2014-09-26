@@ -15,7 +15,7 @@ class Orientation
 {
 public:
 	///Constructor that initialises all data members of the class
-	Orientation(float origin_x, float origin_y, float width, float height, float rotation);
+	Orientation(float origin_x, float origin_y, float width, float height, float rotation, bool controllable);
 	///Returns the entity origin x value
 	const float getOriginX();
 	///Returns the entity origin y value
@@ -34,6 +34,8 @@ public:
 	void move(float movement_in_x, float movement_in_y);
 	///Rotate the entity by a supplied angle
     void rotate(float angle);
+    ///Used to set the state of future collision detection
+    void setMoveDirection(const movement_direction);
     ///Retrieve Rectangular co-ordinates for collision detection
     rect_corners& getGlobalBounds();
     ///Destructor
@@ -48,8 +50,13 @@ private:
 	float _height;
 	float _rotation;
 	rect_corners _collison_box;
+	bool _controllable;
+	movement_direction _movement_direction;
 
 	//Helper functions
     void setGlobalBounds();
+    float getRelativeX() const;
+    float getRelativeY() const;
+    float getRelativeRotation() const;
 };
 #endif // ORIENTATION_H_

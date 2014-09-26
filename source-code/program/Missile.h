@@ -55,6 +55,8 @@ public:
     virtual const float getDrawPositionY();
     ///Receive the missile rotation
     virtual const float getDrawRotation();
+    ///Set the movement direction of the entity
+	virtual void setMovementDirection(const movement_direction Movement_input);
 	///Missile object destructor
 	virtual ~Missile();
 

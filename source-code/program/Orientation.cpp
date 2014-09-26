@@ -10,13 +10,16 @@
 
 #define PI          3.141592653589793238462643383279502884L
 
-Orientation::Orientation(float origin_x, float origin_y, float width, float height, float rotation):
+
+Orientation::Orientation(float origin_x, float origin_y, float width, float height, float rotation, bool controllable):
 	_origin_x(origin_x),
 	_origin_y(origin_y),
 	_width(width),
 	_height(height),
-	_rotation(rotation)
+	_rotation(rotation),
+	_controllable(controllable)
 	{
+	    _movement_direction = noMove;
         setGlobalBounds();
 	}
 
@@ -85,6 +88,11 @@ rect_corners& Orientation::getGlobalBounds()
     return _collison_box;
 }
 
+void Orientation::setMoveDirection(const movement_direction movement_command)
+{
+    _movement_direction = movement_command;
+}
+
 Orientation::~Orientation()
 {
     //Possibly add code
@@ -92,24 +100,110 @@ Orientation::~Orientation()
 
 void Orientation::setGlobalBounds()
 {
-    float angle = _rotation*(PI/180);
+    float angle = getRelativeRotation()*(PI/180);
 
     //Bottom-left corner assignment
-    _collison_box.lower_left.x = (-_width/2)*cos(angle) - (-_height/2)*sin(angle) + _origin_x;
-    _collison_box.lower_left.y = (-_width/2)*sin(angle) + (-_height/2)*cos(angle) + _origin_y;
+    _collison_box.lower_left.x = (-_width/2)*cos(angle) - (-_height/2)*sin(angle) + getRelativeX();
+    _collison_box.lower_left.y = (-_width/2)*sin(angle) + (-_height/2)*cos(angle) + getRelativeY();
 
     //Bottom-right corner assignment
-    _collison_box.lower_right.x = (+_width/2)*cos(angle) - (-_height/2)*sin(angle) + _origin_x;
-    _collison_box.lower_right.y = (+_width/2)*sin(angle) + (-_height/2)*cos(angle) + _origin_y;
+    _collison_box.lower_right.x = (+_width/2)*cos(angle) - (-_height/2)*sin(angle) + getRelativeX();
+    _collison_box.lower_right.y = (+_width/2)*sin(angle) + (-_height/2)*cos(angle) + getRelativeY();
 
      //Top-left corner assignment
-    _collison_box.upper_left.x = (-_width/2)*cos(angle) - (+_height/2)*sin(angle) + _origin_x;
-    _collison_box.upper_left.y = (-_width/2)*sin(angle) + (+_height/2)*cos(angle) + _origin_y;
+    _collison_box.upper_left.x = (-_width/2)*cos(angle) - (+_height/2)*sin(angle) + getRelativeX();
+    _collison_box.upper_left.y = (-_width/2)*sin(angle) + (+_height/2)*cos(angle) + getRelativeY();
 
     //Top-right corner assignment
-    _collison_box.upper_right.x = (+_width/2)*cos(angle) - (+_height/2)*sin(angle) + _origin_x;
-    _collison_box.upper_right.y = (+_width/2)*sin(angle) + (+_height/2)*cos(angle) + _origin_y;
+    _collison_box.upper_right.x = (+_width/2)*cos(angle) - (+_height/2)*sin(angle) + getRelativeX();
+    _collison_box.upper_right.y = (+_width/2)*sin(angle) + (+_height/2)*cos(angle) + getRelativeY();
 
+}
+
+float Orientation::getRelativeX() const
+{
+    float angle = _rotation*(PI/180);
+    float returnVal = 0.0;
+
+    if (!_controllable)
+        return _origin_x;
+    else
+    {
+        switch(_movement_direction)
+        {
+
+        case moveForward:
+            returnVal = (_origin_x + TANK_MOVE_SPEED*cos(angle));
+            break;
+
+        case moveBackward:
+            returnVal = (_origin_x - TANK_MOVE_SPEED*cos(angle));
+            break;
+
+        default:
+            returnVal = _origin_x;
+            break;
+        }
+
+        return returnVal;
+    }
+}
+
+float Orientation::getRelativeY() const
+{
+    float angle = _rotation*(PI/180);
+    float returnVal = 0.0;
+
+    if (!_controllable)
+        return _origin_y;
+    else
+    {
+        switch(_movement_direction)
+        {
+
+        case moveForward:
+            returnVal = (_origin_y + TANK_MOVE_SPEED*sin(angle));
+            break;
+
+        case moveBackward:
+            returnVal = (_origin_y - TANK_MOVE_SPEED*sin(angle));
+            break;
+
+        default:
+            returnVal = _origin_y;
+            break;
+        }
+
+        return returnVal;
+    }
+}
+
+float Orientation::getRelativeRotation() const
+{
+    float returnedRotation = 0.0;
+    if(!_controllable)
+        return _rotation;
+    else
+    {
+        switch (_movement_direction)
+        {
+        case rotateLeft:
+            returnedRotation = _rotation + TANK_ROTATION_SPEED;
+            if (returnedRotation > 360)
+                returnedRotation -= 360;
+            break;
+
+        case rotateRight:
+            returnedRotation = _rotation - TANK_ROTATION_SPEED;
+            if (returnedRotation < 0)
+                returnedRotation += 360;
+            break;
+
+        default:
+            returnedRotation = _rotation;
+        }
+    return returnedRotation;
+    }
 }
 
 bool Orientation::operator==(Orientation& rhs) const

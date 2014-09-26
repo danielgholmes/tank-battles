@@ -10,7 +10,7 @@
 ///Barrier entity constructor
 Barrier::Barrier(float positionX, float positionY, entity_type barrierTypeSet):
     _sprite_dimensions(),
-    _barrier(positionX,positionY,0,0,0.0)
+    _barrier(positionX,positionY,0,0,0.0,false)
 {
     if(positionX < 0) throw InvalidConstructorArgumentsBarrier();
     if(positionY < 0) throw InvalidConstructorArgumentsBarrier();

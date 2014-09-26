@@ -67,6 +67,8 @@ public:
     virtual const float getDrawPositionY();
     ///Recieve the Tank rotation
     virtual const float getDrawRotation();
+    ///Set the movement direction of the entity
+	virtual void setMovementDirection(const movement_direction Movement_input);
 	///Tank object destructor
     virtual ~Tank();
 

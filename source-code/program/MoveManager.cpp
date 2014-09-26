@@ -21,23 +21,7 @@ void MoveManager::manage(const actions_info& managerInstructions)
 {
 
     //Remove any "corpses" found within the movable vector
-    auto removable = _movables.begin();
-    for (; removable != _movables.end();)
-    {
-        //Convert iterator to Weak pointer
-        std::weak_ptr<Movable> removable_wp = (*removable);
-        //Lock as Shared Pointer
-        std::shared_ptr<Movable> removable_sp = removable_wp.lock();
-        //Test to see if the shared pointer exists
-        if (removable_sp)
-        {
-            removable++;
-        }
-        else
-        {
-            _movables.erase(removable);
-        }
-    }
+
 
     auto moveables_iterator = _movables.begin();
     for(; moveables_iterator != _movables.end(); moveables_iterator++)
@@ -57,46 +41,46 @@ void MoveManager::manage(const actions_info& managerInstructions)
                 {
                     case forward:
                         entity_mov_sp->moveForward();
+                        entity_mov_sp->setMovementDirection(moveForward);
                         break;
 
                     case reverse:
                         entity_mov_sp->moveBackward();
+                        entity_mov_sp->setMovementDirection(moveBackward);
                         break;
 
                     case rotate_left:
                         entity_mov_sp->rotateLeft();
+                        entity_mov_sp->setMovementDirection(rotateLeft);
                         break;
 
                     case rotate_right:
                         entity_mov_sp->rotateRight();
+                        entity_mov_sp->setMovementDirection(rotateRight);
                         break;
 
                     case do_nothing:
                         break;
                 }
             }
-            else //if the object is blocked, move in opposite direction
+            else //if the object is blocked
             {
                 switch(managerInstructions.move_1)
                 {
                     case forward:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->moveBackward();
+                        entity_mov_sp->setMovementDirection(moveForward);
                     break;
 
                     case reverse:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->moveForward();
+                        entity_mov_sp->setMovementDirection(moveBackward);
                         break;
 
                     case rotate_left:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->rotateRight();
+                        entity_mov_sp->setMovementDirection(rotateLeft);
                         break;
 
                     case rotate_right:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->rotateLeft();
+                        entity_mov_sp->setMovementDirection(rotateRight);
                     case do_nothing:
                         break;
                 }
@@ -110,48 +94,48 @@ void MoveManager::manage(const actions_info& managerInstructions)
             {
                 switch(managerInstructions.move_2)
                 {
-                    case forward:
+                  case forward:
                         entity_mov_sp->moveForward();
+                        entity_mov_sp->setMovementDirection(moveForward);
                         break;
 
                     case reverse:
                         entity_mov_sp->moveBackward();
+                        entity_mov_sp->setMovementDirection(moveBackward);
                         break;
 
                     case rotate_left:
                         entity_mov_sp->rotateLeft();
+                        entity_mov_sp->setMovementDirection(rotateLeft);
                         break;
 
                     case rotate_right:
                         entity_mov_sp->rotateRight();
+                        entity_mov_sp->setMovementDirection(rotateRight);
                         break;
 
                     case do_nothing:
                         break;
                 }
             }
-            else //if the object is blocked, move in opposite direction
+            else //if the object is blocked
             {
                 switch(managerInstructions.move_2)
                 {
-                case forward:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->moveBackward();
+                   case forward:
+                        entity_mov_sp->setMovementDirection(moveForward);
                     break;
 
                     case reverse:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->moveForward();
+                        entity_mov_sp->setMovementDirection(moveBackward);
                         break;
 
                     case rotate_left:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->rotateRight();
+                        entity_mov_sp->setMovementDirection(rotateLeft);
                         break;
 
                     case rotate_right:
-                        for (int i = 0; i < 3 ; i++)
-                        entity_mov_sp->rotateLeft();
+                        entity_mov_sp->setMovementDirection(rotateRight);
                     case do_nothing:
                         break;
                 }
@@ -189,6 +173,27 @@ void MoveManager::manage(const actions_info& managerInstructions)
 
     }//Range-based for
 }//Function
+
+void MoveManager::removeGarbage()
+{
+    auto removable = _movables.begin();
+    for (; removable != _movables.end();)
+    {
+        //Convert iterator to Weak pointer
+        std::weak_ptr<Movable> removable_wp = (*removable);
+        //Lock as Shared Pointer
+        std::shared_ptr<Movable> removable_sp = removable_wp.lock();
+        //Test to see if the shared pointer exists
+        if (removable_sp)
+        {
+            removable++;
+        }
+        else
+        {
+            _movables.erase(removable);
+        }
+    }
+}
 
 void MoveManager::addNewEntity(std::weak_ptr<Movable> new_entity)
 {

@@ -12,7 +12,7 @@ Missile::Missile(float positionX, float positionY, float rotation, entity_type m
 
     _rotation(rotation),
     _type(missileOwner),
-    _missile(positionX,positionY,0,0,rotation),
+    _missile(positionX,positionY,0,0,rotation, false),
     _sprite_dimensions()
 {
     //Error input checking
@@ -115,6 +115,12 @@ const float Missile::getDrawPositionY()
 const float Missile::getDrawRotation()
 {
     return _missile.getRotation();
+}
+
+///Set the movement direction of the entity
+void Missile::setMovementDirection(const movement_direction Movement_input)
+{
+    _missile.setMoveDirection(Movement_input);
 }
 
 ///Missile object destructor

@@ -11,6 +11,12 @@
 //Includes
 #include "SFML/Graphics.hpp"
 
+#define MISSILE_MOVE_SPEED 12
+#define TANK_MOVE_SPEED 10
+#define MISSILE_ROTATION_SPEED 45
+#define TANK_ROTATION_SPEED 5
+
+
 enum entity_type {
 	p1_tank = 1,
 	p2_tank,
@@ -79,6 +85,15 @@ struct game_state_info
     bool player2_respawn;
 };
 
+///Used to define the controlled movement of the player
+enum movement_direction
+{
+    moveForward =1,
+    moveBackward,
+    rotateLeft,
+    rotateRight,
+    noMove
+};
 
 #endif
 

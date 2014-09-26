@@ -14,7 +14,7 @@
 
 //Includes
 #include "Deletable.h"
-
+#include "Structures.h"
 //Defines
 #define PI          3.141592653589793238462643383279502884L
 
@@ -34,6 +34,8 @@ public:
 	virtual void rotateRight() = 0;
 	///Check state of entity to see if it has been blocked by another object
 	virtual const bool isBlocked() = 0;
+	///Set the movement direction of the entity
+	virtual void setMovementDirection(const movement_direction Movement_input) = 0;
 	///Destructor
 	virtual ~Movable() = 0;
 

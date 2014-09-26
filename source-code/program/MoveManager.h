@@ -36,6 +36,9 @@ public:
 private:
     // Pointers to all moveable entities within the game world
     std::vector<std::weak_ptr<Movable>> _movables;
+
+    //Helper function
+    void removeGarbage();
 };
 
 #endif // MOVEMANAGER_H_
