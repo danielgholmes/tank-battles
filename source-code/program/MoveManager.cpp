@@ -21,6 +21,7 @@ void MoveManager::manage(const actions_info& managerInstructions)
 {
 
     //Remove any "corpses" found within the movable vector
+    removeGarbage();
 
 
     auto moveables_iterator = _movables.begin();

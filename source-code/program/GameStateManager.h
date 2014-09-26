@@ -25,7 +25,7 @@ public:
 
 private:
     StopWatch _game_timer;
-    const double _game_runtime = 5.0;
+    const double _game_runtime = 120.0;
     //Will add other members such as the timer class
 
 };
