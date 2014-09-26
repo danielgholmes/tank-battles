@@ -63,6 +63,11 @@ private:
 
 	textures _game_textures;
 
+	float _player1_startX;
+	float _player1_startY;
+	float _player2_startX;
+	float _player2_startY;
+
 	//Texture file names
 	const std::string _tank1_texture_file = "tank1_red.png";
 	const std::string _tank2_texture_file = "tank2_green.png";
@@ -91,6 +96,9 @@ private:
 	/// Initially populate the actions_info structure
 	void initialiseActions(actions_info& actions);
 
+	/// Initially populate the game_state structure
+	void initialiseState(game_state_info& game_state);
+
 	/// Checks realtime input of keyboard controls in main game loop
 	void checkKeyboardInput(actions_info& actions);
 
@@ -98,7 +106,7 @@ private:
 	void runAllManagers(const actions_info& actions, sf::RenderWindow& window, game_state_info& game_state);
 
 	/// Function that will add new entity based on action
-	void addNewWorldEntity(const actions_info& actions);
+	void addNewWorldEntity(const actions_info& actions, game_state_info& game_state);
 
 	/// Function which creates the base stamp sprites for the Game
 	void addNewSprites();

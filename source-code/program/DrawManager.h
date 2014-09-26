@@ -38,10 +38,15 @@ private:
     // Pointers to all drawable entites within the game world
     std::vector<std::weak_ptr<Deletable>> _drawables;
 
+    void setupText(sf::Text& text);
+
     sf::Sprite _map;
     sf::Texture _mapText;
     sf::Text _game_time_text;
+    sf::Text _p1_score;
+    sf::Text _p2_score;
     sf::Font _font;
+    const int _font_size = 20;
     SpriteDimensions _sprite_dimensions;
 };
 

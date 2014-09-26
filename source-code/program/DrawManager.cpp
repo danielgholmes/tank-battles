@@ -8,6 +8,7 @@
 #include "DrawManager.h"
 #include <iostream>
 #include <sstream>
+#include <string>
 
 ///Constructor for DrawManager
 DrawManager::DrawManager():
@@ -23,12 +24,24 @@ DrawManager::DrawManager():
    {
        std::cout << "Unable to load font file!" << std::endl;
    }
-    // select the font
-    _game_time_text.setFont(_font);
-    _game_time_text.setCharacterSize(20);
-    _game_time_text.setColor(sf::Color::White);
-    _game_time_text.setStyle(sf::Text::Bold);
+
+    setupText(_game_time_text);
     _game_time_text.setPosition(550,0);
+
+    setupText(_p1_score);
+    _p1_score.setPosition(950,0);
+
+    setupText(_p2_score);
+    _p2_score.setPosition(100,0);
+
+}
+// all fonts have the same properties
+void DrawManager::setupText(sf::Text& text)
+{
+    text.setFont(_font);
+    text.setCharacterSize(_font_size);
+    text.setColor(sf::Color::White);
+    text.setStyle(sf::Text::Bold);
 }
 
 ///Drawing management cycle. The manager will render all the entites within the game world.
@@ -160,15 +173,29 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
             }
     } //for
 
-    std::ostringstream strs; // convert time double to string
-    strs << game_state.runtime;
-    std::string str = strs.str();
-
-    _game_time_text.setString(str);
+    std::ostringstream strs1; // convert time double to string
+    strs1 << game_state.runtime;
+    _game_time_text.setString(strs1.str());
     window.draw(_game_time_text);
+
+    if (game_state.finished)
+        window.clear();
+
+    std::ostringstream strs2;
+    strs2 << "Player 1: ";
+    strs2 << game_state.player1_score;
+    _p1_score.setString(strs2.str());
+    window.draw(_p1_score);
+
+    std::ostringstream strs3;
+    strs3 << "Player 2: ";
+    strs3 << game_state.player2_score;
+    _p2_score.setString(strs3.str());
+    window.draw(_p2_score);
 
     window.display();
 }
+
 ///Destructor for DrawManager
 DrawManager::~DrawManager()
 {

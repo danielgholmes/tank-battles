@@ -24,8 +24,18 @@ void DestructionManager::manage(game_state_info& game_state)
             //The manager checks each entity to see if it has recieved a 'death state'
             if(entity_sp->isDeleted())
             {
-                if (entity_sp->getType() == p1_tank) game_state.finished = true;
-                if (entity_sp->getType() == p2_tank) game_state.finished = true;
+                if (entity_sp->getType() == p1_tank)
+                {
+                    game_state.player2_score++;
+                    game_state.player1_respawn = true;
+                }
+
+                if (entity_sp->getType() == p2_tank)
+                {
+                    game_state.player1_score++;
+                    game_state.player2_respawn = true;
+                }
+
 
                 _destructables.erase(i);
                 //delete (&entity_sp); //---> This flags a warning

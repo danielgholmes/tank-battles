@@ -73,8 +73,10 @@ struct game_state_info
 {
     bool finished;
     double runtime;
-    // int player1_score;
-    // int player2_score;
+    int player1_score;
+    int player2_score;
+    bool player1_respawn;
+    bool player2_respawn;
 };
 
 

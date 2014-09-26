@@ -97,10 +97,20 @@ void Game::setupInitialMap()
   		{
   			if (temp_vector[j] == '#')
                 createBarrier(j*_game_sprite_dimensions.barrier_sprite_x, i*_game_sprite_dimensions.barrier_sprite_y);
+
             if (temp_vector[j] == '1')
-                addNewTank(p1_tank, j*_game_sprite_dimensions.barrier_sprite_x, i*_game_sprite_dimensions.barrier_sprite_y, 0);
+            {
+                _player1_startX = j*_game_sprite_dimensions.barrier_sprite_x;
+                _player1_startY = i*_game_sprite_dimensions.barrier_sprite_y;
+                addNewTank(p1_tank, _player1_startX, _player1_startY, 0);
+            }
+
             if (temp_vector[j] == '2')
-                addNewTank(p2_tank, j*_game_sprite_dimensions.barrier_sprite_x, i*_game_sprite_dimensions.barrier_sprite_y, 180);
+            {
+                _player2_startX = j*_game_sprite_dimensions.barrier_sprite_x;
+                _player2_startY = i*_game_sprite_dimensions.barrier_sprite_y;
+                addNewTank(p2_tank, _player2_startX, _player2_startY, 180);
+            }
   		}
   	}
 }
@@ -126,15 +136,17 @@ void Game::runWorld()
 	window.setFramerateLimit(45); // may need to synchronise things another way later on
 
 	actions_info actions; // create the struct
-	game_state_info game_state;
-	game_state.finished = false;
+	initialiseActions(actions);
 
-	while(window.isOpen() && (!game_state.finished))
+	game_state_info game_state;
+	initialiseState(game_state);
+
+	while(window.isOpen())
 	{
 		initialiseActions(actions);
 		pollEvents(window);
 		checkKeyboardInput(actions);
-		addNewWorldEntity(actions);
+		addNewWorldEntity(actions, game_state);
 		runAllManagers(actions,window,game_state);
 	}
 
@@ -162,6 +174,15 @@ void Game::initialiseActions(actions_info& actions)
 	actions.move_2 = do_nothing;
 	actions.attack_1 = do_nothing;
 	actions.attack_2 = do_nothing;
+}
+
+void Game::initialiseState(game_state_info& state)
+{
+    state.finished = false;
+    state.player1_respawn = false;
+    state.player2_respawn = false;
+    state.player1_score = 0;
+    state.player2_score = 0;
 }
 
 // Note: some logic is in the view
@@ -235,8 +256,20 @@ void Game::checkKeyboardInput(actions_info& actions)
 }
 
 // Note: here is some more logic
-void Game::addNewWorldEntity(const actions_info& actions)
+void Game::addNewWorldEntity(const actions_info& actions, game_state_info& game_state)
 {
+    if (game_state.player1_respawn == true)
+    {
+        addNewTank(p1_tank, _player1_startX, _player1_startY, 0);
+        game_state.player1_respawn = false;
+    }
+
+    if (game_state.player2_respawn == true)
+    {
+        addNewTank(p2_tank, _player2_startX, _player2_startY, 180);
+        game_state.player2_respawn = false;
+    }
+
 
 	//Offset for creating a missile
 	const float missile_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.missile_creation_offset;

@@ -7,9 +7,7 @@
 
 #include "GameStateManager.h"
 
-GameStateManager::GameStateManager():
-    _p1_score(0),
-    _p2_score(0)
+GameStateManager::GameStateManager()
     //Constructor for timer goes here
 {
     _game_timer.start();
