@@ -32,12 +32,6 @@ Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwn
      return _type;
  }
 
-///Allow the object to be rendered
-void Tank::draw()
-{
-    //Add code
-}
-
 ///Forward movement for a tank entity
 void Tank::moveForward()
 {

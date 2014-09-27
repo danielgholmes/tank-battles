@@ -33,8 +33,6 @@ public:
     Tank(float positionX, float positionY, float rotation, entity_type tankOwner);
     ///Provided ownership
     virtual const entity_type& getType() const;
-    ///Allow the object to be rendered
-    virtual void draw();
     ///Forward movement for a tank entity
     virtual void moveForward();
     ///Backward movement for a tank entity
@@ -82,7 +80,7 @@ private:
     bool _collidedStatus;
     ///The angle of rotation for the Tank entity
     float _rotation;
-    ///SFML co-ordinate system for the Tank
+    ///Co-ordinate system for the Tank
     Orientation _tank;
     ///Enumeration type defining the tank
     entity_type _type;

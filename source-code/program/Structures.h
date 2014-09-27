@@ -24,7 +24,8 @@ enum entity_type {
 	p2_missile,
 	p1_mine,
 	p2_mine,
-	barrier
+	barrier,
+	turret
 	};
 
 enum player_action {
@@ -57,6 +58,7 @@ struct textures
 	sf::Texture mine;
 	sf::Texture barrier;
 	sf::Texture map;
+	sf::Texture turret;
 };
 
 struct coordinate

@@ -21,7 +21,9 @@ SpriteDimensions::SpriteDimensions():
     mine_sprite_x(40),
     mine_sprite_y(40),
     mine_creation_offset(40),
-    missile_creation_offset(20)
+    missile_creation_offset(20),
+    turret_sprite_x(50),
+    turret_sprite_y(50)
 
     {}
 

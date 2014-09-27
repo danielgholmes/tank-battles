@@ -21,12 +21,14 @@ public:
     const float mine_sprite_x;
     const float map_sprite_x;
     const float barrier_sprite_x;
+    const float turret_sprite_x;
 
     const float tank_sprite_y;
     const float missile_sprite_y;
     const float mine_sprite_y;
     const float map_sprite_y;
     const float barrier_sprite_y;
+    const float turret_sprite_y;
 
     const float mine_creation_offset;
     const float missile_creation_offset;
