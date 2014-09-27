@@ -61,6 +61,8 @@ public:
     virtual const float getPositionY();
     ///Get the current orientation of Trackable object
     virtual const float getOrientation();
+    ///Get the bounding box relevant for line-of-fire detection
+    virtual const rect_corners& getTrackingBoundingBox();
     ///Retrieve the Tank x Position
     virtual const float getDrawPositionX();
     ///Retrieve the Tank y Position

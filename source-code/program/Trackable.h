@@ -27,6 +27,8 @@ public:
     virtual const float getPositionY() = 0;
     ///Get the current orientation of Trackable object
     virtual const float getOrientation() = 0;
+    ///Get the bounding box relevant for line-of-fire detection
+    virtual const rect_corners& getTrackingBoundingBox() = 0;
     ///Destructor
     virtual ~Trackable() = 0;
 
