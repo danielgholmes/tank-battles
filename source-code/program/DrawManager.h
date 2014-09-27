@@ -48,6 +48,7 @@ private:
     sf::Font _font;
     const int _font_size = 20;
     SpriteDimensions _sprite_dimensions;
+
 };
 
 #endif // DRAWMANAGER_H_
