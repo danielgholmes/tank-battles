@@ -40,7 +40,7 @@ bool GeometryEngine::isInLineOfFire(const float& rotation, const rect_corners& s
     coordinate axis;
 
     //develop axis based on the rotation of the shooter
-    if ((rotation >= 0.0 && rotation <= 44.0) || (rotation >= 315.0 && rotation >= 360.0))
+    if ((rotation >= 0.0 && rotation <= 44.0) || (rotation >= 315.0 && rotation <= 359.0))
     {
         axis.x = shooter.upper_right.x - shooter.lower_right.x;
         axis.y = shooter.upper_right.y - shooter.lower_right.y;
