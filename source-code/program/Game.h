@@ -112,7 +112,7 @@ private:
 	void runAllManagers(actions_info& actions, sf::RenderWindow& window, game_state_info& game_state);
 
 	/// Function that will add new entity based on action
-	void addNewWorldEntity(const actions_info& actions, game_state_info& game_state);
+	void addNewWorldEntity(actions_info& actions, game_state_info& game_state);
 
 	/// Function which creates the base stamp sprites for the Game
 	void addNewSprites();

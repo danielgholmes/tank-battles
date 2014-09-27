@@ -285,7 +285,7 @@ void Game::checkKeyboardInput(actions_info& actions)
 }
 
 // Note: here is some more logic
-void Game::addNewWorldEntity(const actions_info& actions, game_state_info& game_state)
+void Game::addNewWorldEntity(actions_info& actions, game_state_info& game_state)
 {
     if (game_state.player1_respawn == true)
     {
@@ -333,7 +333,7 @@ void Game::addNewWorldEntity(const actions_info& actions, game_state_info& game_
             std::weak_ptr<Movable> tur_missile_mov_wp = std::dynamic_pointer_cast<Movable>(tur_missile_del_sp);
 			_move_manager.addNewEntity(tur_missile_mov_wp);
         }
-
+        actions.turret_fire = false;
     }
 
 	if (actions.change_1 == true)
