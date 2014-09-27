@@ -6,7 +6,7 @@
  */
 
 #include "CollisionManager.h"
-#include "GeometryEngine.h"
+#include "GeometryEngine.h""
 #include <cmath>
 
 CollisionManager::CollisionManager()
@@ -95,6 +95,10 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 //				entity_2->setBlocked(); // tank
 				break;
 
+            case turret:
+                entity_1->setBlocked();
+                break;
+
 			case p1_missile:
 				entity_1->setCollided(); // tank
 				entity_2->setCollided(); // missile
@@ -135,6 +139,10 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 				entity_1->setCollided(); // missile
 				entity_2->setCollided(); // tank
 				break;
+
+            case turret:
+                entity_1->setCollided(); // turret
+                entity_2->setCollided(); // missile
 
 			case p1_missile:
 				entity_1->setCollided(); // missile
@@ -209,6 +217,33 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 				break;
 		}
 	}
+
+	else if (entity_1->getType() == turret)
+    {
+        switch(entity_2->getType())
+        {
+            case p1_tank:
+				entity_2->setBlocked(); // tank does not move
+				break;
+
+            case p2_tank:
+				entity_2->setBlocked(); // tank does not move
+				break;
+
+			case p1_missile:
+			    entity_1->setCollided();
+				entity_2->setCollided();
+				break;
+
+            case p2_missile:
+                entity_1->setCollided();
+				entity_2->setCollided();
+				break;
+
+			default:
+				break;
+        }
+    }
 }
 
 void CollisionManager::resetBlockedState(std::shared_ptr<Collidable>& entity)
