@@ -14,7 +14,7 @@ Turret::Turret(float positionX, float positionY, float rotation):
     _turret(positionX, positionY, 0, 0,rotation,false),
     _type(turret),
     _sprite_dimensions(),
-    _rotation_rate(2)
+    _rotation_rate(-2)
 {
     //Error input checking
     if (_turret.getOriginX() < 0) throw InvalidConstructorArgumentsTurret();
