@@ -109,7 +109,7 @@ private:
 	void checkKeyboardInput(actions_info& actions);
 
 	/// Function thats tells all managers to operate
-	void runAllManagers(const actions_info& actions, sf::RenderWindow& window, game_state_info& game_state);
+	void runAllManagers(actions_info& actions, sf::RenderWindow& window, game_state_info& game_state);
 
 	/// Function that will add new entity based on action
 	void addNewWorldEntity(const actions_info& actions, game_state_info& game_state);

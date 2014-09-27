@@ -174,8 +174,8 @@ void Game::runWorld()
 		initialiseActions(actions);
 		pollEvents(window);
 		checkKeyboardInput(actions);
-		addNewWorldEntity(actions, game_state);
 		runAllManagers(actions,window,game_state);
+		addNewWorldEntity(actions, game_state);
 	}
 
 	return;
@@ -198,6 +198,7 @@ void Game::initialiseActions(actions_info& actions)
 {
 	actions.change_1 = false;
 	actions.change_2 = false;
+	actions.turret_fire = false;
 	actions.move_1 = do_nothing;
 	actions.move_2 = do_nothing;
 	actions.attack_1 = do_nothing;
@@ -298,12 +299,42 @@ void Game::addNewWorldEntity(const actions_info& actions, game_state_info& game_
         game_state.player2_respawn = false;
     }
 
-
 	//Offset for creating a missile
 	const float missile_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.missile_creation_offset;
 
 	//Offset for creating a mine
     const float mine_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.mine_creation_offset;
+
+    if (actions.turret_fire == true)
+    {
+        auto turret_xPos_vec = _tracking_manager.getTurretPositionsX();
+        auto turret_yPos_vec = _tracking_manager.getTurretPositionsY();
+        auto turret_rotation_vec = _tracking_manager.getTurretRotations();
+
+        for(int i = 0; i!= turret_xPos_vec.size(); i++)
+        {
+            const float tur_x_component = cos((turret_rotation_vec[i]*PI)/180);
+            const float tur_y_component = sin((turret_rotation_vec[i]*PI)/180);
+
+            std::shared_ptr<Deletable> tur_missile_del_sp(new Missile(turret_xPos_vec[i] + tur_x_component*missile_offset,
+                                                                    turret_yPos_vec[i] + tur_y_component*missile_offset,
+                                                                    turret_rotation_vec[i], p1_missile));
+            //Add to Deletion Manager - Shared pointer
+            _destruction_manager.addNewEntity(tur_missile_del_sp);
+
+            //Add to all other entities - Weak pointer
+            std::weak_ptr<Deletable> tur_missile_del_wp = tur_missile_del_sp;
+			_world_entities.push_back(tur_missile_del_wp);
+            _draw_manager.addNewEntity(tur_missile_del_wp);
+            //Cast as Collidable (Weak pointer)
+            std::weak_ptr<Collidable> tur_missile_col_wp = std::dynamic_pointer_cast<Collidable>(tur_missile_del_sp);
+			_collision_manager.addNewEntity(tur_missile_col_wp);
+            //Cast as Movable (Weak pointer)
+            std::weak_ptr<Movable> tur_missile_mov_wp = std::dynamic_pointer_cast<Movable>(tur_missile_del_sp);
+			_move_manager.addNewEntity(tur_missile_mov_wp);
+        }
+
+    }
 
 	if (actions.change_1 == true)
 	{
@@ -404,12 +435,12 @@ void Game::loadTextures()
 	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
 }
 
-void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window, game_state_info& game_state)
+void Game::runAllManagers(actions_info& actions, sf::RenderWindow& window, game_state_info& game_state)
 {
     _turret_manager.manage();
     _collision_manager.manage();
 	_move_manager.manage(actions);
-	_tracking_manager.manage();
+	_tracking_manager.manage(actions);
 	_destruction_manager.manage(game_state);
 	_state_manager.manage(game_state);
 	_draw_manager.manage(_sprites, window, game_state);

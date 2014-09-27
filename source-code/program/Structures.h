@@ -43,6 +43,7 @@ struct actions_info
 {   // 1 and 2 correspond to tanks 1 and 2
 	bool change_1; // manager needs to know if there was any change
 	bool change_2;
+	bool turret_fire; //State maintained by Tracking manager
 	player_action move_1; // info for the move manager
 	player_action move_2;
 	player_action attack_1; // attack is either plant mine or fire missile

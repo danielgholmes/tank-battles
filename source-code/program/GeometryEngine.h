@@ -18,7 +18,7 @@ public:
 	///Function that client code can call to check final collision status
 	bool isCollision(const rect_corners& rect_A,const rect_corners& rect_B);
 	///Function that checks of tank is in turrets line of fire
-	bool isInLineOfFire(const float& rotation,const rect_corners& rect_A,const rect_corners& rect_B);
+	bool isInLineOfFire(const float& rotation,const rect_corners& shooter,const rect_corners& target);
 	///Main function called to check overlap
 	bool isRectangleOverlapForAxis(coordinate axis, const rect_corners& rect_A,const rect_corners& rect_B);
 	///Calculates the projections of the rectangles vertices vectors onto an axis
