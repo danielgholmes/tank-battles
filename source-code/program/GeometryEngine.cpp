@@ -40,28 +40,33 @@ bool GeometryEngine::isInLineOfFire(const float& rotation, const rect_corners& s
     coordinate axis;
 
     //develop axis based on the rotation of the shooter
-    if ((rotation >= 0.0 && rotation <= 44.0) || (rotation >= 315.0 && rotation <= 359.0))
-    {
-        axis.x = shooter.upper_right.x - shooter.lower_right.x;
-        axis.y = shooter.upper_right.y - shooter.lower_right.y;
-    }
-    else if (rotation >= 45.0 && rotation <= 134.0)
-    {
-        axis.x = shooter.upper_left.x - shooter.upper_right.x;
-        axis.y = shooter.upper_left.y - shooter.upper_right.y;
-    }
-    else if (rotation >= 135.0 && rotation <= 224.0)
-    {
-        axis.x = shooter.lower_left.x - shooter.upper_left.x;
-        axis.y = shooter.lower_left.y - shooter.upper_left.y;
-    }
-    else if (rotation >= 225.0 && rotation >= 314.0)
-    {
-        axis.x = shooter.lower_left.x - shooter.lower_right.x;
-        axis.y = shooter.lower_left.y - shooter.lower_right.y;
-    }
+//    if ((rotation >= 0.0 && rotation <= 44.0) || (rotation >= 315.0 && rotation <= 359.0))
+//    {
+//        axis.x = shooter.upper_right.x - shooter.lower_right.x;
+//        axis.y = shooter.upper_right.y - shooter.lower_right.y;
+//    }
+//    else if (rotation >= 45.0 && rotation <= 134.0)
+//    {
+//        axis.x = shooter.upper_left.x - shooter.upper_right.x;
+//        axis.y = shooter.upper_left.y - shooter.upper_right.y;
+//    }
+//    else if (rotation >= 135.0 && rotation <= 224.0)
+//    {
+//        axis.x = shooter.lower_left.x - shooter.upper_left.x;
+//        axis.y = shooter.lower_left.y - shooter.upper_left.y;
+//    }
+//    else if (rotation >= 225.0 && rotation >= 314.0)
+//    {
+//        axis.x = shooter.lower_left.x - shooter.lower_right.x;
+//        axis.y = shooter.lower_left.y - shooter.lower_right.y;
+//    }
 
-    if (!isRectangleOverlapForAxis(axis, shooter, target))
+    axis.x = shooter.lower_left.x - shooter.upper_left.x; //axis along the turret barrel
+    axis.y = shooter.lower_left.y - shooter.upper_left.y;
+
+    if (target.lower_left.y <= shooter.lower_left.y || target.lower_right.y <= shooter.lower_right.y)
+        return false;
+    else if (!isRectangleOverlapForAxis(axis, shooter, target))
     	return false;
     else
         return true;

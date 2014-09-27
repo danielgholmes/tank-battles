@@ -38,38 +38,38 @@ void TrackingManager::manage(actions_info& actions)
         std::shared_ptr<Trackable> entity_track_sp = entity_track_wp.lock();
         //Check to see if entity still exists
 
-            if(entity_track_sp->getType() == p1_tank)
-            {
-                _p1PositionX = entity_track_sp->getPositionX();
-                _p1PositionY = entity_track_sp->getPositionY();
-                _p1Rotation = entity_track_sp->getOrientation();
-                _p1BoundingBox = entity_track_sp->getTrackingBoundingBox();
-            }
+        if(entity_track_sp->getType() == p1_tank)
+        {
+            _p1PositionX = entity_track_sp->getPositionX();
+            _p1PositionY = entity_track_sp->getPositionY();
+            _p1Rotation = entity_track_sp->getOrientation();
+            _p1BoundingBox = entity_track_sp->getTrackingBoundingBox();
+        }
 
-            if(entity_track_sp->getType() == p2_tank)
-            {
-                _p2PositionX = entity_track_sp->getPositionX();
-                _p2PositionY = entity_track_sp->getPositionY();
-                _p2Rotation = entity_track_sp->getOrientation();
-                _p2BoundingBox = entity_track_sp->getTrackingBoundingBox();
-            }
+        else if(entity_track_sp->getType() == p2_tank)
+        {
+            _p2PositionX = entity_track_sp->getPositionX();
+            _p2PositionY = entity_track_sp->getPositionY();
+            _p2Rotation = entity_track_sp->getOrientation();
+            _p2BoundingBox = entity_track_sp->getTrackingBoundingBox();
+        }
 
-            if(entity_track_sp->getType() == turret)
-            {
-                //Temp variables
-                float temp_Turret_Rotation = entity_track_sp->getOrientation();
-                auto temp_Turret_BoundingBox = entity_track_sp->getTrackingBoundingBox();
+        else if(entity_track_sp->getType() == turret)
+        {
+            //Temp variables
+            float temp_Turret_Rotation = entity_track_sp->getOrientation();
+            auto temp_Turret_BoundingBox = entity_track_sp->getTrackingBoundingBox();
 
-                //See if turrets are viewing any of the tanks
-                if((_geometry_engine.isInLineOfFire(temp_Turret_Rotation, temp_Turret_BoundingBox, _p1BoundingBox)) ||
-                   (_geometry_engine.isInLineOfFire(temp_Turret_Rotation, temp_Turret_BoundingBox, _p2BoundingBox)))
-                {
-                    actions.turret_fire = true;
-                    _turretPositionsX.push_back(entity_track_sp->getPositionX());
-                    _turretPositionsY.push_back(entity_track_sp->getPositionY());
-                    _turretRotations.push_back(entity_track_sp->getOrientation());
-                }
+            //See if turrets are viewing any of the tanks
+            if((_geometry_engine.isInLineOfFire(temp_Turret_Rotation, temp_Turret_BoundingBox, _p1BoundingBox)) ||
+               (_geometry_engine.isInLineOfFire(temp_Turret_Rotation, temp_Turret_BoundingBox, _p2BoundingBox)))
+            {
+                actions.turret_fire = true;
+                _turretPositionsX.push_back(entity_track_sp->getPositionX());
+                _turretPositionsY.push_back(entity_track_sp->getPositionY());
+                _turretRotations.push_back(entity_track_sp->getOrientation());
             }
+        }
 
     }//For
 }//function
