@@ -7,6 +7,7 @@
 
 #include "GeometryEngine.h"
 #include <vector>
+#include <cmath>
 
 bool GeometryEngine::isCollision(const rect_corners& rect_A,const rect_corners& rect_B)
 {
@@ -121,6 +122,12 @@ void GeometryEngine::calculateMaxAndMinProjectionMagnitude(const std::vector<coo
 
 	min = *std::min_element(projection_pos.begin(), projection_pos.end());
 	max = *std::max_element(projection_pos.begin(), projection_pos.end());
+}
+
+
+const float GeometryEngine::calculateVectorLength(const float x_coord_1, const float y_coord_1, const float x_coord_2, const float y_coord_2)
+{
+    return (sqrt(pow((x_coord_1 - x_coord_2),2) + pow((y_coord_1 - y_coord_2),2)));
 }
 
 

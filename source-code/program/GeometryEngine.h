@@ -19,6 +19,8 @@ public:
 	bool isCollision(const rect_corners& rect_A,const rect_corners& rect_B);
 	///Function that checks of tank is in turrets line of fire
 	bool isInLineOfFire(const float& rotation,const rect_corners& shooter,const rect_corners& target);
+	///Function to determine the vector lenght between two points.
+	const float calculateVectorLength(const float x_coord_1, const float y_coord_1, const float x_coord_2, const float y_coord_2);
 	///Main function called to check overlap
 	bool isRectangleOverlapForAxis(coordinate axis, const rect_corners& rect_A,const rect_corners& rect_B);
 	///Calculates the projections of the rectangles vertices vectors onto an axis
