@@ -9,9 +9,6 @@
 #ifndef DESTRUCTIONMANAGER_H_
 #define DESTRUCTIONMANAGER_H_
 
-//Forward declarations
-//class weak_ptr;
-
 //Includes
 #include "Manager.h"
 #include "Deletable.h"

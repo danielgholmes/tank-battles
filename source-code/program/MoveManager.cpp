@@ -1,8 +1,8 @@
 /**
- * \file 	MoveManager.cpp
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Implementation for MoveManager class
+ * /file 	MoveManager.cpp
+ * /author 	Daniel Holmes & Jonathan Gerrand
+ * /date 	2 September 2014
+ * /brief 	Implementation for MoveManager class
  */
 
 #include "MoveManager.h"

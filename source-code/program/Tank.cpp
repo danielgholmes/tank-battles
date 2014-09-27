@@ -115,7 +115,7 @@ const float Tank::getOrientation()
  ///Get the bounding box relevant for line-of-fire detection
  const rect_corners& Tank::getTrackingBoundingBox()
  {
-    _tank.getGlobalBounds();
+    return _tank.getGlobalBounds();
  }
 
 ///Retrieve the x Tank Position
