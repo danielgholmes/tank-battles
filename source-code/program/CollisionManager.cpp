@@ -6,7 +6,7 @@
  */
 
 #include "CollisionManager.h"
-#include "CollisionHelper.h""
+#include "GeometryEngine.h""
 #include <cmath>
 
 CollisionManager::CollisionManager()
@@ -61,9 +61,9 @@ void CollisionManager::manage()
                 {
                     const rect_corners& obstacle_box = (obstacle_sp)->getBoundingBox();
 
-                    CollisionHelper collision_helper;// create object of helper class
+                    GeometryEngine geometry_engine;// create object of helper class
 
-                    if (collision_helper.isCollision(entity_box, obstacle_box))
+                    if (geometry_engine.isCollision(entity_box, obstacle_box))
                     {
                         entity_blocked = true;
                         setCollisionStates(entity_sp, obstacle_sp);
