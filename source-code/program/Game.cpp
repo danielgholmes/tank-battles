@@ -66,6 +66,23 @@ void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_
 	_tracking_manager.addNewEntity(new_tank_track_wp);
 }
 
+void Game::addNewTurret(float turret_postionX, float turret_positionY, float rotation)
+{
+    std::shared_ptr<Deletable> new_turret_del_sp(new Turret(turret_postionX, turret_positionY, rotation));
+    _destruction_manager.addNewEntity(new_turret_del_sp);
+
+    //Change to derived classes - Weak pointers
+    std::weak_ptr<Deletable> new_turret_del_wp = std::dynamic_pointer_cast<Deletable>(new_turret_del_sp);
+    _world_entities.push_back(new_turret_del_wp);
+    _draw_manager.addNewEntity(new_turret_del_wp);
+    //Cast as Collidable
+    std::weak_ptr<Collidable> new_turret_col_wp = std::dynamic_pointer_cast<Collidable>(new_turret_del_sp);
+	_collision_manager.addNewEntity(new_turret_col_wp);
+    //Cast as Trackable
+	std::weak_ptr<Trackable> new_turret_track_wp = std::dynamic_pointer_cast<Trackable>(new_turret_del_sp);
+	_tracking_manager.addNewEntity(new_turret_track_wp);
+}
+
 void Game::setupInitialMap()
 {
 	std::ifstream map_grid("map_grid.txt");
@@ -95,22 +112,30 @@ void Game::setupInitialMap()
   	    auto temp_vector = map_vector[i];
   		for (int j = 0; j < temp_vector.size(); j++)
   		{
-  			if (temp_vector[j] == '#')
+  		    switch(temp_vector[j])
+  		    {
+            case '#':
                 createBarrier(j*_game_sprite_dimensions.barrier_sprite_x, i*_game_sprite_dimensions.barrier_sprite_y);
+                break;
 
-            if (temp_vector[j] == '1')
-            {
+            case '1':
                 _player1_startX = j*_game_sprite_dimensions.barrier_sprite_x;
                 _player1_startY = i*_game_sprite_dimensions.barrier_sprite_y;
                 addNewTank(p1_tank, _player1_startX, _player1_startY, 0);
-            }
+                break;
 
-            if (temp_vector[j] == '2')
-            {
+            case '2':
                 _player2_startX = j*_game_sprite_dimensions.barrier_sprite_x;
                 _player2_startY = i*_game_sprite_dimensions.barrier_sprite_y;
                 addNewTank(p2_tank, _player2_startX, _player2_startY, 180);
-            }
+                break;
+
+            case 'T':
+                _turret_startX = j*_game_sprite_dimensions.turret_sprite_x;
+                _turret_startY = i*_game_sprite_dimensions.turret_sprite_y;
+                addNewTurret(_turret_startX, _turret_startY, 0);
+                break;
+  		    }
   		}
   	}
 }
@@ -372,6 +397,7 @@ void Game::loadTextures()
 	_game_textures.missile.loadFromFile(_missile_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.missile_sprite_y));
 	_game_textures.mine.loadFromFile(_mine_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.mine_sprite_x,_game_sprite_dimensions.mine_sprite_y ));
 	_game_textures.barrier.loadFromFile(_barrier_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.barrier_sprite_x,_game_sprite_dimensions.barrier_sprite_y));
+	_game_textures.turret.loadFromFile(_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.turret_sprite_x,_game_sprite_dimensions.tank_sprite_y));
 	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
 }
 
@@ -421,6 +447,11 @@ void Game::addNewSprites()
     std::shared_ptr<sf::Sprite> MineTwo_sp(new(sf::Sprite));
     MineTwo_sp->setTexture(_game_textures.mine);
     _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p2_mine,MineTwo_sp));
+
+    //Create Turret Sprite
+    std::shared_ptr<sf::Sprite> Turret_sp(new(sf::Sprite));
+    Turret_sp->setTexture(_game_textures.turret);
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret,Turret_sp));
 
 }
 

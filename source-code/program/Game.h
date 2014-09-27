@@ -25,6 +25,7 @@
 #include "Missile.h"
 #include "Barrier.h"
 #include "Mine.h"
+#include "Turret.h"
 
 //include all managers
 #include "MoveManager.h"
@@ -67,6 +68,8 @@ private:
 	float _player1_startY;
 	float _player2_startX;
 	float _player2_startY;
+	float _turret_startX;
+	float _turret_startY;
 
 	//Texture file names
 	const std::string _tank1_texture_file = "tank1_red.png";
@@ -74,6 +77,7 @@ private:
 	const std::string _missile_texture_file = "missile.png";
 	const std::string _mine_texture_file = "mine.png";
  	const std::string _barrier_texture_file = "barrier.png";
+ 	const std::string _turret_texture_file = "turret.png";
  	const std::string _map_texture_file = "map.png";
 
 
@@ -116,6 +120,9 @@ private:
 
 	/// Helper function for setupInitialMap
 	void addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation);
+
+	/// Adds a new turret to the game
+	void addNewTurret(float turret_positionX, float turret_postionY, float rotation);
 
     /// Helper function for setupInitialMap
 	void createBarrier(int x, int y);
