@@ -403,6 +403,7 @@ void Game::loadTextures()
 
 void Game::runAllManagers(const actions_info& actions, sf::RenderWindow& window, game_state_info& game_state)
 {
+    _turret_manager.manage();
     _collision_manager.manage();
 	_move_manager.manage(actions);
 	_tracking_manager.manage();

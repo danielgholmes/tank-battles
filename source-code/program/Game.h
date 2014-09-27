@@ -34,6 +34,7 @@
 #include "DrawManager.h"
 #include "DestructionManager.h"
 #include "GameStateManager.h"
+#include "TurretManager.h"
 
 //Defines
 #define PI          3.141592653589793238462643383279502884L
@@ -93,6 +94,7 @@ private:
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
     GameStateManager _state_manager;
+    TurretManager _turret_manager;
 
 	/// Handles all events in main game loop
 	void pollEvents(sf::RenderWindow& window);
