@@ -81,6 +81,9 @@ void Game::addNewTurret(float turret_postionX, float turret_positionY, float rot
     //Cast as Trackable
 	std::weak_ptr<Trackable> new_turret_track_wp = std::dynamic_pointer_cast<Trackable>(new_turret_del_sp);
 	_tracking_manager.addNewEntity(new_turret_track_wp);
+	//Cast as Turret
+	std::weak_ptr<Turret> new_turret_tur_wp = std::dynamic_pointer_cast<Turret>(new_turret_del_sp);
+	_turret_manager.addNewEntity(new_turret_tur_wp);
 }
 
 void Game::setupInitialMap()
@@ -138,7 +141,7 @@ void Game::setupInitialMap()
   		    }
   		}
   	}
-}
+} //End function
 
 void Game::createBarrier(int x, int y)
 {
