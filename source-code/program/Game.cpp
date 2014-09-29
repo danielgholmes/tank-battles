@@ -443,7 +443,7 @@ void Game::runAllManagers(actions_info& actions, sf::RenderWindow& window, game_
 	_move_manager.manage(actions);
 	_tracking_manager.manage(actions);
 	_destruction_manager.manage(game_state);
-	_state_manager.manage(game_state);
+	_state_manager.manage(game_state, actions);
 	_draw_manager.manage(_sprites, window, game_state);
 }
 

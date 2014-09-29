@@ -21,7 +21,7 @@ public:
     /// returns stop the time of the StopWatch
     void stop();
 
-    /// returns the lab time
+    /// returns the lap time
     void lap();
 
     /// reset the stopwatch
