@@ -36,7 +36,7 @@ bool GeometryEngine::isCollision(const rect_corners& rect_A,const rect_corners& 
     return true;
 }
 
-bool GeometryEngine::isInLineOfFire(const float& rotation, const rect_corners& shooter, const rect_corners& target)
+bool GeometryEngine::isInLineOfFire(const float& rotation, const rect_corners& shooter, const rect_corners& target, const float& shooter_y, const float& target_y)
 {
     coordinate axis;
 
@@ -47,16 +47,18 @@ bool GeometryEngine::isInLineOfFire(const float& rotation, const rect_corners& s
     if (rotation >= 180.0 && rotation <= 359.0)
     {
         if (isRectangleOverlapForAxis(axis, shooter, target))
-        {
-            if ((target.lower_left.y <= shooter.upper_left.y) && (target.lower_right.y <= shooter.upper_right.y))
+        { // also check if the target is above the shooter
+            if ((target_y <= shooter_y) && (target.upper_right.y <= shooter_y) && (target.upper_left.y <= shooter_y)
+                                        && (target.lower_right.y <= shooter_y) && (target.lower_left.y <= shooter_y))
                 return true;
         }
     }
     else if (rotation >= 0.0 && rotation <= 179.0)
     {
         if (isRectangleOverlapForAxis(axis, shooter, target))
-        {
-            if ((target.upper_left.y >= shooter.lower_left.y) && (target.upper_right.y >= shooter.lower_right.y))
+        { // also check if the target is below the shooter
+            if ((target_y >= shooter_y) && (target.lower_right.y >= shooter_y) && (target.lower_left.y >= shooter_y)
+                                        && (target.upper_right.y >= shooter_y) && (target.upper_left.y >= shooter_y))
                 return true;
         }
     }
