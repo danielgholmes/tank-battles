@@ -196,7 +196,7 @@ void Game::pollEvents(sf::RenderWindow& window)
 
 void Game::initialiseActions(actions_info& actions)
 {
-	actions.change_1 = false;
+    actions.change_1 = false;
 	actions.change_2 = false;
 	actions.turret_fire = false;
 	actions.move_1 = do_nothing;

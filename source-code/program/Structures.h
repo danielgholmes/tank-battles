@@ -39,6 +39,11 @@ enum player_action {
 	do_nothing
 	};
 
+enum player_number {
+    p1 =1,
+    p2
+};
+
 /// player_action is an enum of the possible actions that the tank can take
 struct actions_info
 {   // 1 and 2 correspond to tanks 1 and 2
