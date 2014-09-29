@@ -40,7 +40,7 @@ private:
 
     void manageAttackTimers(actions_info& actions);
 
-    bool timeRunOut(StopWatch& timer, actions_info& actions);
+    bool timeRunOut(StopWatch& timer);
 
 };
 

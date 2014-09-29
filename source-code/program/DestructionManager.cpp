@@ -38,7 +38,6 @@ void DestructionManager::manage(game_state_info& game_state)
 
 
                 _destructables.erase(i);
-                //delete (&entity_sp); //---> This flags a warning
             }
             else
             {

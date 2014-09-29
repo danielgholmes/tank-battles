@@ -82,7 +82,6 @@ void TrackingManager::manage(actions_info& actions)
                     _turretRotations.push_back(temp_Turret_Rotation);
                 }
             }
-
     }//For
 }//function
 

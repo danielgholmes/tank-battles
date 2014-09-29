@@ -34,20 +34,22 @@ void GameStateManager::manage(game_state_info& game_state, actions_info& actions
 
 void GameStateManager::manageAttackTimers(actions_info& actions)
 {
-    if (actions.attack_1 == fire_missile && !timeRunOut(_p1_fire_timer, actions))
+    if (actions.attack_1 == fire_missile && !timeRunOut(_p1_fire_timer))
         actions.attack_1 = do_nothing;
 
-    if (actions.attack_2 == fire_missile && !timeRunOut(_p2_fire_timer, actions))
+    if (actions.attack_2 == fire_missile && !timeRunOut(_p2_fire_timer))
         actions.attack_2 = do_nothing;
 
-    if (actions.attack_1 == lay_mine && !timeRunOut(_p1_lay_mine_timer, actions))
+    if (actions.attack_1 == lay_mine && !timeRunOut(_p1_lay_mine_timer))
         actions.attack_1 = do_nothing;
 
-    if (actions.attack_2 == lay_mine && !timeRunOut(_p2_lay_mine_timer, actions))
+    if (actions.attack_2 == lay_mine && !timeRunOut(_p2_lay_mine_timer))
         actions.attack_2 = do_nothing;
 }
 
-bool GameStateManager::timeRunOut(StopWatch& timer, actions_info& actions)
+//No need to see actions here
+
+bool GameStateManager::timeRunOut(StopWatch& timer)
 {
     if (!timer.isRunning())
     {
