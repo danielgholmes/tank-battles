@@ -32,7 +32,7 @@ public:
 	virtual void rotateLeft() = 0;
     ///Rotate a moveable entity right
 	virtual void rotateRight() = 0;
-	///Check state of entity to see if it has been blocked by another object
+	///Check state of entity to see number of times it has been blocked by another object
 	virtual const bool isBlocked() = 0;
 	///Set the movement direction of the entity
 	virtual void setMovementDirection(const movement_direction Movement_input) = 0;

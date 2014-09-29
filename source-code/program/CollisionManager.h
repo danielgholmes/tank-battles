@@ -54,6 +54,9 @@ private:
 	/// Resets the blocked states of blocks that were previously blocked, by are not colliding with anything
 	void resetBlockedState(std::shared_ptr<Collidable>& entity);
 
+	///Helper function to remove 'Dead' entities from collision manager
+	void removeGarbage();
+
 };
 
 #endif // COLLISIONMANAGER_H_

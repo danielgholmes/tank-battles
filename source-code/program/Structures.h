@@ -22,6 +22,7 @@ enum entity_type {
 	p2_tank,
 	p1_missile,
 	p2_missile,
+	turret_missile,
 	p1_mine,
 	p2_mine,
 	barrier,
@@ -60,6 +61,7 @@ struct textures
 	sf::Texture barrier;
 	sf::Texture map;
 	sf::Texture turret;
+	sf::Texture missile_turret;
 };
 
 struct coordinate

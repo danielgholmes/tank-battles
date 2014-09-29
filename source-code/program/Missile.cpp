@@ -6,6 +6,7 @@
  */
 
 #include "Missile.h"
+#include <cmath>
 
 ///Missile object constructor
 Missile::Missile(float positionX, float positionY, float rotation, entity_type missileOwner):
@@ -19,12 +20,13 @@ Missile::Missile(float positionX, float positionY, float rotation, entity_type m
     if (_missile.getOriginX() < 0) throw InvalidConstructorArgumentsMissile();
     if (_missile.getOriginY() < 0) throw InvalidConstructorArgumentsMissile();
     if (_missile.getRotation() < 0) throw InvalidConstructorArgumentsMissile();
-    if ((_type != p1_missile) && (_type != p2_missile)) throw InvalidConstructorArgumentsMissile();
+    if ((_type != p1_missile) && (_type != p2_missile) && (_type != turret_missile)) throw InvalidConstructorArgumentsMissile();
 
     _missile.setWidth(_sprite_dimensions.missile_sprite_x);
     _missile.setHeight(_sprite_dimensions.missile_sprite_y);
     _blockedStatus = 0;
     _collidedStatus = 0;
+    _rebound_lives = 7;
 }
 
 ///Return the ownership and type of the Missile entity
@@ -49,8 +51,8 @@ void Missile::moveBackward()
 ///Left rotation for a missile entity
 void Missile::rotateLeft()
 {
-    _rotation += _missileRotationSpeed;
-    _missile.rotate(_missileRotationSpeed);
+    _rotation -= _missileRotationSpeed;
+    _missile.rotate(-_missileRotationSpeed);
     _blockedStatus = 0;
 }
 
@@ -69,9 +71,11 @@ const rect_corners& Missile::getBoundingBox()
 }
 
 ///Instruct the missile entity that it cannot move along its trajectory
-void Missile::setBlocked()
+const int Missile::setBlocked()
 {
     _blockedStatus = 1;
+    _rebound_lives -= 1;
+    return _rebound_lives;
 }
 
 ///Instruct the tank entity that it can move

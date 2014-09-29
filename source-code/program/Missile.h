@@ -40,7 +40,7 @@ public:
     ///Provide the bounding box for the missile entity
 	virtual const rect_corners& getBoundingBox();
     ///Instruct the missile entity that it cannot move along its trajectory
-	virtual void setBlocked();
+	virtual const int setBlocked();
 	///Instruct the missile entity that it can move
 	virtual void setUnblocked();
     ///Instruct the missile entity that it has collided with another object
@@ -74,6 +74,8 @@ private:
     entity_type _type;
     ///Missile Sprite dimensions
     SpriteDimensions _sprite_dimensions;
+    ///Defines the number of times the Missile can rebound off barriers
+    int _rebound_lives;
 };
 
 #endif // TANK_H_

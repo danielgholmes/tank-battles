@@ -318,7 +318,7 @@ void Game::addNewWorldEntity(actions_info& actions, game_state_info& game_state)
 
             std::shared_ptr<Deletable> tur_missile_del_sp(new Missile(turret_xPos_vec[i] + tur_x_component*missile_offset,
                                                                     turret_yPos_vec[i] + tur_y_component*missile_offset,
-                                                                    turret_rotation_vec[i], p1_missile));
+                                                                    turret_rotation_vec[i], turret_missile));
             //Add to Deletion Manager - Shared pointer
             _destruction_manager.addNewEntity(tur_missile_del_sp);
 
@@ -433,6 +433,7 @@ void Game::loadTextures()
 	_game_textures.barrier.loadFromFile(_barrier_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.barrier_sprite_x,_game_sprite_dimensions.barrier_sprite_y));
 	_game_textures.turret.loadFromFile(_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.turret_sprite_x,_game_sprite_dimensions.tank_sprite_y));
 	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
+	_game_textures.missile_turret.loadFromFile(_missile_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.mine_sprite_y));
 }
 
 void Game::runAllManagers(actions_info& actions, sf::RenderWindow& window, game_state_info& game_state)
@@ -487,6 +488,11 @@ void Game::addNewSprites()
     std::shared_ptr<sf::Sprite> Turret_sp(new(sf::Sprite));
     Turret_sp->setTexture(_game_textures.turret);
     _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret,Turret_sp));
+
+    //Create Turret Sprite
+    std::shared_ptr<sf::Sprite> Turret_missile_sp(new(sf::Sprite));
+    Turret_missile_sp->setTexture(_game_textures.missile_turret);
+    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret_missile,Turret_missile_sp));
 
 }
 

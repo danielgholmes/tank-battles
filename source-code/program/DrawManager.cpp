@@ -174,6 +174,19 @@ void DrawManager::manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game
                     }
                     break;
 
+                case turret_missile:
+                    //search the map for turret_missiles
+                    sprite_map_iterator = game_sprites.find(turret_missile);
+                    if (sprite_map_iterator != game_sprites.end())
+                    {
+                        std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
+                        sprite_sp->setOrigin(_sprite_dimensions.missile_sprite_x/2, _sprite_dimensions.missile_sprite_y/2);
+                        sprite_sp->setPosition(draw_entity_sp->getDrawPositionX(), draw_entity_sp->getDrawPositionY());
+                        sprite_sp->setRotation(draw_entity_sp->getDrawRotation());
+                        window.draw(*sprite_sp);
+                    }
+                    break;
+
                 default:
                 break;
 

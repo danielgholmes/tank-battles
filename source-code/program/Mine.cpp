@@ -31,9 +31,9 @@ const rect_corners& Mine::getBoundingBox()
 }
 
 ///This function is not used by mine
-void Mine::setBlocked()
+const int Mine::setBlocked()
 {
-    //This should be thought about and worked around
+    return 1;
 }
 
 ///This function is not used by mine

@@ -147,27 +147,19 @@ void MoveManager::manage(const actions_info& managerInstructions)
         //Exception if a missile hits a barrier
 
         //Missile has hit a barrier
-        if ((entity_mov_sp->getType() == p1_missile) && (entity_mov_sp->isBlocked()))
+        if (((entity_mov_sp->getType() == p1_missile) ||
+            (entity_mov_sp->getType() == p2_missile) ||
+            (entity_mov_sp->getType() == turret_missile))
+             && (entity_mov_sp->isBlocked()))
         {
             entity_mov_sp->rotateLeft();
             entity_mov_sp->rotateLeft();
             entity_mov_sp->moveForward();
         }
         //Missile moves forward
-        else if (entity_mov_sp->getType() == p1_missile)
-        {
-            entity_mov_sp->moveForward();
-        }
-
-        //P2 Missile has hit a barrier
-        if ((entity_mov_sp->getType() == p2_missile) && (entity_mov_sp->isBlocked()))
-        {
-            entity_mov_sp->rotateLeft();
-            entity_mov_sp->rotateLeft();
-            entity_mov_sp->moveForward();
-        }
-        //P2 Missile moves forward
-        else if (entity_mov_sp->getType() == p2_missile)
+        else if ((entity_mov_sp->getType() == p1_missile) ||
+                 (entity_mov_sp->getType() == p2_missile) ||
+                 (entity_mov_sp->getType() == turret_missile))
         {
             entity_mov_sp->moveForward();
         }

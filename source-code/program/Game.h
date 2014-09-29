@@ -80,6 +80,7 @@ private:
  	const std::string _barrier_texture_file = "barrier.png";
  	const std::string _turret_texture_file = "turret.png";
  	const std::string _map_texture_file = "map.png";
+ 	const std::string _missile_turret_texture_file = "missile_turret.png";
 
 
 	/// Container for all entities on the game world

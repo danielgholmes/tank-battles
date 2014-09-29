@@ -29,7 +29,7 @@ public:
 	///This function is not used by the mine
 	virtual void setUnblocked();
     ///This function is not used by mine
-	virtual void setBlocked();
+	virtual const int setBlocked();
     ///Set the colllision state of the mine
 	virtual void setCollided();
     ///Boolean state of the mine entities life

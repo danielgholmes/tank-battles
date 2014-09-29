@@ -44,7 +44,7 @@ public:
     ///Provide the bounding box for the tank entity
 	virtual const rect_corners& getBoundingBox();
     ///Instruct the tank entity that it cannot move
-	virtual void setBlocked();
+	virtual const int setBlocked();
 	///Instruct the tank entity that it can move
 	virtual void setUnblocked();
     ///Instruct the tank entity that it has collided with another object

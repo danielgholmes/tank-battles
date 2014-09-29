@@ -40,9 +40,9 @@ const rect_corners& Barrier::getBoundingBox()
 }
 
 ///This function is not used by barrier
-void Barrier::setBlocked()
+const int Barrier::setBlocked()
 {
-
+    return 1;
 }
 
 ///This function is not used by barrier

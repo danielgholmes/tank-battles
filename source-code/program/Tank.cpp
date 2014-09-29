@@ -65,9 +65,11 @@ const rect_corners& Tank::getBoundingBox()
 }
 
 ///Instruct the tank entity that it cannot move
-void Tank::setBlocked()
+const int Tank::setBlocked()
 {
     _blockedStatus = 1;
+    //Tank intity can be blocked infinitely.
+    return 1;
 }
 
 ///Instruct the tank entity that it can move

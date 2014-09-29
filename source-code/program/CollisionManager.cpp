@@ -17,23 +17,8 @@ CollisionManager::CollisionManager()
 void CollisionManager::manage()
 {
 
-	 //Clear all deleted entities from the _collidables vector
-    auto removal = _collidables.begin();
-    for (; removal != _collidables.end();)
-    {
-        std::weak_ptr<Collidable> removal_wp = (*removal);
-		//Convert weak_ptr to shared_ptr
-		std::shared_ptr<Collidable> removal_sp = removal_wp.lock();
-		//Test if pointer still valid
-		if(removal_sp)
-        {
-            removal++;
-        }
-        else
-        {
-            _collidables.erase(removal);
-        }
-    }
+    //Clear all deleted entities from the _collidables vector
+    removeGarbage();
 
     //Iterator at initial position within vector
     auto i = _collidables.begin();
@@ -87,12 +72,10 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 		{
 			case p1_tank:
 				entity_1->setBlocked(); // tank
-//				entity_2->setBlocked(); // tank
 				break;
 
             case p2_tank:
 				entity_1->setBlocked(); // tank
-//				entity_2->setBlocked(); // tank
 				break;
 
             case turret:
@@ -155,7 +138,8 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 				break;
 
 			case barrier:
-				entity_1->setBlocked(); // missile
+				if (entity_1->setBlocked() <= 0) // missile
+                    entity_1->setCollided();
 				break;
 
 			default:
@@ -179,6 +163,17 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 
             case barrier:
                 entity_1->setCollided(); //mine
+                break;
+
+            case turret:
+                entity_1->setCollided();
+                break;
+
+            case p1_mine:
+                entity_1->setCollided();
+
+            case p2_mine:
+                entity_1->setCollided();
 
 			default:
 				break;
@@ -215,8 +210,8 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 
 			default:
 				break;
-		}
-	}
+		}//Switch
+	}//Else
 
 	else if (entity_1->getType() == turret)
     {
@@ -242,9 +237,48 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
 
 			default:
 				break;
-        }
-    }
-}
+        }//Switch
+    }//Else
+
+    	else if (entity_1->getType() == turret_missile)
+    {
+        switch(entity_2->getType())
+        {
+            case p1_tank:
+				entity_1->setCollided();
+				entity_2->setCollided();
+				break;
+
+            case p2_tank:
+				entity_1->setCollided();
+				entity_2->setCollided();
+				break;
+
+			case p1_missile:
+			    entity_1->setCollided();
+				entity_2->setCollided();
+				break;
+
+            case p2_missile:
+                entity_1->setCollided();
+				entity_2->setCollided();
+				break;
+
+            case barrier:
+                entity_1->setCollided();
+				break;
+
+            case p1_mine:
+                break; //Do nothing
+
+            case p2_mine:
+                break; //Do nothing
+
+			default:
+				break;
+        }//Switch
+    }//Else
+}//Function
 
 void CollisionManager::resetBlockedState(std::shared_ptr<Collidable>& entity)
 {
@@ -259,4 +293,24 @@ void CollisionManager::addNewEntity(std::weak_ptr<Collidable> new_entity)
 CollisionManager::~CollisionManager()
 {
 
+}
+
+void CollisionManager::removeGarbage()
+{
+    auto removal = _collidables.begin();
+    for (; removal != _collidables.end();)
+    {
+        std::weak_ptr<Collidable> removal_wp = (*removal);
+		//Convert weak_ptr to shared_ptr
+		std::shared_ptr<Collidable> removal_sp = removal_wp.lock();
+		//Test if pointer still valid
+		if(removal_sp)
+        {
+            removal++;
+        }
+        else
+        {
+            _collidables.erase(removal);
+        }
+    }
 }
