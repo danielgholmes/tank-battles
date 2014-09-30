@@ -64,7 +64,6 @@ private:
 	float _turret_startX;
 	float _turret_startY;
 
-	// All world managers
 	MoveManager _move_manager;
 	CollisionManager _collision_manager;
 	TrackingManager _tracking_manager;
@@ -73,10 +72,9 @@ private:
     GameStateManager _state_manager;
     TurretManager _turret_manager;
 
-    // Runtime Data
+    /// Game runtime data
     GameManagementData _game_management_data;
 
-    //Sprite dimensions
     SpriteDimensions _game_sprite_dimensions;
 
     /// Container for all entities on the game world
@@ -87,6 +85,12 @@ private:
 
     /// Function used to create base map sprites from a .txt file template
 	void setupInitialMap();
+
+	/// Function that reads and saves the map text file data
+	void getMapData(std::vector<std::vector<char>>& map_vector, const std::ifstream& map_grid_file);
+
+    /// Function that reads the map data and prepares placement of entities
+	void readMapData(const std::vector<std::vector<char>>& map_vector)
 
 	/// Checks realtime input of keyboard controls in main game loop
 	void checkKeyboardInput(ActionData& action_data_container);
@@ -106,5 +110,9 @@ private:
     /// Helper function for setupInitialMap
 	void createBarrier(int x, int y);
 
+	void addDeletable(std::shared_ptr<Deletable> deletable_sp);
+	void addCollidable(std::shared_ptr<Collidable> collidable_sp);
+	void addMovable(std::shared_ptr<Movable> movable_sp);
+	void addTrackable(std::shared_ptr<Trackable> trackable_sp);
 };
 #endif // GAME_H_

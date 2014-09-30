@@ -100,14 +100,21 @@ void Game::checkKeyboardInput(ActionData& action_data_container)
 
 void Game::setupInitialMap()
 {
-	std::ifstream map_grid(map_grid_filename);
+	std::ifstream map_grid_file(map_grid_filename);
   	std::vector<std::vector<char>> map_vector;
-  	std::vector<char> grid_line;
 
- 	if (map_grid.is_open())
+  	getMapData(map_vector, map_grid_file);
+  	readMapData(map_vector);
+}
+
+void Game::getMapData(std::vector<std::vector<char>> map_vector, const std::ifstream& map_grid_file)
+{
+    std::vector<char> grid_line;
+
+ 	if (map_grid_file.is_open())
   	{
 		std::string line;
-		while ( getline(map_grid,line) )
+		while ( getline(map_grid_file,line) )
 		{
 	  		std::istringstream ss(line);
 	  		char symbol;
@@ -118,11 +125,14 @@ void Game::setupInitialMap()
 	  		map_vector.push_back(grid_line);
 	  		grid_line.clear();
 		}
-		map_grid.close();
+		map_grid_file.close();
 	}
   	else std::cout << "Unable to open map file";
+}
 
-  	for (int i = 0; i < map_vector.size(); i++)
+void Game::readMapData(const std::vector<std::vector<char>>& map_vector)
+{
+      	for (int i = 0; i < map_vector.size(); i++)
   	{
   	    auto temp_vector = map_vector[i];
   		for (int j = 0; j < temp_vector.size(); j++)
@@ -163,24 +173,12 @@ void Game::runAllManagers(GameManagementData& game_data_container, std::shared_p
 	_tracking_manager.manage(game_data_container);
 	_destruction_manager.manage(game_data_container);
 	_state_manager.manage(game_data_container);
-	_draw_manager.manage(game_data_container,display);
+	_draw_manager.manage(game_state_container, display);
 }
 
 void Game::addNewWorldEntity(GameManagementData& game_data_container)
 {
     actions_info actions = game_data_container.giveActionInfo();
-
-    if (game_data_container.isP1Respawn())
-    {
-        addNewTank(p1_tank, _player1_startX, _player1_startY, 0);
-        game_data_container.disableP1Respawn();
-    }
-
-    if (game_data_container.isP2Respawn())
-    {
-        addNewTank(p2_tank, _player2_startX, _player2_startY, 180);
-        game_data_container.disableP2Respawn();
-    }
 
 	//Offset for creating a missile
 	const float missile_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.missile_creation_offset;
@@ -202,19 +200,7 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
             std::shared_ptr<Deletable> tur_missile_del_sp(new Missile(turret_xPos_vec[i] + tur_x_component*missile_offset,
                                                                     turret_yPos_vec[i] + tur_y_component*missile_offset,
                                                                     turret_rotation_vec[i], turret_missile));
-            //Add to Deletion Manager - Shared pointer
-            _destruction_manager.addNewEntity(tur_missile_del_sp);
-
-            //Add to all other entities - Weak pointer
-            std::weak_ptr<Deletable> tur_missile_del_wp = tur_missile_del_sp;
-			_world_entities.push_back(tur_missile_del_wp);
-            _draw_manager.addNewEntity(tur_missile_del_wp);
-            //Cast as Collidable (Weak pointer)
-            std::weak_ptr<Collidable> tur_missile_col_wp = std::dynamic_pointer_cast<Collidable>(tur_missile_del_sp);
-			_collision_manager.addNewEntity(tur_missile_col_wp);
-            //Cast as Movable (Weak pointer)
-            std::weak_ptr<Movable> tur_missile_mov_wp = std::dynamic_pointer_cast<Movable>(tur_missile_del_sp);
-			_move_manager.addNewEntity(tur_missile_mov_wp);
+            addNewMissile(tur_missile_del_sp);
         }
         game_data_container.resetTurretFire();
     }
@@ -229,19 +215,7 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
 		    std::shared_ptr<Deletable> p1_missile_del_sp(new Missile(_tracking_manager.getP1PositionX() + p1_x_component*missile_offset,
                                                                     _tracking_manager.getP1PositionY() + p1_y_component*missile_offset,
                                                                     _tracking_manager.getP1Rotation(), p1_missile));
-            //Add to Deletion Manager - Shared pointer
-            _destruction_manager.addNewEntity(p1_missile_del_sp);
-
-            //Add to all other entities - Weak pointer
-            std::weak_ptr<Deletable> p1_missile_del_wp = p1_missile_del_sp;
-			_world_entities.push_back(p1_missile_del_wp);
-            _draw_manager.addNewEntity(p1_missile_del_wp);
-            //Cast as Collidable (Weak pointer)
-            std::weak_ptr<Collidable> p1_missile_col_wp = std::dynamic_pointer_cast<Collidable>(p1_missile_del_sp);
-			_collision_manager.addNewEntity(p1_missile_col_wp);
-            //Cast as Movable (Weak pointer)
-            std::weak_ptr<Movable> p1_missile_mov_wp = std::dynamic_pointer_cast<Movable>(p1_missile_del_sp);
-			_move_manager.addNewEntity(p1_missile_mov_wp);
+            addNewMissile(p1_missile_del_sp);
 		}
 
         if (actions.attack_1 == lay_mine)
@@ -249,16 +223,7 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
 			std::shared_ptr<Deletable> p1_mine_del_sp(new Mine(_tracking_manager.getP1PositionX() - p1_x_component*mine_offset,
                                                                _tracking_manager.getP1PositionY() - p1_y_component*mine_offset,
                                                                p1_mine));
-            //Add to Deletion Manager - Shared pointer
-            _destruction_manager.addNewEntity(p1_mine_del_sp);
-
-            //Add to all other entities - Weak pointer
-            std::weak_ptr<Deletable> p1_mine_del_wp = p1_mine_del_sp;
-			_world_entities.push_back(p1_mine_del_wp);
-			_draw_manager.addNewEntity(p1_mine_del_wp);
-            //Cast as Collidable (Weak pointer)
-            std::weak_ptr<Collidable> p1_mine_mov_wp = std::dynamic_pointer_cast<Collidable>(p1_mine_del_sp);
-            _collision_manager.addNewEntity(p1_mine_mov_wp);
+            addNewMine(p1_mine_del_sp);
 		}
 	}
 	else if (actions.change_2 == true)
@@ -271,19 +236,7 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
 			std::shared_ptr<Deletable> p2_missile_del_sp(new Missile(_tracking_manager.getP2PositionX() + p2_x_component*missile_offset,
                                                                     _tracking_manager.getP2PositionY() + p2_y_component*missile_offset,
                                                                     _tracking_manager.getP2Rotation(), p2_missile));
-            //Add to Destruction Manager - Shared pointer
-            _destruction_manager.addNewEntity(p2_missile_del_sp);
-
-			//Convert to weak pointer
-			std::weak_ptr<Deletable> p2_missile_del_wp = p2_missile_del_sp;
-			_world_entities.push_back(p2_missile_del_wp);
-            _draw_manager.addNewEntity(p2_missile_del_wp);
-            //Cast as Collidable (Weak pointer)
-            std::weak_ptr<Collidable> p2_missile_col_wp = std::dynamic_pointer_cast<Collidable>(p2_missile_del_sp);
-			_collision_manager.addNewEntity(p2_missile_col_wp);
-            //Cast as Movable (Weak pointer)
-            std::weak_ptr<Movable> p2_missile_mov_wp = std::dynamic_pointer_cast<Movable>(p2_missile_del_sp);
-			_move_manager.addNewEntity(p2_missile_mov_wp);
+            addNewMissile(p2_missile_del_sp);
 		}
 
         if (actions.attack_2 == lay_mine)
@@ -291,18 +244,25 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
 			std::shared_ptr<Deletable> p2_mine_del_sp(new Mine(_tracking_manager.getP2PositionX() - p2_x_component*mine_offset,
                                                                _tracking_manager.getP2PositionY() - p2_y_component*mine_offset,
                                                                p2_mine));
-            //Add to Destruction Manager - Shared Pointer
-			_destruction_manager.addNewEntity(p2_mine_del_sp);
-			//Convert to weak pointer
-			std::weak_ptr<Deletable> p2_mine_del_wp = p2_mine_del_sp;
-			_world_entities.push_back(p2_mine_del_wp);
-			_draw_manager.addNewEntity(p2_mine_del_wp);
-            //Cast as Collidable (Weak pointer)
-            std::weak_ptr<Collidable> p2_mine_mov_wp = std::dynamic_pointer_cast<Collidable>(p2_mine_del_sp);
-            _collision_manager.addNewEntity(p2_mine_mov_wp);
+            addNewMine(p2_mine_del_sp);
 		}
 	}
 	return;
+}
+
+void Game::manageRespawns(GameManagementData& game_data_container)
+{
+    if (game_data_container.isP1Respawn())
+    {
+        addNewTank(p1_tank, _player1_startX, _player1_startY, 0);
+        game_data_container.disableP1Respawn();
+    }
+
+    if (game_data_container.isP2Respawn())
+    {
+        addNewTank(p2_tank, _player2_startX, _player2_startY, 180);
+        game_data_container.disableP2Respawn();
+    }
 }
 
 void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation)
@@ -310,19 +270,10 @@ void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_
 	std::shared_ptr<Deletable> new_tank_del_sp(new Tank(tank_positionX, tank_positionY,rotation, player_tank));
     _destruction_manager.addNewEntity(new_tank_del_sp);
 
-    //Change to derived classes - Weak pointers
-    std::weak_ptr<Deletable> new_tank_del_wp = std::dynamic_pointer_cast<Deletable>(new_tank_del_sp);
-    _world_entities.push_back(new_tank_del_wp);
-    _draw_manager.addNewEntity(new_tank_del_wp);
-    //Cast as Collidable
-	std::weak_ptr<Collidable> new_tank_col_wp = std::dynamic_pointer_cast<Collidable>(new_tank_del_sp);
-	_collision_manager.addNewEntity(new_tank_col_wp);
-    //Cast as Moveable
-    std::weak_ptr<Movable> new_tank_mov_wp = std::dynamic_pointer_cast<Movable>(new_tank_del_sp);
-	_move_manager.addNewEntity(new_tank_mov_wp);
-	//Cast as Trackable
-	std::weak_ptr<Trackable> new_tank_track_wp = std::dynamic_pointer_cast<Trackable>(new_tank_del_sp);
-	_tracking_manager.addNewEntity(new_tank_track_wp);
+    addDeletable(new_tank_del_sp);
+    addCollidable(new_tank_del_sp);
+    addMovable(new_tank_del_sp);
+    addTrackable(new_tank_del_sp);
 }
 
 void Game::addNewTurret(float turret_postionX, float turret_positionY, float rotation)
@@ -330,19 +281,27 @@ void Game::addNewTurret(float turret_postionX, float turret_positionY, float rot
     std::shared_ptr<Deletable> new_turret_del_sp(new Turret(turret_postionX, turret_positionY, rotation));
     _destruction_manager.addNewEntity(new_turret_del_sp);
 
-    //Change to derived classes - Weak pointers
-    std::weak_ptr<Deletable> new_turret_del_wp = std::dynamic_pointer_cast<Deletable>(new_turret_del_sp);
-    _world_entities.push_back(new_turret_del_wp);
-    _draw_manager.addNewEntity(new_turret_del_wp);
-    //Cast as Collidable
-    std::weak_ptr<Collidable> new_turret_col_wp = std::dynamic_pointer_cast<Collidable>(new_turret_del_sp);
-	_collision_manager.addNewEntity(new_turret_col_wp);
-    //Cast as Trackable
-	std::weak_ptr<Trackable> new_turret_track_wp = std::dynamic_pointer_cast<Trackable>(new_turret_del_sp);
-	_tracking_manager.addNewEntity(new_turret_track_wp);
-	//Cast as Turret
-	std::weak_ptr<Turret> new_turret_tur_wp = std::dynamic_pointer_cast<Turret>(new_turret_del_sp);
-	_turret_manager.addNewEntity(new_turret_tur_wp);
+    addDeletable(new_turret_del_sp);
+    addCollidable(new_turret_del_sp);
+    addMovable(new_turret_del_sp);
+    addTrackable(new_turret_del_sp);
+}
+
+void Game::addNewMissile(std::shared_ptr<Deletable> missile_del_sp)
+{
+    _destruction_manager.addNewEntity(missile_del_sp);
+
+    addDeletable(missile_del_sp);
+    addCollidable(missile_del_sp);
+    addMovable(missile_del_sp);
+}
+
+void Game::addNewMine(std::shared_ptr<Deletable> mine_del_sp)
+{
+    _destruction_manager.addNewEntity(mine_del_sp);
+
+    addDeletable(mine_del_sp);
+    addCollidable(mine_del_sp);
 }
 
 void Game::createBarrier(int x, int y)
@@ -350,17 +309,36 @@ void Game::createBarrier(int x, int y)
     std::shared_ptr<Deletable> new_barrier_del_sp(new Barrier(x, y, barrier));
     _destruction_manager.addNewEntity(new_barrier_del_sp);
 
-    //Cast as weak pointer
-    std::weak_ptr<Deletable> new_barrier_del_wp = std::dynamic_pointer_cast<Deletable>(new_barrier_del_sp);
-    _world_entities.push_back(new_barrier_del_wp);
-    _draw_manager.addNewEntity(new_barrier_del_wp);
-    //Cast as Collidable
-    std::weak_ptr<Collidable> new_barrier_col_wp = std::dynamic_pointer_cast<Collidable>(new_barrier_del_sp);
-    _collision_manager.addNewEntity(new_barrier_col_wp);
+    addDeletable(new_barrier_del_sp);
+    addCollidable(new_barrier_del_sp);
+}
+
+void Game::addDeletable(std::shared_ptr<Deletable> deletable_sp)
+{
+    std::weak_ptr<Deletable> deletable_wp = deletable_sp;
+    _world_entities.push_back(deletable_wp);
+    _draw_manager.addNewEntity(deletable_wp);
+}
+
+void Game::addCollidable(std::shared_ptr<Collidable> deletable_sp)
+{
+    std::weak_ptr<Collidable> collidable_wp = std::dynamic_pointer_cast<Collidable>(deletable_sp);
+    _collision_manager.addNewEntity(collidable_wp);
+}
+
+void Game::addMovable(std::shared_ptr<Movable> movable_sp)
+{
+    std::weak_ptr<Movable> movable_wp = std::dynamic_pointer_cast<Movable>(movable_sp);
+    _move_manager.addNewEntity(movable_wp);
+}
+
+void Game::addTrackable(std::shared_ptr<Trackable> trackable_sp)
+{
+	std::weak_ptr<Trackable> trackable_wp = std::dynamic_pointer_cast<Trackable>(trackable_sp);
+	_tracking_manager.addNewEntity(trackable_wp);
 }
 
 Game::~Game()
 {
 
 }
-
