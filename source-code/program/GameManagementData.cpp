@@ -14,7 +14,8 @@
      _p2_score(0),
      _p1_respawn(false),
      _p2_respawn(false),
-     _game_state(true)
+     _game_state(true),
+     _game_time(0)
      {
         resetActionsInfo();
      }
@@ -117,14 +118,24 @@ void GameManagementData::mineLaidP2()
     _game_actions.attack_2 = lay_mine;
 }
 
-const player_action& GameManagementData::getAttackTypeP1()
+void GameManagementData::resetP1Attack()
 {
-    return _game_actions.attack_1;
+    _game_actions.attack_1 = do_nothing;
 }
 
-const player_action& GameManagementData::getAttackTypeP2()
+void GameManagementData::resetP2Attack()
 {
-    return _game_actions.attack_2;
+    _game_actions.attack_2 =do_nothing;
+}
+
+const int GameManagementData::getP1Score()
+{
+    return _p1_score;
+}
+
+const int GameManagementData::getP2Score()
+{
+    return _p2_score;
 }
 
 void GameManagementData::increaseP1Score()
@@ -174,9 +185,19 @@ const bool GameManagementData::isGameFinished()
     return _game_state;
 }
 
-virtual void GameManagementData::setGameFinished()
+void GameManagementData::setGameFinished()
 {
     _game_state = false;
+}
+
+void setGameTime(const float game_time)
+{
+    _game_time = game_time;
+}
+
+const float getGameTime()
+{
+    return _game_time;
 }
 
 GameManagementData::~GameManagementData()

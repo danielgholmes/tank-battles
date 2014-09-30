@@ -27,7 +27,7 @@ void GameStateManager::manage(GameManagementData& game_data_container)
         game_data_container.setGameFinished(); // finish the game
     }
     else
-        game_state.runtime = current_time;
+        game_data_container.setGameTime(current_time);
 
     manageAttackTimers(game_data_container);
 }
@@ -37,16 +37,16 @@ void GameStateManager::manageAttackTimers(ActionData& game_data_container)
     auto actions = game_data_container.giveActionInfo();
 
     if (actions.attack_1 == fire_missile && !timeRunOut(_p1_fire_timer))
-        actions.attack_1 = do_nothing;
+        game_data_container.resetP1Attack();
 
     if (actions.attack_2 == fire_missile && !timeRunOut(_p2_fire_timer))
-        actions.attack_2 = do_nothing;
+        game_data_container.resetP2Attack();
 
     if (actions.attack_1 == lay_mine && !timeRunOut(_p1_lay_mine_timer))
-        actions.attack_1 = do_nothing;
+        game_data_container.resetP1Attack();
 
     if (actions.attack_2 == lay_mine && !timeRunOut(_p2_lay_mine_timer))
-        actions.attack_2 = do_nothing;
+        game_data_container.resetP2Attack();
 }
 
 //No need to see actions here

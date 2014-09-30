@@ -18,6 +18,10 @@ public:
     ///
     virtual void increaseP2Score() = 0;
     ///
+    virtual const int getP1Score() = 0;
+    ///
+    virtual const int getP2Score() = 0;
+    ///
     virtual void setP1Respawn() = 0;
     ///
     virtual void setP2Respawn() = 0;
@@ -33,6 +37,10 @@ public:
     virtual const bool isGameFinished() = 0;
     ///
     virtual void setGameFinished() = 0;
+    ///
+    virtual void setGameTime(const float game_time) = 0;
+    ///
+    virtual const float getGameTime() = 0;
     ///
     virtual ~GameStateData() {};
 

@@ -20,61 +20,71 @@ public:
     ///Constructor
     GameManagementData();
     ///Virtual void function, look to child for defenition
-    void resetActionsInfo();
+    virtual void resetActionsInfo();
     ///
-    const actions_info& giveActionInfo();
+    virtual const actions_info& giveActionInfo();
     ///
-    void resetTurretFire();
+    virtual void resetTurretFire();
     ///
-    void setTurretFire();
+    virtual void setTurretFire();
     ///
-    void moveForwardP1();
+    virtual void moveForwardP1();
     ///
-    void moveBackwardP1();
+    virtual void moveBackwardP1();
     ///
-    void rotateLeftP1();
+    virtual void rotateLeftP1();
     ///
-    void rotateRightP1();
+    virtual void rotateRightP1();
     ///
-    void moveForwardP2();
+    virtual void moveForwardP2();
     ///
-    void moveBackwardP2();
+    virtual void moveBackwardP2();
     ///
-    void rotateLeftP2();
+    virtual void rotateLeftP2();
     ///
-    void rotateRightP2();
+    virtual void rotateRightP2();
     ///
-    void missileFiredP1();
+    virtual void missileFiredP1();
      ///
-    void missileFiredP2();
+    virtual void missileFiredP2();
     ///
-    void mineLaidP1();
+    virtual void mineLaidP1();
     ///
-    void mineLaidP2();
+    virtual void mineLaidP2();
     ///
-    const player_action& getAttackTypeP1();
+    virtual void resetP1Attack();
     ///
-    const player_action& getAttackTypeP2();
-     ///
-    void increaseP1Score();
+    virtual void resetP2Attack();
+
+
     ///
-    void increaseP2Score();
+    virtual const int geP1Score();
     ///
-    void setP1Respawn();
+    virtual const int getP2Score();
     ///
-    void setP2Respawn();
+    virtual void increaseP1Score();
     ///
-    void disableP1Respawn();
+    virtual void increaseP2Score();
     ///
-    void disableP2Respawn();
+    virtual void setP1Respawn();
     ///
-    const bool isP1Respawn();
+    virtual void setP2Respawn();
     ///
-    const bool isP2Respawn();
+    virtual void disableP1Respawn();
     ///
-    const bool isGameFinished();
+    virtual void disableP2Respawn();
     ///
-    void setGameFinished();
+    virtual const bool isP1Respawn();
+    ///
+    virtual const bool isP2Respawn();
+    ///
+    virtual const bool isGameFinished();
+    ///
+    virtual void setGameFinished();
+    ///
+    virtual virtual void setGameTime(const float game_time);
+    ///
+    virtual virtual const float getGameTime();
     ///Destructor
     virtual ~GameManagementData();
 
@@ -86,6 +96,7 @@ private:
     bool _p1_respawn;
     bool _p2_respawn;
     bool _game_state;
+    float _game_time;
 
 };
 

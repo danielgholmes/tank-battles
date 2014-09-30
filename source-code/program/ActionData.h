@@ -49,9 +49,9 @@ public:
     ///
     virtual void mineLaidP2() = 0;
     ///
-    virtual const player_action& getAttackTypeP1() =0;
+    virtual void resetP1Attack() = 0;
     ///
-    virtual const player_action& getAttackTypeP2() =0;
+    virtual void resetP2Attack() = 0;
     ///
     virtual ~ActionData() {};
 

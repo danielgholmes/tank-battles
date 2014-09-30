@@ -99,11 +99,11 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
     strings.game_time = strs1.str();
 
     std::ostringstream strs2;
-    strs2 << game_state.player1_score;
+    strs2 << game_state_container.getP1Score();
     strings.p1_score = strs2.str();
 
     std::ostringstream strs3;
-    strs3 << game_state.player2_score;
+    strs3 << game_state_container.getP2Score();
     strings.p2_score = strs3.str();
 
     display->addTextToDraw(strings);
