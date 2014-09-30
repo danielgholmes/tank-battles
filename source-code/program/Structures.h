@@ -120,6 +120,23 @@ struct draw_strings
     std::string p2_score;
 };
 
+// used for keyboard input in game and keyboard classes
+enum gameplay_keys
+{
+    Left = 1,
+    Right,
+    Up,
+    Down,
+    RAlt,
+    RControl,
+    A,
+    D,
+    W,
+    S,
+    LAlt,
+    LControl
+};
+
 
 #endif
 
