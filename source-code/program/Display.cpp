@@ -41,6 +41,13 @@ Display::Display(int window_width, int window_height):
 
 }
 
+bool Display::isOpen()
+{
+    if (_window.isOpen())
+        return true;
+    else return false;
+}
+
 void Display::setupText(sf::Text& text)
 {
     text.setFont(_font_style);

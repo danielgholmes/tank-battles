@@ -7,16 +7,20 @@
 
 //includes
 #include "Game.h"
+#include "Display.h"
 #include <iostream>
-
-using namespace std;
+#include <memory>
 
 int main()
 {
-    Game StartNewGame(1200,675);
+    std::shared_ptr<Display> display(new Display(1200,675));
 
-    StartNewGame.runWorld();
-    cout << "Thank you for playing Tank-battle v1.1 !" << endl;
-    cout << "see: " << endl << "https://github.com/danielgholmes/tank-battles" << endl << "for latest version :D " << endl;
+    Game TankWorld;
+    TankWorld.runWorld(display);
+
+    display->displayGameEndScreen();
+
+    std::cout << "Thank you for playing Tank-battle v1.1 !" << endl;
+    std::cout << "see: " << endl << "https://github.com/danielgholmes/tank-battles" << endl << "for latest version :D " << endl;
 
 }

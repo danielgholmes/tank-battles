@@ -31,6 +31,7 @@ public:
     /// Constructor with default window dimensions
     Display(int window_width = 800, int window_height = 600);
 
+    bool isOpen();
     void pollEvents();
     void addSpriteToDraw(const entity_type& entity, const sprite_draw_info& draw_info);
     void addTextToDraw(const draw_strings& strings);

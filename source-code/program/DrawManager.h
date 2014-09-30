@@ -16,6 +16,7 @@
 #include "Deletable.h"
 #include "Structures.h"
 #include "SpriteDimensions.h"
+#include "GameStateData.h"
 #include "Display.h"
 #include <vector>
 #include <map>

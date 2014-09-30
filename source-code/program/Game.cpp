@@ -11,8 +11,6 @@
 #include <sstream>
 
 Game::Game():
-	_window_width(800),
-	_window_height(600),
     _game_sprite_dimensions(),
     _game_management_data()
 {
@@ -22,75 +20,87 @@ Game::Game():
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
 	GameStateManager _state_manager;
+}
 
-	loadTextures();
-	addNewSprites();
-
+void Game::runWorld(std::shared_ptr<Display> display)
+{
     setupInitialMap();
+
+	while(display->isOpen()) // main game loop
+	{
+		_game_management_data.resetActionsInfo();
+		display->pollEvents();
+		checkKeyboardInput(_game_management_data);
+		runAllManagers(_game_management_data,window);
+		addNewWorldEntity(_game_management_data);
+		display->drawAndDisplayEverything();
+	}
+
+	return;
 }
 
-Game::Game(int width, int height):
-	_window_width(width),
-	_window_height(height),
-    _game_sprite_dimensions(),
-    _game_management_data()
+void Game::checkKeyboardInput(ActionData& action_data_container)
 {
-	MoveManager _move_manager;
-	CollisionManager _collision_manager;
-	TrackingManager _tracking_manager;
-	DrawManager _draw_manager;
-	DestructionManager _destruction_manager;
-	GameStateManager _state_manager;
+    Keyboard keyboard;
 
-	loadTextures();
-	addNewSprites();
+	// input for tank 1
+    if (keyboard.isKeyPressed(Left))
+    {
+    	action_data_container.rotateLeftP1(); // tank 1 rotate left
+	}
+	if (keyboard.isKeyPressed(Right))
+	{
+    	action_data_container.rotateRightP1(); // tank 1 rotate right
+	}
+	if (keyboard.isKeyPressed(Up))
+	{
+    	action_data_container.moveForwardP1(); // tank 1 move forward
+	}
+	if (keyboard.isKeyPressed(Down))
+	{
+    	action_data_container.moveBackwardP1(); // tank 1 move backward
+	}
+	if (keyboard.isKeyPressed(RAlt))
+	{
+    	action_data_container.mineLaidP1(); // tank 1 plant mine
+	}
+	if (keyboard.isKeyPressed(RControl))
+	{
+    	action_data_container.missileFiredP1(); // tank 1 fire missile
+	}
 
-	setupInitialMap();
-}
+	// input for tank 2
+	if (keyboard.isKeyPressed(A))
+	{
+    	action_data_container.rotateLeftP2(); // tank 2 rotate left
+	}
+	if (keyboard.isKeyPressed(D))
+	{
+    	action_data_container.rotateRightP2(); // tank 2 rotate right
+	}
+	if (keyboard.isKeyPressed(W))
+	{
+    	action_data_container.moveForwardP2(); // tank 2 move forward
+	}
+	if (keyboard.isKeyPressed(S))
+	{
+    	action_data_container.moveBackwardP2(); // tank 2 move backward
+	}
+	if (keyboard.isKeyPressed(LAlt))
+	{
+    	action_data_container.mineLaidP2(); // tank 2 plant mine
+	}
+	if (keyboard.isKeyPressed(LControl))
+	{
+    	action_data_container.missileFiredP2(); // tank 2 fire missile
+	}
 
-void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation)
-{
-	std::shared_ptr<Deletable> new_tank_del_sp(new Tank(tank_positionX, tank_positionY,rotation, player_tank));
-    _destruction_manager.addNewEntity(new_tank_del_sp);
-
-    //Change to derived classes - Weak pointers
-    std::weak_ptr<Deletable> new_tank_del_wp = std::dynamic_pointer_cast<Deletable>(new_tank_del_sp);
-    _world_entities.push_back(new_tank_del_wp);
-    _draw_manager.addNewEntity(new_tank_del_wp);
-    //Cast as Collidable
-	std::weak_ptr<Collidable> new_tank_col_wp = std::dynamic_pointer_cast<Collidable>(new_tank_del_sp);
-	_collision_manager.addNewEntity(new_tank_col_wp);
-    //Cast as Moveable
-    std::weak_ptr<Movable> new_tank_mov_wp = std::dynamic_pointer_cast<Movable>(new_tank_del_sp);
-	_move_manager.addNewEntity(new_tank_mov_wp);
-	//Cast as Trackable
-	std::weak_ptr<Trackable> new_tank_track_wp = std::dynamic_pointer_cast<Trackable>(new_tank_del_sp);
-	_tracking_manager.addNewEntity(new_tank_track_wp);
-}
-
-void Game::addNewTurret(float turret_postionX, float turret_positionY, float rotation)
-{
-    std::shared_ptr<Deletable> new_turret_del_sp(new Turret(turret_postionX, turret_positionY, rotation));
-    _destruction_manager.addNewEntity(new_turret_del_sp);
-
-    //Change to derived classes - Weak pointers
-    std::weak_ptr<Deletable> new_turret_del_wp = std::dynamic_pointer_cast<Deletable>(new_turret_del_sp);
-    _world_entities.push_back(new_turret_del_wp);
-    _draw_manager.addNewEntity(new_turret_del_wp);
-    //Cast as Collidable
-    std::weak_ptr<Collidable> new_turret_col_wp = std::dynamic_pointer_cast<Collidable>(new_turret_del_sp);
-	_collision_manager.addNewEntity(new_turret_col_wp);
-    //Cast as Trackable
-	std::weak_ptr<Trackable> new_turret_track_wp = std::dynamic_pointer_cast<Trackable>(new_turret_del_sp);
-	_tracking_manager.addNewEntity(new_turret_track_wp);
-	//Cast as Turret
-	std::weak_ptr<Turret> new_turret_tur_wp = std::dynamic_pointer_cast<Turret>(new_turret_del_sp);
-	_turret_manager.addNewEntity(new_turret_tur_wp);
+	return;
 }
 
 void Game::setupInitialMap()
 {
-	std::ifstream map_grid("map_grid.txt");
+	std::ifstream map_grid(map_grid_filename);
   	std::vector<std::vector<char>> map_vector;
   	std::vector<char> grid_line;
 
@@ -143,117 +153,19 @@ void Game::setupInitialMap()
   		    }
   		}
   	}
-} //End function
-
-void Game::createBarrier(int x, int y)
-{
-    std::shared_ptr<Deletable> new_barrier_del_sp(new Barrier(x, y, barrier));
-    _destruction_manager.addNewEntity(new_barrier_del_sp);
-
-    //Cast as weak pointer
-    std::weak_ptr<Deletable> new_barrier_del_wp = std::dynamic_pointer_cast<Deletable>(new_barrier_del_sp);
-    _world_entities.push_back(new_barrier_del_wp);
-    _draw_manager.addNewEntity(new_barrier_del_wp);
-    //Cast as Collidable
-    std::weak_ptr<Collidable> new_barrier_col_wp = std::dynamic_pointer_cast<Collidable>(new_barrier_del_sp);
-    _collision_manager.addNewEntity(new_barrier_col_wp);
 }
 
-void Game::runWorld()
+void Game::runAllManagers(GameManagementData& game_data_container, sf::RenderWindow& window)
 {
-	// initialise objects and variables to be used within the main program loop
-	sf::RenderWindow window(sf::VideoMode(_window_width, _window_height), _window_title);
-	window.setFramerateLimit(45); // may need to synchronise things another way later on
-
-	actions_info actions; // create the struct
-
-	game_state_info game_state;
-	initialiseState(game_state);
-
-	while(window.isOpen())
-	{
-		_game_management_data.resetActionsInfo();
-		pollEvents(window);
-		checkKeyboardInput(_game_management_data);
-		runAllManagers(_game_management_data,window);
-		addNewWorldEntity(_game_management_data);
-	}
-
-	return;
+    _turret_manager.manage();
+    _collision_manager.manage();
+	_move_manager.manage(game_data_container);
+	_tracking_manager.manage(game_data_container);
+	_destruction_manager.manage(game_data_container);
+	_state_manager.manage(game_data_container);
+	_draw_manager.manage(_sprites, window, game_state);
 }
 
-void Game::pollEvents(sf::RenderWindow& window)
-{
-	sf::Event event;
-
-	while (window.pollEvent(event))
-    {
-        if (event.type == sf::Event::Closed)
-        	window.close();
-
-       	/* Include other events here */
-    }
-}
-
-// Note: some logic is in the view
-void Game::checkKeyboardInput(ActionData& action_data_container)
-{
-	// input for tank 1
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-    {
-    	action_data_container.rotateLeftP1(); // tank 1 rotate left
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
-    	action_data_container.rotateRightP1(); // tank 1 rotate right
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-	{
-    	action_data_container.moveForwardP1(); // tank 1 move forward
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-    	action_data_container.moveBackwardP1(); // tank 1 move backward
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RAlt))
-	{
-    	action_data_container.mineLaidP1(); // tank 1 plant mine
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-	{
-    	action_data_container.missileFiredP1(); // tank 1 fire missile
-	}
-
-	// input for tank 2
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-    	action_data_container.rotateLeftP2();; // tank 2 rotate left
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-    	action_data_container.rotateRightP2(); // tank 2 rotate right
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-    	action_data_container.moveForwardP2(); // tank 2 move forward
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-    	action_data_container.moveBackwardP2(); // tank 2 move backward
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt))
-	{
-    	action_data_container.mineLaidP2(); // tank 2 plant mine
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
-	{
-    	action_data_container.missileFiredP2(); // tank 2 fire missile
-	}
-
-	return;
-}
-
-// Note: here is some more logic
 void Game::addNewWorldEntity(GameManagementData& game_data_container)
 {
     actions_info actions = game_data_container.giveActionInfo();
@@ -390,20 +302,61 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
             _collision_manager.addNewEntity(p2_mine_mov_wp);
 		}
 	}
-
 	return;
 }
 
-
-void Game::runAllManagers(GameManagementData& game_data_container, sf::RenderWindow& window)
+void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation)
 {
-    _turret_manager.manage();
-    _collision_manager.manage();
-	_move_manager.manage(game_data_container);
-	_tracking_manager.manage(game_data_container);
-	_destruction_manager.manage(game_data_container);
-	_state_manager.manage(game_data_container);
-	_draw_manager.manage(_sprites, window, game_state);
+	std::shared_ptr<Deletable> new_tank_del_sp(new Tank(tank_positionX, tank_positionY,rotation, player_tank));
+    _destruction_manager.addNewEntity(new_tank_del_sp);
+
+    //Change to derived classes - Weak pointers
+    std::weak_ptr<Deletable> new_tank_del_wp = std::dynamic_pointer_cast<Deletable>(new_tank_del_sp);
+    _world_entities.push_back(new_tank_del_wp);
+    _draw_manager.addNewEntity(new_tank_del_wp);
+    //Cast as Collidable
+	std::weak_ptr<Collidable> new_tank_col_wp = std::dynamic_pointer_cast<Collidable>(new_tank_del_sp);
+	_collision_manager.addNewEntity(new_tank_col_wp);
+    //Cast as Moveable
+    std::weak_ptr<Movable> new_tank_mov_wp = std::dynamic_pointer_cast<Movable>(new_tank_del_sp);
+	_move_manager.addNewEntity(new_tank_mov_wp);
+	//Cast as Trackable
+	std::weak_ptr<Trackable> new_tank_track_wp = std::dynamic_pointer_cast<Trackable>(new_tank_del_sp);
+	_tracking_manager.addNewEntity(new_tank_track_wp);
+}
+
+void Game::addNewTurret(float turret_postionX, float turret_positionY, float rotation)
+{
+    std::shared_ptr<Deletable> new_turret_del_sp(new Turret(turret_postionX, turret_positionY, rotation));
+    _destruction_manager.addNewEntity(new_turret_del_sp);
+
+    //Change to derived classes - Weak pointers
+    std::weak_ptr<Deletable> new_turret_del_wp = std::dynamic_pointer_cast<Deletable>(new_turret_del_sp);
+    _world_entities.push_back(new_turret_del_wp);
+    _draw_manager.addNewEntity(new_turret_del_wp);
+    //Cast as Collidable
+    std::weak_ptr<Collidable> new_turret_col_wp = std::dynamic_pointer_cast<Collidable>(new_turret_del_sp);
+	_collision_manager.addNewEntity(new_turret_col_wp);
+    //Cast as Trackable
+	std::weak_ptr<Trackable> new_turret_track_wp = std::dynamic_pointer_cast<Trackable>(new_turret_del_sp);
+	_tracking_manager.addNewEntity(new_turret_track_wp);
+	//Cast as Turret
+	std::weak_ptr<Turret> new_turret_tur_wp = std::dynamic_pointer_cast<Turret>(new_turret_del_sp);
+	_turret_manager.addNewEntity(new_turret_tur_wp);
+}
+
+void Game::createBarrier(int x, int y)
+{
+    std::shared_ptr<Deletable> new_barrier_del_sp(new Barrier(x, y, barrier));
+    _destruction_manager.addNewEntity(new_barrier_del_sp);
+
+    //Cast as weak pointer
+    std::weak_ptr<Deletable> new_barrier_del_wp = std::dynamic_pointer_cast<Deletable>(new_barrier_del_sp);
+    _world_entities.push_back(new_barrier_del_wp);
+    _draw_manager.addNewEntity(new_barrier_del_wp);
+    //Cast as Collidable
+    std::weak_ptr<Collidable> new_barrier_col_wp = std::dynamic_pointer_cast<Collidable>(new_barrier_del_sp);
+    _collision_manager.addNewEntity(new_barrier_col_wp);
 }
 
 Game::~Game()
