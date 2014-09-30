@@ -26,6 +26,9 @@
 #include "Barrier.h"
 #include "Mine.h"
 #include "Turret.h"
+#include "GameManagementData.h"
+#include "GameStateData.h"
+#include "ActionData.h"
 
 //include all managers
 #include "MoveManager.h"
@@ -97,23 +100,23 @@ private:
     GameStateManager _state_manager;
     TurretManager _turret_manager;
 
+    // Runtime Data
+    GameManagementData _game_management_data;
+
 	/// Handles all events in main game loop
 	void pollEvents(sf::RenderWindow& window);
-
-	/// Initially populate the actions_info structure
-	void initialiseActions(actions_info& actions);
 
 	/// Initially populate the game_state structure
 	void initialiseState(game_state_info& game_state);
 
 	/// Checks realtime input of keyboard controls in main game loop
-	void checkKeyboardInput(actions_info& actions);
+	void checkKeyboardInput(ActionData& action_data_container);
 
 	/// Function thats tells all managers to operate
-	void runAllManagers(actions_info& actions, sf::RenderWindow& window, game_state_info& game_state);
+	void runAllManagers(GameManagementData& game_data_container, sf::RenderWindow& window);
 
 	/// Function that will add new entity based on action
-	void addNewWorldEntity(actions_info& actions, game_state_info& game_state);
+	void addNewWorldEntity(GameManagementData& game_data_container);
 
 	/// Function which creates the base stamp sprites for the Game
 	void addNewSprites();

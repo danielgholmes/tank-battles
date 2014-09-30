@@ -20,7 +20,7 @@ public:
     ///Constructor
     GameStateManager();
     ///Function to manage the current game state
-    void manage(game_state_info& game_state, actions_info& actions);
+    void manage(GameManagementData& game_data_container);
     ///Destructor
     ~GameStateManager();
 
@@ -38,7 +38,7 @@ private:
     /// Time limit between firing or laying mines for tanks
     const double _attack_time_limit = 0.5;
 
-    void manageAttackTimers(actions_info& actions);
+    void manageAttackTimers(ActionData& action_data_container);
 
     bool timeRunOut(StopWatch& timer);
 

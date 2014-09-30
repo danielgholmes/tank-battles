@@ -13,7 +13,8 @@
 Game::Game():
 	_window_width(800),
 	_window_height(600),
-    _game_sprite_dimensions()
+    _game_sprite_dimensions(),
+    _game_management_data()
 {
 	MoveManager _move_manager;
 	CollisionManager _collision_manager;
@@ -31,7 +32,8 @@ Game::Game():
 Game::Game(int width, int height):
 	_window_width(width),
 	_window_height(height),
-    _game_sprite_dimensions()
+    _game_sprite_dimensions(),
+    _game_management_data()
 {
 	MoveManager _move_manager;
 	CollisionManager _collision_manager;
@@ -164,18 +166,17 @@ void Game::runWorld()
 	window.setFramerateLimit(45); // may need to synchronise things another way later on
 
 	actions_info actions; // create the struct
-	initialiseActions(actions);
 
 	game_state_info game_state;
 	initialiseState(game_state);
 
 	while(window.isOpen())
 	{
-		initialiseActions(actions);
+		_game_management_data.resetActionsInfo();
 		pollEvents(window);
-		checkKeyboardInput(actions);
-		runAllManagers(actions,window,game_state);
-		addNewWorldEntity(actions, game_state);
+		checkKeyboardInput(_game_management_data);
+		runAllManagers(_game_management_data,window);
+		addNewWorldEntity(_game_management_data);
 	}
 
 	return;
@@ -194,17 +195,6 @@ void Game::pollEvents(sf::RenderWindow& window)
     }
 }
 
-void Game::initialiseActions(actions_info& actions)
-{
-    actions.change_1 = false;
-	actions.change_2 = false;
-	actions.turret_fire = false;
-	actions.move_1 = do_nothing;
-	actions.move_2 = do_nothing;
-	actions.attack_1 = do_nothing;
-	actions.attack_2 = do_nothing;
-}
-
 void Game::initialiseState(game_state_info& state)
 {
     state.finished = false;
@@ -215,88 +205,78 @@ void Game::initialiseState(game_state_info& state)
 }
 
 // Note: some logic is in the view
-void Game::checkKeyboardInput(actions_info& actions)
+void Game::checkKeyboardInput(ActionData& action_data_container)
 {
 	// input for tank 1
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-    	actions.change_1 = true; // tank 1 rotate left
-    	actions.move_1 = rotate_left;
+    	action_data_container.rotateLeftP1(); // tank 1 rotate left
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-    	actions.change_1 = true; // tank 1 rotate right
-    	actions.move_1 = rotate_right;
+    	action_data_container.rotateRightP1(); // tank 1 rotate right
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-    	actions.change_1 = true; // tank 1 move forward
-    	actions.move_1 = forward;
+    	action_data_container.moveForwardP1(); // tank 1 move forward
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-    	actions.change_1 = true; // tank 1 move backward
-    	actions.move_1 = reverse;
+    	action_data_container.moveBackwardP1(); // tank 1 move backward
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RAlt))
 	{
-    	actions.change_1 = true; // tank 1 plant mine
-    	actions.attack_1 = lay_mine;
+    	action_data_container.mineLaidP1(); // tank 1 plant mine
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
 	{
-    	actions.change_1 = true; // tank 1 fire missile
-    	actions.attack_1 = fire_missile;
+    	action_data_container.missileFiredP1(); // tank 1 fire missile
 	}
 
 	// input for tank 2
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-    	actions.change_2 = true; // tank 2 rotate left
-    	actions.move_2 = rotate_right;
+    	action_data_container.rotateLeftP2();; // tank 2 rotate left
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-    	actions.change_2 = true; // tank 2 rotate right
-    	actions.move_2 = rotate_left;
+    	action_data_container.rotateRightP2(); // tank 2 rotate right
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-    	actions.change_2 = true; // tank 2 move forward
-    	actions.move_2 = forward;
+    	action_data_container.moveForwardP2(); // tank 2 move forward
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-    	actions.change_2 = true; // tank 2 move backward
-    	actions.move_2 = reverse;
+    	action_data_container.moveBackwardP2(); // tank 2 move backward
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt))
 	{
-    	actions.change_2 = true; // tank 2 plant mine
-    	actions.attack_2 = lay_mine;
+    	action_data_container.mineLaidP2(); // tank 2 plant mine
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
 	{
-    	actions.change_2 = true; // tank 2 fire missile
-    	actions.attack_2 = fire_missile;
+    	action_data_container.missileFiredP2(); // tank 2 fire missile
 	}
 
 	return;
 }
 
 // Note: here is some more logic
-void Game::addNewWorldEntity(actions_info& actions, game_state_info& game_state)
+void Game::addNewWorldEntity(GameManagementData& game_data_container)
 {
-    if (game_state.player1_respawn == true)
+    actions_info actions = game_data_container.giveActionInfo();
+
+    if (game_data_container.isP1Respawn())
     {
         addNewTank(p1_tank, _player1_startX, _player1_startY, 0);
-        game_state.player1_respawn = false;
+        game_data_container.disableP1Respawn();
     }
 
-    if (game_state.player2_respawn == true)
+    if (game_data_container.isP2Respawn())
     {
         addNewTank(p2_tank, _player2_startX, _player2_startY, 180);
-        game_state.player2_respawn = false;
+        game_data_container.disableP2Respawn();
     }
 
 	//Offset for creating a missile
@@ -305,7 +285,7 @@ void Game::addNewWorldEntity(actions_info& actions, game_state_info& game_state)
 	//Offset for creating a mine
     const float mine_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.mine_creation_offset;
 
-    if (actions.turret_fire == true)
+    if (actions.turret_fire)
     {
         auto turret_xPos_vec = _tracking_manager.getTurretPositionsX();
         auto turret_yPos_vec = _tracking_manager.getTurretPositionsY();
@@ -333,7 +313,7 @@ void Game::addNewWorldEntity(actions_info& actions, game_state_info& game_state)
             std::weak_ptr<Movable> tur_missile_mov_wp = std::dynamic_pointer_cast<Movable>(tur_missile_del_sp);
 			_move_manager.addNewEntity(tur_missile_mov_wp);
         }
-        actions.turret_fire = false;
+        game_data_container.resetTurretFire();
     }
 
 	if (actions.change_1 == true)
@@ -436,14 +416,14 @@ void Game::loadTextures()
 	_game_textures.missile_turret.loadFromFile(_missile_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.mine_sprite_y));
 }
 
-void Game::runAllManagers(actions_info& actions, sf::RenderWindow& window, game_state_info& game_state)
+void Game::runAllManagers(GameManagementData& game_data_container, sf::RenderWindow& window)
 {
     _turret_manager.manage();
     _collision_manager.manage();
-	_move_manager.manage(actions);
-	_tracking_manager.manage(actions);
-	_destruction_manager.manage(game_state);
-	_state_manager.manage(game_state, actions);
+	_move_manager.manage(game_data_container);
+	_tracking_manager.manage(game_data_container);
+	_destruction_manager.manage(game_data_container);
+	_state_manager.manage(game_data_container);
 	_draw_manager.manage(_sprites, window, game_state);
 }
 

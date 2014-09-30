@@ -19,9 +19,27 @@ public:
     ///Virtual void function, look to child for defenition
     virtual void resetActionsInfo() = 0;
     ///
+    virtual const actions_info& giveActionInfo() = 0;
+    ///
     virtual void resetTurretFire() = 0;
     ///
     virtual void setTurretFire() = 0;
+    ///
+    virtual void moveForwardP1() = 0;
+    ///
+    virtual void moveBackwardP1() = 0;
+    ///
+    virtual void rotateLeftP1() = 0;
+    ///
+    virtual void rotateRightP1() = 0;
+    ///
+    virtual void moveForwardP2() = 0;
+    ///
+    virtual void moveBackwardP2() = 0;
+    ///
+    virtual void rotateLeftP2() = 0;
+    ///
+    virtual void rotateRightP2() = 0;
     ///
     virtual void missileFiredP1() = 0;
     ///

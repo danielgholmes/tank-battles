@@ -24,7 +24,7 @@ public:
 	TrackingManager();
 
 	///Manage function allowing the position of all Trackable entities to be kept
-    void manage(actions_info& actions);
+    void manage(ActionData& action_data_container);
 
 	///Add Trackable-type shared_ptr's to the TrackingManagers internal data members
     void addNewEntity(std::weak_ptr<Trackable> new_entity);

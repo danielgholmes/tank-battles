@@ -30,6 +30,11 @@ void GameManagementData::resetActionsInfo()
 	_game_actions.attack_2 = do_nothing;
 }
 
+const actions_info& GameManagementData::giveActionInfo()
+{
+    return _game_actions;
+}
+
 void GameManagementData::resetTurretFire()
 {
     _game_actions.turret_fire = false;
@@ -38,6 +43,54 @@ void GameManagementData::resetTurretFire()
 void GameManagementData::setTurretFire()
 {
     _game_actions.turret_fire = true;
+}
+
+void GameManagementData::moveForwardP1()
+{
+    _game_actions.change_1 = true;
+    _game_actions.move_1 = forward;
+}
+
+void GameManagementData::moveBackwardP1()
+{
+    _game_actions.change_1 = true;
+    _game_actions.move_1 = reverse;
+}
+
+void GameManagementData::rotateLeftP1()
+{
+    _game_actions.change_1 = true;
+    _game_actions.move_1 = rotate_left;
+}
+
+void GameManagementData::rotateRightP1()
+{
+    _game_actions.change_1 = true;
+    _game_actions.move_1 = rotate_right;
+}
+
+void GameManagementData::moveForwardP2()
+{
+    _game_actions.change_2 = true;
+    _game_actions.move_2 = forward;
+}
+
+void GameManagementData::moveBackwardP2()
+{
+    _game_actions.change_2 = true;
+    _game_actions.move_2 = reverse;
+}
+
+void GameManagementData::rotateLeftP2()
+{
+    _game_actions.change_2 = true;
+    _game_actions.move_2 = rotate_left;
+}
+
+void GameManagementData::rotateRightP2()
+{
+    _game_actions.change_2 = true;
+    _game_actions.move_2 = rotate_right;
 }
 
 void GameManagementData::missileFiredP1()
@@ -77,11 +130,13 @@ const player_action& GameManagementData::getAttackTypeP2()
 void GameManagementData::increaseP1Score()
 {
     _p1_score++;
+    _p1_respawn = true;
 }
 
 void GameManagementData::increaseP2Score()
 {
     _p2_score++;
+    _p2_respawn = true;
 }
 
 void GameManagementData::setP1Respawn()
@@ -117,6 +172,11 @@ const bool GameManagementData::isP2Respawn()
 const bool GameManagementData::isGameFinished()
 {
     return _game_state;
+}
+
+virtual void GameManagementData::setGameFinished()
+{
+    _game_state = false;
 }
 
 GameManagementData::~GameManagementData()

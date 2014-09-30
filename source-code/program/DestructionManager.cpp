@@ -14,7 +14,7 @@
  }
 
 ///Destruction management process for the Destruction Manager
-void DestructionManager::manage(game_state_info& game_state)
+void DestructionManager::manage(GameStateData& game_state_container)
 {
     auto i = _destructables.begin();
     for(; i != _destructables.end();)
@@ -26,16 +26,13 @@ void DestructionManager::manage(game_state_info& game_state)
             {
                 if (entity_sp->getType() == p1_tank)
                 {
-                    game_state.player2_score++;
-                    game_state.player1_respawn = true;
+                    game_state_container.increaseP1Score();
                 }
 
                 if (entity_sp->getType() == p2_tank)
                 {
-                    game_state.player1_score++;
-                    game_state.player2_respawn = true;
+                    game_state_container.increaseP2Score();
                 }
-
 
                 _destructables.erase(i);
             }

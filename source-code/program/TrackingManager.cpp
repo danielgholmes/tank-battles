@@ -21,7 +21,7 @@ TrackingManager::~TrackingManager()
 }
 
 /// Manage function allowing the position of all Trackable entities to be kept
-void TrackingManager::manage(actions_info& actions)
+void TrackingManager::manage(ActionData& action_data_container)
 {
     removeGarbage();
     //Clear position vectors for new cycle
@@ -67,7 +67,7 @@ void TrackingManager::manage(actions_info& actions)
                 if((_geometry_engine.isInLineOfFire(temp_Turret_Rotation, temp_Turret_BoundingBox, _p1BoundingBox, temp_Turret_Ypos, _p1PositionY)) &&
                    (_geometry_engine.calculateVectorLength(temp_Turret_Xpos,temp_Turret_Ypos,_p1PositionX,_p2PositionY) < 400.0))
                 {
-                    actions.turret_fire = true;
+                    action_data_container.setTurretFire();
                     _turretPositionsX.push_back(temp_Turret_Xpos);
                     _turretPositionsY.push_back(temp_Turret_Ypos);
                     _turretRotations.push_back(temp_Turret_Rotation);
@@ -76,7 +76,7 @@ void TrackingManager::manage(actions_info& actions)
                 if((_geometry_engine.isInLineOfFire(temp_Turret_Rotation, temp_Turret_BoundingBox, _p2BoundingBox, temp_Turret_Ypos, _p2PositionY)) &&
                    (_geometry_engine.calculateVectorLength(temp_Turret_Xpos,temp_Turret_Ypos,_p2PositionX,_p2PositionY) < 400.0))
                 {
-                    actions.turret_fire = true;
+                    action_data_container.setTurretFire();
                     _turretPositionsX.push_back(temp_Turret_Xpos);
                     _turretPositionsY.push_back(temp_Turret_Ypos);
                     _turretRotations.push_back(temp_Turret_Rotation);

@@ -25,7 +25,7 @@ public:
     MoveManager();
 
     /// Move all movable entities within the world
-    void manage(const actions_info& managerInstructions);
+    void manage(const ActionData& action_data_container);
 
 	/// Add Movable-type shared_ptr's to the MoveManagers internal data members
     void addNewEntity(std::weak_ptr<Movable> new_entity);

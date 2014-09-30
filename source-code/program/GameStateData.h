@@ -32,6 +32,8 @@ public:
     ///
     virtual const bool isGameFinished() = 0;
     ///
+    virtual void setGameFinished() = 0;
+    ///
     virtual ~GameStateData() {};
 
 private:

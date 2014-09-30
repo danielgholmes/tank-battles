@@ -22,9 +22,27 @@ public:
     ///Virtual void function, look to child for defenition
     void resetActionsInfo();
     ///
+    const actions_info& giveActionInfo();
+    ///
     void resetTurretFire();
     ///
     void setTurretFire();
+    ///
+    void moveForwardP1();
+    ///
+    void moveBackwardP1();
+    ///
+    void rotateLeftP1();
+    ///
+    void rotateRightP1();
+    ///
+    void moveForwardP2();
+    ///
+    void moveBackwardP2();
+    ///
+    void rotateLeftP2();
+    ///
+    void rotateRightP2();
     ///
     void missileFiredP1();
      ///
@@ -55,6 +73,8 @@ public:
     const bool isP2Respawn();
     ///
     const bool isGameFinished();
+    ///
+    void setGameFinished();
     ///Destructor
     virtual ~GameManagementData();
 
