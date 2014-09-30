@@ -9,13 +9,11 @@
 #ifndef MOVEMANAGER_H_
 #define MOVEMANAGER_H_
 
-//Forward Declarations
-//class weak_ptr;
-
 //Includes
 #include "Manager.h"
 #include "Structures.h"
 #include "Movable.h"
+#include "ActionData.h"
 #include <vector>
 
 class MoveManager: public Manager

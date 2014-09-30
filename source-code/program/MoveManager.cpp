@@ -19,7 +19,7 @@ MoveManager::~MoveManager()
 
 void MoveManager::manage(const ActionData& action_data_container)
 {
-    auto managerInstructions = action_data_container.giveActionInfo();
+    actions_info managerInstructions = action_data_container.giveActionInfo();
 
     //Remove any "corpses" found within the movable vector
     removeGarbage();

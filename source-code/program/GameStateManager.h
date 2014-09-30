@@ -9,6 +9,8 @@
 #ifndef _GAMESTATEMANAGER_H_
 #define _GAMESTATEMANAGER_H_
 
+#include "GameManagementData.h"
+#include "ActionData.h"
 #include "StopWatch.h" //reused class from lab 2
 #include "Structures.h"
 #include <vector>

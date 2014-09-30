@@ -12,10 +12,10 @@
  GameManagementData::GameManagementData():
      _p1_score(0),
      _p2_score(0),
+     _game_time(0),
      _p1_respawn(false),
      _p2_respawn(false),
-     _game_state(true),
-     _game_time(0)
+     _game_state(true)
      {
         resetActionsInfo();
      }
@@ -31,7 +31,7 @@ void GameManagementData::resetActionsInfo()
 	_game_actions.attack_2 = do_nothing;
 }
 
-const actions_info& GameManagementData::giveActionInfo()
+const actions_info& GameManagementData::giveActionInfo() const
 {
     return _game_actions;
 }
@@ -190,12 +190,12 @@ void GameManagementData::setGameFinished()
     _game_state = false;
 }
 
-void setGameTime(const float game_time)
+void GameManagementData::setGameTime(const float game_time)
 {
     _game_time = game_time;
 }
 
-const float getGameTime()
+const float GameManagementData::getGameTime()
 {
     return _game_time;
 }

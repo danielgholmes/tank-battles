@@ -11,7 +11,6 @@ GameStateManager::GameStateManager()
     //Constructor for timer goes here
 {
     _game_timer.start();
-
 }
 
 void GameStateManager::manage(GameManagementData& game_data_container)

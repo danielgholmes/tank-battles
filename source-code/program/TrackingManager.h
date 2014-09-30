@@ -15,6 +15,7 @@
 #include "Manager.h"
 #include "Trackable.h"
 #include "GeometryEngine.h"
+#include "ActionData.h"
 
 class TrackingManager: public Manager
 {

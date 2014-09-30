@@ -8,7 +8,7 @@
  */
 
 #ifndef GAMEMANAGEMENTDATA_H_
-#define GAMEMENAGEMENTDATA_H_
+#define GAMEMANAGEMENTDATA_H_
 
 #include "ActionData.h"
 #include "GameStateData.h"
@@ -22,7 +22,7 @@ public:
     ///Virtual void function, look to child for defenition
     virtual void resetActionsInfo();
     ///
-    virtual const actions_info& giveActionInfo();
+    virtual const actions_info& giveActionInfo() const;
     ///
     virtual void resetTurretFire();
     ///
@@ -56,9 +56,8 @@ public:
     ///
     virtual void resetP2Attack();
 
-
     ///
-    virtual const int geP1Score();
+    virtual const int getP1Score();
     ///
     virtual const int getP2Score();
     ///
@@ -82,9 +81,9 @@ public:
     ///
     virtual void setGameFinished();
     ///
-    virtual virtual void setGameTime(const float game_time);
+    virtual void setGameTime(const float game_time);
     ///
-    virtual virtual const float getGameTime();
+    virtual const float getGameTime();
     ///Destructor
     virtual ~GameManagementData();
 

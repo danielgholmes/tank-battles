@@ -95,7 +95,7 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
     draw_strings strings;
 
     std::ostringstream strs1;
-    strs1 << game_state.runtime;
+    strs1 << game_state_container.getGameTime();
     strings.game_time = strs1.str();
 
     std::ostringstream strs2;
@@ -113,6 +113,13 @@ void DrawManager::getTankDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, spr
 {
     draw_info.origin.x = _sprite_dimensions.tank_sprite_x/2;
     draw_info.origin.y = _sprite_dimensions.tank_sprite_y/2;
+    getDrawPosition(draw_entity_sp, draw_info);
+}
+
+void DrawManager::getBarrierDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)
+{
+    draw_info.origin.x = _sprite_dimensions.barrier_sprite_x/2;
+    draw_info.origin.y = _sprite_dimensions.barrier_sprite_y/2;
     getDrawPosition(draw_entity_sp, draw_info);
 }
 

@@ -31,7 +31,7 @@ void Game::runWorld(std::shared_ptr<Display> display)
 		_game_management_data.resetActionsInfo();
 		display->pollEvents();
 		checkKeyboardInput(_game_management_data);
-		runAllManagers(_game_management_data,window);
+		runAllManagers(_game_management_data, display);
 		addNewWorldEntity(_game_management_data);
 		display->drawAndDisplayEverything();
 	}
@@ -155,7 +155,7 @@ void Game::setupInitialMap()
   	}
 }
 
-void Game::runAllManagers(GameManagementData& game_data_container, sf::RenderWindow& window)
+void Game::runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display)
 {
     _turret_manager.manage();
     _collision_manager.manage();
@@ -163,7 +163,7 @@ void Game::runAllManagers(GameManagementData& game_data_container, sf::RenderWin
 	_tracking_manager.manage(game_data_container);
 	_destruction_manager.manage(game_data_container);
 	_state_manager.manage(game_data_container);
-	_draw_manager.manage(_sprites, window, game_state);
+	_draw_manager.manage(game_data_container,display);
 }
 
 void Game::addNewWorldEntity(GameManagementData& game_data_container)

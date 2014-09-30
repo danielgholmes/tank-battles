@@ -18,9 +18,9 @@ int main()
     Game TankWorld;
     TankWorld.runWorld(display);
 
-    display->displayGameEndScreen();
+//    display->displayGameEndScreen();
 
-    std::cout << "Thank you for playing Tank-battle v1.1 !" << endl;
-    std::cout << "see: " << endl << "https://github.com/danielgholmes/tank-battles" << endl << "for latest version :D " << endl;
+    std::cout << "Thank you for playing Tank-battle v1.1 !" << std::endl;
+    std::cout << "see: " << std::endl << "https://github.com/danielgholmes/tank-battles" << std::endl << "for latest version :D " << std::endl;
 
 }

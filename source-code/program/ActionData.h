@@ -19,7 +19,7 @@ public:
     ///Virtual void function, look to child for defenition
     virtual void resetActionsInfo() = 0;
     ///
-    virtual const actions_info& giveActionInfo() = 0;
+    virtual const actions_info& giveActionInfo() const = 0;
     ///
     virtual void resetTurretFire() = 0;
     ///
