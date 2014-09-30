@@ -12,7 +12,9 @@
 
 Display::Display(int window_width, int window_height):
     _window_width(window_width),
-    _window_height(window_height)
+    _window_height(window_height),
+    _game_textures(),
+    _game_sprite_dimensions()
 {
     loadTextures();
     addSprites();
@@ -125,12 +127,13 @@ void Display::pollEvents()
     }
 }
 // Needs to get the dimensions from the draw manager
-void Display::addSpritesToDraw(const entity_type& entity, const sprite_draw_info& draw_info)
+void Display::addSpriteToDraw(const entity_type& entity, const sprite_draw_info& draw_info)
 {
     std::map<entity_type,std::shared_ptr<sf::Sprite>>::iterator sprite_map_iterator;
 
     sprite_map_iterator = _sprites.find(entity);
 
+    // Search for the desired entity
     if (sprite_map_iterator != _sprites.end())
     {
         std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
@@ -139,6 +142,13 @@ void Display::addSpritesToDraw(const entity_type& entity, const sprite_draw_info
         sprite_sp->setRotation(draw_info.rotation);
         _drawings.push_back(sprite_sp);
     }
+}
+
+void Display::addTextToDraw(const draw_strings& strings)
+{
+    _game_time_text.setString(strings.game_time);
+    _p1_score_text.setString(strings.p1_score);
+    _p2_score_text.setString(strings.p2_score);
 }
 
 void Display::drawAndDisplayEverything()
@@ -158,9 +168,3 @@ void Display::drawAndDisplayEverything()
     _window.display();
 }
 
-void Display::addTextToDraw(const draw_strings& strings)
-{
-    _game_time_text.setString(strings.game_time);
-    _p1_score_text.setString(strings.p1_score);
-    _p2_score_text.setString(strings.p2_score);
-}

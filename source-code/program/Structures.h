@@ -105,5 +105,21 @@ enum movement_direction
     noMove
 };
 
+/// Used for passing information from draw manager to display
+struct sprite_draw_info
+{
+    coordinate origin;
+    coordinate draw_pos;
+    float rotation;
+};
+
+struct draw_strings
+{
+    std::string game_time;
+    std::string p1_score;
+    std::string p2_score;
+};
+
+
 #endif
 

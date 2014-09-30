@@ -16,6 +16,7 @@
 #include "Deletable.h"
 #include "Structures.h"
 #include "SpriteDimensions.h"
+#include "Display.h"
 #include <vector>
 #include <map>
 
@@ -26,7 +27,7 @@ public:
     DrawManager();
 
     /// Drawing management cycle. The manager will render all the entites within the game world.
-	virtual void manage(std::map<entity_type,std::shared_ptr<sf::Sprite>>& game_sprites, sf::RenderWindow& window, game_state_info& game_state);
+	virtual void manage(game_state_info& game_state, std::shared_ptr<Display> display);
 
 	/// Add Drawable-type shared_ptr's to the DrawManagers internal data members
     void addNewEntity(const std::weak_ptr<Deletable> new_entity);
@@ -38,17 +39,15 @@ private:
     // Pointers to all drawable entites within the game world
     std::vector<std::weak_ptr<Deletable>> _drawables;
 
-    void setupText(sf::Text& text);
-
-    sf::Sprite _map;
-    sf::Texture _mapText;
-    sf::Text _game_time_text;
-    sf::Text _p1_score;
-    sf::Text _p2_score;
-    sf::Font _font;
-    const int _font_size = 20;
     SpriteDimensions _sprite_dimensions;
 
+    /// Functions to get drawing info based on the entity
+    void getTankDrawInfo(std::shared_ptr<Deletable> draw_entity_sp,  sprite_draw_info& draw_info);
+    void getMissileDrawInfo(std::shared_ptr<Deletable> draw_entity_sp,  sprite_draw_info& draw_info);
+    void getMineDrawInfo(std::shared_ptr<Deletable> draw_entity_sp,  sprite_draw_info& draw_info);
+    void getBarrierDrawInfo(std::shared_ptr<Deletable> draw_entity_sp,  sprite_draw_info& draw_info);
+    void getTurretDrawInfo(std::shared_ptr<Deletable> draw_entity_sp,  sprite_draw_info& draw_info);
+    void getDrawPosition(std::shared_ptr<Deletable> draw_entity_sp,  sprite_draw_info& draw_info);
 };
 
 #endif // DRAWMANAGER_H_

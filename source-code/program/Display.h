@@ -25,20 +25,6 @@
 //	sf::Texture missile_turret;
 //};
 
-struct sprite_draw_info
-{
-    coordinate origin;
-    coordinate draw_pos;
-    float rotation;
-};
-
-struct draw_strings
-{
-    std::string game_time;
-    std::string p1_score;
-    std::string p2_score;
-};
-
 class Display
 {
 public:
@@ -46,7 +32,7 @@ public:
     Display(int window_width = 800, int window_height = 600);
 
     void pollEvents();
-    void addSpritesToDraw(const entity_type& entity, const sprite_draw_info& draw_info);
+    void addSpriteToDraw(const entity_type& entity, const sprite_draw_info& draw_info);
     void addTextToDraw(const draw_strings& strings);
     void drawAndDisplayEverything();
     void displayGameEndScreen();
