@@ -20,6 +20,7 @@ Game::Game():
 	DrawManager _draw_manager;
 	DestructionManager _destruction_manager;
 	GameStateManager _state_manager;
+	TurretManager _turret_manager;
 }
 
 void Game::runWorld(std::shared_ptr<Display> display)
@@ -35,7 +36,7 @@ void Game::runWorld(std::shared_ptr<Display> display)
 		_game_management_data.resetActionsInfo();
 		display->pollEvents(window);
 		checkKeyboardInput(_game_management_data);
-		runAllManagers(_game_management_data, display);
+		runAllManagers(_game_management_data, display, window);
 		addNewWorldEntity(_game_management_data);
 		display->drawAndDisplayEverything(window);
 	}
@@ -136,7 +137,7 @@ void Game::getMapData(std::vector<std::vector<char>>& map_vector, std::ifstream&
 
 void Game::readMapData(const std::vector<std::vector<char>>& map_vector)
 {
-      	for (int i = 0; i < map_vector.size(); i++)
+    for (int i = 0; i < map_vector.size(); i++)
   	{
   	    auto temp_vector = map_vector[i];
   		for (int j = 0; j < temp_vector.size(); j++)
@@ -169,7 +170,7 @@ void Game::readMapData(const std::vector<std::vector<char>>& map_vector)
   	}
 }
 
-void Game::runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display)
+void Game::runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display, sf::RenderWindow& _window)
 {
     _turret_manager.manage();
     _collision_manager.manage();
@@ -177,7 +178,7 @@ void Game::runAllManagers(GameManagementData& game_data_container, std::shared_p
 	_tracking_manager.manage(game_data_container);
 	_destruction_manager.manage(game_data_container);
 	_state_manager.manage(game_data_container);
-	_draw_manager.manage(game_data_container, display);
+	_draw_manager.manage(game_data_container, display, _window);
 }
 
 void Game::addNewWorldEntity(GameManagementData& game_data_container)
@@ -287,8 +288,8 @@ void Game::addNewTurret(float turret_postionX, float turret_positionY, float rot
 
     addDeletable(new_turret_del_sp);
     addCollidable(new_turret_del_sp);
-    addMovable(new_turret_del_sp);
     addTrackable(new_turret_del_sp);
+    addTurretable(new_turret_del_sp);
 }
 
 void Game::addNewMissile(std::shared_ptr<Deletable> missile_del_sp)
@@ -340,6 +341,12 @@ void Game::addTrackable(std::shared_ptr<Deletable> trackable_sp)
 {
 	std::weak_ptr<Trackable> trackable_wp = std::dynamic_pointer_cast<Trackable>(trackable_sp);
 	_tracking_manager.addNewEntity(trackable_wp);
+}
+
+void Game::addTurretable(std::shared_ptr<Deletable> turret_sp)
+{
+    std::weak_ptr<Turret> turret_wp = std::dynamic_pointer_cast<Turret>(turret_sp);
+	_turret_manager.addNewEntity(turret_wp);
 }
 
 Game::~Game()

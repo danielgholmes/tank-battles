@@ -32,10 +32,10 @@ public:
     Display(int window_width = 800, int window_height = 600);
 
     bool isOpen();
-    void pollEvents();
-    void addSpriteToDraw(const entity_type& entity, const sprite_draw_info& draw_info);
+    void pollEvents(sf::RenderWindow& _window);
+    void addToDrawings(const entity_type& entity, const sprite_draw_info& draw_info, sf::RenderWindow& _window);
     void addTextToDraw(const draw_strings& strings);
-    void drawAndDisplayEverything();
+    void drawAndDisplayEverything(sf::RenderWindow& _window);
     void displayGameEndScreen();
 
 private:
@@ -46,7 +46,7 @@ private:
     /// Display window dimensions
     int _window_width;
     int _window_height;
-    sf::RenderWindow _window;
+    //sf::RenderWindow _window;
     const std::string _window_title = "Tank Battles";
 
     SpriteDimensions _game_sprite_dimensions;

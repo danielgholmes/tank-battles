@@ -97,7 +97,7 @@ private:
 	void checkKeyboardInput(ActionData& action_data_container);
 
 	/// Function thats tells all managers to operate
-	void runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display);
+	void runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display, sf::RenderWindow& _window);
 
 	/// Function that will add new entity based on action
 	void addNewWorldEntity(GameManagementData& game_data_container);
@@ -120,10 +120,10 @@ private:
     /// Helper function for setupInitialMap
 	void createBarrier(int x, int y);
 
-
 	void addDeletable(std::shared_ptr<Deletable> deletable_sp);
 	void addCollidable(std::shared_ptr<Deletable> collidable_sp);
 	void addMovable(std::shared_ptr<Deletable> movable_sp);
 	void addTrackable(std::shared_ptr<Deletable> trackable_sp);
+	void addTurretable(std::shared_ptr<Deletable> trackable_sp);
 };
 #endif // GAME_H_

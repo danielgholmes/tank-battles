@@ -18,8 +18,9 @@ DrawManager::DrawManager():
 }
 
 ///Drawing management cycle. The manager will render all the entites within the game world.
-void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Display> display)
+void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Display> display, sf::RenderWindow& _window)
 {
+    _window.clear();
     sprite_draw_info draw_info;
     //Used to traverse the vector of drawables held by DrawManager
     auto draw_itterator = _drawables.begin();
@@ -38,47 +39,47 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
             {
                 case p1_tank:
                     getTankDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(p1_tank, draw_info);
+                    display->addToDrawings(p1_tank, draw_info, _window);
                     break;
 
                 case p2_tank:
                     getTankDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(p2_tank, draw_info);
+                    display->addToDrawings(p2_tank, draw_info, _window);
                     break;
 
                 case barrier:
                     getBarrierDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(barrier, draw_info);
+                    display->addToDrawings(barrier, draw_info, _window);
                     break;
 
                 case p1_missile:
                     getMissileDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(p1_missile, draw_info);
+                    display->addToDrawings(p1_missile, draw_info, _window);
                     break;
 
                 case p2_missile:
                     getMissileDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(p2_missile, draw_info);
+                    display->addToDrawings(p2_missile, draw_info, _window);
                     break;
 
                 case p1_mine:
                     getMineDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(p1_mine, draw_info);
+                    display->addToDrawings(p1_mine, draw_info, _window);
                     break;
 
                 case p2_mine:
                     getMineDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(p2_mine, draw_info);
+                    display->addToDrawings(p2_mine, draw_info, _window);
                     break;
 
                 case turret:
                     getTurretDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(turret, draw_info);
+                    display->addToDrawings(turret, draw_info, _window);
                     break;
 
                 case turret_missile:
-                    getMineDrawInfo(draw_entity_sp, draw_info);
-                    display->addSpriteToDraw(turret, draw_info);
+                    getMissileDrawInfo(draw_entity_sp, draw_info);
+                    display->addToDrawings(turret, draw_info, _window);
                     break;
 
                 default:
@@ -148,6 +149,7 @@ void DrawManager::getDrawPosition(std::shared_ptr<Deletable> draw_entity_sp, spr
 {
     draw_info.draw_pos.x = draw_entity_sp->getDrawPositionX();
     draw_info.draw_pos.y = draw_entity_sp->getDrawPositionY();
+    draw_info.rotation = draw_entity_sp->getDrawRotation();
 }
 
 void DrawManager::addNewEntity(const std::weak_ptr<Deletable> new_entity)

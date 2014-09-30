@@ -60,7 +60,7 @@ void Display::loadTextures()
 	_game_textures.barrier.loadFromFile(_barrier_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.barrier_sprite_x,_game_sprite_dimensions.barrier_sprite_y));
 	_game_textures.turret.loadFromFile(_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.turret_sprite_x,_game_sprite_dimensions.tank_sprite_y));
 	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
-	_game_textures.missile_turret.loadFromFile(_missile_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.mine_sprite_y));
+	_game_textures.turret_missile.loadFromFile(_missile_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.missile_sprite_y));
 }
 
 void Display::addSprites()
@@ -105,9 +105,9 @@ void Display::addSprites()
     turret_sp->setTexture(_game_textures.turret);
     _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret,turret_sp));
 
-    //Create Turret Sprite
+    //Create Turret Missile Sprite
     std::shared_ptr<sf::Sprite> turret_missile_sp(new(sf::Sprite));
-    turret_missile_sp->setTexture(_game_textures.missile_turret);
+    turret_missile_sp->setTexture(_game_textures.turret_missile);
     _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret_missile,turret_missile_sp));
 }
 
@@ -122,7 +122,7 @@ void Display::pollEvents(sf::RenderWindow& _window)
     }
 }
 // Needs to get the dimensions from the draw manager
-void Display::addSpriteToDraw(const entity_type& entity, const sprite_draw_info& draw_info)
+void Display::addToDrawings(const entity_type& entity, const sprite_draw_info& draw_info, sf::RenderWindow& _window)
 {
     std::map<entity_type,std::shared_ptr<sf::Sprite>>::iterator sprite_map_iterator;
 
@@ -132,10 +132,11 @@ void Display::addSpriteToDraw(const entity_type& entity, const sprite_draw_info&
     if (sprite_map_iterator != _sprites.end())
     {
         std::shared_ptr<sf::Sprite> sprite_sp = sprite_map_iterator->second;
-        sprite_sp->setOrigin(draw_info.origin.x/2, draw_info.origin.y/2);
+        sprite_sp->setOrigin(draw_info.origin.x, draw_info.origin.y);
         sprite_sp->setPosition(draw_info.draw_pos.x, draw_info.draw_pos.y);
         sprite_sp->setRotation(draw_info.rotation);
-        _drawings.push_back(sprite_sp);
+        _window.draw(*sprite_sp);
+        //_drawings.push_back(sprite_sp);
     }
 }
 
@@ -148,12 +149,14 @@ void Display::addTextToDraw(const draw_strings& strings)
 
 void Display::drawAndDisplayEverything(sf::RenderWindow& _window)
 {
-    _window.clear();
+    //_window.clear();
     _window.draw(_map_sprite);
 
-    auto sprite = _drawings.begin();
-    for (; sprite != _drawings.end(); sprite++)
-        _window.draw(*(*sprite));
+//    auto sprite = _drawings.begin();
+//    for (; sprite != _drawings.end(); sprite++)
+//        _window.draw(*(*sprite));
+
+    _drawings.clear();
 
     _window.draw(_game_time_text);
     _window.draw(_p1_score_text);

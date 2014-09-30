@@ -59,6 +59,8 @@ bool Keyboard::isKeyPressed(gameplay_keys key_input)
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
             return true;
         break;
+    default:
+        break;
     }
     return false; // if the key is not pressed
 }

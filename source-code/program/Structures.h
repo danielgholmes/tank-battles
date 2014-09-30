@@ -66,7 +66,7 @@ struct textures
 	sf::Texture barrier;
 	sf::Texture map;
 	sf::Texture turret;
-	sf::Texture missile_turret;
+	sf::Texture turret_missile;
 };
 
 struct coordinate
