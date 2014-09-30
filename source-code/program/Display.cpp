@@ -36,16 +36,11 @@ Display::Display(int window_width, int window_height):
     setupText(_p2_score_text);
     _p2_score_text.setPosition(_p2_score_pos,_text_y_allignment);
 
-	sf::RenderWindow _window(sf::VideoMode(_window_width, _window_height), _window_title);
-	_window.setFramerateLimit(45);
-
 }
 
 bool Display::isOpen()
 {
-    if (_window.isOpen())
-        return true;
-    else return false;
+    return 1;
 }
 
 void Display::setupText(sf::Text& text)
@@ -70,13 +65,6 @@ void Display::loadTextures()
 
 void Display::addSprites()
 {
-//    for (int entity_enum = p1_tank; entity_enum != turret; entity_enum++)
-//    {
-//        entity_type entity = static_cast<entity_type>(entity_enum);
-//        std::shared_ptr<sf::Sprite> entity_sp(new(sf::Sprite));
-//        entity_sp->setTexture(_game_textures.tank_1);
-//        _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p1_tank,tank1_sp));
-//    }
     //Create P_1 Tank Sprite
     std::shared_ptr<sf::Sprite> tank1_sp(new(sf::Sprite));
     tank1_sp->setTexture(_game_textures.tank_1);
@@ -123,7 +111,7 @@ void Display::addSprites()
     _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret_missile,turret_missile_sp));
 }
 
-void Display::pollEvents()
+void Display::pollEvents(sf::RenderWindow& _window)
 {
     sf::Event event;
 
@@ -158,10 +146,9 @@ void Display::addTextToDraw(const draw_strings& strings)
     _p2_score_text.setString(strings.p2_score);
 }
 
-void Display::drawAndDisplayEverything()
+void Display::drawAndDisplayEverything(sf::RenderWindow& _window)
 {
     _window.clear();
-
     _window.draw(_map_sprite);
 
     auto sprite = _drawings.begin();
@@ -172,6 +159,6 @@ void Display::drawAndDisplayEverything()
     _window.draw(_p1_score_text);
     _window.draw(_p2_score_text);
 
-    _window.display();
+     _window.display();
 }
 

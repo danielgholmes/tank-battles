@@ -26,14 +26,18 @@ void Game::runWorld(std::shared_ptr<Display> display)
 {
     setupInitialMap();
 
+    // initialise objects and variables to be used within the main program loop
+	sf::RenderWindow window(sf::VideoMode(1200,675), "Hello");
+	window.setFramerateLimit(45); // may need to synchronise things another way later on
+
 	while(display->isOpen()) // main game loop
 	{
 		_game_management_data.resetActionsInfo();
-		display->pollEvents();
+		display->pollEvents(window);
 		checkKeyboardInput(_game_management_data);
 		runAllManagers(_game_management_data, display);
 		addNewWorldEntity(_game_management_data);
-		display->drawAndDisplayEverything();
+		display->drawAndDisplayEverything(window);
 	}
 
 	return;
@@ -107,7 +111,7 @@ void Game::setupInitialMap()
   	readMapData(map_vector);
 }
 
-void Game::getMapData(std::vector<std::vector<char>> map_vector, const std::ifstream& map_grid_file)
+void Game::getMapData(std::vector<std::vector<char>>& map_vector, std::ifstream& map_grid_file)
 {
     std::vector<char> grid_line;
 
@@ -173,7 +177,7 @@ void Game::runAllManagers(GameManagementData& game_data_container, std::shared_p
 	_tracking_manager.manage(game_data_container);
 	_destruction_manager.manage(game_data_container);
 	_state_manager.manage(game_data_container);
-	_draw_manager.manage(game_state_container, display);
+	_draw_manager.manage(game_data_container, display);
 }
 
 void Game::addNewWorldEntity(GameManagementData& game_data_container)
@@ -320,19 +324,19 @@ void Game::addDeletable(std::shared_ptr<Deletable> deletable_sp)
     _draw_manager.addNewEntity(deletable_wp);
 }
 
-void Game::addCollidable(std::shared_ptr<Collidable> deletable_sp)
+void Game::addCollidable(std::shared_ptr<Deletable> deletable_sp)
 {
     std::weak_ptr<Collidable> collidable_wp = std::dynamic_pointer_cast<Collidable>(deletable_sp);
     _collision_manager.addNewEntity(collidable_wp);
 }
 
-void Game::addMovable(std::shared_ptr<Movable> movable_sp)
+void Game::addMovable(std::shared_ptr<Deletable> movable_sp)
 {
     std::weak_ptr<Movable> movable_wp = std::dynamic_pointer_cast<Movable>(movable_sp);
     _move_manager.addNewEntity(movable_wp);
 }
 
-void Game::addTrackable(std::shared_ptr<Trackable> trackable_sp)
+void Game::addTrackable(std::shared_ptr<Deletable> trackable_sp)
 {
 	std::weak_ptr<Trackable> trackable_wp = std::dynamic_pointer_cast<Trackable>(trackable_sp);
 	_tracking_manager.addNewEntity(trackable_wp);
