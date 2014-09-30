@@ -18,7 +18,7 @@ DrawManager::DrawManager():
 }
 
 ///Drawing management cycle. The manager will render all the entites within the game world.
-void DrawManager::manage(game_state_info& game_state, std::shared_ptr<Display> display)
+void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Display> display)
 {
     sprite_draw_info draw_info;
     //Used to traverse the vector of drawables held by DrawManager

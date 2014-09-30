@@ -105,9 +105,9 @@ private:
 
 	/// Handles all events in main game loop
 	void pollEvents(sf::RenderWindow& window);
-
-	/// Initially populate the game_state structure
-	void initialiseState(game_state_info& game_state);
+//
+//	/// Initially populate the game_state structure
+//	void initialiseState(game_state_info& game_state);
 
 	/// Checks realtime input of keyboard controls in main game loop
 	void checkKeyboardInput(ActionData& action_data_container);
@@ -133,8 +133,8 @@ private:
     /// Helper function for setupInitialMap
 	void createBarrier(int x, int y);
 
-	/// Function that loads all textures into memory
-	void loadTextures();
+//	/// Function that loads all textures into memory
+//	void loadTextures();
 
 };
 #endif // GAME_H_

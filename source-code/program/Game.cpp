@@ -195,15 +195,6 @@ void Game::pollEvents(sf::RenderWindow& window)
     }
 }
 
-void Game::initialiseState(game_state_info& state)
-{
-    state.finished = false;
-    state.player1_respawn = false;
-    state.player2_respawn = false;
-    state.player1_score = 0;
-    state.player2_score = 0;
-}
-
 // Note: some logic is in the view
 void Game::checkKeyboardInput(ActionData& action_data_container)
 {
@@ -404,18 +395,6 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
 }
 
 
-void Game::loadTextures()
-{
-	_game_textures.tank_1.loadFromFile(_tank1_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.tank_sprite_x,_game_sprite_dimensions.tank_sprite_y));
-	_game_textures.tank_2.loadFromFile(_tank2_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.tank_sprite_x,_game_sprite_dimensions.tank_sprite_y));
-	_game_textures.missile.loadFromFile(_missile_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.missile_sprite_y));
-	_game_textures.mine.loadFromFile(_mine_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.mine_sprite_x,_game_sprite_dimensions.mine_sprite_y ));
-	_game_textures.barrier.loadFromFile(_barrier_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.barrier_sprite_x,_game_sprite_dimensions.barrier_sprite_y));
-	_game_textures.turret.loadFromFile(_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.turret_sprite_x,_game_sprite_dimensions.tank_sprite_y));
-	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
-	_game_textures.missile_turret.loadFromFile(_missile_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.mine_sprite_y));
-}
-
 void Game::runAllManagers(GameManagementData& game_data_container, sf::RenderWindow& window)
 {
     _turret_manager.manage();
@@ -425,55 +404,6 @@ void Game::runAllManagers(GameManagementData& game_data_container, sf::RenderWin
 	_destruction_manager.manage(game_data_container);
 	_state_manager.manage(game_data_container);
 	_draw_manager.manage(_sprites, window, game_state);
-}
-
-void Game::addNewSprites()
-{
-    //Create P_1 Tank Sprite
-    std::shared_ptr<sf::Sprite> TankOne_sp(new(sf::Sprite));
-    TankOne_sp->setTexture(_game_textures.tank_1);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p1_tank,TankOne_sp));
-
-    //Create P_2 Tank Sprite
-    std::shared_ptr<sf::Sprite> TankTwo_sp(new(sf::Sprite));
-    TankTwo_sp->setTexture(_game_textures.tank_2);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p2_tank,TankTwo_sp));
-
-    //Create Barrier Sprite
-    std::shared_ptr<sf::Sprite> Barrier_sp(new(sf::Sprite));
-    Barrier_sp->setTexture(_game_textures.barrier);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(barrier,Barrier_sp));
-
-    //Create P_1 Missile Sprite
-    std::shared_ptr<sf::Sprite> MissileOne_sp(new(sf::Sprite));
-    MissileOne_sp->setTexture(_game_textures.missile);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p1_missile,MissileOne_sp));
-
-    //Create P_2 Missile Sprite
-    std::shared_ptr<sf::Sprite> MissileTwo_sp(new(sf::Sprite));
-    MissileTwo_sp->setTexture(_game_textures.missile);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p2_missile,MissileTwo_sp));
-
-    //Create P_1 Mine Sprite
-    std::shared_ptr<sf::Sprite> MineOne_sp(new(sf::Sprite));
-    MineOne_sp->setTexture(_game_textures.mine);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p1_mine,MineOne_sp));
-
-    //Create P_2 Mine Sprite
-    std::shared_ptr<sf::Sprite> MineTwo_sp(new(sf::Sprite));
-    MineTwo_sp->setTexture(_game_textures.mine);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(p2_mine,MineTwo_sp));
-
-    //Create Turret Sprite
-    std::shared_ptr<sf::Sprite> Turret_sp(new(sf::Sprite));
-    Turret_sp->setTexture(_game_textures.turret);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret,Turret_sp));
-
-    //Create Turret Sprite
-    std::shared_ptr<sf::Sprite> Turret_missile_sp(new(sf::Sprite));
-    Turret_missile_sp->setTexture(_game_textures.missile_turret);
-    _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret_missile,Turret_missile_sp));
-
 }
 
 Game::~Game()
