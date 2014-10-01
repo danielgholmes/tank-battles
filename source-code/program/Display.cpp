@@ -150,7 +150,7 @@ void Display::addTextToDraw(const draw_strings& strings)
 void Display::drawAndDisplayEverything(sf::RenderWindow& _window)
 {
     //_window.clear();
-    _window.draw(_map_sprite);
+    //_window.draw(_map_sprite);
 
 //    auto sprite = _drawings.begin();
 //    for (; sprite != _drawings.end(); sprite++)

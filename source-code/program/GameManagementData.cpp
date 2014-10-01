@@ -15,7 +15,7 @@
      _game_time(0),
      _p1_respawn(false),
      _p2_respawn(false),
-     _game_state(true)
+     _game_state(false)
      {
         resetActionsInfo();
      }
@@ -187,7 +187,7 @@ const bool GameManagementData::isGameFinished()
 
 void GameManagementData::setGameFinished()
 {
-    _game_state = false;
+    _game_state = true;
 }
 
 void GameManagementData::setGameTime(const float game_time)
