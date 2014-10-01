@@ -881,5 +881,196 @@ TEST(GeometryEngine, returnsFalseIfTankNotInLineOfFireOfTurret)
     EXPECT_FALSE(lineOfFireTest.isInLineOfFire(rotation, shooter, target, 4, 4));
 }
 
-///*===================================================*/
+/////////////////////////////////////////////////////////////////////////////////
+///Daniel's Tests (1 Oct)
 
+///Test not net up properly yet
+//TEST(GeometryEngine, calculatesCorrectMaxAndMinProjectionValues)
+//{
+//    float max = 0.0;
+//    float min = 0.0;
+//    std::vector<coordinate> axis_projections;
+//
+//    rect_corners rect;
+//
+//    rect.upper_left.x = 0.0;
+//    rect.upper_left.y = 2.0;
+//    rect.upper_right.x = 2.0;
+//    rect.upper_right.y = 2.0;
+//    rect.lower_left.x = 0.0;
+//    rect.lower_left.y = 0.0;
+//    rect.lower_right.x = 2.0;
+//    rect.lower_right.y = 0.0;
+//
+//    coordinate axis;
+//
+//    axis.x = rect.upper_right.x - rect.upper_left.x;
+//    axis.y = rect.upper_right.y - rect.upper_left.y;
+//
+//    coordinate point;
+//
+//    point.x = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+//    point.y = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
+//    axis_projections.push_back(point);
+//
+//    point.x = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+//    point.y = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
+//    axis_projections.push_back(point);
+//
+//    point.x = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+//    point.y = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
+//    axis_projections.push_back(point);
+//
+//    point.x = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
+//    point.y = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
+//    axis_projections.push_back(point);
+//
+//    GeometryEngine maxAndMinTest;
+//
+//    maxAndMinTest.calculateMaxAndMinProjectionMagnitude(axis_projections, rect, axis, max, min);
+//
+//    EXPECT_EQ(max, 1.0);
+//    EXPECT_EQ(min, 0.0);
+//}
+
+TEST(GeometryEngine, returnsTrueIfTankInLineOfFire)
+{
+    float rotation = 0.0;
+    float shooter_y = 10.0;
+    float target_y = 12.0;
+    rect_corners shooter;
+    rect_corners target;
+
+    target.upper_left.x = 16.0;
+    target.upper_left.y = 14.0;
+    target.upper_right.x = 18.0;
+    target.upper_right.y = 12.0;
+    target.lower_left.x = 14.0;
+    target.lower_left.y = 12.0;
+    target.lower_right.x = 16.0;
+    target.lower_right.y = 10.0;
+
+    shooter.upper_left.x = 9.0;
+    shooter.upper_left.y = 11.0;
+    shooter.upper_right.x = 11.0;
+    shooter.upper_right.y = 11.0;
+    shooter.lower_left.x = 9.0;
+    shooter.lower_left.y = 9.0;
+    shooter.lower_right.x = 11.0;
+    shooter.lower_right.y = 9.0;
+
+    GeometryEngine lineOfFireTest;
+
+    EXPECT_TRUE(lineOfFireTest.isInLineOfFire(rotation, shooter, target, shooter_y, target_y));
+}
+
+TEST(GeometryEngine, returnsTrueIfTankNotInLineOfFire)
+{
+    float rotation = 45.0;
+    float shooter_y = 10.0;
+    float target_y = 12.0;
+    rect_corners shooter;
+    rect_corners target;
+
+    target.upper_left.x = 16.0;
+    target.upper_left.y = 14.0;
+    target.upper_right.x = 18.0;
+    target.upper_right.y = 12.0;
+    target.lower_left.x = 14.0;
+    target.lower_left.y = 12.0;
+    target.lower_right.x = 16.0;
+    target.lower_right.y = 10.0;
+
+    shooter.upper_left.x = 10.0;
+    shooter.upper_left.y = 12.0;
+    shooter.upper_right.x = 12.0;
+    shooter.upper_right.y = 10.0;
+    shooter.lower_left.x = 8.0;
+    shooter.lower_left.y = 10.0;
+    shooter.lower_right.x = 10.0;
+    shooter.lower_right.y = 8.0;
+
+    GeometryEngine lineOfFireTest;
+
+    EXPECT_FALSE(lineOfFireTest.isInLineOfFire(rotation, shooter, target, shooter_y, target_y));
+}
+
+TEST(GeometryEngine, returnsFalseIfTankBehindTurretAndNotInLineOfFire)
+{
+    float rotation = 135.0;
+    float shooter_y = 10.0;
+    float target_y = 9.5;
+    rect_corners shooter;
+    rect_corners target;
+
+    target.upper_left.x = 12.0;
+    target.upper_left.y = 10.0;
+    target.upper_right.x = 13.0;
+    target.upper_right.y = 10.0;
+    target.lower_left.x = 12.0;
+    target.lower_left.y = 9.0;
+    target.lower_right.x = 13.0;
+    target.lower_right.y = 9.0;
+
+    shooter.upper_left.x = 8.0;
+    shooter.upper_left.y = 12.0;
+    shooter.upper_right.x = 12.0;
+    shooter.upper_right.y = 12.0;
+    shooter.lower_left.x = 8.0;
+    shooter.lower_left.y = 8.0;
+    shooter.lower_right.x = 12.0;
+    shooter.lower_right.y = 8.0;
+
+    GeometryEngine lineOfFireTest;
+
+    EXPECT_FALSE(lineOfFireTest.isInLineOfFire(rotation, shooter, target, shooter_y, target_y));
+}
+
+TEST(GeometryEngine, returnsFalseIfTankBehindTurretWithSameOriginAndNotInLineOfFire)
+{
+    float rotation = 180.0;
+    float shooter_y = 10.0;
+    float target_y = 10.0;
+    rect_corners shooter;
+    rect_corners target;
+
+    shooter.upper_left.x = 12.0;
+    shooter.upper_left.y = 11.0;
+    shooter.upper_right.x = 14.0;
+    shooter.upper_right.y = 11.0;
+    shooter.lower_left.x = 12.0;
+    shooter.lower_left.y = 9.0;
+    shooter.lower_right.x = 14.0;
+    shooter.lower_right.y = 9.0;
+
+    shooter.upper_left.x = 9.0;
+    shooter.upper_left.y = 11.0;
+    shooter.upper_right.x = 11.0;
+    shooter.upper_right.y = 11.0;
+    shooter.lower_left.x = 9.0;
+    shooter.lower_left.y = 9.0;
+    shooter.lower_right.x = 11.0;
+    shooter.lower_right.y = 9.0;
+
+    GeometryEngine lineOfFireTest;
+
+    EXPECT_FALSE(lineOfFireTest.isInLineOfFire(rotation, shooter, target, shooter_y, target_y));
+}
+
+TEST(GeometryEngine, calculatesCorrectVectorLength)
+{
+    float x_coord_1 = 1.0;
+    float y_coord_1 = 4.0;
+    float x_coord_2 = 1.0;
+    float y_coord_2 = 2.0;
+
+    float ans = (sqrt(pow((x_coord_1 - x_coord_2),2) + pow((y_coord_1 - y_coord_2),2)));
+
+    GeometryEngine test;
+
+    float test_ans = test.calculateVectorLength(x_coord_1, y_coord_1, x_coord_2, y_coord_2);
+
+    EXPECT_EQ(ans, 2.0);
+}
+
+///*===================================================*/
