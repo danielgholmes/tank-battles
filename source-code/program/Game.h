@@ -97,7 +97,7 @@ private:
 	void checkKeyboardInput(ActionData& action_data_container);
 
 	/// Function thats tells all managers to operate
-	void runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display, sf::RenderWindow& _window);
+	void runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display);
 
 	/// Function that will add new entity based on action
 	void addNewWorldEntity(GameManagementData& game_data_container);

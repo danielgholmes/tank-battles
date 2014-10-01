@@ -27,18 +27,13 @@ void Game::runWorld(std::shared_ptr<Display> display)
 {
     setupInitialMap();
 
-    // initialise objects and variables to be used within the main program loop
-	sf::RenderWindow window(sf::VideoMode(1200,675), "Hello");
-	window.setFramerateLimit(45); // may need to synchronise things another way later on
-
 	while(display->isOpen()) // main game loop
 	{
 		_game_management_data.resetActionsInfo();
-		display->pollEvents(window);
+		display->pollEvents();
 		checkKeyboardInput(_game_management_data);
-		runAllManagers(_game_management_data, display, window);
+		runAllManagers(_game_management_data, display);
 		addNewWorldEntity(_game_management_data);
-		display->drawAndDisplayEverything(window);
 	}
 
 	return;
@@ -49,11 +44,11 @@ void Game::checkKeyboardInput(ActionData& action_data_container)
     Keyboard keyboard;
 
 	// input for tank 1
-    if (keyboard.isKeyPressed(Left))
+    if (keyboard.isKeyPressed(Right))
     {
     	action_data_container.rotateLeftP1(); // tank 1 rotate left
 	}
-	if (keyboard.isKeyPressed(Right))
+	if (keyboard.isKeyPressed(Left))
 	{
     	action_data_container.rotateRightP1(); // tank 1 rotate right
 	}
@@ -75,11 +70,11 @@ void Game::checkKeyboardInput(ActionData& action_data_container)
 	}
 
 	// input for tank 2
-	if (keyboard.isKeyPressed(A))
+	if (keyboard.isKeyPressed(D))
 	{
     	action_data_container.rotateLeftP2(); // tank 2 rotate left
 	}
-	if (keyboard.isKeyPressed(D))
+	if (keyboard.isKeyPressed(A))
 	{
     	action_data_container.rotateRightP2(); // tank 2 rotate right
 	}
@@ -170,7 +165,7 @@ void Game::readMapData(const std::vector<std::vector<char>>& map_vector)
   	}
 }
 
-void Game::runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display, sf::RenderWindow& _window)
+void Game::runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display)
 {
     _turret_manager.manage();
     _collision_manager.manage();
@@ -178,12 +173,14 @@ void Game::runAllManagers(GameManagementData& game_data_container, std::shared_p
 	_tracking_manager.manage(game_data_container);
 	_destruction_manager.manage(game_data_container);
 	_state_manager.manage(game_data_container);
-	_draw_manager.manage(game_data_container, display, _window);
+	_draw_manager.manage(game_data_container, display/*, _window*/);
 }
 
 void Game::addNewWorldEntity(GameManagementData& game_data_container)
 {
     actions_info actions = game_data_container.giveActionInfo();
+
+    manageRespawns(game_data_container);
 
 	//Offset for creating a missile
 	const float missile_offset = _game_sprite_dimensions.tank_sprite_y/2 + _game_sprite_dimensions.missile_creation_offset;

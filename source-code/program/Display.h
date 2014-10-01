@@ -10,6 +10,7 @@
 #define DISPLAY_H_
 #include "Structures.h"
 #include "SpriteDimensions.h"
+#include "SFML/Graphics.hpp"
 #include <string.h>
 #include <memory>
 
@@ -20,11 +21,12 @@ public:
     Display(int window_width = 800, int window_height = 600);
 
     bool isOpen();
-    void pollEvents(sf::RenderWindow& _window);
-    void addToDrawings(const entity_type& entity, const sprite_draw_info& draw_info, sf::RenderWindow& _window);
-    void addTextToDraw(const draw_strings& strings);
-    void drawAndDisplayEverything(sf::RenderWindow& _window);
-    void displayGameEndScreen();
+    void pollEvents();
+    void clear();
+    void drawBackground();
+    void drawEntity(const entity_type& entity, const sprite_draw_info& draw_info);
+    void drawText(const draw_strings& strings);
+    void display();
 
 private:
     void loadTextures();
@@ -34,8 +36,7 @@ private:
     /// Display window dimensions
     int _window_width;
     int _window_height;
-    //sf::RenderWindow _window;
-    const std::string _window_title = "Tank Battles";
+    sf::RenderWindow _window;
 
     SpriteDimensions _game_sprite_dimensions;
     textures _game_textures;
@@ -53,9 +54,6 @@ private:
 
     /// Map container for the sprites that will be drawn
 	std::map<entity_type, std::shared_ptr<sf::Sprite>>  _sprites;
-
-	/// Container for all sprites that will be drawn
-	std::vector<std::shared_ptr<sf::Sprite>> _drawings;
 
     sf::Sprite _map_sprite;
     sf::Texture _map_texture;

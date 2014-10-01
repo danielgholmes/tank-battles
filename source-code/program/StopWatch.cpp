@@ -18,7 +18,6 @@ void StopWatch::start()
 {
     _start = getProcessTime() - _stop;
     _running = true;
-    //std::cout << "Stopwatch started..." << std::endl;
 }
 
 void StopWatch::stop()
@@ -27,14 +26,13 @@ void StopWatch::stop()
     {
         _stop = getProcessTime() - _start;
         _running = false;
-        //std::cout << "Stopwatch stopped at: " << _stop << std::endl;
     }
 }
 
 void StopWatch::lap()
 {
-    //if (isRunning())
-        //std::cout << "Lap: " << (getProcessTime() - _start) << std::endl;
+    if (isRunning())
+        std::cout << "Lap: " << (getProcessTime() - _start) << std::endl;
 
 }
 
@@ -43,7 +41,6 @@ void StopWatch::reset()
     if (isRunning())
     {
         _stop = 0.0;
-        //std::cout << "Stopwatch reset..." << std::endl;
         start();
     }
 }
@@ -59,8 +56,6 @@ bool StopWatch::isRunning()
 {
     if (_running)
         return true;
-    else
-        //std::cout << "Stopwatch isn't running." << std::endl;
     return false;
 }
 

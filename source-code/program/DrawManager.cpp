@@ -18,9 +18,11 @@ DrawManager::DrawManager():
 }
 
 ///Drawing management cycle. The manager will render all the entites within the game world.
-void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Display> display, sf::RenderWindow& _window)
+void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Display> display)
 {
-    _window.clear();
+    display->clear();
+    display->drawBackground();
+
     sprite_draw_info draw_info;
     //Used to traverse the vector of drawables held by DrawManager
     auto draw_itterator = _drawables.begin();
@@ -39,47 +41,47 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
             {
                 case p1_tank:
                     getTankDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(p1_tank, draw_info, _window);
+                    display->drawEntity(p1_tank, draw_info);
                     break;
 
                 case p2_tank:
                     getTankDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(p2_tank, draw_info, _window);
+                    display->drawEntity(p2_tank, draw_info);
                     break;
 
                 case barrier:
                     getBarrierDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(barrier, draw_info, _window);
+                    display->drawEntity(barrier, draw_info);
                     break;
 
                 case p1_missile:
                     getMissileDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(p1_missile, draw_info, _window);
+                    display->drawEntity(p1_missile, draw_info);
                     break;
 
                 case p2_missile:
                     getMissileDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(p2_missile, draw_info, _window);
+                    display->drawEntity(p2_missile, draw_info);
                     break;
 
                 case p1_mine:
                     getMineDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(p1_mine, draw_info, _window);
+                    display->drawEntity(p1_mine, draw_info);
                     break;
 
                 case p2_mine:
                     getMineDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(p2_mine, draw_info, _window);
+                    display->drawEntity(p2_mine, draw_info);
                     break;
 
                 case turret:
                     getTurretDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(turret, draw_info, _window);
+                    display->drawEntity(turret, draw_info);
                     break;
 
                 case turret_missile:
                     getMissileDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(turret_missile, draw_info, _window);
+                    display->drawEntity(turret_missile, draw_info);
                     break;
 
                 default:
@@ -107,7 +109,8 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
     strs3 << game_state_container.getP2Score();
     strings.p2_score = strs3.str();
 
-    display->addTextToDraw(strings);
+    display->drawText(strings);
+    display->display();
 }
 
 void DrawManager::getTankDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)

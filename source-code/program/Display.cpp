@@ -13,6 +13,7 @@
 Display::Display(int window_width, int window_height):
     _window_width(window_width),
     _window_height(window_height),
+    _window(sf::VideoMode(_window_width,_window_height), "Tank Battles"),
     _game_textures(),
     _game_sprite_dimensions()
 {
@@ -36,11 +37,20 @@ Display::Display(int window_width, int window_height):
     setupText(_p2_score_text);
     _p2_score_text.setPosition(_p2_score_pos,_text_y_allignment);
 
+	_window.setFramerateLimit(45);
+
 }
 
 bool Display::isOpen()
 {
-    return 1;
+    if (_window.isOpen())
+        return true;
+    else return false;
+}
+
+void Display::clear()
+{
+    _window.clear();
 }
 
 void Display::setupText(sf::Text& text)
@@ -111,7 +121,7 @@ void Display::addSprites()
     _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret_missile,turret_missile_sp));
 }
 
-void Display::pollEvents(sf::RenderWindow& _window)
+void Display::pollEvents()
 {
     sf::Event event;
 
@@ -121,8 +131,14 @@ void Display::pollEvents(sf::RenderWindow& _window)
         	_window.close();
     }
 }
+
+void Display::drawBackground()
+{
+    _window.draw(_map_sprite);
+}
+
 // Needs to get the dimensions from the draw manager
-void Display::addToDrawings(const entity_type& entity, const sprite_draw_info& draw_info, sf::RenderWindow& _window)
+void Display::drawEntity(const entity_type& entity, const sprite_draw_info& draw_info)
 {
     std::map<entity_type,std::shared_ptr<sf::Sprite>>::iterator sprite_map_iterator;
 
@@ -136,32 +152,21 @@ void Display::addToDrawings(const entity_type& entity, const sprite_draw_info& d
         sprite_sp->setPosition(draw_info.draw_pos.x, draw_info.draw_pos.y);
         sprite_sp->setRotation(draw_info.rotation);
         _window.draw(*sprite_sp);
-        //_drawings.push_back(sprite_sp);
     }
 }
 
-void Display::addTextToDraw(const draw_strings& strings)
+void Display::drawText(const draw_strings& strings)
 {
     _game_time_text.setString(strings.game_time);
     _p1_score_text.setString(strings.p1_score);
     _p2_score_text.setString(strings.p2_score);
-}
-
-void Display::drawAndDisplayEverything(sf::RenderWindow& _window)
-{
-    //_window.clear();
-    //_window.draw(_map_sprite);
-
-//    auto sprite = _drawings.begin();
-//    for (; sprite != _drawings.end(); sprite++)
-//        _window.draw(*(*sprite));
-
-    _drawings.clear();
-
     _window.draw(_game_time_text);
     _window.draw(_p1_score_text);
     _window.draw(_p2_score_text);
+}
 
-     _window.display();
+void Display::display()
+{
+    _window.display();
 }
 

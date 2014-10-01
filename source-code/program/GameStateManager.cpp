@@ -48,8 +48,6 @@ void GameStateManager::manageAttackTimers(ActionData& game_data_container)
         game_data_container.resetP2Attack();
 }
 
-//No need to see actions here
-
 bool GameStateManager::timeRunOut(StopWatch& timer)
 {
     if (!timer.isRunning())
