@@ -35,17 +35,31 @@ void GameStateManager::manageAttackTimers(ActionData& game_data_container)
 {
     auto actions = game_data_container.giveActionInfo();
 
-    if (actions.attack_1 == fire_missile && !timeRunOut(_p1_fire_timer))
-        game_data_container.resetP1Attack();
+    if (actions.attack_1 == fire_missile)
+    {
+        if (!timeRunOut(_p1_fire_timer))
+            game_data_container.resetP1Attack();
+    }
 
-    if (actions.attack_2 == fire_missile && !timeRunOut(_p2_fire_timer))
-        game_data_container.resetP2Attack();
 
-    if (actions.attack_1 == lay_mine && !timeRunOut(_p1_lay_mine_timer))
-        game_data_container.resetP1Attack();
+    if (actions.attack_2 == fire_missile)
+    {
+        if (!timeRunOut(_p2_fire_timer))
+            game_data_container.resetP2Attack();
+    }
 
-    if (actions.attack_2 == lay_mine && !timeRunOut(_p2_lay_mine_timer))
-        game_data_container.resetP2Attack();
+
+    if (actions.attack_1 == lay_mine)
+    {
+        if (!timeRunOut(_p1_lay_mine_timer))
+            game_data_container.resetP1Attack();
+    }
+
+    if (actions.attack_2 == lay_mine)
+    {
+        if (!timeRunOut(_p2_lay_mine_timer))
+            game_data_container.resetP2Attack();
+    }
 }
 
 bool GameStateManager::timeRunOut(StopWatch& timer)
@@ -53,7 +67,7 @@ bool GameStateManager::timeRunOut(StopWatch& timer)
     if (!timer.isRunning())
     {
         timer.start();
-        return false;
+        return true;
     }
 
     double timer_time = _attack_time_limit - timer.getTimerValue();
