@@ -13,18 +13,6 @@
 #include <string.h>
 #include <memory>
 
-//struct textures // should only be here
-//{
-//	sf::Texture tank_1; // player 1 and 2 will have different tank textures
-//	sf::Texture tank_2;
-//	sf::Texture missile;
-//	sf::Texture mine;
-//	sf::Texture barrier;
-//	sf::Texture map;
-//	sf::Texture turret;
-//	sf::Texture missile_turret;
-//};
-
 class Display
 {
 public:

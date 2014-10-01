@@ -79,7 +79,7 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
 
                 case turret_missile:
                     getMissileDrawInfo(draw_entity_sp, draw_info);
-                    display->addToDrawings(turret, draw_info, _window);
+                    display->addToDrawings(turret_missile, draw_info, _window);
                     break;
 
                 default:
