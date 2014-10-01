@@ -38,7 +38,7 @@ public:
       ///Get bounding box of entity
     virtual const rect_corners& getBoundingBox();
     ///Set blocked state of entity
-    virtual const int setBlocked();
+    virtual const int setBlocked(const blocked_status obstruction_type);
     ///Unset the blocked state of the entity
     virtual void setUnblocked();
     ///Set collision state of entity

@@ -31,7 +31,7 @@ const rect_corners& Mine::getBoundingBox()
 }
 
 ///This function is not used by mine
-const int Mine::setBlocked()
+const int Mine::setBlocked(const blocked_status obstruction_type)
 {
     return 1;
 }

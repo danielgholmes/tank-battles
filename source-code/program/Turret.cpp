@@ -57,7 +57,7 @@ const rect_corners& Turret::getBoundingBox()
     return _turret.getGlobalBounds();
 }
 
-const int Turret::setBlocked()
+const int Turret::setBlocked(const blocked_status obstruction_type)
 {
     return 1;
 }

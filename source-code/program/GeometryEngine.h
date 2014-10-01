@@ -27,6 +27,20 @@ public:
 	void calculateVectorProjections(std::vector<coordinate>& axis_projections, const rect_corners& rect, const coordinate& axis);
 	///Calculates which of the projected vectors are furtherest along
 	void calculateMaxAndMinProjectionMagnitude(const std::vector<coordinate>& axis_projections,const rect_corners& rect,const coordinate& axis, float& max, float& min);
+	///Determine the relative positioning of two objects within the game
+    const blocked_status getRelativePosition(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
+
+private:
+
+    ///Helper functions
+    bool lowwerPointsAboveTopOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
+
+    bool upperPointsBelowBottomOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
+
+    bool rightPointsLeftOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
+
+    bool leftPointsRightOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
+
 };
 
 #endif // GEOMETRYENGINE_H_

@@ -33,7 +33,7 @@ public:
     ///Provide the bounding box for the Barrier entity
 	virtual const rect_corners& getBoundingBox() ;
     ///This function is not used by barrier
-	virtual const int setBlocked();
+	virtual const int setBlocked(const blocked_status obstruction_type);
 	///This function is not used by barrier
 	virtual void setUnblocked();
     ///This function may be implmented later**

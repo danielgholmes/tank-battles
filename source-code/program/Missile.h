@@ -40,13 +40,13 @@ public:
     ///Provide the bounding box for the missile entity
 	virtual const rect_corners& getBoundingBox();
     ///Instruct the missile entity that it cannot move along its trajectory
-	virtual const int setBlocked();
+	virtual const int setBlocked(const blocked_status obstruction_type);
 	///Instruct the missile entity that it can move
 	virtual void setUnblocked();
     ///Instruct the missile entity that it has collided with another object
 	virtual void setCollided();
 	///Determine the blocked state of the missile entity
-	virtual const bool isBlocked();
+	virtual const blocked_status isBlocked();
     ///Boolean state of the missile entity's life
 	virtual bool const isDeleted();
 	///Retrieve the missile x Position
@@ -63,7 +63,7 @@ public:
 private:
 
     ///Movability of the Missile entity: 1 for blocked, 0 for free
-    bool _blockedStatus;
+    blocked_status _blockedStatus;
     ///Collision state of the Missile Entity: 1 for collided, 0 for not
     bool _collidedStatus;
     ///The angle of rotation for the Missile entity

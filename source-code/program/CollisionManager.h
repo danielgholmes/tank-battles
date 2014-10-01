@@ -15,6 +15,7 @@
 //includes
 #include "Manager.h"
 #include "Collidable.h"
+#include "Structures.h"
 
 
 class CollisionManager: public Manager
@@ -35,6 +36,8 @@ public:
 private:
     ///Pointers to all collidable entities within the game world
     std::vector<std::weak_ptr<Collidable>> _collidables;
+    ///
+	const blocked_status getResultingBlockedStatus(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2);
     ///Checks to see if two objects have collided base upon their bounding box locations and type
     void reviewCollisionStates(std::shared_ptr<Collidable> entity_sp, std::shared_ptr<Collidable> obstacle_sp, bool& entity_blocked_status);
 	///Set collision state based on the types of entities that have collided
@@ -55,6 +58,7 @@ private:
 	void resetBlockedState(std::shared_ptr<Collidable>& entity);
 	///Helper function to remove 'Dead' entities from collision manager
 	void removeGarbage();
+
 
 };
 

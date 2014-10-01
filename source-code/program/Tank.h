@@ -44,13 +44,13 @@ public:
     ///Provide the bounding box for the tank entity
 	virtual const rect_corners& getBoundingBox();
     ///Instruct the tank entity that it cannot move
-	virtual const int setBlocked();
+	virtual const int setBlocked(const blocked_status obstruction_type);
 	///Instruct the tank entity that it can move
 	virtual void setUnblocked();
     ///Instruct the tank entity that it has collided with another object
 	virtual void setCollided();
 	///Determine the blocked state of the tank entity
-	virtual const bool isBlocked();
+	virtual const blocked_status isBlocked();
     ///Boolean state of the tank entity's life
 	virtual bool const isDeleted();
 	///Get the current x co-ordinate of Trackable object
@@ -75,7 +75,7 @@ public:
 private:
 
     ///Movability of the Tank entity: 1 for blocked, 0 for free
-    bool _blockedStatus;
+    blocked_status _blockedStatus;
     ///Collision state of the Tank Entity: 1 for collided, 0 for not
     bool _collidedStatus;
     ///The angle of rotation for the Tank entity

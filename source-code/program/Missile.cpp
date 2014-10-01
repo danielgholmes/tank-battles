@@ -24,7 +24,7 @@ Missile::Missile(float positionX, float positionY, float rotation, entity_type m
 
     _missile.setWidth(_sprite_dimensions.missile_sprite_x);
     _missile.setHeight(_sprite_dimensions.missile_sprite_y);
-    _blockedStatus = 0;
+    _blockedStatus = unblocked;
     _collidedStatus = 0;
     _rebound_lives = 7;
 }
@@ -51,17 +51,19 @@ void Missile::moveBackward()
 ///Left rotation for a missile entity
 void Missile::rotateLeft()
 {
-    _rotation -= _missileRotationSpeed;
-    _missile.rotate(-_missileRotationSpeed);
-    _blockedStatus = 0;
+    float rotationFactor = ((abs(_rotation-180)-90)*2);
+    _rotation = rotationFactor;
+    _missile.rotate(rotationFactor);
+    _blockedStatus = unblocked;
 }
 
 ///Right rotation for a missile entity
 void Missile::rotateRight()
 {
-    _rotation -= _missileRotationSpeed;
-    _missile.rotate(-_missileRotationSpeed);
-    _blockedStatus = 0;
+    float rotationFactor = ((180-_rotation)*2);
+    _rotation = rotationFactor;
+    _missile.rotate(rotationFactor);
+    _blockedStatus = unblocked;
 }
 
 ///Provide the bounding box for the missile entity
@@ -71,9 +73,9 @@ const rect_corners& Missile::getBoundingBox()
 }
 
 ///Instruct the missile entity that it cannot move along its trajectory
-const int Missile::setBlocked()
+const int Missile::setBlocked(const blocked_status obstruction_type)
 {
-    _blockedStatus = 1;
+    _blockedStatus = obstruction_type;
     _rebound_lives -= 1;
     return _rebound_lives;
 }
@@ -81,7 +83,7 @@ const int Missile::setBlocked()
 ///Instruct the tank entity that it can move
 void Missile::setUnblocked()
 {
-    _blockedStatus = 0;
+    _blockedStatus = unblocked;
 }
 
 ///Instruct the missile entity that it has collided with another object
@@ -91,7 +93,7 @@ void Missile::setCollided()
 }
 
 ///Determine the blocked state of the missile entity
-const bool Missile::isBlocked()
+const blocked_status Missile::isBlocked()
 {
     return _blockedStatus;
 }

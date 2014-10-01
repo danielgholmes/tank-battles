@@ -6,7 +6,7 @@
  */
 
 #include "CollisionManager.h"
-#include "GeometryEngine.h""
+#include "GeometryEngine.h"
 #include <cmath>
 
 CollisionManager::CollisionManager()
@@ -98,7 +98,7 @@ void CollisionManager::reviewCollisionStates(std::shared_ptr<Collidable> entity_
         const rect_corners& entity_box = (entity_sp)->getBoundingBox();
         const rect_corners& obstacle_box = (obstacle_sp)->getBoundingBox();
 
-        GeometryEngine geometry_engine;// create object of helper class
+        GeometryEngine geometry_engine;// utilise the geometry engine
 
         if (geometry_engine.isCollision(entity_box, obstacle_box))
         {
@@ -117,19 +117,23 @@ void CollisionManager::barrierCollisionReaction(std::shared_ptr<Collidable> enti
     switch(entity_2->getType())
     {
     case p1_tank:
-        entity_2->setBlocked(); // tank does not move
+        entity_2->setBlocked(blocked); // tank does not move
         break;
 
     case p2_tank:
-        entity_2->setBlocked(); // tank does not move
+        entity_2->setBlocked(blocked); // tank does not move
         break;
 
     case p1_missile:
-        entity_2->setBlocked(); // missile rebounds
+        {
+            entity_2->setBlocked(getResultingBlockedStatus(entity_2, entity_1)); // missile rebounds
+        }
         break;
 
     case p2_missile:
-        entity_2->setBlocked(); // missile rebounds
+        {
+            entity_2->setBlocked(getResultingBlockedStatus(entity_2, entity_1)); // missile rebounds
+        }
         break;
 
     case p1_mine:
@@ -208,7 +212,7 @@ void CollisionManager::missileCollisionReaction(std::shared_ptr<Collidable> enti
         break;
 
     case barrier:
-        if (entity_1->setBlocked() <= 0) // missile
+        if (entity_1->setBlocked(getResultingBlockedStatus(entity_1, entity_2)) <= 0) // missile
             entity_1->setCollided();
         break;
 
@@ -222,15 +226,15 @@ void CollisionManager::tankCollisionReaction(std::shared_ptr<Collidable> entity_
     switch(entity_2->getType())
     {
     case p1_tank:
-        entity_1->setBlocked(); // tank
+        entity_1->setBlocked(blocked); // tank
         break;
 
     case p2_tank:
-        entity_1->setBlocked(); // tank
+        entity_1->setBlocked(blocked); // tank
         break;
 
     case turret:
-        entity_1->setBlocked();
+        entity_1->setBlocked(blocked);
         break;
 
     case p1_missile:
@@ -254,7 +258,7 @@ void CollisionManager::tankCollisionReaction(std::shared_ptr<Collidable> entity_
         break;
 
     case barrier:
-        entity_1->setBlocked(); // tank
+        entity_1->setBlocked(blocked); // tank
         break;
     default:
         break;
@@ -267,11 +271,11 @@ void CollisionManager::turretCollisionReaction(std::shared_ptr<Collidable> entit
     switch(entity_2->getType())
     {
     case p1_tank:
-        entity_2->setBlocked(); // tank does not move
+        entity_2->setBlocked(blocked); // tank does not move
         break;
 
     case p2_tank:
-        entity_2->setBlocked(); // tank does not move
+        entity_2->setBlocked(blocked); // tank does not move
         break;
 
     case p1_missile:
@@ -288,6 +292,14 @@ void CollisionManager::turretCollisionReaction(std::shared_ptr<Collidable> entit
         break;
     }//Switch
 
+}
+
+const blocked_status CollisionManager::getResultingBlockedStatus(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
+{
+    auto entity_collision_box = entity_1->getBoundingBox();
+    auto object_collision_box = entity_2->getBoundingBox();
+    GeometryEngine geometry_engine;
+    return (geometry_engine.getRelativePosition(entity_collision_box,object_collision_box));
 }
 
 void CollisionManager::turretMissileCollisionReaction(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)

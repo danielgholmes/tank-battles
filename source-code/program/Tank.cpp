@@ -22,7 +22,7 @@ Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwn
 
     _tank.setWidth(_sprite_dimensions.tank_sprite_x);
     _tank.setHeight(_sprite_dimensions.tank_sprite_y);
-    _blockedStatus = 0;
+    _blockedStatus = unblocked;
     _collidedStatus = 0;
 }
 
@@ -65,9 +65,9 @@ const rect_corners& Tank::getBoundingBox()
 }
 
 ///Instruct the tank entity that it cannot move
-const int Tank::setBlocked()
+const int Tank::setBlocked(const blocked_status obstruction_type)
 {
-    _blockedStatus = 1;
+    _blockedStatus = obstruction_type;
     //Tank intity can be blocked infinitely.
     return 1;
 }
@@ -75,7 +75,7 @@ const int Tank::setBlocked()
 ///Instruct the tank entity that it can move
 void Tank::setUnblocked()
 {
-    _blockedStatus = 0;
+    _blockedStatus = unblocked;
 }
 
 ///Instruct the tank entity that it has collided with another object
@@ -85,7 +85,7 @@ void Tank::setCollided()
 }
 
 ///Determine the blocked state of the tank entity
-const bool Tank::isBlocked()
+const blocked_status Tank::isBlocked()
 {
     return _blockedStatus;
 }

@@ -33,7 +33,8 @@ public:
     ///Rotate a moveable entity right
 	virtual void rotateRight() = 0;
 	///Check state of entity to see number of times it has been blocked by another object
-	virtual const bool isBlocked() = 0;
+	virtual const blocked_status isBlocked() = 0;
+	//Change this to return an enum of the blocked direction
 	///Set the movement direction of the entity
 	virtual void setMovementDirection(const movement_direction Movement_input) = 0;
 	///Destructor

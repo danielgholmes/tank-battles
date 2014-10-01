@@ -40,7 +40,7 @@ const rect_corners& Barrier::getBoundingBox()
 }
 
 ///This function is not used by barrier
-const int Barrier::setBlocked()
+const int Barrier::setBlocked(const blocked_status obstruction_type)
 {
     return 1;
 }

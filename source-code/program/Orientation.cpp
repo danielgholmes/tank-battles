@@ -19,7 +19,7 @@ Orientation::Orientation(float origin_x, float origin_y, float width, float heig
 	_rotation(rotation),
 	_controllable(controllable)
 	{
-	    _movement_direction = noMove;
+	    _movement_direction = Move;
         setGlobalBounds();
 	}
 

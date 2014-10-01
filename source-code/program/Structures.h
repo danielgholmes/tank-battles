@@ -44,6 +44,14 @@ enum player_number {
     p2
 };
 
+enum blocked_status
+{
+    blocked = 1,
+    blocked_vertically,
+    blocked_horizontally,
+    unblocked
+};
+
 /// player_action is an enum of the possible actions that the tank can take
 struct actions_info
 {   // 1 and 2 correspond to tanks 1 and 2
@@ -102,7 +110,7 @@ enum movement_direction
     moveBackward,
     rotateLeft,
     rotateRight,
-    noMove
+    Move
 };
 
 /// Used for passing information from draw manager to display

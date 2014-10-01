@@ -37,7 +37,7 @@ void MoveManager::manage(const ActionData& action_data_container)
         //Make changes to player 1's tank if movement has been captured
         if ((managerInstructions.change_1 == true) && (entity_mov_sp->getType() == p1_tank))
         {
-            if(!entity_mov_sp->isBlocked())
+            if(entity_mov_sp->isBlocked() == unblocked)
             {
                 switch(managerInstructions.move_1)
                 {
@@ -87,12 +87,12 @@ void MoveManager::manage(const ActionData& action_data_container)
                         break;
                 }
             }
-        }
+        } // If for P1 tank
 
          //Make changes to player 2's tank if movement has been captured
         if ((managerInstructions.change_2 == true) && (entity_mov_sp->getType() == p2_tank))
         {
-            if(!entity_mov_sp->isBlocked())
+            if(entity_mov_sp->isBlocked() == unblocked)
             {
                 switch(managerInstructions.move_2)
                 {
@@ -151,10 +151,18 @@ void MoveManager::manage(const ActionData& action_data_container)
         if (((entity_mov_sp->getType() == p1_missile) ||
             (entity_mov_sp->getType() == p2_missile) ||
             (entity_mov_sp->getType() == turret_missile))
-             && (entity_mov_sp->isBlocked()))
+             && (entity_mov_sp->isBlocked() == blocked_horizontally))
         {
             entity_mov_sp->rotateLeft();
-            entity_mov_sp->rotateLeft();
+            entity_mov_sp->moveForward();
+        }
+
+         if (((entity_mov_sp->getType() == p1_missile) ||
+            (entity_mov_sp->getType() == p2_missile) ||
+            (entity_mov_sp->getType() == turret_missile))
+             && (entity_mov_sp->isBlocked() == blocked_vertically))
+        {
+            entity_mov_sp->rotateRight();
             entity_mov_sp->moveForward();
         }
         //Missile moves forward
