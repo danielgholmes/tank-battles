@@ -12,6 +12,11 @@ Mine::Mine(float positionX, float positionY, entity_type mineOwner):
     _mine(positionX,positionY,0.0,0.0,0.0, false),
     _sprite_dimensions()
 {
+    //Keep Class invariant
+    if ((mineOwner != p1_mine) && (mineOwner != p2_mine)) throw InvalidConstructorArgumentsMine();
+    if (positionX < 0) throw InvalidConstructorArgumentsMine();
+    if (positionY < 0) throw InvalidConstructorArgumentsMine();
+
     _mine.setWidth(_sprite_dimensions.mine_sprite_x);
     _mine.setHeight(_sprite_dimensions.mine_sprite_y);
     _type = mineOwner;

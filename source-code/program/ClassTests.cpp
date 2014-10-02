@@ -20,6 +20,13 @@
 #include "Barrier.h"
 #include "Mine.h"
 #include "GeometryEngine.h"
+#include "Turret.h"
+
+#define MISSILE_SPEED 8
+#define TANK_SPEED 3
+#define MISSILE_ROT_SPEED 45
+#define TANK_ROT_SPEED 5
+#define PI          3.141592653589793238462643383279502884L
 
 
 /*================Tests for CollisionManager Class============*/
@@ -67,58 +74,6 @@ TEST(CollisionManager, indicatesCollisionHasTakenPlace)
     CollisionHelper collision_helper;
 
     EXPECT_TRUE(collision_helper.isCollision(rect_A, rect_B));
-}
-
-TEST(CollisionManager, indicatesNoCollisionHasTakenPlace)
-{
-
-
-}
-
-
-TEST(CollisionManager, ifInvalidAxisGivenThrowsException)
-{
-
-}
-
-TEST(CollisionManager, returnsCorrectOverlapOutcome)
-{
-
-}
-
-TEST(CollisionManager,  modifiesAxisProjectionsVectorCorrectly)
-{
-
-}
-
-TEST(CollisionManager, ifInvalidVectorArgumentGivenThrowsException)
-{
-
-}
-
-TEST(CollisionManager, modifiesMaxVectorProjectionCorrectly)
-{
-
-}
-
-TEST(CollisionManager, modifiesMinVectorProjectionsCorrectly)
-{
-
-}
-
-TEST(CollisionManager, ifInvalidPointerGivenThrowsException)
-{
-
-}
-
-TEST(CollisionManger, ifInvalidPointerObjectGivenThrowsException)
-{
-
-}
-
-TEST(CollisionManager, collisionStatesSetCorrectly)
-{
-
 }
 
 
@@ -274,48 +229,56 @@ TEST(Tank, returnsCorrectDrawRotationValue)
 
 TEST(Tank, movesForwardCorrectly)
 {
-    Tank TestTank1(10,10,0,p1_tank);
+    float rotation = 0;
+    Tank TestTank1(10,10,rotation,p1_tank);
     TestTank1.moveForward();
-    EXPECT_EQ(TestTank1.getPositionX(),15);
-    EXPECT_EQ(TestTank1.getPositionY(),10);
+    EXPECT_EQ(TestTank1.getPositionX(),10 + TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank1.getPositionY(),10 + TANK_MOVE_SPEED*sin((rotation*PI)/180.0));
 
-    Tank TestTank2(10,10,90,p1_tank);
+    rotation = 90;
+    Tank TestTank2(10,10,rotation,p1_tank);
     TestTank2.moveForward();
-    EXPECT_EQ(TestTank2.getPositionX(),10);
-    EXPECT_EQ(TestTank2.getPositionY(),15);
+    EXPECT_EQ(TestTank2.getPositionX(),10 + TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank2.getPositionY(),10 + TANK_SPEED*sin((rotation*PI)/180.0));
 
-    Tank TestTank3(10,10,180,p1_tank);
+    rotation = 180;
+    Tank TestTank3(10,10,rotation,p1_tank);
     TestTank3.moveForward();
-    EXPECT_EQ(TestTank3.getPositionX(),5);
-    EXPECT_EQ(TestTank3.getPositionY(),10);
+    EXPECT_EQ(TestTank3.getPositionX(),10 + TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank3.getPositionY(),10 + TANK_SPEED*sin((rotation*PI)/180.0));
 
-    Tank TestTank4(10,10,270,p1_tank);
+    rotation = 270;
+    Tank TestTank4(10,10,rotation,p1_tank);
     TestTank4.moveForward();
-    EXPECT_EQ(TestTank4.getPositionX(),10);
-    EXPECT_EQ(TestTank4.getPositionY(),5);
+    EXPECT_EQ(TestTank4.getPositionX(),10 + TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank4.getPositionY(),10 + TANK_SPEED*sin((rotation*PI)/180.0));
 }
 
 TEST(Tank, movesBackwardCorrectly)
 {
-    Tank TestTank1(10,10,0,p1_tank);
+    float rotation = 0;
+    Tank TestTank1(10,10,rotation,p1_tank);
     TestTank1.moveBackward();
-    EXPECT_EQ(TestTank1.getPositionX(),5);
-    EXPECT_EQ(TestTank1.getPositionY(),10);
+    EXPECT_EQ(TestTank1.getPositionX(),10 - TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank1.getPositionY(),10 - TANK_SPEED*sin((rotation*PI)/180.0));
 
-    Tank TestTank2(10,10,90,p1_tank);
+    rotation = 90;
+    Tank TestTank2(10,10,rotation,p1_tank);
     TestTank2.moveBackward();
-    EXPECT_EQ(TestTank2.getPositionX(),10);
-    EXPECT_EQ(TestTank2.getPositionY(),5);
+    EXPECT_EQ(TestTank2.getPositionX(),10 - TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank2.getPositionY(),10 - TANK_SPEED*sin((rotation*PI)/180.0));
 
-    Tank TestTank3(10,10,180,p1_tank);
+    rotation = 180;
+    Tank TestTank3(10,10,rotation,p1_tank);
     TestTank3.moveBackward();
-    EXPECT_EQ(TestTank3.getPositionX(),15);
-    EXPECT_EQ(TestTank3.getPositionY(),10);
+    EXPECT_EQ(TestTank3.getPositionX(),10 - TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank3.getPositionY(),10 - TANK_SPEED*sin((rotation*PI)/180.0));
 
-    Tank TestTank4(10,10,270,p1_tank);
+    rotation = 270;
+    Tank TestTank4(10,10,rotation,p1_tank);
     TestTank4.moveBackward();
-    EXPECT_EQ(TestTank4.getPositionX(),10);
-    EXPECT_EQ(TestTank4.getPositionY(),15);
+    EXPECT_EQ(TestTank4.getPositionX(),10 - TANK_SPEED*cos((rotation*PI)/180.0));
+    EXPECT_EQ(TestTank4.getPositionY(),10 - TANK_SPEED*sin((rotation*PI)/180.0));
 }
 
 TEST(Tank, rotatesLeftAndRightCorrectly)
@@ -338,15 +301,15 @@ TEST(Tank, booleanVariablesAreCorrectlySetAndRetrieved)
 {
     Tank TestTank1(10,10,0,p1_tank);
 
-    TestTank1.setBlocked();
+    TestTank1.setBlocked(blocked);
     TestTank1.setCollided();
 
-    EXPECT_TRUE(TestTank1.isBlocked());
+    EXPECT_EQ(TestTank1.isBlocked(),blocked);
     EXPECT_TRUE(TestTank1.isDeleted());
 
     TestTank1.setUnblocked();
 
-    EXPECT_FALSE(TestTank1.isBlocked());
+    EXPECT_EQ(TestTank1.isBlocked(), unblocked);
 
 }
 ///*===================================================*/
@@ -367,9 +330,11 @@ TEST(Missile, returnsCorrectEntityType)
 {
     Missile TestMissile1(10,10,10,p1_missile);
     Missile TestMissile2(10,10,10,p2_missile);
+    Missile TestMissile3(10,10,10,turret_missile);
 
     EXPECT_EQ(TestMissile1.getType(),p1_missile);
     EXPECT_EQ(TestMissile2.getType(),p2_missile);
+    EXPECT_EQ(TestMissile3.getType(),turret_missile);
 }
 
 TEST(Missile, returnsCorrectCoordinatesFromGetDrawPosition)
@@ -392,48 +357,56 @@ TEST(Missile, returnsCorrectDrawRotationValue)
 
 TEST(Missile, movesForwardCorrectly)
 {
-    Missile TestMissile1(10,10,0,p1_missile);
+    float rotation = 0;
+    Missile TestMissile1(10,10,rotation,p1_missile);
     TestMissile1.moveForward();
-    EXPECT_EQ(TestMissile1.getDrawPositionX(),30);
+    EXPECT_EQ(TestMissile1.getDrawPositionX(),10 + MISSILE_SPEED);
     EXPECT_EQ(TestMissile1.getDrawPositionY(),10);
 
-    Missile TestMissile2(10,10,90,p1_missile);
+    rotation = 90;
+    Missile TestMissile2(10,10,rotation,p1_missile);
     TestMissile2.moveForward();
     EXPECT_EQ(TestMissile2.getDrawPositionX(),10);
-    EXPECT_EQ(TestMissile2.getDrawPositionY(),30);
+    EXPECT_EQ(TestMissile2.getDrawPositionY(),10 + MISSILE_SPEED);
 
-    Missile TestMissile3(10,10,180,p1_missile);
+    rotation = 180;
+    Missile TestMissile3(10,10,rotation,p1_missile);
     TestMissile3.moveForward();
-    EXPECT_EQ(TestMissile3.getDrawPositionX(),-10);
+    EXPECT_EQ(TestMissile3.getDrawPositionX(),10 - MISSILE_SPEED);
     EXPECT_EQ(TestMissile3.getDrawPositionY(),10);
 
-    Missile TestMissile4(10,10,270,p1_missile);
+    rotation = 270;
+    Missile TestMissile4(10,10,rotation,p1_missile);
     TestMissile4.moveForward();
     EXPECT_EQ(TestMissile4.getDrawPositionX(),10);
-    EXPECT_EQ(TestMissile4.getDrawPositionY(),-10);
+    EXPECT_EQ(TestMissile4.getDrawPositionY(),10 - MISSILE_SPEED);
 }
 
 TEST(Missile, movesBackwardsCorrectly)
 {
-    Missile TestMissile1(10,10,0,p1_missile);
+    float rotation = 0;
+    Missile TestMissile1(10,10,rotation,p1_missile);
     TestMissile1.moveBackward();
-    EXPECT_EQ(TestMissile1.getDrawPositionX(),-10);
+    EXPECT_EQ(TestMissile1.getDrawPositionX(),10 - MISSILE_SPEED);
     EXPECT_EQ(TestMissile1.getDrawPositionY(),10);
 
-    Missile TestMissile2(10,10,90,p1_missile);
+    rotation = 90;
+    Missile TestMissile2(10,10,rotation,p1_missile);
     TestMissile2.moveBackward();
     EXPECT_EQ(TestMissile2.getDrawPositionX(),10);
-    EXPECT_EQ(TestMissile2.getDrawPositionY(),-10);
+    EXPECT_EQ(TestMissile2.getDrawPositionY(),10 - MISSILE_SPEED);
 
-    Missile TestMissile3(10,10,180,p1_missile);
+    rotation = 180;
+    Missile TestMissile3(10,10,rotation,p1_missile);
     TestMissile3.moveBackward();
-    EXPECT_EQ(TestMissile3.getDrawPositionX(),30);
+    EXPECT_EQ(TestMissile3.getDrawPositionX(),10 + MISSILE_SPEED);
     EXPECT_EQ(TestMissile3.getDrawPositionY(),10);
 
-    Missile TestMissile4(10,10,270,p1_missile);
+    rotation = 270;
+    Missile TestMissile4(10,10,rotation,p1_missile);
     TestMissile4.moveBackward();
     EXPECT_EQ(TestMissile4.getDrawPositionX(),10);
-    EXPECT_EQ(TestMissile4.getDrawPositionY(),30);
+    EXPECT_EQ(TestMissile4.getDrawPositionY(),10 + MISSILE_SPEED);
 }
 
 TEST(Missile, rotatesLeftAndRightCorrectly)
@@ -456,15 +429,15 @@ TEST(Missile, booleanVariablesAreCorrectlySetAndRetrieved)
 {
     Missile TestMissile1(10,10,0,p1_missile);
 
-    TestMissile1.setBlocked();
+    TestMissile1.setBlocked(blocked);
     TestMissile1.setCollided();
 
-    EXPECT_TRUE(TestMissile1.isBlocked());
+    EXPECT_EQ(TestMissile1.isBlocked(), blocked);
     EXPECT_TRUE(TestMissile1.isDeleted());
 
     TestMissile1.setUnblocked();
 
-    EXPECT_FALSE(TestMissile1.isBlocked());
+    EXPECT_EQ(TestMissile1.isBlocked(), unblocked);
 }
 
 /*===================================================*/
@@ -492,7 +465,7 @@ TEST(Barrier, returnCorrectRectangleVertices)
     float origin_x = 100;
     float origin_y = 100;
 
-    Barrier TestBarrier(_dimensions.barrier_sprite_x,_dimensions.barrier_sprite_y,barrier);
+    Barrier TestBarrier(origin_x,origin_y,barrier);
     rect_corners rect;
 
     rect.upper_left.x = origin_x - _dimensions.barrier_sprite_x/2;
@@ -500,9 +473,9 @@ TEST(Barrier, returnCorrectRectangleVertices)
     rect.upper_right.x = origin_x + _dimensions.barrier_sprite_x/2;
     rect.upper_right.y = origin_y + _dimensions.barrier_sprite_y/2;
     rect.lower_left.x = origin_x - _dimensions.barrier_sprite_x/2;
-    rect.lower_left.y = origin_y - _dimensions.barrier_sprite_y/2;
+    rect.lower_left.y = origin_y + _dimensions.barrier_sprite_y/2;
     rect.lower_right.x = origin_x + _dimensions.barrier_sprite_x/2;
-    rect.lower_right.y = origin_y - _dimensions.barrier_sprite_y/2;
+    rect.lower_right.y = origin_y + _dimensions.barrier_sprite_y/2;
 
     EXPECT_EQ(TestBarrier.getBoundingBox().upper_left.x,rect.upper_left.x);
     EXPECT_EQ(TestBarrier.getBoundingBox().upper_left.y,rect.upper_left.y);
@@ -532,16 +505,76 @@ TEST(Barrier, returnsCorrectDrawRotationValue)
 ///*===================================================*/
 
 ///*================Tests for Mine Class============*/
-
 TEST(Mine,throwsExceptionIfInvalidCoordinatesGiven)
 {
-//    EXPECT_THROW()
+    double orign_x = 10;
+    double origin_y = 10;
+    EXPECT_THROW({Mine TestMine(-orign_x,origin_y,p1_mine);},InvalidConstructorArgumentsMine);
+    EXPECT_THROW({Mine TestMine(orign_x,-origin_y,p1_mine);},InvalidConstructorArgumentsMine);
+    EXPECT_NO_THROW({Mine TestMine(orign_x,origin_y, p1_mine);});
+    EXPECT_THROW({Mine TestMine(orign_x,origin_y,p1_missile);},InvalidConstructorArgumentsMine);
 }
 
+TEST(Mine, returnsCorrectEntityType)
+{
+    Mine TestMine1(10,10,p1_mine);
+    Mine TestMine2(10,10,p2_mine);
+
+    EXPECT_EQ(TestMine1.getType(),p1_mine);
+    EXPECT_EQ(TestMine2.getType(),p2_mine);
+    EXPECT_NE(TestMine1.getType(),p2_mine);
+}
+
+TEST(Mine, booleanVariablesAreCorrectlySetAndRetrieved)
+{
+    Mine TestMine1(10,10,p1_mine);
+
+    TestMine1.setCollided();
+
+    EXPECT_TRUE(TestMine1.isDeleted());
+}
+///*===================================================*/
+
+
+///*================Tests for Turret Class============*/
+
+TEST(Turret,throwsExceptionIfInvalidCoordinatesGiven)
+{
+    double orign_x = 10;
+    double origin_y = 10;
+    double rotation = 10;
+    EXPECT_THROW({Turret TestTurret(-orign_x,origin_y,rotation);},InvalidConstructorArgumentsTurret);
+    EXPECT_THROW({Turret TestTurret(orign_x,-origin_y, rotation);},InvalidConstructorArgumentsTurret);
+    EXPECT_NO_THROW({Turret TestTurret(orign_x,origin_y, rotation);});
+    EXPECT_THROW({Turret TestTurret(orign_x,origin_y,-rotation);},InvalidConstructorArgumentsTurret);
+}
+
+TEST(Turret, correctlyRotatesThroughCommand)
+{
+    double orign_x = 10;
+    double origin_y = 10;
+    double rotation = 2;
+    double TurrRotationRate = -2;
+
+    Turret testTurret1(orign_x,origin_y,rotation);
+
+    EXPECT_EQ(testTurret1.getOrientation(), 2);
+
+    testTurret1.rotateTurret();
+
+    EXPECT_EQ(testTurret1.getOrientation(), 0);
+
+    testTurret1.rotateTurret();
+
+    EXPECT_NE(testTurret1.getOrientation(), 0);
+
+}
 
 ///*===================================================*/
 
-///*================Tests for CollisionHelper Class============*/
+
+
+///*================Tests for Geometry Class============*/
 
 TEST(CollisionHelper, ifInvalidRectangleStructGivenThrowsException)
 {
@@ -781,43 +814,43 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisFour)
 }
 
 
-TEST(CollisionHelper, returnsCorrectlyModifiedAxisProjectionsVector)
-{
-    rect_corners rect_A;
-    rect_corners rect_B;
-
-    rect_A.upper_left.x = 1.0;
-    rect_A.upper_left.y = 8.0;
-    rect_A.upper_right.x = 5.0;
-    rect_A.upper_right.y = 8.0;
-    rect_A.lower_left.x = 1.0;
-    rect_A.lower_left.y = 1.0;
-    rect_A.lower_right.x = 5.0;
-    rect_A.lower_right.y = 1.0;
-
-    rect_B.upper_left.x = 2.0;
-    rect_B.upper_left.y = 9.0;
-    rect_B.upper_right.x = 6.0;
-    rect_B.upper_right.y = 8.0;
-    rect_B.lower_left.x = 2.0;
-    rect_B.lower_left.y = 2.0;
-    rect_B.lower_right.x = 6.0;
-    rect_B.lower_right.y = 2.0;
-
-    coordinate axis;
-
-    axis.x = rect_A.upper_right.x - rect_A.upper_left.x;
-    axis.y = rect_A.upper_right.y - rect_A.upper_left.y;
-
-    std::vector<coordinate> axis_projections;
-
-    CollisionHelper CollisionTest;
-    CollisionTest.calculateVectorProjections(axis_projections, rect_A, axis);
-
-    float ans = axis_projections[0].x;
-
-    EXPECT_EQ(ans,1.0);
-}
+//TEST(CollisionHelper, returnsCorrectlyModifiedAxisProjectionsVector)
+//{
+//    rect_corners rect_A;
+//    rect_corners rect_B;
+//
+//    rect_A.upper_left.x = 1.0;
+//    rect_A.upper_left.y = 8.0;
+//    rect_A.upper_right.x = 5.0;
+//    rect_A.upper_right.y = 8.0;
+//    rect_A.lower_left.x = 1.0;
+//    rect_A.lower_left.y = 1.0;
+//    rect_A.lower_right.x = 5.0;
+//    rect_A.lower_right.y = 1.0;
+//
+//    rect_B.upper_left.x = 2.0;
+//    rect_B.upper_left.y = 9.0;
+//    rect_B.upper_right.x = 6.0;
+//    rect_B.upper_right.y = 8.0;
+//    rect_B.lower_left.x = 2.0;
+//    rect_B.lower_left.y = 2.0;
+//    rect_B.lower_right.x = 6.0;
+//    rect_B.lower_right.y = 2.0;
+//
+//    coordinate axis;
+//
+//    axis.x = rect_A.upper_right.x - rect_A.upper_left.x;
+//    axis.y = rect_A.upper_right.y - rect_A.upper_left.y;
+//
+//    std::vector<coordinate> axis_projections;
+//
+//    CollisionHelper CollisionTest;
+//    CollisionTest.calculateVectorProjections(axis_projections, rect_A, axis);
+//
+//    float ans = axis_projections[0].x;
+//
+//    EXPECT_EQ(ans,1.0);
+//}
 
 ///*==========================================================*/
 
@@ -884,7 +917,7 @@ TEST(GeometryEngine, returnsFalseIfTankNotInLineOfFireOfTurret)
 /////////////////////////////////////////////////////////////////////////////////
 ///Daniel's Tests (1 Oct)
 
-///Test not net up properly yet
+///Test not set up properly yet
 //TEST(GeometryEngine, calculatesCorrectMaxAndMinProjectionValues)
 //{
 //    float max = 0.0;

@@ -16,6 +16,8 @@
 #include "Orientation.h"
 #include "SpriteDimensions.h"
 
+class InvalidConstructorArgumentsMine{};
+
 class Mine: virtual public Collidable
 {
 public:

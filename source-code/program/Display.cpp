@@ -37,7 +37,7 @@ Display::Display(int window_width, int window_height):
     setupText(_p2_score_text);
     _p2_score_text.setPosition(_p2_score_pos,_text_y_allignment);
 
-	_window.setFramerateLimit(45);
+	_window.setFramerateLimit(60);
 
 }
 

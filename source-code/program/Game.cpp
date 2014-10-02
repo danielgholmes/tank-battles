@@ -228,7 +228,7 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
             addNewMine(p1_mine_del_sp);
 		}
 	}
-	else if (actions.change_2 == true)
+    if (actions.change_2 == true)
 	{
         const float p2_x_component = cos((_tracking_manager.getP2Rotation()*PI)/180);
         const float p2_y_component = sin((_tracking_manager.getP2Rotation()*PI)/180);
