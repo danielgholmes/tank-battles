@@ -130,55 +130,59 @@ const float GeometryEngine::calculateVectorLength(const float x_coord_1, const f
 
 const blocked_status GeometryEngine::getRelativePosition(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
-    if(lowwerPointsAboveTopOfObject(rect_entity,compared_rect_entity))
-    {
-        return blocked_vertically;
-    }
+    blocked_status blocked_state = unblocked;
 
     if(upperPointsBelowBottomOfObject(rect_entity,compared_rect_entity))
     {
-        return blocked_vertically;
+        blocked_state =  blocked_vertically;
     }
 
-    if(rightPointsLeftOfObject(rect_entity,compared_rect_entity))
+    else if(rightPointsLeftOfObject(rect_entity,compared_rect_entity))
     {
-        return blocked_horizontally;
+        blocked_state = blocked_horizontally;
     }
 
-    if(leftPointsRightOfObject(rect_entity,compared_rect_entity))
+    else if(leftPointsRightOfObject(rect_entity,compared_rect_entity))
     {
-        return blocked_horizontally;
+        blocked_state = blocked_horizontally;
     }
+
+    else if(lowwerPointsAboveTopOfObject(rect_entity,compared_rect_entity))
+    {
+        blocked_state = blocked_vertically;
+    }
+
+    return blocked_state;
 }
 
 bool GeometryEngine::lowwerPointsAboveTopOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
-    if ((rect_entity.lower_left.y <= compared_rect_entity.upper_left.y) &&
-        (rect_entity.lower_right.y <= compared_rect_entity.upper_right.y))
+    if ((rect_entity.upper_left.y >= compared_rect_entity.upper_left.y) &&
+        (rect_entity.upper_right.y >= compared_rect_entity.upper_right.y))
             return true;
     else return false;
 }
 
 bool GeometryEngine::upperPointsBelowBottomOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
-    if((rect_entity.upper_left.y >= compared_rect_entity.lower_left.y) &&
-       (rect_entity.upper_right.y >= compared_rect_entity.lower_right.y))
+    if((rect_entity.lower_left.y <= compared_rect_entity.lower_left.y) &&
+       (rect_entity.lower_right.y <= compared_rect_entity.lower_right.y))
             return true;
     else return false;
 }
 
 bool GeometryEngine::rightPointsLeftOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
-    if ((rect_entity.lower_right.x <= compared_rect_entity.lower_left.x) &&
-        (rect_entity.upper_right.x <= compared_rect_entity.upper_left.x))
+    if ((rect_entity.lower_left.x <= compared_rect_entity.lower_left.x) &&
+        (rect_entity.upper_left.x <= compared_rect_entity.upper_left.x))
             return true;
     else return false;
 }
 
 bool GeometryEngine::leftPointsRightOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
-    if ((rect_entity.upper_left.x >= compared_rect_entity.lower_right.x) &&
-        (rect_entity.lower_left.x >= compared_rect_entity.lower_right.x))
+    if ((rect_entity.upper_right.x >= compared_rect_entity.upper_right.x) &&
+        (rect_entity.lower_right.x >= compared_rect_entity.lower_right.x))
             return true;
     else return false;
 }

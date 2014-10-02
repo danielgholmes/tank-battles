@@ -166,9 +166,10 @@ void MoveManager::manage(const ActionData& action_data_container)
             entity_mov_sp->moveForward();
         }
         //Missile moves forward
-        else if ((entity_mov_sp->getType() == p1_missile) ||
+        else if (((entity_mov_sp->getType() == p1_missile) ||
                  (entity_mov_sp->getType() == p2_missile) ||
                  (entity_mov_sp->getType() == turret_missile))
+                 && (entity_mov_sp->isBlocked() == unblocked))
         {
             entity_mov_sp->moveForward();
         }

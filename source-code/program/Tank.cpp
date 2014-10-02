@@ -120,6 +120,11 @@ const float Tank::getOrientation()
     return _tank.getGlobalBounds();
  }
 
+ const rect_corners& Tank::getAlignedBoundingBox()
+ {
+     return _tank.getAlignedGlobalBounds();
+ }
+
 ///Retrieve the x Tank Position
 const float Tank::getDrawPositionX()
 {

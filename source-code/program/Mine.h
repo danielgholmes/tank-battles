@@ -26,6 +26,8 @@ public:
     virtual const entity_type& getType() const;
     ///Provide the bounding box for the mine entity
 	virtual const rect_corners& getBoundingBox();
+	///Get Axis Aligned bounding box of entity
+	virtual const rect_corners& getAlignedBoundingBox();
 	///This function is not used by the mine
 	virtual void setUnblocked();
     ///This function is not used by mine

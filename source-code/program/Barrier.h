@@ -32,6 +32,8 @@ public:
     virtual void draw();
     ///Provide the bounding box for the Barrier entity
 	virtual const rect_corners& getBoundingBox() ;
+    ///Get Axis Aligned bounding box of entity
+	virtual const rect_corners& getAlignedBoundingBox();
     ///This function is not used by barrier
 	virtual const int setBlocked(const blocked_status obstruction_type);
 	///This function is not used by barrier

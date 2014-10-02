@@ -30,6 +30,11 @@ const rect_corners& Mine::getBoundingBox()
     return _mine.getGlobalBounds();
 }
 
+const rect_corners& Mine::getAlignedBoundingBox()
+{
+    return _mine.getAlignedGlobalBounds();
+}
+
 ///This function is not used by mine
 const int Mine::setBlocked(const blocked_status obstruction_type)
 {

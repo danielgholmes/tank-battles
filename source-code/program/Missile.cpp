@@ -52,24 +52,29 @@ void Missile::moveBackward()
 void Missile::rotateLeft()
 {
     float rotationFactor = ((abs(_rotation-180)-90)*2);
-    _rotation = rotationFactor;
+    _rotation += rotationFactor;
     _missile.rotate(rotationFactor);
-    _blockedStatus = unblocked;
+
 }
 
 ///Right rotation for a missile entity
 void Missile::rotateRight()
 {
     float rotationFactor = ((180-_rotation)*2);
-    _rotation = rotationFactor;
+    _rotation += rotationFactor;
     _missile.rotate(rotationFactor);
-    _blockedStatus = unblocked;
+
 }
 
 ///Provide the bounding box for the missile entity
 const rect_corners& Missile::getBoundingBox()
 {
     return _missile.getGlobalBounds();
+}
+
+const rect_corners& Missile::getAlignedBoundingBox()
+{
+    return _missile.getAlignedGlobalBounds();
 }
 
 ///Instruct the missile entity that it cannot move along its trajectory

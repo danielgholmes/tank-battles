@@ -43,6 +43,8 @@ public:
 	virtual void rotateRight();
     ///Provide the bounding box for the tank entity
 	virtual const rect_corners& getBoundingBox();
+	///Get Axis Aligned bounding box of entity
+	virtual const rect_corners& getAlignedBoundingBox();
     ///Instruct the tank entity that it cannot move
 	virtual const int setBlocked(const blocked_status obstruction_type);
 	///Instruct the tank entity that it can move

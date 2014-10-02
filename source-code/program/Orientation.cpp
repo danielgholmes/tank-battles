@@ -88,6 +88,28 @@ rect_corners& Orientation::getGlobalBounds()
     return _collison_box;
 }
 
+const rect_corners& Orientation::getAlignedGlobalBounds()
+{
+    rect_corners temp_box;
+    //Bottom-left corner assignment
+    temp_box.lower_left.x = (-_width/2) + getRelativeX();
+    temp_box.lower_left.y = (-_height/2)+ getRelativeY();
+
+    //Bottom-right corner assignment
+    temp_box.lower_right.x = (+_width/2) + getRelativeX();
+    temp_box.lower_right.y = (-_height/2)+ getRelativeY();
+
+     //Top-left corner assignment
+    temp_box.upper_left.x = (-_width/2) + getRelativeX();
+    temp_box.upper_left.y = (+_height/2)+ getRelativeY();
+
+    //Top-right corner assignment
+    temp_box.upper_right.x = (+_width/2) + getRelativeX();
+    temp_box.upper_right.y = (+_height/2)+ getRelativeY();
+
+    return temp_box;
+}
+
 void Orientation::setMoveDirection(const movement_direction movement_command)
 {
     _movement_direction = movement_command;

@@ -39,6 +39,12 @@ const rect_corners& Barrier::getBoundingBox()
     return _barrier.getGlobalBounds();
 }
 
+///Get Axis Aligned bounding box of entity
+const rect_corners& Barrier::getAlignedBoundingBox()
+{
+    return _barrier.getAlignedGlobalBounds();
+}
+
 ///This function is not used by barrier
 const int Barrier::setBlocked(const blocked_status obstruction_type)
 {

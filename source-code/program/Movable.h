@@ -42,9 +42,9 @@ public:
 
 protected:
     ///Define the movement speed of a missile entity
-    static const int _missileMovementSpeed = 12;
+    static const int _missileMovementSpeed = 6;
     ///Define the movement speed of a tank entity
-    static const int _tankMovementSpeed = 10;
+    static const int _tankMovementSpeed = 3;
     ///Define the rotation speed of a missile entity
     static const int _missileRotationSpeed = 45;
     ///Define the rotatioin speed of a tank entity

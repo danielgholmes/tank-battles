@@ -39,6 +39,8 @@ public:
 	virtual void rotateRight();
     ///Provide the bounding box for the missile entity
 	virtual const rect_corners& getBoundingBox();
+	///Get Axis Aligned bounding box of entity
+	virtual const rect_corners& getAlignedBoundingBox();
     ///Instruct the missile entity that it cannot move along its trajectory
 	virtual const int setBlocked(const blocked_status obstruction_type);
 	///Instruct the missile entity that it can move

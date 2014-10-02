@@ -296,8 +296,8 @@ void CollisionManager::turretCollisionReaction(std::shared_ptr<Collidable> entit
 
 const blocked_status CollisionManager::getResultingBlockedStatus(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
-    auto entity_collision_box = entity_1->getBoundingBox();
-    auto object_collision_box = entity_2->getBoundingBox();
+    auto entity_collision_box = entity_1->getAlignedBoundingBox();
+    auto object_collision_box = entity_2->getAlignedBoundingBox();
     GeometryEngine geometry_engine;
     return (geometry_engine.getRelativePosition(entity_collision_box,object_collision_box));
 }

@@ -37,6 +37,8 @@ public:
     virtual const float getDrawRotation();
       ///Get bounding box of entity
     virtual const rect_corners& getBoundingBox();
+    ///Get Axis Aligned bounding box of entity
+	virtual const rect_corners& getAlignedBoundingBox();
     ///Set blocked state of entity
     virtual const int setBlocked(const blocked_status obstruction_type);
     ///Unset the blocked state of the entity

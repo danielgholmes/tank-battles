@@ -38,6 +38,8 @@ public:
     void setMoveDirection(const movement_direction);
     ///Retrieve Rectangular co-ordinates for collision detection
     rect_corners& getGlobalBounds();
+    ///Retrieve Rectangular co-ordinated for collision detection (Non-rotated)
+    const rect_corners& getAlignedGlobalBounds();
     ///Destructor
 	virtual ~Orientation();
 	///Equality operator overload for testing

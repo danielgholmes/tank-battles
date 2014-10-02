@@ -24,6 +24,8 @@ public:
     Collidable();
     ///Get bounding box of entity
     virtual const rect_corners& getBoundingBox() = 0;
+    ///Get Axis Aligned bounding box of entity
+    virtual const rect_corners& getAlignedBoundingBox() = 0;
     ///Set blocked state of entity
     virtual const int setBlocked(const blocked_status obstruction_type) = 0;
     ///Unset the blocked state of the entity
