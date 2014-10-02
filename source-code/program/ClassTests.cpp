@@ -1064,13 +1064,11 @@ TEST(GeometryEngine, calculatesCorrectVectorLength)
     float x_coord_2 = 1.0;
     float y_coord_2 = 2.0;
 
-    float ans = (sqrt(pow((x_coord_1 - x_coord_2),2) + pow((y_coord_1 - y_coord_2),2)));
-
     GeometryEngine test;
 
     float test_ans = test.calculateVectorLength(x_coord_1, y_coord_1, x_coord_2, y_coord_2);
 
-    EXPECT_EQ(ans, 2.0);
+    EXPECT_EQ(test_ans, 2.0);
 }
 
 ///*===================================================*/
