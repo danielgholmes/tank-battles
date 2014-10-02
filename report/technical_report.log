@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.21)  2 OCT 2014 10:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.21)  2 OCT 2014 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -314,36 +314,65 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 50.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-No file technical_report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 104.
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 104.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 147.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 147.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+No file technical_report.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
  (./technical_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 104.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 104.
-Package rerunfilecheck Info: File `technical_report.out' has not changed.
-(rerunfilecheck)             Checksum: EC28A05725D3EA839A73177858C49194;358.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 104.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
+
+
+Package rerunfilecheck Warning: File `technical_report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `technical_report.out':
+(rerunfilecheck)             Before: A20A0A057F0A927D331021F63F475294;623
+(rerunfilecheck)             After:  750974E8317770668FDBE1932D79A876;695.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
  ) 
 Here is how much of TeX's memory you used:
- 5785 strings out of 493304
- 84466 string characters out of 6139871
- 167759 words of memory out of 5000000
- 9150 multiletter control sequences out of 15000+600000
- 24303 words of font info for 81 fonts, out of 8000000 for 9000
+ 5816 strings out of 493304
+ 84824 string characters out of 6139871
+ 172759 words of memory out of 5000000
+ 9169 multiletter control sequences out of 15000+600000
+ 27814 words of font info for 93 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,5n,30p,317b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,5n,30p,853b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/times/utmb8a.pfb>
-Output written on technical_report.pdf (1 page, 43204 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsl8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
+pfb>
+Output written on technical_report.pdf (2 pages, 98553 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 99 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
