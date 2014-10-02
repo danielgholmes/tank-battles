@@ -1,0 +1,153 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% technical_report.tex
+%
+%                       Daniel Holmes (2 October 2014)
+%
+%                    ELEN3009 Software Project Technical Report
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,twocolumn]{witseiepaper}
+
+%
+% All KJN's macros and goodies (some shameless borrowing from SPL)
+\usepackage{KJN}
+
+%
+% PDF Info
+%
+\ifpdf
+\pdfinfo{
+/Title (SOFTWARE PROJECT TECHNICAL REPORT)
+/Author (Daniel G. Holmes Jonathan D. Gerrand)
+/CreationDate (D:201410100253)
+/ModDate (D:201404241400)
+/Subject (Template Report)
+/Keywords (Report, Template)
+}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+\title{SOFTWARE PROJECT TECHNICAL REPORT}
+
+\author{Daniel G. Holmes 551240, Jonathan D. Gerrand 349361
+\thanks{School of Electrical \& Information Engineering, University of the
+Witwatersrand, Private Bag 3, 2050, Johannesburg, South Africa}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\abstract{Abstract}
+
+\keywords{SFML 2.1, game development, MVP}
+
+
+\maketitle
+\thispagestyle{empty}\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{INTRODUCTION}
+Problem understanding
+- Modular code
+- Orthogonal
+- Object-oriented decomposition
+- Separation of layers (MVP, MVC)
+- Illustrate design cycle of software
+- Iterative design process
+- Unit testing approach (regression testing)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{REQUIREMENTS AND CONSTRAINTS}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{BACKGROUND}
+Include literature review. Make comparison between MVC and MVP. Talk about the game in terms of a GUI oriented model. Games these days are upgraded a lot and ported over onto different platforms. It is good for a game to be upgraded and not be dependant upon a specific display. Mention good specific examples. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{DESIGN OVERVIEW}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{CONCEPTUAL MODEL}
+- Management based program cycle
+- Exploits polymorphism
+- Emphasized modularity and signle resposibility classes
+- Managers tell, not ask
+- Maintailability
+- Handling of data
+- Interface of the classes stays the same
+- Usage of smart pointers
+- Memory management
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{CLASS RESPONSIBILITIES}
+Discuss each class responsibility in terms of the program layers and CRUD operations. Define these layers. Certain classes were given very specific responsibilities because we wanted to decouple SFML. Implemented generic substitutes. These included Display, Keyboard and GeometryEngine classes. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{DYNAMIC BEHAVIOUR}
+Life cycle of game entities. Where they exists are how they are deleted. Data containers; updated and passed around between managers, each with access to only what they need. 
+
+Draw manager is a connection between the logic layer and presentation layer. Draw manager is somewhat part of the presentation layer as it does not modify the data or do CRUD operations. It only extracts the data and gives what is needed to the display class. Tells what needs to be drawn and where.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{TESTING}
+Refer to what was observed from gameplay, including: drop in framerate when there are a lot of sprites on the screen, etc.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{CRITICAL ANALYSIS}
+Tie back to what was observed in testing. Structs were used extensively, it would have been better if these were separated into classes. Have to always reference our structs file, would be better to reference the individual class. 
+
+Talk about things that were not observed from testing, including: violated dry principle in certain places. Would be better to use templates.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{RECOMMENDATIONS}
+Don't recommend changing the interface. Suggest improvements on the existing design, not on how to change the design.
+
+Perhaps recommends a better design methodology, not too specific though.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{CONCLUSION}
+
+
+%%%
+% Automatically balance the output of the last page
+\balance
+%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\nocite{*}
+\bibliographystyle{witseie}
+\bibliography{references}
+
+- MVP, MVC (martin fowler)
+- Logic layer definition
+- Games (Rayman)
+- Textbooks?
+
+\end{document}

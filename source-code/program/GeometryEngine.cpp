@@ -11,6 +11,9 @@
 
 bool GeometryEngine::isCollision(const rect_corners& rect_A,const rect_corners& rect_B)
 {
+    if (!isValidRectEntity(rect_A)) throw InvalidRectEntityProvided();
+    if (!isValidRectEntity(rect_B)) throw InvalidRectEntityProvided();
+
 	coordinate axis;
 
 	axis.x = rect_A.upper_right.x - rect_A.upper_left.x;
@@ -130,6 +133,9 @@ const float GeometryEngine::calculateVectorLength(const float x_coord_1, const f
 
 const blocked_status GeometryEngine::getRelativePosition(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
+    if (!isValidRectEntity(rect_entity)) throw InvalidRectEntityProvided();
+    if (!isValidRectEntity(compared_rect_entity)) throw InvalidRectEntityProvided();
+
     blocked_status blocked_state = unblocked;
 
     if(upperPointsBelowBottomOfObject(rect_entity,compared_rect_entity))
@@ -185,5 +191,20 @@ bool GeometryEngine::leftPointsRightOfObject(const rect_corners& rect_entity, co
         (rect_entity.lower_right.x >= compared_rect_entity.lower_right.x))
             return true;
     else return false;
+}
+
+bool GeometryEngine::isValidRectEntity(const rect_corners& rect_entity)
+{
+    if (rect_entity.lower_left.x < -100) return false;
+    else if (rect_entity.lower_right.x < -100) return false;
+    else if (rect_entity.upper_left.x < -100) return false;
+    else if (rect_entity.upper_right.x < -100) return false;
+
+    else if (rect_entity.lower_left.y < -100) return false;
+    else if (rect_entity.lower_right.y < -100) return false;
+    else if (rect_entity.upper_left.y < -100) return false;
+    else if (rect_entity.upper_right.y < -100) return false;
+    else return true;
+
 }
 

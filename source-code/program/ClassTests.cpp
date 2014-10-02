@@ -10,10 +10,12 @@
 //Needed to compile the tests in my project:
 #include "Structures.h"
 #include "Orientation.h"
-#include "CollisionHelper.h"
+#include "GameManagementData.h"
 
 #include "Manager.h"
 #include "CollisionManager.h"
+#include "TrackingManager.h"
+#include "MoveManager.h"
 
 #include "Tank.h"
 #include "Missile.h"
@@ -71,7 +73,7 @@ TEST(CollisionManager, indicatesCollisionHasTakenPlace)
     rect_B.lower_right.x = 6.0;
     rect_B.lower_right.y = 2.0;
 
-    CollisionHelper collision_helper;
+    GeometryEngine collision_helper;
 
     EXPECT_TRUE(collision_helper.isCollision(rect_A, rect_B));
 }
@@ -574,14 +576,10 @@ TEST(Turret, correctlyRotatesThroughCommand)
 
 
 
-///*================Tests for Geometry Class============*/
+///*================Tests for GeometryEngine Class============*/
 
-TEST(CollisionHelper, ifInvalidRectangleStructGivenThrowsException)
-{
 
-}
-
-TEST(CollisionHelper, returnsTrueIfRectanglesCollided)
+TEST(GeometryEngine, returnsTrueIfRectanglesCollided)
 {
     rect_corners rect_A;
     rect_corners rect_B;
@@ -604,12 +602,12 @@ TEST(CollisionHelper, returnsTrueIfRectanglesCollided)
     rect_B.lower_right.x = 6.0;
     rect_B.lower_right.y = 2.0;
 
-    CollisionHelper CollisionTest;
+    GeometryEngine CollisionTest;
 
     EXPECT_TRUE(CollisionTest.isCollision(rect_A, rect_B));
 }
 
-TEST(CollisionHelper, returnsFalseIfRectanglesAreNotCollided)
+TEST(GeometryEngine, returnsFalseIfRectanglesAreNotCollided)
 {
     rect_corners rect_A;
     rect_corners rect_B;
@@ -632,17 +630,12 @@ TEST(CollisionHelper, returnsFalseIfRectanglesAreNotCollided)
     rect_B.lower_right.x = 16.0;
     rect_B.lower_right.y = 12.0;
 
-    CollisionHelper CollisionTest;
+    GeometryEngine CollisionTest;
 
     EXPECT_FALSE(CollisionTest.isCollision(rect_A, rect_B));
 }
 
-TEST(CollisionHelper, ifInvalidCoordinateStructGivenThrowsException)
-{
-
-}
-
-TEST(CollisionHelper, returnsTrueIfOverlapOnAllAxes)
+TEST(GeometryEngine, returnsTrueIfOverlapOnAllAxes)
 {
     rect_corners rect_A;
     rect_corners rect_B;
@@ -666,7 +659,7 @@ TEST(CollisionHelper, returnsTrueIfOverlapOnAllAxes)
     rect_B.lower_right.y = 2.0;
 
 	coordinate axis;
-	CollisionHelper CollisionTest;
+	GeometryEngine CollisionTest;
 
 	axis.x = rect_A.upper_right.x - rect_A.upper_left.x;
     axis.y = rect_A.upper_right.y - rect_A.upper_left.y;
@@ -685,7 +678,7 @@ TEST(CollisionHelper, returnsTrueIfOverlapOnAllAxes)
     EXPECT_TRUE(CollisionTest.isRectangleOverlapForAxis(axis, rect_A, rect_B));
 }
 
-TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisOne)
+TEST(GeometryEngine, returnsFalseIfNoOverlapOnAxisOne)
 {
     rect_corners rect_A;
     rect_corners rect_B;
@@ -709,7 +702,7 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisOne)
     rect_B.lower_right.y = 12.0;
 
     coordinate axis;
-    CollisionHelper CollisionTest;
+    GeometryEngine CollisionTest;
 
     //Axis 1
     axis.x = rect_A.upper_right.x - rect_A.upper_left.x;
@@ -717,7 +710,7 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisOne)
     EXPECT_FALSE(CollisionTest.isRectangleOverlapForAxis(axis, rect_A, rect_B));
 }
 
-TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisTwo)
+TEST(GeometryEngine, returnsFalseIfNoOverlapOnAxisTwo)
 {
     rect_corners rect_A;
     rect_corners rect_B;
@@ -741,7 +734,7 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisTwo)
     rect_B.lower_right.y = 12.0;
 
     coordinate axis;
-    CollisionHelper CollisionTest;
+    GeometryEngine CollisionTest;
 
     //Axis 2
     axis.x = rect_A.upper_right.x - rect_A.lower_right.x;
@@ -749,7 +742,7 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisTwo)
     EXPECT_FALSE(CollisionTest.isRectangleOverlapForAxis(axis, rect_A, rect_B));
 }
 
-TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisThree)
+TEST(GeometryEngine, returnsFalseIfNoOverlapOnAxisThree)
 {
     rect_corners rect_A;
     rect_corners rect_B;
@@ -773,7 +766,7 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisThree)
     rect_B.lower_right.y = 12.0;
 
     coordinate axis;
-    CollisionHelper CollisionTest;
+    GeometryEngine CollisionTest;
 
     //Axis 3
     axis.x = rect_B.upper_left.x - rect_B.lower_left.x;
@@ -781,7 +774,7 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisThree)
     EXPECT_FALSE(CollisionTest.isRectangleOverlapForAxis(axis, rect_A, rect_B));
 }
 
-TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisFour)
+TEST(GeometryEngine, returnsFalseIfNoOverlapOnAxisFour)
 {
     rect_corners rect_A;
     rect_corners rect_B;
@@ -805,7 +798,7 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisFour)
     rect_B.lower_right.y = 12.0;
 
     coordinate axis;
-    CollisionHelper CollisionTest;
+    GeometryEngine CollisionTest;
 
     //Axis 4
     axis.x = rect_B.upper_left.x - rect_B.upper_right.x;
@@ -853,8 +846,6 @@ TEST(CollisionHelper, returnsFalseIfNoOverlapOnAxisFour)
 //}
 
 ///*==========================================================*/
-
-///*================Tests for GeometryEngine Class============*/
 
 TEST(GeometryEngine, returnsTrueIfTankInLineOfFireOfTurret)
 {
@@ -912,6 +903,159 @@ TEST(GeometryEngine, returnsFalseIfTankNotInLineOfFireOfTurret)
     GeometryEngine lineOfFireTest;
 
     EXPECT_FALSE(lineOfFireTest.isInLineOfFire(rotation, shooter, target, 4, 4));
+}
+
+TEST(GeometryEngine, correctlyIdentifiesRelativePositionsOfBoundingBoxes_Above)
+{
+    rect_corners entity;
+    rect_corners relative_entity;
+
+    //Set box
+    relative_entity.upper_left.x = 100.0;
+    relative_entity.upper_left.y = 100.0;
+    relative_entity.upper_right.x = 200.0;
+    relative_entity.upper_right.y = 100.0;
+    relative_entity.lower_left.x = 100.0;
+    relative_entity.lower_left.y = 50.0;
+    relative_entity.lower_right.x = 200.0;
+    relative_entity.lower_right.y = 50.0;
+
+    //Entity Above box
+    entity.upper_left.x = 110.0;
+    entity.upper_left.y = 110.0;
+    entity.upper_right.x = 120.0;
+    entity.upper_right.y = 110.0;
+    entity.lower_left.x = 110.0;
+    entity.lower_left.y = 90.0;
+    entity.lower_right.x = 120.0;
+    entity.lower_right.y = 90.0;
+
+    GeometryEngine relativePositionTest;
+
+    EXPECT_EQ(relativePositionTest.getRelativePosition(entity,relative_entity), blocked_vertically);
+    EXPECT_EQ(relativePositionTest.getRelativePosition(entity,relative_entity), blocked_vertically);
+}
+
+TEST(GeometryEngine, correctlyIdentifiesRelativePositionsOfBoundingBoxes_Below)
+{
+    rect_corners entity;
+    rect_corners relative_entity;
+
+    //Set box
+    relative_entity.upper_left.x = 100.0;
+    relative_entity.upper_left.y = 100.0;
+    relative_entity.upper_right.x = 200.0;
+    relative_entity.upper_right.y = 100.0;
+    relative_entity.lower_left.x = 100.0;
+    relative_entity.lower_left.y = 50.0;
+    relative_entity.lower_right.x = 200.0;
+    relative_entity.lower_right.y = 50.0;
+
+    //Entity Below box
+    entity.upper_left.x = 110.0;
+    entity.upper_left.y = 60.0;
+    entity.upper_right.x = 120.0;
+    entity.upper_right.y = 60.0;
+    entity.lower_left.x = 110.0;
+    entity.lower_left.y = 30.0;
+    entity.lower_right.x = 120.0;
+    entity.lower_right.y = 30.0;
+
+    GeometryEngine relativePositionTest;
+
+    EXPECT_EQ(relativePositionTest.getRelativePosition(entity,relative_entity), blocked_vertically);
+}
+
+TEST(GeometryEngine, correctlyIdentifiesRelativePositionsOfBoundingBoxes_Left)
+{
+    rect_corners entity;
+    rect_corners relative_entity;
+
+    //Set box
+    relative_entity.upper_left.x = 100.0;
+    relative_entity.upper_left.y = 100.0;
+    relative_entity.upper_right.x = 200.0;
+    relative_entity.upper_right.y = 100.0;
+    relative_entity.lower_left.x = 100.0;
+    relative_entity.lower_left.y = 50.0;
+    relative_entity.lower_right.x = 200.0;
+    relative_entity.lower_right.y = 50.0;
+
+    //Entity left of box
+    entity.upper_left.x = 80.0;
+    entity.upper_left.y = 90.0;
+    entity.upper_right.x = 110.0;
+    entity.upper_right.y = 90.0;
+    entity.lower_left.x = 80.0;
+    entity.lower_left.y = 60.0;
+    entity.lower_right.x = 110.0;
+    entity.lower_right.y = 60.0;
+
+    GeometryEngine relativePositionTest;
+
+    EXPECT_EQ(relativePositionTest.getRelativePosition(entity,relative_entity), blocked_horizontally);
+}
+
+TEST(GeometryEngine, correctlyIdentifiesRelativePositionsOfBoundingBoxes_Right)
+{
+    rect_corners entity;
+    rect_corners relative_entity;
+
+    //Set box
+    relative_entity.upper_left.x = 100.0;
+    relative_entity.upper_left.y = 100.0;
+    relative_entity.upper_right.x = 200.0;
+    relative_entity.upper_right.y = 100.0;
+    relative_entity.lower_left.x = 100.0;
+    relative_entity.lower_left.y = 50.0;
+    relative_entity.lower_right.x = 200.0;
+    relative_entity.lower_right.y = 50.0;
+
+    //Entity left of box
+    entity.upper_left.x = 190.0;
+    entity.upper_left.y = 90.0;
+    entity.upper_right.x = 230.0;
+    entity.upper_right.y = 90.0;
+    entity.lower_left.x = 190.0;
+    entity.lower_left.y = 60.0;
+    entity.lower_right.x = 230.0;
+    entity.lower_right.y = 60.0;
+
+    GeometryEngine relativePositionTest;
+
+    EXPECT_EQ(relativePositionTest.getRelativePosition(entity,relative_entity), blocked_horizontally);
+}
+
+TEST(GeometryEngine, throwsExceptionIfInvalidRectEntityPassed)
+{
+    rect_corners entity;
+    rect_corners relative_entity;
+
+    relative_entity.upper_left.x = -200.0;
+    relative_entity.upper_left.y = 100.0;
+    relative_entity.upper_right.x = 200.0;
+    relative_entity.upper_right.y = 100.0;
+    relative_entity.lower_left.x = 100.0;
+    relative_entity.lower_left.y = 50.0;
+    relative_entity.lower_right.x = 200.0;
+    relative_entity.lower_right.y = 50.0;
+
+    entity.upper_left.x = 110.0;
+    entity.upper_left.y = 60.0;
+    entity.upper_right.x = 120.0;
+    entity.upper_right.y = 60.0;
+    entity.lower_left.x = 110.0;
+    entity.lower_left.y = 30.0;
+    entity.lower_right.x = 120.0;
+    entity.lower_right.y = 30.0;
+
+    GeometryEngine geometryTest;
+
+    EXPECT_THROW({geometryTest.isCollision(entity,relative_entity);}, InvalidRectEntityProvided);
+
+    relative_entity.upper_left.x = 100.0;
+
+    EXPECT_NO_THROW({geometryTest.isCollision(entity,relative_entity);});
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -1097,13 +1241,341 @@ TEST(GeometryEngine, calculatesCorrectVectorLength)
     float x_coord_2 = 1.0;
     float y_coord_2 = 2.0;
 
-    float ans = (sqrt(pow((x_coord_1 - x_coord_2),2) + pow((y_coord_1 - y_coord_2),2)));
-
     GeometryEngine test;
 
     float test_ans = test.calculateVectorLength(x_coord_1, y_coord_1, x_coord_2, y_coord_2);
 
-    EXPECT_EQ(ans, 2.0);
+    EXPECT_EQ(test_ans, 2.0);
 }
 
 ///*===================================================*/
+
+
+///*================Tests for TrackingManager Class============*/
+
+TEST(TrackingManager, correctlyTracksTankEntityForP1)
+{
+    TrackingManager trackingManager;
+    GameManagementData data;
+
+    std::shared_ptr<Deletable> tank_del_sp(new Tank(30,30,0,p1_tank));
+
+    std::weak_ptr<Trackable> tank_track_wp = std::dynamic_pointer_cast<Trackable>(tank_del_sp);
+    std::shared_ptr<Movable> tank_mov_sp = std::dynamic_pointer_cast<Movable>(tank_del_sp);
+
+    trackingManager.addNewEntity(tank_track_wp);
+    trackingManager.manage(data);
+
+    EXPECT_EQ(trackingManager.getP1PositionX(), 30);
+    EXPECT_EQ(trackingManager.getP1PositionY(), 30);
+    EXPECT_EQ(trackingManager.getP1Rotation(), 0);
+
+    tank_mov_sp->moveForward();
+    trackingManager.manage(data);
+
+    EXPECT_EQ(trackingManager.getP1PositionX(), 30 + TANK_SPEED);
+    EXPECT_EQ(trackingManager.getP1PositionY(), 30);
+    EXPECT_EQ(trackingManager.getP1Rotation(), 0);
+
+    tank_mov_sp->moveForward();
+    trackingManager.manage(data);
+
+    EXPECT_NE(trackingManager.getP1PositionX(), 30 + TANK_SPEED);
+}
+
+TEST(TrackingManager, correctlyTracksTankEntityForP2)
+{
+    TrackingManager trackingManager;
+    GameManagementData data;
+
+    std::shared_ptr<Deletable> tank_del_sp(new Tank(40,40,0,p2_tank));
+
+    std::weak_ptr<Trackable> tank_track_wp = std::dynamic_pointer_cast<Trackable>(tank_del_sp);
+    std::shared_ptr<Movable> tank_mov_sp = std::dynamic_pointer_cast<Movable>(tank_del_sp);
+
+    trackingManager.addNewEntity(tank_track_wp);
+    trackingManager.manage(data);
+
+    EXPECT_EQ(trackingManager.getP2PositionX(), 40);
+    EXPECT_EQ(trackingManager.getP2PositionY(), 40);
+    EXPECT_EQ(trackingManager.getP2Rotation(), 0);
+
+    tank_mov_sp->moveForward();
+    trackingManager.manage(data);
+
+    EXPECT_EQ(trackingManager.getP2PositionX(), 40 + TANK_SPEED);
+    EXPECT_EQ(trackingManager.getP2PositionY(), 40);
+    EXPECT_EQ(trackingManager.getP2Rotation(), 0);
+
+    tank_mov_sp->moveForward();
+    trackingManager.manage(data);
+
+    EXPECT_NE(trackingManager.getP2PositionX(), 30 + TANK_SPEED);
+}
+
+//Must Finnish
+TEST(TrackingManager, correctlyTracksTurretEntity)
+{
+    TrackingManager trackingManager;
+    GameManagementData data;
+
+    std::shared_ptr<Deletable> turret_del_sp(new Turret(40,40,0));
+
+    std::weak_ptr<Trackable> turret_track_wp = std::dynamic_pointer_cast<Trackable>(turret_del_sp);
+
+    trackingManager.addNewEntity(turret_track_wp);
+
+    trackingManager.manage(data);
+
+    const std::vector<float>& turretVectorX = trackingManager.getTurretPositionsX();
+    const std::vector<float>& turretVectorY = trackingManager.getTurretPositionsY();
+
+//    auto turrXPosIt = turretVectorX.begin();
+//    float turrXPos = *turrXPosIt;
+//    float turrYPos = turretVectorY[0];
+
+//    EXPECT_EQ(turrXPos, 1);
+//    EXPECT_EQ(turrXPos, 40);
+//    EXPECT_EQ(turrYPos, 40);
+}
+
+//TroubleShoot Later
+TEST(TrackingManager, enablesTurretFireWhenTankAndTurretAreInRange)
+{
+    TrackingManager trackingManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+    actions_info testActions = data.giveActionInfo();
+    EXPECT_EQ(testActions.turret_fire, false);
+
+    //Add a Turret to the manager
+    std::shared_ptr<Deletable> turret_del_sp(new Turret(550,100,358));
+    std::weak_ptr<Trackable> turret_track_wp = std::dynamic_pointer_cast<Trackable>(turret_del_sp);
+    trackingManager.addNewEntity(turret_track_wp);
+
+    //Add Tank to the manager
+    std::shared_ptr<Deletable> tank_del_sp(new Tank(850,350,0,p1_tank));
+    std::weak_ptr<Trackable> tank_track_wp = std::dynamic_pointer_cast<Trackable>(tank_del_sp);
+    std::shared_ptr<Movable> tank_mov_sp = std::dynamic_pointer_cast<Movable>(tank_del_sp);
+    trackingManager.addNewEntity(tank_track_wp);
+
+    tank_mov_sp->moveForward();
+    trackingManager.manage(data);
+
+    testActions = data.giveActionInfo();
+    EXPECT_EQ(testActions.turret_fire, false);
+
+    tank_mov_sp->moveForward();
+    trackingManager.manage(data);
+
+    testActions = data.giveActionInfo();
+    EXPECT_EQ(testActions.turret_fire, false);
+}
+
+///*===================================================*/
+
+
+///*================Tests for MoveManager Class============*/
+TEST(MoveManager, correctlyMovesTankEntityForP1)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> tank_del_sp(new Tank(30,30,0,p1_tank));
+    std::shared_ptr<Movable> tank_mov_sp = std::dynamic_pointer_cast<Movable>(tank_del_sp);
+    std::shared_ptr<Trackable> tank_track_sp = std::dynamic_pointer_cast<Trackable>(tank_del_sp);
+
+    moveManager.addNewEntity(tank_mov_sp);
+
+    moveManager.manage(data);
+    EXPECT_NE(tank_track_sp->getPositionX(), 30 + TANK_SPEED);
+
+    data.moveForwardP1();
+    moveManager.manage(data);
+
+    EXPECT_EQ(tank_track_sp->getPositionX(), 30 + TANK_SPEED);
+    EXPECT_NE(tank_track_sp->getPositionY(), 30 + TANK_SPEED);
+}
+
+TEST(MoveManager, correctlyMovesTankEntityForP2)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> tank_del_sp(new Tank(30,30,0,p2_tank));
+    std::shared_ptr<Movable> tank_mov_sp = std::dynamic_pointer_cast<Movable>(tank_del_sp);
+    std::shared_ptr<Trackable> tank_track_sp = std::dynamic_pointer_cast<Trackable>(tank_del_sp);
+
+    moveManager.addNewEntity(tank_mov_sp);
+
+    moveManager.manage(data);
+    EXPECT_NE(tank_track_sp->getPositionX(), 30 + TANK_SPEED);
+
+    data.moveForwardP2();
+    moveManager.manage(data);
+
+    EXPECT_EQ(tank_track_sp->getPositionX(), 30 + TANK_SPEED);
+    EXPECT_NE(tank_track_sp->getPositionY(), 30 + TANK_SPEED);
+}
+
+TEST(MoveManager, correctlyMovesMissileEntityForP1)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> missile_del_sp(new Missile(30,30,0,p1_missile));
+    std::shared_ptr<Movable> missile_mov_sp = std::dynamic_pointer_cast<Movable>(missile_del_sp);
+
+    moveManager.addNewEntity(missile_mov_sp);
+
+    moveManager.manage(data);
+    EXPECT_EQ(missile_del_sp->getDrawPositionX(), 30 + MISSILE_SPEED);
+    EXPECT_NE(missile_del_sp->getDrawPositionY(), 30 + MISSILE_SPEED);
+
+    moveManager.manage(data);
+    moveManager.manage(data);
+    moveManager.manage(data);
+
+    EXPECT_EQ(missile_del_sp->getDrawPositionX(), 30 + 4*MISSILE_SPEED);
+    EXPECT_EQ(missile_del_sp->getDrawPositionY(), 30);
+}
+
+TEST(MoveManager, correctlyMovesMissileEntityForP2)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> missile_del_sp(new Missile(30,30,0,p2_missile));
+    std::shared_ptr<Movable> missile_mov_sp = std::dynamic_pointer_cast<Movable>(missile_del_sp);
+
+    moveManager.addNewEntity(missile_mov_sp);
+
+    moveManager.manage(data);
+    EXPECT_EQ(missile_del_sp->getDrawPositionX(), 30 + MISSILE_SPEED);
+    EXPECT_NE(missile_del_sp->getDrawPositionY(), 30 + MISSILE_SPEED);
+
+    moveManager.manage(data);
+    moveManager.manage(data);
+    moveManager.manage(data);
+
+    EXPECT_EQ(missile_del_sp->getDrawPositionX(), 30 + 4*MISSILE_SPEED);
+    EXPECT_EQ(missile_del_sp->getDrawPositionY(), 30);
+}
+
+TEST(MoveManager, doesNotMoveTankIfBlocked_P1)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> tank_del_sp(new Tank(30,30,0,p1_tank));
+    std::shared_ptr<Movable> tank_mov_sp = std::dynamic_pointer_cast<Movable>(tank_del_sp);
+    std::shared_ptr<Collidable> tank_collide_sp = std::dynamic_pointer_cast<Collidable>(tank_del_sp);
+
+    moveManager.addNewEntity(tank_mov_sp);
+    tank_collide_sp->setBlocked(blocked);
+
+    moveManager.manage(data);
+
+    EXPECT_NE(tank_del_sp->getDrawPositionX(), 30 + MISSILE_SPEED);
+    EXPECT_EQ(tank_del_sp->getDrawPositionY(), 30);
+
+    moveManager.manage(data);
+    moveManager.manage(data);
+    moveManager.manage(data);
+
+    EXPECT_EQ(tank_del_sp->getDrawPositionX(), 30);
+    EXPECT_EQ(tank_del_sp->getDrawPositionY(), 30);
+}
+
+TEST(MoveManager, doesNotMoveTankIfBlocked_P2)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> tank_del_sp(new Tank(30,30,0,p2_tank));
+    std::shared_ptr<Movable> tank_mov_sp = std::dynamic_pointer_cast<Movable>(tank_del_sp);
+    std::shared_ptr<Collidable> tank_collide_sp = std::dynamic_pointer_cast<Collidable>(tank_del_sp);
+
+    moveManager.addNewEntity(tank_mov_sp);
+    tank_collide_sp->setBlocked(blocked);
+
+    moveManager.manage(data);
+
+    EXPECT_NE(tank_del_sp->getDrawPositionX(), 30 + MISSILE_SPEED);
+    EXPECT_EQ(tank_del_sp->getDrawPositionY(), 30);
+
+    moveManager.manage(data);
+    moveManager.manage(data);
+    moveManager.manage(data);
+
+    EXPECT_EQ(tank_del_sp->getDrawPositionX(), 30);
+    EXPECT_EQ(tank_del_sp->getDrawPositionY(), 30);
+}
+
+TEST(MoveManager, missileReflectsCorrectlyIfBlockedHorizontally)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> missile_del_sp(new Missile(30,30,0,p1_missile));
+    std::shared_ptr<Movable> missile_mov_sp = std::dynamic_pointer_cast<Movable>(missile_del_sp);
+    std::shared_ptr<Collidable> missile_collide_sp = std::dynamic_pointer_cast<Collidable>(missile_del_sp);
+
+    moveManager.addNewEntity(missile_mov_sp);
+    missile_collide_sp->setBlocked(blocked_horizontally);
+
+    moveManager.manage(data);
+    EXPECT_EQ(missile_del_sp->getDrawRotation(), 180);
+    EXPECT_EQ(missile_del_sp->getDrawPositionX(), 30 - MISSILE_SPEED);
+
+    moveManager.manage(data);
+    EXPECT_EQ(missile_del_sp->getDrawRotation(), 0);
+    EXPECT_EQ(missile_del_sp->getDrawPositionX(), 30);
+}
+
+TEST(MoveManager, missileReflectsCorrectlyIfBlockedVertically)
+{
+    MoveManager moveManager;
+    GameManagementData data;
+    data.resetActionsInfo();
+
+    std::shared_ptr<Deletable> missile_del_sp(new Missile(30,30,90,p1_missile));
+    std::shared_ptr<Movable> missile_mov_sp = std::dynamic_pointer_cast<Movable>(missile_del_sp);
+    std::shared_ptr<Collidable> missile_collide_sp = std::dynamic_pointer_cast<Collidable>(missile_del_sp);
+
+    moveManager.addNewEntity(missile_mov_sp);
+    missile_collide_sp->setBlocked(blocked_vertically);
+
+    moveManager.manage(data);
+    EXPECT_EQ(missile_del_sp->getDrawRotation(), 270);
+    EXPECT_EQ(missile_del_sp->getDrawPositionY(), 30 - MISSILE_SPEED);
+
+    moveManager.manage(data);
+    EXPECT_EQ(missile_del_sp->getDrawRotation(), 90);
+    EXPECT_EQ(missile_del_sp->getDrawPositionY(), 30);
+}
+///*===================================================*/
+
+
+///*================Tests for DestructionManager Class============*/
+
+//Create a test to see if it deletes each type of entity successfully
+
+///*==============================================================*/
+
+
+///*================Tests for StateManager Class============*/
+
+
+
+///*==============================================================*/
+
+
+// Need to extend CollisionManager

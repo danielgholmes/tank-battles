@@ -12,6 +12,8 @@
 //See this file for defenition of rect_corners
 #include "Structures.h"
 
+class InvalidRectEntityProvided{};
+
 class GeometryEngine
 {
 public:
@@ -40,6 +42,8 @@ private:
     bool rightPointsLeftOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
 
     bool leftPointsRightOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
+
+    bool isValidRectEntity(const rect_corners& rect_entity);
 
 };
 
