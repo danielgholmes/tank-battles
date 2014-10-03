@@ -11,6 +11,9 @@
 #ifndef ORIENTATION_H_
 #define ORIENTATION_H_
 
+//Exceptions
+class InvalidStateOfCoordinates{};
+
 class Orientation
 {
 public:

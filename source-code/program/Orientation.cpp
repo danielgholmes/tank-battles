@@ -25,11 +25,13 @@ Orientation::Orientation(float origin_x, float origin_y, float width, float heig
 
 const float Orientation::getOriginX()
 {
+    if (_origin_x < 0) throw InvalidStateOfCoordinates();
 	return _origin_x;
 }
 
 const float Orientation::getOriginY()
 {
+    if (_origin_y < 0) throw InvalidStateOfCoordinates();
 	return _origin_y;
 }
 
@@ -45,6 +47,7 @@ const float Orientation::getHeight()
 
 const float Orientation::getRotation()
 {
+    if (_rotation < 0) throw InvalidStateOfCoordinates();
 	return _rotation;
 }
 
@@ -67,7 +70,7 @@ void Orientation::move(float movement_in_x, float movement_in_y)
 void Orientation::rotate(float angle)
 {
     //Positive revolution
-    if ((_rotation+angle) > 360 )
+    if ((_rotation+angle) >= 360 )
     {
        _rotation += angle;
        _rotation -= 360;

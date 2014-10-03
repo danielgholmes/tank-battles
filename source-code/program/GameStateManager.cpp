@@ -41,7 +41,6 @@ void GameStateManager::manageAttackTimers(ActionData& game_data_container)
             game_data_container.resetP1Attack();
     }
 
-
     if (actions.attack_2 == fire_missile)
     {
         if (!timeRunOut(_p2_fire_timer))
