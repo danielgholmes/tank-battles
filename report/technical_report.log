@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.21)  4 OCT 2014 12:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.21)  4 OCT 2014 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -231,37 +231,45 @@ Package: balance 1999/02/23 4.3 (PWD)
 This is texnames.sty, Version 1.10 <02 March 1998>
 )
 \c@thrm=\count98
-) (./technical_report.aux)
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen110
+\extrarowheight=\dimen111
+\NC@list=\toks15
+\extratabsurround=\skip45
+\backup@length=\skip46
+)
+(./technical_report.aux)
 \openout1 = `technical_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count99
-\scratchdimen=\dimen110
+\scratchdimen=\dimen112
 \scratchbox=\box26
 \nofMPsegments=\count100
 \nofMParguments=\count101
-\everyMPshowfont=\toks15
+\everyMPshowfont=\toks16
 \MPscratchCnt=\count102
-\MPscratchDim=\dimen111
+\MPscratchDim=\dimen113
 \MPnumerator=\count103
 \makeMPintoPDFobject=\count104
-\everyMPtoPDFconversion=\toks16
+\everyMPtoPDFconversion=\toks17
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -291,7 +299,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 32.
+Package hyperref Info: Link coloring ON on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -301,20 +309,20 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count105
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
 
 (./technical_report.out) (./technical_report.out)
 \@outlinefile=\write3
 \openout3 = `technical_report.out'.
 
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 50.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 51.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-Underfull \hbox (badness 1122) in paragraph at lines 79--80
+Underfull \hbox (badness 1122) in paragraph at lines 80--81
 []\OT1/cmr/m/n/10 Games are clas-sic ex-am-ples of highly in-ter-ac-tive
  []
 
@@ -322,7 +330,7 @@ Underfull \hbox (badness 1122) in paragraph at lines 79--80
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 1796) in paragraph at lines 90--91
+Underfull \hbox (badness 1796) in paragraph at lines 91--92
 []\OT1/cmr/m/n/10 The cho-sen de-sign is based off the MVC GUI
  []
 
@@ -339,58 +347,69 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 150.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 150.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 180.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 180.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 No file technical_report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 270.
 
-Overfull \vbox (1.12498pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
 
 [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
+Overfull \vbox (1.53055pt too high) has occurred while \output is active []
+
+
+[5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 270.
  (./technical_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 227.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 227.
-
-
-Package rerunfilecheck Warning: File `technical_report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `technical_report.out':
-(rerunfilecheck)             Before: 6D9ADF4736CEE55BC6FFACEF7F77D2FA;993
-(rerunfilecheck)             After:  7D8CA6F2C1BBB311C06C47672AA237F7;1052.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
- ) 
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 270.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 270.
+Package rerunfilecheck Info: File `technical_report.out' has not changed.
+(rerunfilecheck)             Checksum: AA183864775E796389E65A78C8F6ACD5;1673.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 270.
+ )
+(\end occurred when \ifx on line 149 was incomplete) 
 Here is how much of TeX's memory you used:
- 5830 strings out of 493304
- 85016 string characters out of 6139871
- 174759 words of memory out of 5000000
- 9175 multiletter control sequences out of 15000+600000
+ 5896 strings out of 493304
+ 85884 string characters out of 6139871
+ 176448 words of memory out of 5000000
+ 9228 multiletter control sequences out of 15000+600000
  27814 words of font info for 93 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,5n,30p,924b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsl8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
-pfb>
-Output written on technical_report.pdf (4 pages, 110132 bytes).
+ 36i,12n,30p,924b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-d
+ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
+Output written on technical_report.pdf (5 pages, 126581 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 183 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

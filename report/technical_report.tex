@@ -13,6 +13,7 @@
 %
 % All KJN's macros and goodies (some shameless borrowing from SPL)
 \usepackage{KJN}
+\usepackage{array}
 
 %
 % PDF Info
@@ -91,7 +92,7 @@ The chosen design is based off the MVC GUI model.the main Figure 1 shows the ada
 
 Another modification inherit in the design is the connection between the controller and the data. Typically, MVC would have the controller simply updating the data. Figure 1 shows information moves in both directions between the controller and data. Model data is not only updated, but it is also retrieved by the controller to be used in logical operations. Another reason for this particular modification of MVC is due to the use of managers. During a particular management cycle, information from the model is retrieved, processed and then the model is updated accordingly. Only once all the data has been processed by the managers does the display get updated.  
 
-
+%Perhpas include a game summary of what actually happens in the game
 
 %overview figure will be included here
 
@@ -122,34 +123,71 @@ This methodology further emphasises the point of separating the layers of the pr
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{CLASS RESPONSIBILITIES} % mostly rough, some first iteration
+\section{CLASS RESPONSIBILITIES} % first iteration
 
-\subsection{Managers}
+%This section presents responsibilities of each major class.
+%(perhaps include a table that shows all classes and in what layer they are in)
+
+%\subsection{Abstract Based Classes}
+% maybe...?
+
+\subsection{Game Class} 
+This class is responsible for running the main game loop and exists within main. Within this loop, the Game class receives user input, runs the managers and creates new entities. The creation of new entities depends upon user input, such as firing a missile or laying a mine. User input is received via the Keyboard class.
+
+The game class is also responsible for getting map data. The map is read from a text file in which certain text symbols represent a game entity. Upon initial game execution, the map text file is read and the starting positions of game entities are set accordingly. 
+
+It is within the Game class that game entities are added and prepared for managers to work with. This is where the polymorphic nature of game entities is used. All managers exist within the this class. It is from here that all managers are called to manage. The Display class is also used in the Game class. However, the Display object does not exist within the Game class. Display functions are called in the Game class by reference. 
+
+\subsection{Display Class}
+This class is responsible for drawing the UI. This includes game sprites and textures. It is also responsible for loading sprite images and textures. The object of this class exists in main along with the Game class. This ensures a limitation of the control that the Game class has over the Display object. Also, it provides a separation between the controller and view, as per MVC.
+
+\subsection{Manager Classes}
+Table 1 summarises the main responsibilities of each of the game managers. Although the draw manager is included in Table 1, it does not form part of the controller module. The draw manager does not manipulate data as most of the other managers do. Instead, the draw manager prepares data for drawing by extracting it from the models. It then passes this data to the view for drawing. For this reason, the draw manager forms part of the view module of the program. 
+%Manager abstract based class?
+\begin{table}[h]
+	\centering
+	\caption{Summary of the main responsibilities of the game managers}
+	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4.5cm}|}
+		\hline 
+		\textbf{Manager} & \textbf{Responsibility} \\ 
+		\hline 
+		Move & Instructing game entities to move based on user input \\ 
+		\hline 
+		Collision & Determining if game entities have and with what game 								entities have collided with \\ 
+		\hline 
+		Tracking & Keeps track of player and turret orientation \\ 
+		\hline 
+		Turret & Rotates all game turrets \\ 
+		\hline 
+		Game State & Manage all game timers \\ 
+		\hline 
+		Destruction & Deletes destroyed game entities \\ 
+		\hline 
+		Draw & Prepares data of entities to be drawn \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
+
+\subsection{Data Classes}
+\subsubsection{Model Classes} The model classes include all game entity classes. Their responsibilities are limited to holding information about a given game entity. An important aspect of these classes is that all their functions are inherited virtual functions. None of these classes have private functions. This ensures that these classes have very little flexibility in terms of what they are capable of. They exits to be not to act, but be acted upon.
+
+\subsubsection{Game data} Apart from model classes, the game also includes a GameManagementData class. This class inherits from ActionData and GameStateData classes. These classes have no specific responsibilities other than to provide information for the managers. Managers will only receive either, one or both of the parent classes of GameManagementData. This is so that a manager only receives information required to perform its management tasks.
 
 \subsection{Usage of SFML} % incomplete first iteration
-As per the game requirement, SFML 2.1 is used. Attempts have been made to decouple SFML from the main components of the design. No SFML is included in the model module. It has been included in the view and controller modules. However, classes have been design in such a way that these modules are only linked to SFML via interfaces. The only instances where SFML is used is for capturing user input and drawing sprites in the game window.
+As per the game requirement, SFML 2.1 is used. The following subsection discusses the usage SMFL libraries throughout the code. Justification relating to why SFML was not used where is otherwise may have been used is also given.
 
-A Keyboard class, which makes use of the SFML keyboard functionality, is included in the controller. Due to the fact that the controller uses this class via an interface, the controller is ignorant of the library used in the keyboard class. The same principle applies to the Display class, except with respect to its use in the view module. 
+\subsubsection{Dependant Classes}  Attempts have been made to decouple SFML from the main components of the design. No SFML is included in the model module. It has been included in the view and controller modules. However, classes have been design in such a way that these modules are only linked to SFML via interfaces. The only instances where SFML is used is for capturing user input and drawing sprites in the game window.
 
-One of the key functions in any game is collision detection. SFML does include functionality for collision detection. However, this was not used. The reason for this is not only as an attempt to decouple SFML. Rather, the replacement of existing collision detection functionality is for the purpose of code reuse. 
+The Keyboard class, which makes use of the SFML keyboard functionality, is included in the controller. Due to the fact that the controller uses this class via an interface, the controller is ignorant of the library used in the keyboard class. The same principle applies to the Display class, except with respect to its use in the view module. 
 
-Certain functions of collision detection are used 
+\subsubsection{Draw Manager} Although the draw manager forms part of the view, it is not dependant upon any SFML libraries. Thus, the orthogonality of the code with respect to the drawing of entities is maintained. It is only the Display class that is dependant upon SFML drawing functionality.
 
-%%%
+\subsubsection{Collision Detection} One of the key functions in most games is collision detection. SFML does include functionality for collision detection. However, this was not used. The reason for this is not only as an attempt to decouple SFML. Rather, the replacement of existing collision detection functionality is for the purpose of code reuse. This point is discussed further as part of the next subsection.
 
-Discuss each class responsibility in terms of the program layers and CRUD operations. Define these layers.
+\subsection{GeometryEngine}
+Collision detection is included in the GeometryEngine class. This is a class that assists several managers with geometrical related functions. Some of the functions used for collision detection are also used for determining if a tank is in direct line of fire of a given turret. These functions would need to have been coded anyway. 
 
-Game: responsible for running the main program loop.
-Managers: responsibly for manipulating and changing the data of the game entities.
-Draw manager: Slightly different from the other managers as it prepares the data for the display. It is the only manager that forms part of the display.
-Display: SFML display of the game entities sprites based on the data received from the draw manager.
-Geometry Engine: responsible for all the logic and algorithms relating to the geometry of the entities. This includes collision, range and line of sight detections. Much of the functionality of this class replaces the SFML collision detection. 
-Game object classes: These include tank, missile, mine, turret and barrier. Their responsibilities include holding of the data for the respective game entity. These classes get told what data needs to be changed within them.
-Orientation: Data class that holds more specific data regarding the game entitiy's 2D orientation.
-Game data classes: These include game management and state data, as well as action data. Action data is changed based on the user input to the game. These objects are passed around between the managers. Each manager only has access to the data that is required to perfoms its management tasks.
-Keyboard: Acts as an interface between SFML and the game class. If another library was to be used, then the implementation of the keyboard class could be changed.
-
-\subsection{Abstract Based Classes}
+Thus, code is reused in two different major decision making functions. This is one of the reasons why SFML collision detection was replaced. 
 
 %refer to UML relationship diagram
 
@@ -187,7 +225,10 @@ There are several refused bequests, such as with a turret which is a movable, bu
 
 Talk about monolithic classes.
 
-\subsection{MAINTAINABILITY}
+\subsection{Maintainability}
+
+\subsection{The DRY principle}
+Should have used template functions more.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -199,6 +240,8 @@ To reduce the number of calculations for collision detections, there can be cert
 Perhaps recommends a better design methodology, not too specific though.
 
 Create more specific abstract based classes.
+Have a map class.
+Have a creation manager.
 
 
 
