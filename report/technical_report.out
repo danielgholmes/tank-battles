@@ -17,17 +17,20 @@
 \BOOKMARK [3][-]{subsubsection.6.5.1}{Dependant Classes}{subsection.6.5}% 17
 \BOOKMARK [3][-]{subsubsection.6.5.2}{Draw Manager}{subsection.6.5}% 18
 \BOOKMARK [3][-]{subsubsection.6.5.3}{Collision Detection}{subsection.6.5}% 19
-\BOOKMARK [2][-]{subsection.6.6}{GeometryEngine}{section.6}% 20
-\BOOKMARK [1][-]{section.7}{MEMORY MANAGEMENT}{}% 21
-\BOOKMARK [1][-]{section.8}{TESTING}{}% 22
-\BOOKMARK [2][-]{subsection.8.1}{Unit Tests}{section.8}% 23
-\BOOKMARK [2][-]{subsection.8.2}{Final Game Functionality}{section.8}% 24
-\BOOKMARK [2][-]{subsection.8.3}{Gameplay Testing}{section.8}% 25
-\BOOKMARK [1][-]{section.9}{CRITICAL ANALYSIS}{}% 26
-\BOOKMARK [2][-]{subsection.9.1}{Maintainability}{section.9}% 27
-\BOOKMARK [2][-]{subsection.9.2}{The DRY Principle}{section.9}% 28
-\BOOKMARK [2][-]{subsection.9.3}{Long Functions}{section.9}% 29
-\BOOKMARK [2][-]{subsection.9.4}{Monolithic Classes}{section.9}% 30
-\BOOKMARK [2][-]{subsection.9.5}{Tight Coupling of Classes}{section.9}% 31
-\BOOKMARK [1][-]{section.10}{RECOMMENDATIONS}{}% 32
-\BOOKMARK [1][-]{section.11}{CONCLUSION}{}% 33
+\BOOKMARK [3][-]{subsubsection.6.5.4}{Orientation Class}{subsection.6.5}% 20
+\BOOKMARK [2][-]{subsection.6.6}{GeometryEngine}{section.6}% 21
+\BOOKMARK [1][-]{section.7}{MEMORY MANAGEMENT}{}% 22
+\BOOKMARK [1][-]{section.8}{TESTING}{}% 23
+\BOOKMARK [2][-]{subsection.8.1}{Unit Tests}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.2}{Final Game Functionality}{section.8}% 25
+\BOOKMARK [2][-]{subsection.8.3}{Gameplay Testing}{section.8}% 26
+\BOOKMARK [1][-]{section.9}{CRITICAL ANALYSIS}{}% 27
+\BOOKMARK [2][-]{subsection.9.1}{Performance}{section.9}% 28
+\BOOKMARK [2][-]{subsection.9.2}{Maintainability}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.3}{Use of Idiomatic C++}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.4}{Effective use of Inheritance}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.5}{Monolithic Classes}{section.9}% 32
+\BOOKMARK [2][-]{subsection.9.6}{Long Functions}{section.9}% 33
+\BOOKMARK [2][-]{subsection.9.7}{Coupling of Classes}{section.9}% 34
+\BOOKMARK [1][-]{section.10}{RECOMMENDATIONS}{}% 35
+\BOOKMARK [1][-]{section.11}{CONCLUSION}{}% 36

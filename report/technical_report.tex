@@ -44,7 +44,7 @@ Witwatersrand, Private Bag 3, 2050, Johannesburg, South Africa}
 %
 \abstract{Abstract}
 
-\keywords{SFML 2.1, game development, MVP}
+\keywords{game development, MVC, polymorphism, SFML 2.1}
 
 
 \maketitle
@@ -184,6 +184,9 @@ The Keyboard class, which makes use of the SFML keyboard functionality, is inclu
 
 \subsubsection{Collision Detection} One of the key functions in most games is collision detection. SFML does include functionality for collision detection. However, this was not used. The reason for this is not only as an attempt to decouple SFML. Rather, the replacement of existing collision detection functionality is for the purpose of code reuse. This point is discussed further as part of the next subsection.
 
+\subsubsection{Orientation Class} % rough
+Orientation class used as substitue for SFML. Also done so that there is no repetition in the code.
+
 \subsection{GeometryEngine}
 Collision detection is included in the GeometryEngine class. This is a class that assists several managers with geometrical related functions. Some of the functions used for collision detection are also used for determining if a tank is in direct line of fire of a given turret. These functions would need to have been coded anyway. 
 
@@ -223,7 +226,7 @@ Using weak pointers has several benefits in this case. Firstly, using weak point
 \subsection{Unit Tests}
 The Agile methodology was used for the development of the game. As such, testing occurred at multiple stages in the development life-cycle. This testing included normal gameplay testing, as well as unit tests. These tests took place at three different stages. Firstly, while doing exploratory use of SFML. Secondly, after basic functionality was implemented. Thirdly, once the final version of the game was completed.
 
-This approach was taken to facilitate regressing testing. Using regressing testing ensures that added functionality does not break previously implemented functionality. As part of using an iterative approach, source code was revised and tested several times. Analysis of the unit tests not discussed in this report. Testing results are discussed in terms of the high level requirements for the game.
+This approach was taken to facilitate regressing testing. Using regressing testing ensures that added functionality does not break previously implemented functionality. As part of using an iterative approach, source code was revised and tested several times. Edge case testing was included for certain functions. Analysis of the unit tests not discussed in this report. Testing results are discussed in terms of the high level requirements for the game.
 
 \subsection{Final Game Functionality}
 All basic game functionality was implemented. In addition, two minor and two major features were implemented. The minor features include a scoreboard and game time-limit, as well as map editor functionality. One major feature includes the ability of tanks to move and fire and any direction, with missiles able to reflect off walls/barriers. The other major feature includes the existence of gun turrets which target both players. These turrets form part of the barriers and can be destroyed by either player. Players are only targeted when the tanks are within a certain range of the turrets and are within the line of fire.
@@ -231,54 +234,62 @@ All basic game functionality was implemented. In addition, two minor and two maj
 \subsection{Gameplay Testing}
 Several bugs and performance issues were highlighted during normal gameplay testing. The most noticeable issue is that a framerate drop occurs when there are many sprites in the game window. 
 
-One of the major bugs that exist in the game relate to the turrets and their firing at tanks. If the tank is behind the turret and at a certain rotation, the turret fires. After inspection of the source code, it was found that a certain function was not giving correct information. %unit tests for the get bounding box function?
+One of the major bugs that exist in the game relate to the turrets and their firing at tanks. If the tank is behind the turret and at a certain rotation, the turret fires. After inspection of the source code, it was found that a certain function was not giving correct information. This information included the Cartesian coordinates of a game entity. The issue was not picked up in the unit testing. This is because the test cases for a rotated game entity were not included. 
 
-%other gameplay testing?
+%other gameplay testing? bugs?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{CRITICAL ANALYSIS} % rough
+\section{CRITICAL ANALYSIS} % first iteration
+
+\subsection{Performance}
+The performance issue mention in the the previous section is due to poor algorithm design. The collision manager checks iterates through every game entity and check it for a collision with every other game entity. The only exception is when the entities that are being compared are barriers. As a result , the collision detection algorithm is of order $ n^{2} $.
+
+%\subsection{Bugs}?
 
 \subsection{Maintainability}
-
-\subsection{The DRY Principle}
-Should have used template functions more.
-
-\subsection{Long Functions}
-
-\subsection{Monolithic Classes}
-Game class
-
-\subsection{Tight Coupling of Classes}
-
-\subsection{Effective use of Inheritance}
-Barriers could not be blocked
+One of the strengths of the overall game design is the modularity. The design effectively implements a modified version of MVC. Separation of the program layers has also been achieved. The design is flexible to the degree where new game entities or managers may be added with no changes to existing interface. The game is also potentially portable. Decoupling of SFML is to the degree where a different keyboard or display library could be used. 
 
 \subsection{Use of Idiomatic C++}
-Struct instead of classes
+The final program made extensive use of idiomatic C++. Vector iterators were used instead of traditional integer based for loops. The auto keyword was also used in conjunction with these iterators. A distinguishing feature of the overall design is the use of smart pointers. These play a crucial role in the proper management of memory.
 
-Tie back to what was observed in testing. The slow gameplay can be attributed to the order $ n^{2} $ calculations in collision detection. In this function, the bounding box of each entity is compared to the bounding box of every other entity. This results in many unnessary calculations.
+The code does not make use of templates or template functions. This caused several instances where the DRY principle was violated. Certain portions of code, although not explicitly repeated, could have been replaced with template functions. This would reduce the number of unnecessary functions.
 
-Structs were used extensively, it would have been better if these were separated into classes. Have to always reference our structs file, would be better to reference the individual class. 
+Structs are used in many places within the source code. The structs fulfilled the needs of the software sufficiently well. However, the usage of classes instead of structs would have been better in terms of object oriented design. One of the reasons why structs were used in the first is because they are faster to implement than classes.
 
-Talk about things that were not observed from testing, including: violated dry principle in certain places. Would be better to use templates.
+All the stucts are included in a single file. Any class that requires a struct simply has a header which includes that file. The problem with this is that the classes now have names of structs that are polluting its namespace. These classes now have a slightly limited selection of variable names.
 
-There are several refused bequests, such as with a turret which is a movable, but cannot move forward or backward.
+\subsection{Effective use of Inheritance}
+Inheritance is used effectively throughout the game program. This facilitated the use of polymorphism which is a strong point in the game design.
 
-Talk about monolithic classes.
+However, there is an instance where inheritance was not used correctly. A refused bequest has the potential to occur in one of the model classes. The barrier class inherits two functions from the Collidable abstract based class for which there is no implementation. These are the setBlocked and setUnblocked functions. A barrier is not capable of being blocked because it does not move in the first place. Only other game entities may be blocked by a barrier.
+
+\subsection{Monolithic Classes}
+The Game class can be considered to be monolithic in nature. It also does not conform to the standard of a single responsibility class. One of the reasons for this is due to the fact that there is a lot required of the Game class. Even though the class has multiple functions, most of these are private functions. In a sense, the Game class does have a single responsibility; to run the game world. However, the class could have been constructed to be more modular.
+
+A major responsibility of the Game class is the creation of new entities. Each entity needs to be created as a shared pointer, then cast as a weak pointer and finally be added to each of the managers' vectors. This requires a fair amount of code. 
+
+\subsection{Long Functions}
+A side effect of having a monolithic class is that it is prone to long functions. The Game class is not the only one with long functions. Some of the managers, namely Collision and Tracking, had long manage functions. These long functions violate the DRY principle in many instances.
+
+The reasons for long functions can not only be attributed to poor design or forethought. Time constraints limited the amount of refactoring that could take place. 
+
+\subsection{Coupling of Classes}
+The following of the MVC architecture ensured a loose coupling of classes and major program modules. An example of where tight coupling did occur was with the Orientation class. This class was developed so that SFML would not be used in the model classes. Also, it helped ensure that code was not repeated. The trade-off with this was that a tight coupling occurred.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{RECOMMENDATIONS} % rough
-Don't recommend changing the interface. Suggest improvements on the existing design, not on how to change the design.
+\section{RECOMMENDATIONS} % first iteration
 
-To reduce the number of calculations for collision detections, there can be certain checks put in place to see if the entities are within a certain threshold of each other. The entities are not within the range of each other, then the collision detection algorithm does not need to be run.
+The following recommendations relate to improving the existing game design. Changes to existing design are not given.
 
-Perhaps recommends a better design methodology, not too specific though.
+To address the performance issue a simple conditional statement can be included in the collision detection algorithm. More specifically, an algorithm exit conditional statement can be put at the beginning of the algorithm. If two entities that are being compared are further apart than the maximum sprite dimension, then collision detection does not need to occur. This means that object that are far apart with not be checked for a collision. The change does not require any changes to interface. All the required information for this additional conditional statement is accessible from with the algorithm scope.
 
-Create more specific abstract based classes.
-Have a map class.
-Have a creation manager.
+The monolithic nature of he Game class can be reduced by including a Map class. This class would take away the Game class responsibility of processing map data.  The inclusion of a Creation manager would also lessen the responsibility of the Game class. It would also absorb the long function which adds new game entities.  The Game class would then have a single responsibility, that is, to run the main game loop. These changes will have no effect on other modules of the program. This is because only a small portion of the Game class consists of public functions.
+
+Violations of the DRY principle can be considerably reduced if templates functions are used. Also, simply spending more time on refactoring the source code would reduce repetition. 
+
+The implementation of classes instead of structs is also recommended. This would not result in any changes to interface.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -296,9 +307,5 @@ Have a creation manager.
 \bibliographystyle{witseie}
 \bibliography{references}
 
-- MVP, MVC (martin fowler)
-- Logic layer definition
-- Games (Rayman)
-- Textbooks?
 
 \end{document}

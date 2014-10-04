@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.21)  4 OCT 2014 17:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.21)  4 OCT 2014 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -368,37 +368,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-No file technical_report.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 298.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \vbox (1.56525pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+No file technical_report.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 311.
+
+Overfull \vbox (1.77948pt too high) has occurred while \output is active []
 
 
-[5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 298.
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 311.
  (./technical_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 298.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 298.
-
-
-Package rerunfilecheck Warning: File `technical_report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `technical_report.out':
-(rerunfilecheck)             Before: 81520E4FF89FB4ED95404CE1F9399645;1806
-(rerunfilecheck)             After:  649BE64F027005790A46BADD265D2967;2013.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 298.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 311.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 311.
+Package rerunfilecheck Info: File `technical_report.out' has not changed.
+(rerunfilecheck)             Checksum: 0E39273168B773989E1B0452B9F08BD2;2226.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 311.
  )
 (\end occurred when \ifx on line 149 was incomplete) 
 Here is how much of TeX's memory you used:
- 5903 strings out of 493304
- 85986 string characters out of 6139871
- 175448 words of memory out of 5000000
- 9230 multiletter control sequences out of 15000+600000
+ 5913 strings out of 493304
+ 86140 string characters out of 6139871
+ 176448 words of memory out of 5000000
+ 9236 multiletter control sequences out of 15000+600000
  27814 words of font info for 93 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,12n,30p,924b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -411,10 +407,10 @@ cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-Output written on technical_report.pdf (5 pages, 129315 bytes).
+Output written on technical_report.pdf (6 pages, 135804 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
+ 44 named destinations out of 1000 (max. 500000)
+ 289 words of extra memory for PDF output out of 10000 (max. 10000000)
 
