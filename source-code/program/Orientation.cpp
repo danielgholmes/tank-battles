@@ -47,7 +47,7 @@ const float Orientation::getHeight()
 
 const float Orientation::getRotation()
 {
-    if (_rotation < 0) throw InvalidStateOfCoordinates();
+    if (_rotation < -360) throw InvalidStateOfCoordinates();
 	return _rotation;
 }
 

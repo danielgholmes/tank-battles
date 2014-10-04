@@ -1,0 +1,155 @@
+\hypertarget{class_missile}{\section{Missile Class Reference}
+\label{class_missile}\index{Missile@{Missile}}
+}
+Inheritance diagram for Missile\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_missile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_missile_a2f930ea9ba87704d2ba75b0299f698c2}{\hyperlink{class_missile_a2f930ea9ba87704d2ba75b0299f698c2}{Missile} (float position\+X, float position\+Y, float rotation, entity\+\_\+type missile\+Owner)}\label{class_missile_a2f930ea9ba87704d2ba75b0299f698c2}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_missile}{Missile} object constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a67874a53d50f63065bf1f63803558513}{virtual const entity\+\_\+type \& \hyperlink{class_missile_a67874a53d50f63065bf1f63803558513}{get\+Type} () const }\label{class_missile_a67874a53d50f63065bf1f63803558513}
+
+\begin{DoxyCompactList}\small\item\em Return the ownership and type of the \hyperlink{class_missile}{Missile} entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a4b6a45a5129b97a6e5383123dffab0c3}{virtual void \hyperlink{class_missile_a4b6a45a5129b97a6e5383123dffab0c3}{move\+Forward} ()}\label{class_missile_a4b6a45a5129b97a6e5383123dffab0c3}
+
+\begin{DoxyCompactList}\small\item\em Forward movement for a missile entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a8d8348b91961ff0c163d7d24bd9599a8}{virtual void \hyperlink{class_missile_a8d8348b91961ff0c163d7d24bd9599a8}{move\+Backward} ()}\label{class_missile_a8d8348b91961ff0c163d7d24bd9599a8}
+
+\begin{DoxyCompactList}\small\item\em Backward movement for a missile entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a1c7ed80bd656b0af5b3872f4225978e3}{virtual void \hyperlink{class_missile_a1c7ed80bd656b0af5b3872f4225978e3}{rotate\+Left} ()}\label{class_missile_a1c7ed80bd656b0af5b3872f4225978e3}
+
+\begin{DoxyCompactList}\small\item\em Left rotation for a missile entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_aeccfdf94a02fa86545296f4c38857ef8}{virtual void \hyperlink{class_missile_aeccfdf94a02fa86545296f4c38857ef8}{rotate\+Right} ()}\label{class_missile_aeccfdf94a02fa86545296f4c38857ef8}
+
+\begin{DoxyCompactList}\small\item\em Right rotation for a missile entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a6f9a14b7e2a2041fbccb566bf2a3b469}{virtual const \hyperlink{structrect__corners}{rect\+\_\+corners} \& \hyperlink{class_missile_a6f9a14b7e2a2041fbccb566bf2a3b469}{get\+Bounding\+Box} ()}\label{class_missile_a6f9a14b7e2a2041fbccb566bf2a3b469}
+
+\begin{DoxyCompactList}\small\item\em Provide the bounding box for the missile entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_af2a9b1f8503cc2d322f5ab6ea788d393}{virtual const \hyperlink{structrect__corners}{rect\+\_\+corners} \& \hyperlink{class_missile_af2a9b1f8503cc2d322f5ab6ea788d393}{get\+Aligned\+Bounding\+Box} ()}\label{class_missile_af2a9b1f8503cc2d322f5ab6ea788d393}
+
+\begin{DoxyCompactList}\small\item\em Get Axis Aligned bounding box of entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a4f6e73f8d9f9723a777875efcb9edfa7}{virtual const int \hyperlink{class_missile_a4f6e73f8d9f9723a777875efcb9edfa7}{set\+Blocked} (const blocked\+\_\+status obstruction\+\_\+type)}\label{class_missile_a4f6e73f8d9f9723a777875efcb9edfa7}
+
+\begin{DoxyCompactList}\small\item\em Instruct the missile entity that it cannot move along its trajectory. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_missile_af66d762c4401061f64bcf9b46343c967}{set\+Unblocked} ()
+\begin{DoxyCompactList}\small\item\em Instruct the missile entity that it can move. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a1a27cc48265f34e3298c780c37ca8a0e}{virtual void \hyperlink{class_missile_a1a27cc48265f34e3298c780c37ca8a0e}{set\+Collided} ()}\label{class_missile_a1a27cc48265f34e3298c780c37ca8a0e}
+
+\begin{DoxyCompactList}\small\item\em Instruct the missile entity that it has collided with another object. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a2c86874bf5e6bde8cb97f4ed1a07c3ea}{virtual const blocked\+\_\+status \hyperlink{class_missile_a2c86874bf5e6bde8cb97f4ed1a07c3ea}{is\+Blocked} ()}\label{class_missile_a2c86874bf5e6bde8cb97f4ed1a07c3ea}
+
+\begin{DoxyCompactList}\small\item\em Determine the blocked state of the missile entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a96c1240f08fed605ff9e908a0bea50e4}{virtual bool const \hyperlink{class_missile_a96c1240f08fed605ff9e908a0bea50e4}{is\+Deleted} ()}\label{class_missile_a96c1240f08fed605ff9e908a0bea50e4}
+
+\begin{DoxyCompactList}\small\item\em Boolean state of the missile entity's life. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{class_missile_a8e8d526d7578cfbabbd5bf1bdb9727bc}{get\+Draw\+Position\+X} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the missile x Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{class_missile_ad609bee2bfaf610824f32c15430fa6d8}{get\+Draw\+Position\+Y} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the missile y Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{class_missile_ab606b0b4f38c821063f210625f926374}{get\+Draw\+Rotation} ()
+\begin{DoxyCompactList}\small\item\em Receive the missile rotation. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_a5bff45d0243e353acdf610fdade02bb0}{virtual void \hyperlink{class_missile_a5bff45d0243e353acdf610fdade02bb0}{set\+Movement\+Direction} (const \hyperlink{_structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\+\_\+direction} Movement\+\_\+input)}\label{class_missile_a5bff45d0243e353acdf610fdade02bb0}
+
+\begin{DoxyCompactList}\small\item\em Set the movement direction of the entity. \end{DoxyCompactList}\item 
+\hypertarget{class_missile_ad42379e48a46ec3556056f98ce8bd912}{virtual \hyperlink{class_missile_ad42379e48a46ec3556056f98ce8bd912}{$\sim$\+Missile} ()}\label{class_missile_ad42379e48a46ec3556056f98ce8bd912}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_missile}{Missile} object destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 24 of file Missile.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_missile_a8e8d526d7578cfbabbd5bf1bdb9727bc}{\index{Missile@{Missile}!get\+Draw\+Position\+X@{get\+Draw\+Position\+X}}
+\index{get\+Draw\+Position\+X@{get\+Draw\+Position\+X}!Missile@{Missile}}
+\subsubsection[{get\+Draw\+Position\+X}]{\setlength{\rightskip}{0pt plus 5cm}const float Missile\+::get\+Draw\+Position\+X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_missile_a8e8d526d7578cfbabbd5bf1bdb9727bc}
+
+
+Retrieve the missile x Position. 
+
+Retrieve the \hyperlink{class_missile}{Missile} x Position. 
+
+Implements \hyperlink{class_deletable_ac14ea0c5986d50ba3ba454f89c87b8fe}{Deletable}.
+
+
+
+Definition at line 113 of file Missile.\+cpp.
+
+\hypertarget{class_missile_ad609bee2bfaf610824f32c15430fa6d8}{\index{Missile@{Missile}!get\+Draw\+Position\+Y@{get\+Draw\+Position\+Y}}
+\index{get\+Draw\+Position\+Y@{get\+Draw\+Position\+Y}!Missile@{Missile}}
+\subsubsection[{get\+Draw\+Position\+Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Missile\+::get\+Draw\+Position\+Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_missile_ad609bee2bfaf610824f32c15430fa6d8}
+
+
+Retrieve the missile y Position. 
+
+Retrieve the \hyperlink{class_missile}{Missile} y Position. 
+
+Implements \hyperlink{class_deletable_a2a88d7e40c56902a3d3d8f668e9d126d}{Deletable}.
+
+
+
+Definition at line 119 of file Missile.\+cpp.
+
+\hypertarget{class_missile_ab606b0b4f38c821063f210625f926374}{\index{Missile@{Missile}!get\+Draw\+Rotation@{get\+Draw\+Rotation}}
+\index{get\+Draw\+Rotation@{get\+Draw\+Rotation}!Missile@{Missile}}
+\subsubsection[{get\+Draw\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Missile\+::get\+Draw\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_missile_ab606b0b4f38c821063f210625f926374}
+
+
+Receive the missile rotation. 
+
+Recieve the \hyperlink{class_missile}{Missile} rotation. 
+
+Implements \hyperlink{class_deletable_ad7061a6bef3efce030aa5abbc7646d47}{Deletable}.
+
+
+
+Definition at line 126 of file Missile.\+cpp.
+
+\hypertarget{class_missile_af66d762c4401061f64bcf9b46343c967}{\index{Missile@{Missile}!set\+Unblocked@{set\+Unblocked}}
+\index{set\+Unblocked@{set\+Unblocked}!Missile@{Missile}}
+\subsubsection[{set\+Unblocked}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\+::set\+Unblocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_missile_af66d762c4401061f64bcf9b46343c967}
+
+
+Instruct the missile entity that it can move. 
+
+Instruct the tank entity that it can move. 
+
+Implements \hyperlink{class_collidable_a817d864d0640bc6bcb13bbecf14ddf31}{Collidable}.
+
+
+
+Definition at line 89 of file Missile.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_missile_8h}{Missile.\+h}\item 
+\hyperlink{_missile_8cpp}{Missile.\+cpp}\end{DoxyCompactItemize}

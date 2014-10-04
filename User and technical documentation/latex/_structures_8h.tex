@@ -1,0 +1,126 @@
+\hypertarget{_structures_8h}{\section{Structures.\+h File Reference}
+\label{_structures_8h}\index{Structures.\+h@{Structures.\+h}}
+}
+
+
+Class that performs game wolrd functions.  
+
+
+{\ttfamily \#include \char`\"{}S\+F\+M\+L/\+Graphics.\+hpp\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structactions__info}{actions\+\_\+info}
+\begin{DoxyCompactList}\small\item\em player\+\_\+action is an enum of the possible actions that the tank can take \end{DoxyCompactList}\item 
+struct \hyperlink{structtextures}{textures}
+\item 
+struct \hyperlink{structcoordinate}{coordinate}
+\item 
+struct \hyperlink{structrect__corners}{rect\+\_\+corners}
+\begin{DoxyCompactList}\small\item\em Contains x and y corners of a rectangle, used in the algorithm for collision detection. \end{DoxyCompactList}\item 
+struct \hyperlink{structgame__state__info}{game\+\_\+state\+\_\+info}
+\begin{DoxyCompactList}\small\item\em Contains information about the game state. \end{DoxyCompactList}\item 
+struct \hyperlink{structsprite__draw__info}{sprite\+\_\+draw\+\_\+info}
+\begin{DoxyCompactList}\small\item\em Used for passing information from draw manager to display. \end{DoxyCompactList}\item 
+struct \hyperlink{structdraw__strings}{draw\+\_\+strings}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_structures_8h_a7f9af2314f2ee7dcf81d3a2b1b44bc0a}{\#define {\bfseries M\+I\+S\+S\+I\+L\+E\+\_\+\+M\+O\+V\+E\+\_\+\+S\+P\+E\+E\+D}~12}\label{_structures_8h_a7f9af2314f2ee7dcf81d3a2b1b44bc0a}
+
+\item 
+\hypertarget{_structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}{\#define {\bfseries T\+A\+N\+K\+\_\+\+M\+O\+V\+E\+\_\+\+S\+P\+E\+E\+D}~10}\label{_structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}
+
+\item 
+\hypertarget{_structures_8h_a8e935f0b53a70e3189267642849fa67c}{\#define {\bfseries M\+I\+S\+S\+I\+L\+E\+\_\+\+R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+S\+P\+E\+E\+D}~45}\label{_structures_8h_a8e935f0b53a70e3189267642849fa67c}
+
+\item 
+\hypertarget{_structures_8h_a728054e2d14b4ed9a73cd408c0bfe142}{\#define {\bfseries T\+A\+N\+K\+\_\+\+R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+S\+P\+E\+E\+D}~5}\label{_structures_8h_a728054e2d14b4ed9a73cd408c0bfe142}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{enum {\bfseries entity\+\_\+type} \{ \\*
+{\bfseries p1\+\_\+tank} = 1, 
+{\bfseries p2\+\_\+tank}, 
+{\bfseries p1\+\_\+missile}, 
+{\bfseries p2\+\_\+missile}, 
+\\*
+{\bfseries turret\+\_\+missile}, 
+{\bfseries p1\+\_\+mine}, 
+{\bfseries p2\+\_\+mine}, 
+{\bfseries barrier}, 
+\\*
+{\bfseries turret}
+ \}}\label{_structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}
+
+\item 
+\hypertarget{_structures_8h_abf3d9daa4559fb2f9e16fc1836fead1b}{enum {\bfseries player\+\_\+action} \{ \\*
+{\bfseries forward} = 1, 
+{\bfseries reverse}, 
+{\bfseries rotate\+\_\+left}, 
+{\bfseries rotate\+\_\+right}, 
+\\*
+{\bfseries fire\+\_\+missile}, 
+{\bfseries lay\+\_\+mine}, 
+{\bfseries do\+\_\+nothing}
+ \}}\label{_structures_8h_abf3d9daa4559fb2f9e16fc1836fead1b}
+
+\item 
+\hypertarget{_structures_8h_a08a7efdbb9788a589bc851698b7858d2}{enum {\bfseries player\+\_\+number} \{ {\bfseries p1} =1, 
+{\bfseries p2}
+ \}}\label{_structures_8h_a08a7efdbb9788a589bc851698b7858d2}
+
+\item 
+\hypertarget{_structures_8h_a6fef29d9424addfa69bdd2a379424896}{enum {\bfseries blocked\+\_\+status} \{ {\bfseries blocked} = 1, 
+{\bfseries blocked\+\_\+vertically}, 
+{\bfseries blocked\+\_\+horizontally}, 
+{\bfseries unblocked}
+ \}}\label{_structures_8h_a6fef29d9424addfa69bdd2a379424896}
+
+\item 
+\hypertarget{_structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{enum \hyperlink{_structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\+\_\+direction} \{ \\*
+{\bfseries move\+Forward} =1, 
+{\bfseries move\+Backward}, 
+{\bfseries rotate\+Left}, 
+{\bfseries rotate\+Right}, 
+\\*
+{\bfseries Move}
+ \}}\label{_structures_8h_a0d0b88f27f3adf9452879b5d9f829026}
+
+\begin{DoxyCompactList}\small\item\em Used to define the controlled movement of the player. \end{DoxyCompactList}\item 
+\hypertarget{_structures_8h_a9d66cf9d9353142caa803c8a93e95e4b}{enum {\bfseries gameplay\+\_\+keys} \{ \\*
+{\bfseries Left} = 1, 
+{\bfseries Right}, 
+{\bfseries Up}, 
+{\bfseries Down}, 
+\\*
+{\bfseries R\+Alt}, 
+{\bfseries R\+Control}, 
+{\bfseries A}, 
+{\bfseries D}, 
+\\*
+{\bfseries W}, 
+{\bfseries S}, 
+{\bfseries L\+Alt}, 
+{\bfseries L\+Control}
+ \}}\label{_structures_8h_a9d66cf9d9353142caa803c8a93e95e4b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that performs game wolrd functions. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Holmes \& Jonathan Gerrand 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2 September 2014 
+\end{DoxyDate}
+
+
+Definition in file \hyperlink{_structures_8h_source}{Structures.\+h}.
+

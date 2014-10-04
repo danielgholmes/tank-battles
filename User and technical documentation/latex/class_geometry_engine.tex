@@ -1,0 +1,40 @@
+\hypertarget{class_geometry_engine}{\section{Geometry\+Engine Class Reference}
+\label{class_geometry_engine}\index{Geometry\+Engine@{Geometry\+Engine}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_geometry_engine_a049acffe89f53be25fbc9d4018c3b388}{bool \hyperlink{class_geometry_engine_a049acffe89f53be25fbc9d4018c3b388}{is\+Collision} (const \hyperlink{structrect__corners}{rect\+\_\+corners} \&rect\+\_\+\+A, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&rect\+\_\+\+B)}\label{class_geometry_engine_a049acffe89f53be25fbc9d4018c3b388}
+
+\begin{DoxyCompactList}\small\item\em Function that client code can call to check final collision status. \end{DoxyCompactList}\item 
+\hypertarget{class_geometry_engine_af21c9c2e172169130af88fa6f3aa5fe7}{bool \hyperlink{class_geometry_engine_af21c9c2e172169130af88fa6f3aa5fe7}{is\+In\+Line\+Of\+Fire} (const float \&rotation, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&shooter, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&target, const float \&shooter\+\_\+y, const float \&target\+\_\+y)}\label{class_geometry_engine_af21c9c2e172169130af88fa6f3aa5fe7}
+
+\begin{DoxyCompactList}\small\item\em Function that checks of tank is in turrets line of fire. \end{DoxyCompactList}\item 
+\hypertarget{class_geometry_engine_a99634c40d20ab72ab30289a6ff4abe39}{const float \hyperlink{class_geometry_engine_a99634c40d20ab72ab30289a6ff4abe39}{calculate\+Vector\+Length} (const float x\+\_\+coord\+\_\+1, const float y\+\_\+coord\+\_\+1, const float x\+\_\+coord\+\_\+2, const float y\+\_\+coord\+\_\+2)}\label{class_geometry_engine_a99634c40d20ab72ab30289a6ff4abe39}
+
+\begin{DoxyCompactList}\small\item\em Function to determine the vector lenght between two points. \end{DoxyCompactList}\item 
+\hypertarget{class_geometry_engine_a1cd3abed45085b76e4145ac91fd1275e}{bool \hyperlink{class_geometry_engine_a1cd3abed45085b76e4145ac91fd1275e}{is\+Rectangle\+Overlap\+For\+Axis} (\hyperlink{structcoordinate}{coordinate} axis, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&rect\+\_\+\+A, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&rect\+\_\+\+B)}\label{class_geometry_engine_a1cd3abed45085b76e4145ac91fd1275e}
+
+\begin{DoxyCompactList}\small\item\em Main function called to check overlap. \end{DoxyCompactList}\item 
+\hypertarget{class_geometry_engine_aad070884eb5c9380cd3d75a22e95ba8a}{void \hyperlink{class_geometry_engine_aad070884eb5c9380cd3d75a22e95ba8a}{calculate\+Vector\+Projections} (std\+::vector$<$ \hyperlink{structcoordinate}{coordinate} $>$ \&axis\+\_\+projections, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&rect, const \hyperlink{structcoordinate}{coordinate} \&axis)}\label{class_geometry_engine_aad070884eb5c9380cd3d75a22e95ba8a}
+
+\begin{DoxyCompactList}\small\item\em Calculates the projections of the rectangles vertices vectors onto an axis. \end{DoxyCompactList}\item 
+\hypertarget{class_geometry_engine_ad5c9132e2ddc165f92ac81c021e21622}{void \hyperlink{class_geometry_engine_ad5c9132e2ddc165f92ac81c021e21622}{calculate\+Max\+And\+Min\+Projection\+Magnitude} (const std\+::vector$<$ \hyperlink{structcoordinate}{coordinate} $>$ \&axis\+\_\+projections, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&rect, const \hyperlink{structcoordinate}{coordinate} \&axis, float \&max, float \&min)}\label{class_geometry_engine_ad5c9132e2ddc165f92ac81c021e21622}
+
+\begin{DoxyCompactList}\small\item\em Calculates which of the projected vectors are furtherest along. \end{DoxyCompactList}\item 
+\hypertarget{class_geometry_engine_a662ec9af09fd513700f41d3e7090b1bf}{const blocked\+\_\+status \hyperlink{class_geometry_engine_a662ec9af09fd513700f41d3e7090b1bf}{get\+Relative\+Position} (const \hyperlink{structrect__corners}{rect\+\_\+corners} \&rect\+\_\+entity, const \hyperlink{structrect__corners}{rect\+\_\+corners} \&compared\+\_\+rect\+\_\+entity)}\label{class_geometry_engine_a662ec9af09fd513700f41d3e7090b1bf}
+
+\begin{DoxyCompactList}\small\item\em Determine the relative positioning of two objects within the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file Geometry\+Engine.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_geometry_engine_8h}{Geometry\+Engine.\+h}\item 
+\hyperlink{_geometry_engine_8cpp}{Geometry\+Engine.\+cpp}\end{DoxyCompactItemize}
