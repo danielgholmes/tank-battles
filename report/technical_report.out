@@ -3,11 +3,17 @@
 \BOOKMARK [1][-]{section.3}{BACKGROUND}{}% 3
 \BOOKMARK [1][-]{section.4}{DESIGN OVERVIEW}{}% 4
 \BOOKMARK [1][-]{section.5}{CONCEPTUAL MODEL}{}% 5
-\BOOKMARK [1][-]{section.6}{CLASS RESPONSIBILITIES}{}% 6
-\BOOKMARK [2][-]{subsection.6.1}{Abstract Based Classes}{section.6}% 7
-\BOOKMARK [1][-]{section.7}{DYNAMIC BEHAVIOUR}{}% 8
-\BOOKMARK [1][-]{section.8}{TESTING}{}% 9
-\BOOKMARK [1][-]{section.9}{CRITICAL ANALYSIS}{}% 10
-\BOOKMARK [2][-]{subsection.9.1}{MAINTAINABILITY}{section.9}% 11
-\BOOKMARK [1][-]{section.10}{RECOMMENDATIONS}{}% 12
-\BOOKMARK [1][-]{section.11}{CONCLUSION}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Controller}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Model}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.3}{View}{section.5}% 8
+\BOOKMARK [1][-]{section.6}{CLASS RESPONSIBILITIES}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{Managers}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.2}{Usage of SFML}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.3}{Abstract Based Classes}{section.6}% 12
+\BOOKMARK [1][-]{section.7}{DYNAMIC BEHAVIOUR}{}% 13
+\BOOKMARK [2][-]{subsection.7.1}{Memory Management}{section.7}% 14
+\BOOKMARK [1][-]{section.8}{TESTING}{}% 15
+\BOOKMARK [1][-]{section.9}{CRITICAL ANALYSIS}{}% 16
+\BOOKMARK [2][-]{subsection.9.1}{MAINTAINABILITY}{section.9}% 17
+\BOOKMARK [1][-]{section.10}{RECOMMENDATIONS}{}% 18
+\BOOKMARK [1][-]{section.11}{CONCLUSION}{}% 19

@@ -52,9 +52,7 @@ Witwatersrand, Private Bag 3, 2050, Johannesburg, South Africa}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{INTRODUCTION}% rough
-
-
+\section{INTRODUCTION}% rough points
 Problem understanding
 - Modular code
 - Orthogonal
@@ -69,7 +67,7 @@ Problem understanding
 \section{REQUIREMENTS AND CONSTRAINTS}% first iteration
 The game is required to be based on the 2 player tank battle Atari game "Combat". Certain basic functionality is required to be met. Each player should be able to control their tanks from the computer keyboard. Tanks should have the ability to fire missiles and lay mines, both of which destroy either players tanks. Movement of tanks and firing of tanks should be done both horizontally and vertically. Game play should take place in a maze consisting of barriers which block tank movement. Once either of the tanks have been destroyed, the game should end.
 
-The game software is required to be implemented in ANSI/ISO C++. The usage of the SFML 2.1 library is also required. The software development life-cycle requires the usage of unit tests using the google-test framework. Unit tests are required at the end of each iteration of the game.
+The game software is required to be implemented in ANSI/ISO C++. The usage of the SFML 2.1 library is also required. The software development life-cycle requires the usage of unit tests using the google-test framework. Unit tests are required at the end of each design iteration of the game.
 
 The game is constrained to run on the Windows platform. No other libraries that are built on SFML may be used. With respect to game graphics, no OpenGL may be used. Also, the maximum resolution of the game window should not exceed 1600x900. 
 
@@ -77,47 +75,69 @@ It is assumed that the computer running the game will meet the minimum system re
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{BACKGROUND}% first iteration incomplete
-Games are classic examples of highly interactive GUI applications. Over the years, many different GUI architectures have emerged. One such architecture is Model View Controller (MVC). The main idea of MVC is a separation of the domain objects and GUI elements. Domain objects model real world perceptions, whereas the GUI elements are what the user sees on the screen. Simply put, the model objects have no knowledge of the UI. The controller role within this architecture is to process user input. This either directly or indirectly would modify the model, or the domain objects. Once data changes to the model are complete, information from the model is pushed to the presenter and the users view is updated accordingly [martin-fowler].
+\section{BACKGROUND} % first iteration
+Games are classic examples of highly interactive Graphical User Interface (GUI) applications. Over the years, many different GUI architectures have emerged. One such architecture is Model View Controller (MVC). The main idea of MVC is a separation of the domain objects and GUI elements. Domain objects model real world perceptions, whereas the GUI elements are what the user sees on the screen. Simply put, the model objects have no knowledge of the UI. The controller role within this architecture is to process user input. This either directly or indirectly would modify the model, or the domain objects. Once data changes to the model are complete, information from the model is pushed to the presenter and the users view is updated accordingly [martin-fowler].
 
-One of the benefits of the MVC architecture is the fact that there is a distinct separation of program layers. These include presenter, logic and data layers. Many games these days are available on multiple platforms.
+One of the benefits of the MVC architecture is the fact that there is a distinct separation of program layers. These include presenter, logic and data layers. The usage of MVC ensures orthogonality between these program layers. Many games these days are available on multiple platforms. This necessitates flexibility in terms of porting over a game to another platform. The game would require specific libraries; most commonly the display libraries. A game could be ported easily if there is loose coupling between program layers. For example, a game developed initially on a PC would have a different presentation layer requirements compared to mobile game. If the separation of layers is successfully achieved, a considerable less amount of effort will be required to port the game. A game in which the port is almost indistinguishable from the original is know as an Arcade Perfect Port [tvtropes].
 
-% first iteration up to here
+The Agile methodology to project management is an alternative to traditional project management. The focus of Agile is on developing a product that is potentially shippable. This requires a iterative and incremental approach to product development. It facilitates communication between the development team in which the project requirements and design are continuously revisited. This allows for flexibility as problems in the product development life-cycle can be solved sooner, particularly if that problem relates to a change in requirements [agile].
 
-The data layer contains information only. There is no decision making in this layer. Logic layer manipulates, processes or changes information from the data layer. This data can also include information that is input from the user. The presenter is responsible for what is displayed to the user. No data manipulation takes place here.
-
-Games these days are capable of being run on many different platforms. This may required changes to the display layer. If a layered approach is used, the game can be ported over to another platform without changing the cope interface. An example of this is Rayman. 
-
-% need literature review
-% gui models
-% want a model that can be used on a different display
-% MVC MVP
-% games adapted to these models
-% agile methodologies
+This methodology is well suited to the development of software. The focus is on having software that can be shipped to users sooner, so that early feedback can be given. Overall, the usage of Agile helps developers put together the right product in as little time as possible.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \section{DESIGN OVERVIEW} % first iteration
-The chosen design is based off the MVC GUI model. Figure 1 shows the adapted version of MVC know as passive MVC used as a high level design for the game. A typical MVC design would include the model actually updating the view. With passive MVC, the display polls the model for changes. The polling methodology is suited to be used in the way the main program loop executes, where the display is updated at the end of the loop. 
+The chosen design is based off the MVC GUI model.the main Figure 1 shows the adapted version of MVC know as passive MVC used as a high level design for the game. A typical MVC design would include the model actually updating the view. With passive MVC, the display polls the model for changes. The polling methodology is suited to be used in the way the main program loop executes, where the display is updated at the end of the loop. 
 
 Another modification inherit in the design is the connection between the controller and the data. Typically, MVC would have the controller simply updating the data. Figure 1 shows information moves in both directions between the controller and data. Model data is not only updated, but it is also retrieved by the controller to be used in logical operations. Another reason for this particular modification of MVC is due to the use of managers. During a particular management cycle, information from the model is retrieved, processed and then the model is updated accordingly. Only once all the data has been processed by the managers does the display get updated.  
+
+
 
 %overview figure will be included here
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{CONCEPTUAL MODEL} % rough
-The model of the program is management based. Each manager has specific responsibilities. The managers exploit the principle of polymorphism. This is to emphasize modularity and single responsibility classes. It also allows for maintainability. New managers can be added or if there is a problem you know where to look for it. This way, the interfaces of the classes can stay the same. Managers also run functions that follow the tell, don't ask principle. Managers have access to information only pertinent to what they are doing. They can be agnostic to everything else that is going on. Another principle that was followed combines single responsibility classes with polymorphism. The task of a manager relates to an inherited property of the objects that a manager manages. Such as a move manager handles all movable entities.
+\section{CONCEPTUAL MODEL} % first iteration
 
-All game entities are manipulated via smart pointers. Objects within a manager are controlled via weak pointers. This is so that when a object gets deleted anywhere within the code, it will be deleted everywhere else. This helps with making sure that the code can be modular without having to worry about pointers that are still existing on the heap. Objects can stay in the same place and only their pointers can get passed around.
+The following section presents the conceptual model of the game in terms of the MVC architecture.
 
-The model attempts to decouple SFML from the main program as much as possible. This is so that a new graphics library can be used. The interface of the display class can remain the same and the implementation can be changed to suit the new graphics library. An attempt to decouple SFML is also evident in the Keyboard and GeometryEngine classes. 
+\subsection{Controller}
+The controller module of the design is based on management cycles or ticks. These cycles occur within the main program loop. Management tasks are divided between different managers, each of which have specific management tasks which introduces single responsibility classes. These managers perform their tasks based on user input. Information regarding this user input, as well as other temporary main loop data are accessed by the managers. Each manager only has access to data pertinent to it's functions. These functions include create, read, update and delete (CRUD) operations.
 
+The usage of managers also exploits the principle polymorphism. The fundamental task of a manager relates to an inherited property of the objects which the manager is managing. For example, all objects with the inherited property "Movable" are accessible by the Move Manager. An object may have many inherited properties. As such, the management of that object is taken care of by the relevant managers, purely because that object inherits certain properties. A new manager may be added based on the inherited properties of objects, or as per the abstraction requirements.
+
+This type of approach in the controller module ensures that the CRUD operations are dependant upon the characteristics of game objects. This also means that the controller is able to meet the processing requirements of the model in a modular way. If there is a problem with a particular aspect of the program, one simply needs to search in the relevant manager. If a new manager is added to the controller module, it has impact on the other managers. This ensures that if new game functionality is added, the other functionality is not affected. Fundamentally, controller modules i.e. the manager, are agnostic to other management processes.
+
+Another component of the controller module includes the user input. Due to the nature of the game, a user does not input information via the User Interface (UI), as is the case with the Model View Presenter (MVP) architecture. Rather, the information is received from the user via the keyboard. This is another reason why the MVC model is used in the game design. User input can go directly to the controller module. Thus, managers can act on user commands without involving the view module.
+
+\subsection{Model}
+All game entities (models) exist within the model module. Each model inherits properties from certain Abstract Based Classes. As such, a model may inherit multiple properties as far as the level of model abstraction requires. All game models inherit the base properties "Deletable" and "Drawable". This is so that all models can be deleted or removed from the game world as required. Also, all game entities are drawn at some stage in the program cycle. An example of a game model which inherits multiple properties is a tank. It inherits the properties "Movable", "Colliable" and "Trackable". Each of these properties gives an indication of the functionality of the tank model. Also, the managers (move, collision and tracking) that have access to the tank model data are evident.
+
+In line with MVC and the separation of layers principles, the models do not perform any decision making. Most of the functionality of the models include setter functions, or "tell, don't ask" functions.
+
+\subsection{View}
+The view module contains all the functions required for drawing game entities within the game window (UI). In line with passive MVC, the data from the model is not pushed to the view. Rather, the view polls for changes in data. Only information required for drawing is retrieved. 
+
+This methodology further emphasises the point of separating the layers of the program. If a view is required on a different platform, then the existing view can be replaced without any impact on the model or controller modules. The controller module is also loosely coupled to the view. Overall, the separation of the view makes the game potentially portable. Interface of the view classes can remain mostly unchanged while the implementation can be changed accordingly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{CLASS RESPONSIBILITIES} % rough
-Discuss each class responsibility in terms of the program layers and CRUD operations. Define these layers. Certain classes were given very specific responsibilities because we wanted to decouple SFML. Implemented generic substitutes. These included Display, Keyboard and GeometryEngine classes. 
+\section{CLASS RESPONSIBILITIES} % mostly rough, some first iteration
+
+\subsection{Managers}
+
+\subsection{Usage of SFML} % incomplete first iteration
+As per the game requirement, SFML 2.1 is used. Attempts have been made to decouple SFML from the main components of the design. No SFML is included in the model module. It has been included in the view and controller modules. However, classes have been design in such a way that these modules are only linked to SFML via interfaces. The only instances where SFML is used is for capturing user input and drawing sprites in the game window.
+
+A Keyboard class, which makes use of the SFML keyboard functionality, is included in the controller. Due to the fact that the controller uses this class via an interface, the controller is ignorant of the library used in the keyboard class. The same principle applies to the Display class, except with respect to its use in the view module. 
+
+One of the key functions in any game is collision detection. SFML does include functionality for collision detection. However, this was not used. The reason for this is not only as an attempt to decouple SFML. Rather, the replacement of existing collision detection functionality is for the purpose of code reuse. 
+
+Certain functions of collision detection are used 
+
+%%%
+
+Discuss each class responsibility in terms of the program layers and CRUD operations. Define these layers.
 
 Game: responsible for running the main program loop.
 Managers: responsibly for manipulating and changing the data of the game entities.
@@ -142,6 +162,9 @@ Keyboard: Acts as an interface between SFML and the game class. If another libra
 Life cycle of game entities. Where they exists are how they are deleted. Data containers; updated and passed around between managers, each with access to only what they need. 
 
 Draw manager is a connection between the logic layer and presentation layer. Draw manager is somewhat part of the presentation layer as it does not modify the data or do CRUD operations. It only extracts the data and gives what is needed to the display class. Tells what needs to be drawn and where.
+
+\subsection{Memory Management}
+All game entities are manipulated via smart pointers. Objects within a manager are controlled via weak pointers. This is so that when a object gets deleted anywhere within the code, it will be deleted everywhere else. This helps with making sure that the code can be modular without having to worry about pointers that are still existing on the heap. Objects can stay in the same place and only their pointers can get passed around.
 
 %refer to the logic diagram wich shows proram logical flow
 
