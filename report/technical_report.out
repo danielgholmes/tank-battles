@@ -13,24 +13,24 @@
 \BOOKMARK [2][-]{subsection.6.4}{Data Classes}{section.6}% 13
 \BOOKMARK [3][-]{subsubsection.6.4.1}{Model Classes}{subsection.6.4}% 14
 \BOOKMARK [3][-]{subsubsection.6.4.2}{Game data}{subsection.6.4}% 15
-\BOOKMARK [2][-]{subsection.6.5}{Usage of SFML}{section.6}% 16
-\BOOKMARK [3][-]{subsubsection.6.5.1}{Dependant Classes}{subsection.6.5}% 17
-\BOOKMARK [3][-]{subsubsection.6.5.2}{Draw Manager}{subsection.6.5}% 18
-\BOOKMARK [3][-]{subsubsection.6.5.3}{Collision Detection}{subsection.6.5}% 19
-\BOOKMARK [3][-]{subsubsection.6.5.4}{Orientation Class}{subsection.6.5}% 20
-\BOOKMARK [2][-]{subsection.6.6}{GeometryEngine}{section.6}% 21
-\BOOKMARK [1][-]{section.7}{MEMORY MANAGEMENT}{}% 22
-\BOOKMARK [1][-]{section.8}{TESTING}{}% 23
-\BOOKMARK [2][-]{subsection.8.1}{Unit Tests}{section.8}% 24
-\BOOKMARK [2][-]{subsection.8.2}{Final Game Functionality}{section.8}% 25
-\BOOKMARK [2][-]{subsection.8.3}{Gameplay Testing}{section.8}% 26
-\BOOKMARK [1][-]{section.9}{CRITICAL ANALYSIS}{}% 27
-\BOOKMARK [2][-]{subsection.9.1}{Performance}{section.9}% 28
-\BOOKMARK [2][-]{subsection.9.2}{Maintainability}{section.9}% 29
-\BOOKMARK [2][-]{subsection.9.3}{Use of Idiomatic C++}{section.9}% 30
-\BOOKMARK [2][-]{subsection.9.4}{Effective use of Inheritance}{section.9}% 31
-\BOOKMARK [2][-]{subsection.9.5}{Monolithic Classes}{section.9}% 32
-\BOOKMARK [2][-]{subsection.9.6}{Long Functions}{section.9}% 33
-\BOOKMARK [2][-]{subsection.9.7}{Coupling of Classes}{section.9}% 34
-\BOOKMARK [1][-]{section.10}{RECOMMENDATIONS}{}% 35
-\BOOKMARK [1][-]{section.11}{CONCLUSION}{}% 36
+\BOOKMARK [3][-]{subsubsection.6.4.3}{Dependant Classes}{subsection.6.4}% 16
+\BOOKMARK [3][-]{subsubsection.6.4.4}{Draw Manager}{subsection.6.4}% 17
+\BOOKMARK [3][-]{subsubsection.6.4.5}{Collision Detection}{subsection.6.4}% 18
+\BOOKMARK [3][-]{subsubsection.6.4.6}{Orientation Class}{subsection.6.4}% 19
+\BOOKMARK [2][-]{subsection.6.5}{GeometryEngine}{section.6}% 20
+\BOOKMARK [1][-]{section.7}{DYNAMIC BEHAVIOUR}{}% 21
+\BOOKMARK [1][-]{section.8}{MEMORY MANAGEMENT}{}% 22
+\BOOKMARK [1][-]{section.9}{TESTING}{}% 23
+\BOOKMARK [2][-]{subsection.9.1}{Unit Tests}{section.9}% 24
+\BOOKMARK [2][-]{subsection.9.2}{Final Game Functionality}{section.9}% 25
+\BOOKMARK [2][-]{subsection.9.3}{Gameplay Testing}{section.9}% 26
+\BOOKMARK [1][-]{section.10}{CRITICAL ANALYSIS}{}% 27
+\BOOKMARK [2][-]{subsection.10.1}{Performance}{section.10}% 28
+\BOOKMARK [2][-]{subsection.10.2}{Maintainability}{section.10}% 29
+\BOOKMARK [2][-]{subsection.10.3}{Use of Idiomatic C++}{section.10}% 30
+\BOOKMARK [2][-]{subsection.10.4}{Effective use of Inheritance}{section.10}% 31
+\BOOKMARK [2][-]{subsection.10.5}{Monolithic Classes}{section.10}% 32
+\BOOKMARK [2][-]{subsection.10.6}{Long Functions}{section.10}% 33
+\BOOKMARK [2][-]{subsection.10.7}{Coupling of Classes}{section.10}% 34
+\BOOKMARK [1][-]{section.11}{RECOMMENDATIONS}{}% 35
+\BOOKMARK [1][-]{section.12}{CONCLUSION}{}% 36
