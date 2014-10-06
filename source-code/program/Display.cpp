@@ -1,9 +1,14 @@
-/**
- * \file 	Display.cpp
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	29 September 2014
- * \brief 	Implementation for SFML display class
- */
+//! Implementation for Display class.
+/*! This class interfaces with SFML. It receives
+    all infrmation to draw via the DisplayManager.
+    It also contains information such as the 
+    filenames of all sprite textures.
+    \file       Display.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
+
 
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
@@ -40,6 +45,12 @@ Display::Display(int window_width, int window_height):
 	_window.setFramerateLimit(60);
 
 }
+
+//! Bla
+/*! Bla
+    bla
+    \return bool
+*/
 
 bool Display::isOpen()
 {

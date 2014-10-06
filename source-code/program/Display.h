@@ -1,10 +1,13 @@
-/**
- * \class 	Display
- * \file 	Display.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	29 September 2014
- * \brief 	Class that handles all display functionality
- */
+//! Handles all draw and display functionality.
+/*! This class interfaces with SFML. It receives
+    all infrmation to draw via the DisplayManager.
+    It also contains information such as the 
+    filenames of all sprite textures.
+    \file       Display.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
