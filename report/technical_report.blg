@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: technical_report.aux
+The style file: witseie.bst
+Database file #1: references.bib
+Warning--entry type for "m-fowler" isn't style-file defined
+--line 1 of file references.bib
+Warning--entry type for "tv-tropes" isn't style-file defined
+--line 8 of file references.bib
+Warning--entry type for "agile" isn't style-file defined
+--line 14 of file references.bib
+You've used 3 entries,
+            2282 wiz_defined-function locations,
+            519 strings with 4315 characters,
+and the built_in function-call counts, 531 in all, are:
+= -- 29
+> -- 6
+< -- 0
++ -- 4
+- -- 1
+* -- 20
+:= -- 53
+add.period$ -- 10
+call.type$ -- 3
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 50
+empty$ -- 71
+format.name$ -- 1
+if$ -- 117
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 13
+newline$ -- 19
+num.names$ -- 1
+pop$ -- 42
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 19
+stack$ -- 0
+substring$ -- 0
+swap$ -- 29
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 1
+width$ -- 4
+write$ -- 31
+(There were 3 warnings)

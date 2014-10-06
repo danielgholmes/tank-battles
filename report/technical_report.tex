@@ -14,6 +14,7 @@
 % All KJN's macros and goodies (some shameless borrowing from SPL)
 \usepackage{KJN}
 \usepackage{array}
+\usepackage{url}
 
 %
 % PDF Info
@@ -41,10 +42,10 @@ Witwatersrand, Private Bag 3, 2050, Johannesburg, South Africa}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\abstract{Abstract}
+% 
+\abstract{This document presents the design of a basic 2D tank battles video game. The game was developing using C++ along with SFML 2.1. The design is based off an object-oriented adaptation of Model View Presenter (MVC). The Agile methodology with the usage of unit tests was used in the game development life-cycle. A discussion of the game design and class responsibilities is given with respect to MVC. Attempts were made in the design decouple SFML from the design. These attempts were successful. Gameplay testing revealed an $ n^{2} $ performance issues in the collision detection algorithm. A recommendation for a early exit condition in this algorithm is given. Final testing revealed a bug in the a function used by the turret firing algorithm. Reasons for this issue include the omission of a sigle unit test. Critical analysis of the code highlighted issues with respect to monolithic classes and violations of the DRY principle. A suggestion is given to implement template functions as well as two new classes in order to address these issues.} % first iteration
 
-\keywords{game development, MVC, polymorphism, SFML 2.1}
+\keywords{C++, game development, MVC, polymorphism, SFML 2.1}
 
 
 \maketitle
@@ -54,36 +55,31 @@ Witwatersrand, Private Bag 3, 2050, Johannesburg, South Africa}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \section{INTRODUCTION}% rough points
-Problem understanding
-- Modular code
-- Orthogonal
-- Object-oriented decomposition
-- Separation of layers (MVP, MVC)
-- Illustrate design cycle of software
-- Iterative design process
-- Unit testing approach (regression testing)
+Video games are classic examples of highly interactive Graphical User Interface (GUI) applications. Many of these games undergo numerous upgrades to improve the overall game experience. Often, these games are even ported over to other platforms. This requires the game to be designed in a way to facilitate such changes. 
+
+The following document presents the design of an object-oriented C++ video game using SFML 2.1. This game is based on the 2 player 2D tank battle Atari game "Combat". The design is presented and discussed in terms of the a chosen GUI architecture. A discussion regarding the methodology of game development is given. The conceptual model as well as a discussion on the high level responsibilities and memory management is presented. Gameplay testing results along with a critical analysis of the game design is given. Recommendations on improvements in game performance and code robustness are also included.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{BACKGROUND} % first iteration
+Games are classic examples of highly interactive Graphical User Interface (GUI) applications. Over the years, many different GUI architectures have emerged. One such architecture is Model View Controller (MVC). The main idea of MVC is a separation of the domain objects and GUI elements. Domain objects model real world perceptions, whereas the GUI elements are what the user sees on the screen. Simply put, the model objects have no knowledge of the UI. The controller role within this architecture is to process user input. This either directly or indirectly would modify the model, or the domain objects. Once data changes to the model are complete, information from the model is pushed to the presenter and the users view is updated accordingly \cite{m-fowler}.
+
+One of the benefits of the MVC architecture is the fact that there is a distinct separation of program layers. These include presenter, logic and data layers. The usage of MVC ensures orthogonality between these program layers. Many games these days are available on multiple platforms. This necessitates flexibility in terms of porting over a game to another platform. The game would require specific libraries; most commonly the display libraries. A game could be ported easily if there is loose coupling between program layers. For example, a game developed initially on a PC would have a different presentation layer requirements compared to mobile game. If the separation of layers is successfully achieved, a considerable less amount of effort will be required to port the game. A game in which the port is almost indistinguishable from the original is know as an Arcade Perfect Port \cite{tv-tropes}.
+
+The Agile methodology to project management is an alternative to traditional project management. The focus of Agile is on developing a product that is potentially shippable. This requires a iterative and incremental approach to product development. It facilitates communication between the development team in which the project requirements and design are continuously revisited. This allows for flexibility as problems in the product development life-cycle can be solved sooner, particularly if that problem relates to a change in requirements \cite{agile}.
+
+This methodology is well suited to the development of software. The focus is on having software that can be shipped to users sooner, so that early feedback can be given. Overall, the usage of Agile helps developers put together the right product in as little time as possible.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \section{REQUIREMENTS AND CONSTRAINTS}% first iteration
-The game is required to be based on the 2 player tank battle Atari game "Combat". Certain basic functionality is required to be met. Each player should be able to control their tanks from the computer keyboard. Tanks should have the ability to fire missiles and lay mines, both of which destroy either players tanks. Movement of tanks and firing of tanks should be done both horizontally and vertically. Game play should take place in a maze consisting of barriers which block tank movement. Once either of the tanks have been destroyed, the game should end.
+The game is required to meet basic functionality. Each player should be able to control their tanks from the computer keyboard. Tanks should have the ability to fire missiles and lay mines, both of which destroy either players tanks. Movement of tanks and firing of tanks should be done both horizontally and vertically. Game play should take place in a maze consisting of barriers which block tank movement. Once either of the tanks have been destroyed, the game should end.
 
 The game software is required to be implemented in ANSI/ISO C++. The usage of the SFML 2.1 library is also required. The software development life-cycle requires the usage of unit tests using the google-test framework. Unit tests are required at the end of each design iteration of the game.
 
 The game is constrained to run on the Windows platform. No other libraries that are built on SFML may be used. With respect to game graphics, no OpenGL may be used. Also, the maximum resolution of the game window should not exceed 1600x900. 
 
 It is assumed that the computer running the game will meet the minimum system requirements for Windows 7. It is also assumed that SFML functions have been tested and work as expected.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\section{BACKGROUND} % first iteration
-Games are classic examples of highly interactive Graphical User Interface (GUI) applications. Over the years, many different GUI architectures have emerged. One such architecture is Model View Controller (MVC). The main idea of MVC is a separation of the domain objects and GUI elements. Domain objects model real world perceptions, whereas the GUI elements are what the user sees on the screen. Simply put, the model objects have no knowledge of the UI. The controller role within this architecture is to process user input. This either directly or indirectly would modify the model, or the domain objects. Once data changes to the model are complete, information from the model is pushed to the presenter and the users view is updated accordingly [martin-fowler].
-
-One of the benefits of the MVC architecture is the fact that there is a distinct separation of program layers. These include presenter, logic and data layers. The usage of MVC ensures orthogonality between these program layers. Many games these days are available on multiple platforms. This necessitates flexibility in terms of porting over a game to another platform. The game would require specific libraries; most commonly the display libraries. A game could be ported easily if there is loose coupling between program layers. For example, a game developed initially on a PC would have a different presentation layer requirements compared to mobile game. If the separation of layers is successfully achieved, a considerable less amount of effort will be required to port the game. A game in which the port is almost indistinguishable from the original is know as an Arcade Perfect Port [tvtropes].
-
-The Agile methodology to project management is an alternative to traditional project management. The focus of Agile is on developing a product that is potentially shippable. This requires a iterative and incremental approach to product development. It facilitates communication between the development team in which the project requirements and design are continuously revisited. This allows for flexibility as problems in the product development life-cycle can be solved sooner, particularly if that problem relates to a change in requirements [agile].
-
-This methodology is well suited to the development of software. The focus is on having software that can be shipped to users sooner, so that early feedback can be given. Overall, the usage of Agile helps developers put together the right product in as little time as possible.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -184,8 +180,8 @@ The Keyboard class, which makes use of the SFML keyboard functionality, is inclu
 
 \subsubsection{Collision Detection} One of the key functions in most games is collision detection. SFML does include functionality for collision detection. However, this was not used. The reason for this is not only as an attempt to decouple SFML. Rather, the replacement of existing collision detection functionality is for the purpose of code reuse. This point is discussed further as part of the next subsection.
 
-\subsubsection{Orientation Class} % rough
-Orientation class used as substitue for SFML. Also done so that there is no repetition in the code.
+\subsubsection{Orientation Class}
+This class is used in order to remove SFML from the data layer. It is also used in an attempt to avoid repeating code. The implementation of this class ensures that each game entity class does not have the same code.
 
 \subsection{GeometryEngine}
 Collision detection is included in the GeometryEngine class. This is a class that assists several managers with geometrical related functions. Some of the functions used for collision detection are also used for determining if a tank is in direct line of fire of a given turret. These functions would need to have been coded anyway. 
@@ -293,8 +289,8 @@ The implementation of classes instead of structs is also recommended. This would
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\section{CONCLUSION}
-
+\section{CONCLUSION} % first iteration
+The final game design is based of an adapted version of MVC. Basic functionality with effective decoupling of SFML was achieved. The game software is in a position to be ported. Overall game performance was found to be slow due to an order $ n^{2} $ collision detection algorithm. An additional early exit condition statement in this algorithm is suggested. The reason for a bug in the turret firing algorithm was found to be caused by the exclusion of a specific unit test. Suggestions are given on how to reduce the number of violations of the DRY principle. It is proposed that two additional classes be added to ensure the Game class is single responsibility.
 
 %%%
 % Automatically balance the output of the last page
