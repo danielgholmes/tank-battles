@@ -125,7 +125,7 @@ TEST(Orientation, getGlobalBoundsCorrectlyReturnsBoundingBox)
 
 TEST(Orientation, throwsExceptionForInvalidStateOfCoordinateData)
 {
-    Orientation testOrientation(-10,-10,-10,10,10, true);
+    Orientation testOrientation(-101,-101,-360,10,10, true);
 
     EXPECT_THROW(testOrientation.getOriginX(),InvalidStateOfCoordinates);
     EXPECT_NO_THROW({Orientation TestOrientation(10,10,10,10,10, true);});
@@ -146,7 +146,6 @@ TEST(Tank, ifInvalidCoOrdinatesThrowsException)
     EXPECT_NO_THROW({Tank TestTank1(10,10,10,p1_tank);});
     EXPECT_THROW({Tank TestTank1(10,10,10,p1_missile);}, InvalidConstructorArgumentsTank);
 }
-
 
 TEST(Tank, returnsCorrectEntityType)
 {
@@ -773,74 +772,6 @@ TEST(GeometryEngine, returnsFalseIfNoOverlapOnAxisFour)
     EXPECT_FALSE(CollisionTest.isRectangleOverlapForAxis(axis, rect_A, rect_B));
 }
 
-
-//TEST(CollisionHelper, returnsCorrectlyModifiedAxisProjectionsVector)
-//{
-//    rect_corners rect_A;
-//    rect_corners rect_B;
-//
-//    rect_A.upper_left.x = 1.0;
-//    rect_A.upper_left.y = 8.0;
-//    rect_A.upper_right.x = 5.0;
-//    rect_A.upper_right.y = 8.0;
-//    rect_A.lower_left.x = 1.0;
-//    rect_A.lower_left.y = 1.0;
-//    rect_A.lower_right.x = 5.0;
-//    rect_A.lower_right.y = 1.0;
-//
-//    rect_B.upper_left.x = 2.0;
-//    rect_B.upper_left.y = 9.0;
-//    rect_B.upper_right.x = 6.0;
-//    rect_B.upper_right.y = 8.0;
-//    rect_B.lower_left.x = 2.0;
-//    rect_B.lower_left.y = 2.0;
-//    rect_B.lower_right.x = 6.0;
-//    rect_B.lower_right.y = 2.0;
-//
-//    coordinate axis;
-//
-//    axis.x = rect_A.upper_right.x - rect_A.upper_left.x;
-//    axis.y = rect_A.upper_right.y - rect_A.upper_left.y;
-//
-//    std::vector<coordinate> axis_projections;
-//
-//    CollisionHelper CollisionTest;
-//    CollisionTest.calculateVectorProjections(axis_projections, rect_A, axis);
-//
-//    float ans = axis_projections[0].x;
-//
-//    EXPECT_EQ(ans,1.0);
-//}
-
-//TEST(GeometryEngine, returnsTrueIfTankInLineOfFireOfTurret)
-//{
-//    float rotation = 0.0;
-//    rect_corners shooter;
-//    rect_corners target;
-//
-//    shooter.upper_left.x = 1.0;
-//    shooter.upper_left.y = 8.0;
-//    shooter.upper_right.x = 5.0;
-//    shooter.upper_right.y = 8.0;
-//    shooter.lower_left.x = 1.0;
-//    shooter.lower_left.y = 1.0;
-//    shooter.lower_right.x = 5.0;
-//    shooter.lower_right.y = 1.0;
-//
-//    target.upper_left.x = 11.0;
-//    target.upper_left.y = 8.0;
-//    target.upper_right.x = 15.0;
-//    target.upper_right.y = 8.0;
-//    target.lower_left.x = 11.0;
-//    target.lower_left.y = 1.0;
-//    target.lower_right.x = 15.0;
-//    target.lower_right.y = 1.0;
-//
-//    GeometryEngine lineOfFireTest;
-//
-//    EXPECT_TRUE(lineOfFireTest.isInLineOfFire(rotation, shooter, target,4,4));
-//}
-
 TEST(GeometryEngine, returnsFalseIfTankNotInLineOfFireOfTurret)
 {
     float rotation = 45.0;
@@ -1022,58 +953,6 @@ TEST(GeometryEngine, throwsExceptionIfInvalidRectEntityPassed)
 
     EXPECT_NO_THROW({geometryTest.isCollision(entity,relative_entity);});
 }
-
-/////////////////////////////////////////////////////////////////////////////////
-///Daniel's Tests (1 Oct)
-
-///Test not set up properly yet
-//TEST(GeometryEngine, calculatesCorrectMaxAndMinProjectionValues)
-//{
-//    float max = 0.0;
-//    float min = 0.0;
-//    std::vector<coordinate> axis_projections;
-//
-//    rect_corners rect;
-//
-//    rect.upper_left.x = 0.0;
-//    rect.upper_left.y = 2.0;
-//    rect.upper_right.x = 2.0;
-//    rect.upper_right.y = 2.0;
-//    rect.lower_left.x = 0.0;
-//    rect.lower_left.y = 0.0;
-//    rect.lower_right.x = 2.0;
-//    rect.lower_right.y = 0.0;
-//
-//    coordinate axis;
-//
-//    axis.x = rect.upper_right.x - rect.upper_left.x;
-//    axis.y = rect.upper_right.y - rect.upper_left.y;
-//
-//    coordinate point;
-//
-//    point.x = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
-//    point.y = ((rect.upper_right.x*axis.x + rect.upper_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
-//    axis_projections.push_back(point);
-//
-//    point.x = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
-//    point.y = ((rect.upper_left.x*axis.x + rect.upper_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
-//    axis_projections.push_back(point);
-//
-//    point.x = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
-//    point.y = ((rect.lower_right.x*axis.x + rect.lower_right.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
-//    axis_projections.push_back(point);
-//
-//    point.x = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.x;
-//    point.y = ((rect.lower_left.x*axis.x + rect.lower_left.y*axis.y)/(powf(axis.x, 2.0) + powf(axis.y, 2.0)))*axis.y;
-//    axis_projections.push_back(point);
-//
-//    GeometryEngine maxAndMinTest;
-//
-//    maxAndMinTest.calculateMaxAndMinProjectionMagnitude(axis_projections, rect, axis, max, min);
-//
-//    EXPECT_EQ(max, 1.0);
-//    EXPECT_EQ(min, 0.0);
-//}
 
 TEST(GeometryEngine, returnsTrueIfTankInLineOfFire)
 {
@@ -1278,7 +1157,7 @@ TEST(TrackingManager, correctlyTracksTankEntityForP2)
     EXPECT_NE(trackingManager.getP2PositionX(), 30 + TANK_SPEED);
 }
 
-//Must Finnish
+
 TEST(TrackingManager, correctlyTracksTurretEntity)
 {
     TrackingManager trackingManager;
@@ -1302,9 +1181,10 @@ TEST(TrackingManager, correctlyTracksTurretEntity)
 //    EXPECT_EQ(turrXPos, 1);
 //    EXPECT_EQ(turrXPos, 40);
 //    EXPECT_EQ(turrYPos, 40);
+
+    //Test not finnished as gtest seems that it cannot handle vectors - due to its use of malloc perhaps?
 }
 
-//TroubleShoot Later
 TEST(TrackingManager, enablesTurretFireWhenTankAndTurretAreInRange)
 {
     TrackingManager trackingManager;
@@ -1728,7 +1608,6 @@ TEST(TurretManager, CorrectlyRotatesTurretEntity)
     EXPECT_EQ(turret_del_sp->getDrawRotation(), 360 + 3*TURRET_ROTATION_SPEED);
 }
 
-
 ///*==============================================================*/
 
 
@@ -1781,7 +1660,6 @@ TEST(CollisionManager, correctlyBlocksTanksAndTanks)
     EXPECT_EQ(tank1_mov_sp->isBlocked(), blocked);
 }
 
-//Correct
 TEST(CollisionManager, correctlyBlocksMissilesAndBarriers)
 {
     CollisionManager colisionManager;

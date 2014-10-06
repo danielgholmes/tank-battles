@@ -52,8 +52,8 @@ void Missile::moveBackward()
 void Missile::rotateLeft()
 {
     float rotationFactor = ((abs(_rotation-180)-90)*2);
-    _rotation += rotationFactor;
     _missile.rotate(rotationFactor);
+    _rotation = _missile.getRotation();
 
 }
 
@@ -61,8 +61,8 @@ void Missile::rotateLeft()
 void Missile::rotateRight()
 {
     float rotationFactor = ((180-_rotation)*2);
-    _rotation += rotationFactor;
     _missile.rotate(rotationFactor);
+    _rotation = _missile.getRotation();
 
 }
 
