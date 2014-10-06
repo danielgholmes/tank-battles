@@ -1,49 +1,35 @@
-/**
- * \class StopWatch.h
- * \author Daniel Holmes
- * \date 30 July 2014
- * \brief contains the interface for StopWatch class
- *
- */
+//! Responsible for keeping time
+/*! This class was originally developed as part of the Software Development II course
+    at Wits University. It has been modified considerably, particularly it's implementation.
+    The class provides general time keeping functionality.
+    \file       StopWatch.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+    \brief      Description of StopWatch class
+*/
 
 #ifndef STOPWATCH_H
 #define STOPWATCH_H
 
+/// Responsible for keeping time
 class StopWatch {
 public:
-
-    /// constructor that creates a StopWatch object
     StopWatch();
-
-    /// starts the stopwatch
     void start();
-
-    /// returns stop the time of the StopWatch
     void stop();
-
-    /// returns the lap time
     void lap();
-
-    /// reset the stopwatch
     void reset();
-
-    /// checks if the stopwatch is running
     bool isRunning();
-
-    /// gets the current value of the stopwatch
     double getTimerValue();
 
 private:
-    /// variable that holds the system time from when the stopwatch starts
+    /// Holds the system time from when the stopwatch starts
     double _start;
-
-    /// variable that holds the stopped or total clock running time
+    /// Holds the stopped or total clock running time
     double _stop;
-
-    /// variable that is used to tell if the stopwatch is running
+    /// Used to tell if the stopwatch is running
     bool _running;
-
-    /// returns the amount of time in seconds that has passed since the process (i.e. your program) started executing
     double getProcessTime();
 };
 

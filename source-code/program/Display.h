@@ -16,6 +16,7 @@
 #include <string.h>
 #include <memory>
 
+/// Handles all draw and display functionality.
 class Display
 {
 public:

@@ -20,6 +20,7 @@
 #include <vector>
 #include <map>
 
+/// Manager class responsible for preparing draw data.
 class DrawManager: public Manager
 {
 public:

@@ -1,9 +1,10 @@
-/**
- * \file 	Structures.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Class that performs game wolrd functions
- */
+//! Keeps all structs in a single file.
+/*! \file       Structures.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+    \brief      Description of StopWatch class
+*/
 
 #ifndef STRUCTURES_H_
 #define STRUCTURES_H_
@@ -16,7 +17,7 @@
 #define MISSILE_ROTATION_SPEED 45
 #define TANK_ROTATION_SPEED 5
 
-
+/// The different types of game entities
 enum entity_type {
 	p1_tank = 1,
 	p2_tank,
@@ -29,6 +30,7 @@ enum entity_type {
 	turret
 	};
 
+/// The defferent actions that a player can do
 enum player_action {
 	forward = 1,
 	reverse,
@@ -39,11 +41,13 @@ enum player_action {
 	do_nothing
 	};
 
+/// Player number
 enum player_number {
     p1 =1,
     p2
 };
 
+/// Blocked status for different orientations
 enum blocked_status
 {
     blocked = 1,
@@ -64,7 +68,7 @@ struct actions_info
 	player_action attack_2; // perhaps need a better name
 };
 
-
+/// All testures in the game
 struct textures
 {
 	sf::Texture tank_1; // player 1 and 2 will have different tank textures
@@ -78,13 +82,14 @@ struct textures
     sf::Texture end_screen;
 };
 
+/// Basic Cartesian coordinate
 struct coordinate
 {
     float x;
     float y;
 };
 
-///Contains x and y corners of a rectangle, used in the algorithm for collision detection
+/// Contains x and y corners of a rectangle, used in the algorithm for collision detection
 struct rect_corners
 {
     coordinate upper_left;
@@ -93,7 +98,7 @@ struct rect_corners
     coordinate lower_right;
 };
 
-///Contains information about the game state
+/// Contains information about the game state
 struct game_state_info
 {
     bool finished;
@@ -104,7 +109,7 @@ struct game_state_info
     bool player2_respawn;
 };
 
-///Used to define the controlled movement of the player
+/// Used to define the controlled movement of the player
 enum movement_direction
 {
     moveForward =1,
@@ -122,6 +127,7 @@ struct sprite_draw_info
     float rotation;
 };
 
+/// Holds the strings that will be drawn into text
 struct draw_strings
 {
     std::string game_time;
