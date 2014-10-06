@@ -1,9 +1,12 @@
-/**
- * \file 	CollisionManager.cpp
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Implementation for CollisionManager class
- */
+//! Implementation for CollisionManager class
+/*! This manager is responsible for checking and setting the collision and blocked
+    states of game entities. It relies upon the GeometryEngine Class for all
+    of the geometry related logic conditions.
+    \file       CollisionManager.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
+*/
 
 #include "CollisionManager.h"
 #include "GeometryEngine.h"
@@ -14,6 +17,13 @@ CollisionManager::CollisionManager()
 
 }
 
+//! Checks and sets the collision status of all game entities
+/*! This is the main function of the CollisionManager. The manager iterates through all
+    of the collidables and checks it against every other collidable to see if a collision
+    has taken place. If an entity that needs to be compared to another entity is blocked,
+    it's status is temporarily set as false so that a proper comparison can be made. This
+    entity is the entity of the outer for loop.
+*/
 void CollisionManager::manage()
 {
 
@@ -45,7 +55,12 @@ void CollisionManager::manage()
     }//outer-for
 }//Manage function
 
-
+//! Set collision state based on the types of entities that have collided
+/*! Different rules for collision apply to different game entities. Different collision functions
+    are run based on what entities have collided. Rules for collision can be changed or added here.
+    \param entity_1 :: First entity whose collision state will be set 
+    \param entity_2 :: Second entity whose collision state will be set 
+*/
 void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
 	if ((entity_1->getType() == p1_tank) || (entity_1->getType() == p2_tank))
@@ -78,16 +93,31 @@ void CollisionManager::setCollisionStates(std::shared_ptr<Collidable> entity_1, 
     }//Else
 }//Function
 
+//! Resets the blocked states of blocks that were previously blocked, but are not colliding with anything
+/*! \param entity :: entity whose blocked state will be changed
+*/
 void CollisionManager::resetBlockedState(std::shared_ptr<Collidable>& entity)
 {
-  entity->setUnblocked();
+    entity->setUnblocked();
 }
 
+//! Add new entity to collidables.
+/*! A new entity is added to the private collidables vector, which is used in the main
+    manage function.
+    \param new_entity :: Entity to be added to collidables vector
+*/
 void CollisionManager::addNewEntity(std::weak_ptr<Collidable> new_entity)
 {
 	_collidables.push_back(new_entity);
 }
 
+//! Checks to see if two objects have collided base upon their bounding box locations and type
+/*! This function excludes barriers. All other entities will have their collision states reviewed.
+    The points of the four corners of each entity are used to test if there is a collision.
+    \param entity_sp :: Shared pointer to one entity
+    \param obstacle_sp :: Shared pointer to the other entity
+    \param entity_blocked_status :: blocked status of entity that is being compared to every other entity
+*/
 void CollisionManager::reviewCollisionStates(std::shared_ptr<Collidable> entity_sp, std::shared_ptr<Collidable> obstacle_sp,
                                              bool& entity_blocked_status)
 
@@ -112,6 +142,10 @@ void CollisionManager::reviewCollisionStates(std::shared_ptr<Collidable> entity_
     }//Barrier comparison if
 }
 
+//! Implement logic when a barrier has been collided with a game entity.
+/*! \param entity_1 :: First entity that will have its status changed
+    \param entity_2 :: Second entity that will have its status changed
+*/
 void CollisionManager::barrierCollisionReaction(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
     switch(entity_2->getType())
@@ -150,6 +184,10 @@ void CollisionManager::barrierCollisionReaction(std::shared_ptr<Collidable> enti
 
 }
 
+//! Implement logic when a mine has collided with a game entity
+/*! \param entity_1 :: First entity that will have its status changed
+    \param entity_2 :: Second entity that will have its status changed
+*/
 void CollisionManager::mineCollisionReaction(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
     switch(entity_2->getType())
@@ -183,6 +221,10 @@ void CollisionManager::mineCollisionReaction(std::shared_ptr<Collidable> entity_
     }
 }
 
+//! Implement logic when a missile has collided with a game entity
+/*! \param entity_1 :: First entity that will have its status changed
+    \param entity_2 :: Second entity that will have its status changed
+*/
 void CollisionManager::missileCollisionReaction(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
     switch(entity_2->getType())
@@ -221,6 +263,10 @@ void CollisionManager::missileCollisionReaction(std::shared_ptr<Collidable> enti
     }
 }
 
+//! Implement logic when a tank has collided with a game entity.
+/*! \param entity_1 :: First entity that will have its status changed
+    \param entity_2 :: Second entity that will have its status changed
+*/
 void CollisionManager::tankCollisionReaction(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
     switch(entity_2->getType())
@@ -266,6 +312,10 @@ void CollisionManager::tankCollisionReaction(std::shared_ptr<Collidable> entity_
 
 }
 
+//! Implement logic when a turret has collided with a game entity
+/*! \param entity_1 :: First entity that will have its status changed
+    \param entity_2 :: Second entity that will have its status changed
+*/
 void CollisionManager::turretCollisionReaction(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
     switch(entity_2->getType())
@@ -294,6 +344,11 @@ void CollisionManager::turretCollisionReaction(std::shared_ptr<Collidable> entit
 
 }
 
+//! Set the collision or blocked states for a barrier collision.
+/*! \param entity_1 :: First entity that will have its status changed
+    \param entity_2 :: Second entity that will have its status changed
+    \return blocked_status
+*/
 const blocked_status CollisionManager::getResultingBlockedStatus(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
     auto entity_collision_box = entity_1->getAlignedBoundingBox();
@@ -302,6 +357,10 @@ const blocked_status CollisionManager::getResultingBlockedStatus(std::shared_ptr
     return (geometry_engine.getRelativePosition(entity_collision_box,object_collision_box));
 }
 
+//! Implement logic when a turret missile has collided with a game entity.
+/*! \param entity_1 :: First entity that will have its status changed
+    \param entity_2 :: Second entity that will have its status changed
+*/
 void CollisionManager::turretMissileCollisionReaction(std::shared_ptr<Collidable> entity_1, std::shared_ptr<Collidable> entity_2)
 {
     switch(entity_2->getType())
@@ -346,6 +405,9 @@ void CollisionManager::turretMissileCollisionReaction(std::shared_ptr<Collidable
     }//Switch
 }
 
+//! Helper function to remove 'Dead' entities from collision manager.
+/*! 
+*/
 void CollisionManager::removeGarbage()
 {
     auto removal = _collidables.begin();

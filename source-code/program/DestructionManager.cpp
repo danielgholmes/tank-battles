@@ -1,10 +1,12 @@
-/**
- * /file 	DestructionManager.cpp
- * /author 	Daniel Holmes & Jonathan Gerrand
- * /date 	2 September 2014
- * /brief 	Implementation for DestructionManager class
- */
-
+//! Implementation for the DestructionManager class.
+/*! The manager is responsible for removing game entities from the game that have been
+    destroyed. All game entities are potentially deletable and pointers to these exist within 
+    this class.
+    \file       DestructionManager.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
  #include "DestructionManager.h"
 
  ///Constructor for the Destruction manager
@@ -12,8 +14,11 @@
  {
 
  }
-
-///Destruction management process for the Destruction Manager
+ 
+//! Destruction management process for the Destruction Manager
+/*! If one of the tanks are destroyed, then opposing player receives an additional point.
+    \param game_state_container :: cotainer that holds the players' score
+*/
 void DestructionManager::manage(GameStateData& game_state_container)
 {
     auto i = _destructables.begin();
@@ -49,6 +54,9 @@ DestructionManager::~DestructionManager()
     //Possible arguments to be added here
 }
 
+//! Add Deletable-type shared_ptr's to the DestructionManagers internal data members
+/*! \param new_entity :: type of new entity that will be addded.
+*/
 void DestructionManager::addNewEntity(std::shared_ptr<Deletable> new_entity)
 {
 	_destructables.push_back(new_entity);

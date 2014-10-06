@@ -1,10 +1,12 @@
-/**
- * \class 	DestructionManager
- * \file 	DestructionManager.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Class that manages all destructable objects
- */
+//! Manager class responsible for deletions of destroyed game entities.
+/*! The manager is responsible for removing game entities from the game that have been
+    destroyed. All game entities are potentially deletable and pointers to these exist within 
+    this class.
+    \file       DestructionManager.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
 #ifndef DESTRUCTIONMANAGER_H_
 #define DESTRUCTIONMANAGER_H_
@@ -15,19 +17,13 @@
 #include "GameStateData.h"
 #include <vector>
 
+/// Manager class responsible for deletions of destroyed game entities.
 class DestructionManager: public Manager
 {
 public:
-    /// Constructor for the Destruction manager
     DestructionManager();
-
-    /// Destruction management process for the Destruction Manager
     void manage(GameStateData& game_state_container);
-
-	/// Add Deletable-type shared_ptr's to the DestructionManagers internal data members
     void addNewEntity(std::shared_ptr<Deletable> new_entity);
-
-    /// Destructor for the destruction manager
 	virtual ~DestructionManager();
 
 private:

@@ -1,10 +1,13 @@
-/**
- * \class 	GameStateManager
- * \file 	GameStateManager.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	22 September 2014
- * \brief 	Class that manages all collidable objects
- */
+//! Manager class responsible for managing state of the game
+/*! This manager is responsible for managing the timing of the game, which
+    includes tha timer for the game run time. The other timers that it manages
+    have to do with the timing between firing of missiles and laying of mines
+    of each of the players' tanks.
+    \file       CollisionManager.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
+*/
 
 #ifndef _GAMESTATEMANAGER_H_
 #define _GAMESTATEMANAGER_H_
@@ -15,35 +18,32 @@
 #include "Structures.h"
 #include <vector>
 
-class GameStateManager
+/// Manager class responsible for managing state of the game.
+class GameStateManager: public Manager
 {
 public:
-
-    ///Constructor
     GameStateManager();
-    ///Function to manage the current game state
     void manage(GameManagementData& game_data_container);
-    ///Destructor
     ~GameStateManager();
 
 private:
-    /// Object that keeps track of the game time
+    /// Keeps track of the overall game time
     StopWatch _game_timer;
-    /// Objects that keep track of time between firing of missiles
+    /// Keep tracks of time between firing of missiles for player 1
     StopWatch _p1_fire_timer;
+    /// Keep tracks of time between firing of missiles for player 2
     StopWatch _p2_fire_timer;
-    /// Objects that keep track of time between laying mines
+    /// Keeps track of time between laying mines for player 1
     StopWatch _p1_lay_mine_timer;
+    /// Keeps track of time between laying mines for player 2
     StopWatch _p2_lay_mine_timer;
-    /// How long the game lasts
+    /// The time in seconds of how long the game will last
     const double _game_runtime = 120.0;
     /// Time limit between firing or laying mines for tanks
     const double _attack_time_limit = 0.5;
 
     void manageAttackTimers(ActionData& action_data_container);
-
     bool timeRunOut(StopWatch& timer);
-
 };
 
 #endif // _GAMESTATEMANAGER_H_

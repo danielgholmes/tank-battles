@@ -1,12 +1,19 @@
-/**
- * \file 	Keyboard.cpp
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	29 September 2014
- * \brief 	Implementation keyboard class
- */
+//! Implementation for Keyboard class.
+/*! This class has SFML keyboard input. It is design is such a way as to allow the 
+    decoupling of SFML from
+    \file       Keyboard.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
 #include "Keyboard.h"
 
+//! Checks keyboard input for both players.
+/*! 
+    \param key_input :: Enum for all player controls 
+    \return bool
+*/
 bool Keyboard::isKeyPressed(gameplay_keys key_input)
 {
     switch(key_input)
