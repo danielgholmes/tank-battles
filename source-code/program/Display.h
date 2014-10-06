@@ -49,9 +49,9 @@ private:
     textures _game_textures;
 
     /// Tank 1 texture file name
-	const std::string _tank1_texture_file = "tank1_red.png";
+	const std::string _tank1_texture_file = "tank_blue.png";
     /// Tank 2 texture file name
-	const std::string _tank2_texture_file = "tank2_green.png";
+	const std::string _tank2_texture_file = "tank_red.png";
     /// Tanks missile texture file name
 	const std::string _missile_texture_file = "missile.png";
     /// Mine texture file name
