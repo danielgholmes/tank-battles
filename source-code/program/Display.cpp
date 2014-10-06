@@ -1,12 +1,12 @@
 //! Implementation for Display class.
-/*! This class interfaces with SFML. It receives
-    all information to draw via the DisplayManager.
-    It also contains information such as the
-    file names of all sprite textures.
+/*! This class interfaces with SFML. It receives all information to draw via 
+    the DisplayManager. It also contains information such as the file names 
+    of all sprite textures.
     \file       Display.cpp
     \author     Daniel Holmes & Jonathan Gerrand
     \version    2.0
     \date       29 September 2014
+    
 */
 
 
@@ -15,10 +15,18 @@
 #include "Display.h"
 #include <iostream>
 
+//! Constructor for Display object.
+/*! Initialises window dimensions as well as other private objects. The game 
+    window title can be changed within the _window constructor. The rest of
+    the function makes sure that the main map textures are loaded correctly.
+    The text objects for the game are also initialised here.
+    \param default is set to 800
+    \param default is set to 600
+*/
 Display::Display(int window_width, int window_height):
     _window_width(window_width),
     _window_height(window_height),
-    _window(sf::VideoMode(_window_width,_window_height), "Tank Battles"),
+    _window(sf::VideoMode(_window_width,_window_height), "Tank A Lot"),
     _game_textures(),
     _game_sprite_dimensions()
 {
@@ -51,12 +59,10 @@ Display::Display(int window_width, int window_height):
 
 }
 
-//! Bla
-/*! Bla
-    bla
+//! Checks if the game window is still open.
+/*! 
     \return bool
 */
-
 bool Display::isOpen()
 {
     if (_window.isOpen())
@@ -64,11 +70,19 @@ bool Display::isOpen()
     else return false;
 }
 
+//! Clears the display window.
+/*! 
+    
+*/
 void Display::clear()
 {
     _window.clear();
 }
 
+//! Initialises font properties.
+/*! All fonts are the same size, colour and style
+    
+*/
 void Display::setupText(sf::Text& text)
 {
     text.setFont(_font_style);
@@ -77,6 +91,11 @@ void Display::setupText(sf::Text& text)
     text.setStyle(sf::Text::Bold);
 }
 
+//! Loads all textures as Rectangles
+/*! Each of the textures are loaded from files. All textures are defined 
+    in Structures.h
+    
+*/
 void Display::loadTextures()
 {
     _game_textures.tank_1.loadFromFile(_tank1_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.tank_sprite_x,_game_sprite_dimensions.tank_sprite_y));
@@ -90,6 +109,14 @@ void Display::loadTextures()
     _game_textures.end_screen.loadFromFile(_end_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
 }
 
+//! All pointers to SFML sprites are made here.
+/*! Each sprite is created and accessed via a shared_ptr. They are saved in
+    a map so that they can be referenced when drawn. This means that the 
+    number of sprites that exist are equal to the number of unique sprites.
+    It is from this map that a copy of the sprite is drawn. Any new sprites
+    that will be drawn can be added here.
+    
+*/
 void Display::addSprites()
 {
     //Create P_1 Tank Sprite
@@ -138,6 +165,10 @@ void Display::addSprites()
     _sprites.insert(std::pair<entity_type, std::shared_ptr<sf::Sprite>>(turret_missile,turret_missile_sp));
 }
 
+//! Checks SFML window events.
+/*! The only event included here is the closed window event. If the window is 
+    closed, the window in the software is closed too .Other events may be added here.
+*/
 void Display::pollEvents()
 {
     sf::Event event;
@@ -149,12 +180,21 @@ void Display::pollEvents()
     }
 }
 
+//! Checks SFML window events.
+/*! The only event included here is the closed window event. If the window is 
+    closed, the window in the software is closed too .Other events may be added here.
+*/
 void Display::drawBackground()
 {
     _window.draw(_map_sprite);
 }
 
-// Needs to get the dimensions from the draw manager
+//! Draws a game entity.
+/*! Sprites are located in the map using the entity_type. Once that entity is found,
+    it is drawn accordingly. 
+    \param Tells Display what entity to draw
+    \param Gives information about where the sprite should be drawn
+*/
 void Display::drawEntity(const entity_type& entity, const sprite_draw_info& draw_info)
 {
     std::map<entity_type,std::shared_ptr<sf::Sprite>>::iterator sprite_map_iterator;
@@ -172,6 +212,10 @@ void Display::drawEntity(const entity_type& entity, const sprite_draw_info& draw
     }
 }
 
+//! Draws all text.
+/*! All text is received as a string. 
+    \param Holds the strings of all the game text fields.
+*/
 void Display::drawText(const draw_strings& strings)
 {
     _game_time_text.setString(strings.game_time);
@@ -182,12 +226,19 @@ void Display::drawText(const draw_strings& strings)
     _window.draw(_p2_score_text);
 }
 
+//! Draws the end game screen.
+/*! All other sprites are cleared and a single sprite _end_map_sprite is
+    drawn.
+*/
 void Display::drawEndScreen()
 {
     _window.clear();
     _window.draw(_end_map_sprite);
 }
 
+//! Displays what has been drawn.
+/*! Only after everything has been drawn can it be displayed.
+*/
 void Display::display()
 {
     _window.display();

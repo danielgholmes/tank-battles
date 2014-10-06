@@ -1,8 +1,7 @@
 //! Handles all draw and display functionality.
-/*! This class interfaces with SFML. It receives
-    all information to draw via the DisplayManager.
-    It also contains information such as the
-    file names of all sprite textures.
+/*! This class interfaces with SFML. It receives all information to draw via 
+    the DisplayManager. It also contains information such as thefile names of 
+    all sprite textures.
     \file       Display.h
     \author     Daniel Holmes & Jonathan Gerrand
     \version    2.0
@@ -20,7 +19,7 @@
 class Display
 {
 public:
-    Display(int window_width = 800, int window_height = 600); /////// *****
+    Display(int window_width = 800, int window_height = 600);
 
     bool isOpen();
     void pollEvents();
