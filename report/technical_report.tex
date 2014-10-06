@@ -15,7 +15,8 @@
 \usepackage{KJN}
 \usepackage{array}
 \usepackage{url}
-
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc}
 %
 % PDF Info
 %
@@ -87,6 +88,30 @@ It is assumed that the computer running the game will meet the minimum system re
 The chosen design is based off the MVC GUI model.the main Figure 1 shows the adapted version of MVC know as passive MVC used as a high level design for the game. A typical MVC design would include the model actually updating the view. With passive MVC, the display polls the model for changes. The polling methodology is suited to be used in the way the main program loop executes, where the display is updated at the end of the loop. 
 
 Another modification inherit in the design is the connection between the controller and the data. Typically, MVC would have the controller simply updating the data. Figure 1 shows information moves in both directions between the controller and data. Model data is not only updated, but it is also retrieved by the controller to be used in logical operations. Another reason for this particular modification of MVC is due to the use of managers. During a particular management cycle, information from the model is retrieved, processed and then the model is updated accordingly. Only once all the data has been processed by the managers does the display get updated.  
+
+% Define block styles
+\tikzstyle{block} = [rectangle, draw, fill=white!20, 
+    text width=6em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance = 2cm, text width = 14em]
+    % Place nodes
+    \node [block, node distance=3cm] (model) {Model (Game Entities)};
+    \node [block, left of=model, node distance=3cm] (view) {View};
+    \node [block, right of=model, node distance=3cm] (controller) {Controller (Managers)};
+    \node [block, below of=model] (user) {User};
+    % Draw edges
+    \path [line] (model) -- (view);
+    \path [line] (controller) -- (model);
+    \path [line] (model) -- (controller);
+    \path [line, dashed] (view) |- (user);
+    \path [line, dashed] (user) -| (controller); 
+
+\end{tikzpicture}
+\caption{Modified Passive Model View Controller GUI Architecture}
+\end{figure}
 
 %Perhpas include a game summary of what actually happens in the game
 
