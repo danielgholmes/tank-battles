@@ -1,8 +1,8 @@
 //! Implementation for Display class.
 /*! This class interfaces with SFML. It receives
-    all infrmation to draw via the DisplayManager.
-    It also contains information such as the 
-    filenames of all sprite textures.
+    all information to draw via the DisplayManager.
+    It also contains information such as the
+    file names of all sprite textures.
     \file       Display.cpp
     \author     Daniel Holmes & Jonathan Gerrand
     \version    2.0
@@ -29,6 +29,11 @@ Display::Display(int window_width, int window_height):
         std::cout << "Unable to load Map file!" << std::endl;
 
     _map_sprite.setTexture(_map_texture);
+
+    if (!_end_map_texture.loadFromFile(_end_texture_file))
+        std::cout << "Unable to load Map file!" << std::endl;
+
+    _end_map_sprite.setTexture(_end_map_texture);
 
     if (!_font_style.loadFromFile(_font_file))
        std::cout << "Unable to load font file!" << std::endl;
@@ -82,6 +87,7 @@ void Display::loadTextures()
 	_game_textures.turret.loadFromFile(_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.turret_sprite_x,_game_sprite_dimensions.tank_sprite_y));
 	_game_textures.map.loadFromFile(_map_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
 	_game_textures.turret_missile.loadFromFile(_missile_turret_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.missile_sprite_x,_game_sprite_dimensions.missile_sprite_y));
+    _game_textures.end_screen.loadFromFile(_end_texture_file, sf::IntRect(0,0,_game_sprite_dimensions.map_sprite_x,_game_sprite_dimensions.map_sprite_y));
 }
 
 void Display::addSprites()
@@ -174,6 +180,12 @@ void Display::drawText(const draw_strings& strings)
     _window.draw(_game_time_text);
     _window.draw(_p1_score_text);
     _window.draw(_p2_score_text);
+}
+
+void Display::drawEndScreen()
+{
+    _window.clear();
+    _window.draw(_end_map_sprite);
 }
 
 void Display::display()

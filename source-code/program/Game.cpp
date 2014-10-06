@@ -29,11 +29,20 @@ void Game::runWorld(std::shared_ptr<Display> display)
 
 	while(display->isOpen()) // main game loop
 	{
-		_game_management_data.resetActionsInfo();
-		display->pollEvents();
-		checkKeyboardInput(_game_management_data);
-		runAllManagers(_game_management_data, display);
-		addNewWorldEntity(_game_management_data);
+	    if (!_game_management_data.isGameFinished())
+        {
+            _game_management_data.resetActionsInfo();
+            display->pollEvents();
+            checkKeyboardInput(_game_management_data);
+            runAllManagers(_game_management_data, display);
+            addNewWorldEntity(_game_management_data);
+        }
+        else
+        {
+            display->pollEvents();
+            display->drawEndScreen();
+            display->display();
+        }
 	}
 
 	return;
@@ -173,7 +182,7 @@ void Game::runAllManagers(GameManagementData& game_data_container, std::shared_p
 	_tracking_manager.manage(game_data_container);
 	_destruction_manager.manage(game_data_container);
 	_state_manager.manage(game_data_container);
-	_draw_manager.manage(game_data_container, display/*, _window*/);
+	_draw_manager.manage(game_data_container, display);
 }
 
 void Game::addNewWorldEntity(GameManagementData& game_data_container)

@@ -75,6 +75,7 @@ struct textures
 	sf::Texture map;
 	sf::Texture turret;
 	sf::Texture turret_missile;
+    sf::Texture end_screen;
 };
 
 struct coordinate
