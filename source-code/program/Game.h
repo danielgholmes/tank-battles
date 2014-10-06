@@ -46,6 +46,7 @@
 /// Used for trigonometric calculations
 #define PI          3.141592653589793238462643383279502884L
 
+/// Main class which runs the program loop.
 class Game
 {
 public:

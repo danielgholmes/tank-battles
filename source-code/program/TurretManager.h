@@ -1,10 +1,10 @@
-/**
- * \class   TurretManager
- * \file 	TurretManager.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Class that manages all Turret objects
- */
+//! Manager responsible for controlling the turrets rotation.
+/*! The manager controls all the turrets movements during each program cycle
+    \file       TurretManager.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
  #ifndef TURRETMANAGER_H_
  #define TURRETMANAGER_H_
@@ -13,27 +13,19 @@
  #include "Structures.h"
  #include "Turret.h"
 
+/// Manager responsible for controlling the turrets rotation.
  class TurretManager: public Manager
  {
  public:
-
-     ///Constructor
      TurretManager();
-
-     ///Function called to manager the movement state of all objects
      void manage();
-
-     ///Function to add new Turret entities to the manager
      void addNewEntity(std::weak_ptr<Turret> new_entity);
-
-     ///Destructor
      virtual ~TurretManager();
 
  private:
-
-    std::vector<std::weak_ptr<Turret>> _turretables; // =P
+    /// Container for all weak pointers to game turret entities
+    std::vector<std::weak_ptr<Turret>> _turretables; 
     void removeGarbage();
-
  };
 
  #endif // TURRETMANAGER_H_

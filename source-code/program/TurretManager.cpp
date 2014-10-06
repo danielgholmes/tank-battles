@@ -1,9 +1,10 @@
-/**
- * /file 	TurretManger.cpp
- * /author 	Daniel Holmes & Jonathan Gerrand
- * /date 	2 September 2014
- * /brief 	Implementation for MoveManager class
- */
+//! Manager responsible for controlling the turrets rotation.
+/*! The manager controls all the turrets movements during each program cycle
+    \file       TurretManager.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
 #include "TurretManager.h"
 
@@ -17,6 +18,9 @@ TurretManager::~TurretManager()
 
 }
 
+//! Manage turret movements
+/*! All turrets are simply rotated each time the manager runs
+*/
 void TurretManager::manage()
 {
     //Clear the vector of deleted turret entities
@@ -35,11 +39,17 @@ void TurretManager::manage()
     }
 }
 
+//! Add a new weak pointer to a game turrt
+/*! All the turrets have weak pointers stored in the TurretManager private vector.
+*/
 void TurretManager::addNewEntity(std::weak_ptr<Turret> new_entity)
 {
     _turretables.push_back(new_entity);
 }
 
+//! Removed weak pointers of objects that have been deleted
+/*!
+*/
 void TurretManager::removeGarbage()
 {
     auto removable = _turretables.begin();
