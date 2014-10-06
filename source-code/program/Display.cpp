@@ -20,8 +20,8 @@
     window title can be changed within the _window constructor. The rest of
     the function makes sure that the main map textures are loaded correctly.
     The text objects for the game are also initialised here.
-    \param default is set to 800
-    \param default is set to 600
+    \param window_width :: default is set to 800
+    \param window_height :: default is set to 600
 */
 Display::Display(int window_width, int window_height):
     _window_width(window_width),
@@ -72,7 +72,6 @@ bool Display::isOpen()
 
 //! Clears the display window.
 /*! 
-    
 */
 void Display::clear()
 {
@@ -81,7 +80,7 @@ void Display::clear()
 
 //! Initialises font properties.
 /*! All fonts are the same size, colour and style
-    
+    \param text :: the text to be initialised
 */
 void Display::setupText(sf::Text& text)
 {
@@ -94,7 +93,6 @@ void Display::setupText(sf::Text& text)
 //! Loads all textures as Rectangles
 /*! Each of the textures are loaded from files. All textures are defined 
     in Structures.h
-    
 */
 void Display::loadTextures()
 {
@@ -115,7 +113,6 @@ void Display::loadTextures()
     number of sprites that exist are equal to the number of unique sprites.
     It is from this map that a copy of the sprite is drawn. Any new sprites
     that will be drawn can be added here.
-    
 */
 void Display::addSprites()
 {
@@ -192,8 +189,8 @@ void Display::drawBackground()
 //! Draws a game entity.
 /*! Sprites are located in the map using the entity_type. Once that entity is found,
     it is drawn accordingly. 
-    \param Tells Display what entity to draw
-    \param Gives information about where the sprite should be drawn
+    \param entity :: Tells Display what entity to draw
+    \param draw_info :: Gives information about where the sprite should be drawn
 */
 void Display::drawEntity(const entity_type& entity, const sprite_draw_info& draw_info)
 {
@@ -214,7 +211,7 @@ void Display::drawEntity(const entity_type& entity, const sprite_draw_info& draw
 
 //! Draws all text.
 /*! All text is received as a string. 
-    \param Holds the strings of all the game text fields.
+    \param strings :: Holds the strings of all the game text fields.
 */
 void Display::drawText(const draw_strings& strings)
 {

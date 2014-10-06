@@ -91,7 +91,7 @@ private:
     /// Container for all entities on the game world
 	std::vector<std::weak_ptr<Deletable>> _world_entities;
 
-    // File name for the map grid text file
+    /// File name for the map grid text file
     std::string map_grid_filename = "map_grid.txt";
 
 	void setupInitialMap();

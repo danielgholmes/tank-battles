@@ -5,6 +5,12 @@
  * \brief 	Game class and the Game is instansiated within this file
  */
 
+ /**
+\mainpage Tanks A Lot Game Software Documentation
+
+Place cute message here
+*/
+
 //includes
 #include "Game.h"
 #include "Display.h"
@@ -18,9 +24,7 @@ int main()
     Game TankWorld;
     TankWorld.runWorld(display);
 
-//    display->displayGameEndScreen();
-
-    std::cout << "Thank you for playing Tank-battle v1.1 !" << std::endl;
+    std::cout << "Tanks A Lot for Playing!" << std::endl;
     std::cout << "see: " << std::endl << "https://github.com/danielgholmes/tank-battles" << std::endl << "for latest version :D " << std::endl;
 
 }

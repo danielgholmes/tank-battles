@@ -8,7 +8,6 @@
     \date       2 September 2014
 */
 
-
 #include "Game.h"
 #include <iostream>
 #include <fstream>
@@ -36,7 +35,7 @@ Game::Game():
     If it is and the game state has not been set as finished, then all main game 
     functions are called. Once the game finishes, the end game screen is displayed
     in an infinite loop. This runs until the game window is closed.
-    \param The display object for drawing and displaying all game entities.
+    \param display :: The display object for drawing and displaying all game entities.
 */
 void Game::runWorld(std::shared_ptr<Display> display)
 {
@@ -68,7 +67,7 @@ void Game::runWorld(std::shared_ptr<Display> display)
     library. Should a different keyboard library be desired, adjustments should be
     made to the keyboard enum as well. The action data is changed based on user input.
     This covers both player 1 and player 2 controls.
-    \param Information passed by reference about what actions the player has taken.
+    \param action_data_container :: Information passed by reference about what actions the player has taken.
 */
 void Game::checkKeyboardInput(ActionData& action_data_container)
 {
@@ -149,8 +148,8 @@ void Game::setupInitialMap()
     line and saved to a primary vector. This primary vector is then saved to a secondary
     vector which holds each line or horizontal set of map block. Each symbol corresponds
     to a single game entity.
-    \param Vector that contains the map, which is written to here.
-    \param Reference to the map file object
+    \param map_vector :: Vector that contains the map, which is written to here.
+    \param map_grid_file :: Reference to the map file object
 */
 void Game::getMapData(std::vector<std::vector<char>>& map_vector, std::ifstream& map_grid_file)
 {
@@ -180,7 +179,7 @@ void Game::getMapData(std::vector<std::vector<char>>& map_vector, std::ifstream&
     accordingly. Any other entities that wish to be added should have a unique
     symbol that is included in the map. If many symbols are needed then a vector of
     symbols may be used.
-    \param Map vector is read only.
+    \param map_vector :: Map vector is read only.
 */
 void Game::readMapData(const std::vector<std::vector<char>>& map_vector)
 {
@@ -220,8 +219,8 @@ void Game::readMapData(const std::vector<std::vector<char>>& map_vector)
 //! All managers manage.
 /*! Any new manager added should be added here. Note that the only manager that has access to the 
     display is the draw manager.
-    \param Tempory game data required by the managers.
-    \param Display object required by the draw manager.
+    \param game_data_container :: Tempory game data required by the managers.
+    \param display :: Display object required by the draw manager.
 */
 void Game::runAllManagers(GameManagementData& game_data_container, std::shared_ptr<Display> display)
 {
@@ -240,7 +239,7 @@ void Game::runAllManagers(GameManagementData& game_data_container, std::shared_p
     For example, firing a missile or laying a tank would cause a new entity to be created.
     This function requires a lot of refactoring as it is too long and there are repetitions
     in several instances.
-    \param Data about what is happening at this point in the game.
+    \param game_data_container :: Data about what is happening at this point in the game.
 */
 void Game::addNewWorldEntity(GameManagementData& game_data_container)
 {
@@ -324,7 +323,7 @@ void Game::addNewWorldEntity(GameManagementData& game_data_container)
 /*! Turrets are not respawned in this version. Doing so would reuqired changing GameManagementData.
     Tanks are respawned at their starting positions. No provision is made in this version for
     counteracting spawn raids.
-    \param Data the holds information about what tanks need to be respawned 
+    \param game_data_container :: Data the holds information about what tanks need to be respawned 
 */
 void Game::manageRespawns(GameManagementData& game_data_container)
 {
@@ -344,10 +343,10 @@ void Game::manageRespawns(GameManagementData& game_data_container)
 //! Adds a new tank object.
 /*! Tank objects are created as Deletables. Each tank is added to the _destruction_manager
     vector. They exists here as shared pointers.
-    \param Information about which players tank is being created.
-    \param Tank x position
-    \param Tank y position
-    \param Tanks current rotation angle
+    \param player_tank :: Information about which players tank is being created.
+    \param tank_positionX :: Tank x position
+    \param tank_positionY :: Tank y position
+    \param rotation :: Tanks current rotation angle
 */
 void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_positionY, float rotation)
 {
@@ -363,9 +362,9 @@ void Game::addNewTank(entity_type player_tank, float tank_positionX, float tank_
 //! Adds a new turret object.
 /*! Tank objects are created as Deletables. Each turret is added to the _destruction_manager
     vector. They exists here as shared pointers.
-    \param Turret x position
-    \param Turret y position
-    \param Turrets current rotation angle
+    \param turret_postionX :: Turret x position
+    \param turret_positionY :: Turret y position
+    \param rotation :: Turrets current rotation angle
 */
 void Game::addNewTurret(float turret_postionX, float turret_positionY, float rotation)
 {
@@ -381,7 +380,7 @@ void Game::addNewTurret(float turret_postionX, float turret_positionY, float rot
 //! Adds a new missile object.
 /*! Tank objects are created as Deletables. Each missile is added to the DestructionManager
     vector. They exists here as shared pointers.
-    \param Shared pointer that points to the missile object
+    \param missile_del_sp :: Shared pointer that points to the missile object
 */
 void Game::addNewMissile(std::shared_ptr<Deletable> missile_del_sp)
 {
@@ -395,7 +394,7 @@ void Game::addNewMissile(std::shared_ptr<Deletable> missile_del_sp)
 //! Adds a new mine object.
 /*! Tank objects are created as Deletables. Each mine is added to the DestructionManager
     vector. They exists here as shared pointers.
-    \param Shared pointer that points to the mine object
+    \param mine_del_sp :: Shared pointer that points to the mine object
 */
 void Game::addNewMine(std::shared_ptr<Deletable> mine_del_sp)
 {
@@ -408,8 +407,8 @@ void Game::addNewMine(std::shared_ptr<Deletable> mine_del_sp)
 //! Adds a new barrier object.
 /*! Tank objects are created as Deletables. Each barrier is added to the DestructionManager
     vector. They exists here as shared pointers.
-    \param Barrier x pos
-    \param Barrier y pos
+    \param x :: Barrier x pos
+    \param y :: Barrier y pos
 */
 void Game::createBarrier(int x, int y)
 {
@@ -423,7 +422,7 @@ void Game::createBarrier(int x, int y)
 //! Adds entity to deletables vector.
 /*! Shared pointers are cast as weak pointers. These are then pushed back to the DrawManager
     vector.
-    \param Shared pointer to be cast as weak pointer
+    \param deletable_sp :: Shared pointer to be cast as weak pointer
 */
 void Game::addDeletable(std::shared_ptr<Deletable> deletable_sp)
 {
@@ -435,7 +434,7 @@ void Game::addDeletable(std::shared_ptr<Deletable> deletable_sp)
 //! Adds entity to collidables
 /*! Shared pointers are cast as weak pointers. These are then pushed back to the CollisionManager
     vector.
-    \param Shared pointer to be cast as weak pointer
+    \param deletable_sp :: Shared pointer to be cast as weak pointer
 */
 void Game::addCollidable(std::shared_ptr<Deletable> deletable_sp)
 {
@@ -446,7 +445,7 @@ void Game::addCollidable(std::shared_ptr<Deletable> deletable_sp)
 //! Adds entity to movables
 /*! Shared pointers are cast as weak pointers. These are then pushed back to the MoveManager
     vector.
-    \param Shared pointer to be cast as weak pointer
+    \param movable_sp :: Shared pointer to be cast as weak pointer
 */
 void Game::addMovable(std::shared_ptr<Deletable> movable_sp)
 {
@@ -457,7 +456,7 @@ void Game::addMovable(std::shared_ptr<Deletable> movable_sp)
 //! Adds entity to trackables
 /*! Shared pointers are cast as weak pointers. These are then pushed back to the TrackingManager
     vector.
-    \param Shared pointer to be cast as weak pointer
+    \param trackable_sp :: Shared pointer to be cast as weak pointer
 */
 void Game::addTrackable(std::shared_ptr<Deletable> trackable_sp)
 {
@@ -468,7 +467,7 @@ void Game::addTrackable(std::shared_ptr<Deletable> trackable_sp)
 //! Adds entity to turrets
 /*! Shared pointers are cast as weak pointers. These are then pushed back to the TurretManager
     vector.
-    \param Shared pointer to be cast as weak pointer
+    \param turret_sp :: Shared pointer to be cast as weak pointer
 */
 void Game::addTurretable(std::shared_ptr<Deletable> turret_sp)
 {

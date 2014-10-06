@@ -1,23 +1,34 @@
-/**
- * /file 	DrawManager.cpp
- * /author 	Daniel Holmes & Jonathan Gerrand
- * /date 	2 September 2014
- * /brief 	Implementation for DrawManager class
- */
+//! Implementation for the DrawManager class.
+/*! This manager is part of the view module. It collects all relevant data for the
+    Display class for drawing. This manager does not changed any data.
+    \file       DrawManager.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
+*/
 
 #include "DrawManager.h"
 #include <iostream>
 #include <sstream>
 #include <string>
 
-///Constructor for DrawManager
+//! Draw manager object constructor.
+/*! Create the sprite dimensions object
+*/
 DrawManager::DrawManager():
     _sprite_dimensions()
 {
 
 }
 
-///Drawing management cycle. The manager will render all the entites within the game world.
+//! Drawing management cycle. 
+/*! Main function of the DrawManager. The display object is accessable within here. The DrawManager
+    first gets the display to clear the window and display the background. Then all drawables are
+    iterated through and drawn. Info is collected based on the entity that will be drawn. This 
+    information is passed to the display object which actually performs the drawing.
+    \param game_state_container :: Game data that hold the time and player scores to be drawn
+    \param display :: The display to which display information is passed.
+*/
 void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Display> display)
 {
     display->clear();
@@ -97,7 +108,7 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
 
     draw_strings strings;
 
-    std::ostringstream strs1;
+    std::ostringstream strs1; // convert to strings
     strs1 << game_state_container.getGameTime();
     strings.game_time = strs1.str();
 
@@ -113,6 +124,11 @@ void DrawManager::manage(GameStateData& game_state_container, std::shared_ptr<Di
     display->display();
 }
 
+//! Gets info for tank to be drawn.
+/*! This info includs the origin and position of the tank.
+    \param draw_entity_sp :: shared pointer to the object from which info will be extracted
+    \param draw_info :: Info that will be updated with the entity draw position info.
+*/
 void DrawManager::getTankDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)
 {
     draw_info.origin.x = _sprite_dimensions.tank_sprite_x/2;
@@ -120,6 +136,11 @@ void DrawManager::getTankDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, spr
     getDrawPosition(draw_entity_sp, draw_info);
 }
 
+//! Gets info for barrier to be drawn.
+/*! This info includs the origin and position of the barrier.
+    \param draw_entity_sp :: shared pointer to the object from which info will be extracted
+    \param draw_info :: Info that will be updated with the entity draw position info.
+*/
 void DrawManager::getBarrierDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)
 {
     draw_info.origin.x = _sprite_dimensions.barrier_sprite_x/2;
@@ -127,6 +148,11 @@ void DrawManager::getBarrierDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, 
     getDrawPosition(draw_entity_sp, draw_info);
 }
 
+//! Gets info for missile to be drawn.
+/*! This info includs the origin and position of the missile.
+    \param draw_entity_sp :: shared pointer to the object from which info will be extracted
+    \param draw_info :: Info that will be updated with the entity draw position info.
+*/
 void DrawManager::getMissileDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)
 {
     draw_info.origin.x = _sprite_dimensions.missile_sprite_x/2;
@@ -134,6 +160,11 @@ void DrawManager::getMissileDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, 
     getDrawPosition(draw_entity_sp, draw_info);
 }
 
+//! Gets info for mine to be drawn.
+/*! This info includs the origin and position of the mine.
+    \param draw_entity_sp :: shared pointer to the object from which info will be extracted
+    \param draw_info :: Info that will be updated with the entity draw position info.
+*/
 void DrawManager::getMineDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)
 {
     draw_info.origin.x = _sprite_dimensions.mine_sprite_x/2;
@@ -141,6 +172,11 @@ void DrawManager::getMineDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, spr
     getDrawPosition(draw_entity_sp, draw_info);
 }
 
+//! Gets info for turret to be drawn.
+/*! This info includs the origin and position of the turret.
+    \param draw_entity_sp :: shared pointer to the object from which info will be extracted
+    \param draw_info :: Info that will be updated with the entity draw position info.
+*/
 void DrawManager::getTurretDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)
 {
     draw_info.origin.x = _sprite_dimensions.turret_sprite_x/2;
@@ -148,6 +184,11 @@ void DrawManager::getTurretDrawInfo(std::shared_ptr<Deletable> draw_entity_sp, s
     getDrawPosition(draw_entity_sp, draw_info);
 }
 
+//! Gets info for an entity to be drawn.
+/*! This info includs the origin and position of the entity.
+    \param draw_entity_sp :: shared pointer to the object from which info will be extracted
+    \param draw_info :: Info that will be updated with the entity draw position info.
+*/
 void DrawManager::getDrawPosition(std::shared_ptr<Deletable> draw_entity_sp, sprite_draw_info& draw_info)
 {
     draw_info.draw_pos.x = draw_entity_sp->getDrawPositionX();
@@ -155,12 +196,16 @@ void DrawManager::getDrawPosition(std::shared_ptr<Deletable> draw_entity_sp, spr
     draw_info.rotation = draw_entity_sp->getDrawRotation();
 }
 
+//! Adds a pointer to a drawable object.
+/*! A weak pointer is saved to the private vector of the DrawManager
+    \param new_entity :: weak pointer to entity that will be added
+*/
 void DrawManager::addNewEntity(const std::weak_ptr<Deletable> new_entity)
 {
 	_drawables.push_back(new_entity);
 }
 
-///Destructor for DrawManager
+//Destructor for DrawManager
 DrawManager::~DrawManager()
 {
 
