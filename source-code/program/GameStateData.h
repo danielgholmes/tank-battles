@@ -1,5 +1,5 @@
-//! An Abstract-based class providing an interface for action data containing classes
-/*! This class is used as a interface-parent for a classes which will hold action data
+//! An Abstract-based class providing an interface for game state data containing classes
+/*! This class is used as a interface-parent for a classes which will hold game data (score etc)
     for the game. It defines an array of pure virtual getters and setters which can
     be implemented in various ways for versitiliy.
     \file       GameStateData.h
