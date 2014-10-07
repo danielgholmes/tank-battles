@@ -6,9 +6,9 @@
  */
 
  /**
-\mainpage Tanks A Lot Game Software Documentation
+\mainpage "Tanks A Lot" Software Documentation
 
-Place cute message here
+Welcome! 
 */
 
 //includes

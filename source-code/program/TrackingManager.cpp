@@ -1,26 +1,33 @@
-/**
- * \file 	TrackingManager.cpp
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	6 September 2014
- * \brief 	implementation for the TrackingManager class
- */
+//! Manager responsible for keeping track of game entity positions
+/*! This manager uses a lot of getter funtions in order to determine positions of the
+    game entities. These values are stored as temporary private data variables.
+    \file       TrackingManager.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
 #include "TrackingManager.h"
 
-/// Constructor for Tracking manager
+//! Constructor that initialises the _geometry_engine
+/*!
+*/
 TrackingManager::TrackingManager():
     _geometry_engine()
 {
 
 }
 
-/// Destructor for Tracking manager
 TrackingManager::~TrackingManager()
 {
 
 }
 
-/// Manage function allowing the position of all Trackable entities to be kept
+//! Manage function allowing the position of all Trackable entities to be kept
+/*! This includes the tracking of the tanks by the turrets. The positions are obtained and then
+    passed to the _geometry_engine where comparisons are made.
+    \param action_data_container :: Will set turret file in this container if needs be
+*/
 void TrackingManager::manage(ActionData& action_data_container)
 {
     removeGarbage();
@@ -85,6 +92,9 @@ void TrackingManager::manage(ActionData& action_data_container)
     }//For
 }//function
 
+//! Clear all deleted pointers.
+/*!
+*/
 void TrackingManager::removeGarbage()
 {
     //Clear all deleted entities from the _trackables vector
@@ -106,62 +116,83 @@ void TrackingManager::removeGarbage()
     }// if
 }//function
 
-///Return x position of all Turrets
+//! Return x position of all Turrets
+/*!
+*/
 const std::vector<float>& TrackingManager::getTurretPositionsX()
 {
     return _turretPositionsX;
 }
 
-///Return y position of all Turrets
+
+//! Return y position of all Turrets
+/*!
+*/
 const std::vector<float>& TrackingManager::getTurretPositionsY()
 {
     return _turretPositionsY;
 }
 
-///Return rotation of all Turrets
+//! Return rotation of all Turrets
+/*!
+*/
 const std::vector<float>& TrackingManager::getTurretRotations()
 {
     return _turretRotations;
 }
 
-///Return x position of P1 Tank
+//! Return x position of P1 Tank
+/*!
+*/
 const float TrackingManager::getP1PositionX()
 {
     return _p1PositionX;
 }
 
-///Return y position of P1 Tank
+//! Return y position of P1 Tank
+/*!
+*/
 const float TrackingManager::getP1PositionY()
 {
     return _p1PositionY;
 }
 
 
-///Return rotation of P1 Tank
+//! Return rotation of P1 Tank
+/*!
+*/
 const float TrackingManager::getP1Rotation()
 {
     return _p1Rotation;
 }
 
-///Return x position of P2 Tank
+//! Return x position of P2 Tank
+/*!
+*/
 const float TrackingManager::getP2PositionX()
 {
     return _p2PositionX;
 }
 
-///Return y position of P2 Tank
+//! Return y position of P2 Tank
+/*!
+*/
 const float TrackingManager::getP2PositionY()
 {
     return _p2PositionY;
 }
 
-///Return rotation of P2 Tank
+//! Return rotation of P2 Tank
+/*!
+*/
 const float TrackingManager::getP2Rotation()
 {
     return _p2Rotation;
 }
 
-/// Add Trackable-type shared_ptr's to the TrackingManagers internal data members
+//! Add Trackable-type shared_ptr's to the TrackingManagers internal data members
+/*!
+*/
 void TrackingManager::addNewEntity(std::weak_ptr<Trackable> new_entity)
 {
     _trackables.push_back(new_entity);
