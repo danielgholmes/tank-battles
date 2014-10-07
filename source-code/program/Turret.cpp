@@ -1,13 +1,14 @@
-/**
- * \file   Turret.cpp
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   2 September 2014
- * \brief  Implementation file for Turrent
+//! Implementation of the Turret Class
+/*! This class  possesses multiple interfaces for interaction with various managers and
+    forms part of the basic model entities
+    \file       Turret.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
  */
 
 
 #include "Turret.h"
-
 
 Turret::Turret(float positionX, float positionY, float rotation):
     _rotation(rotation),

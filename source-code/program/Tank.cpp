@@ -1,8 +1,10 @@
-/**
- * \file 	Tank.cpp
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Implementation for Tank class
+//! Implementation of the Tank Class
+/*! This class  possesses multiple interfaces for interaction with various managers and
+    forms part of the basic model entities
+    \file       Tank.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
  */
 
 #include "Tank.h"
@@ -116,7 +118,7 @@ void Tank::setCollided()
 }
 
 ///Determine the blocked state of the tank entity
-const bl ocked_status Tank::isBlocked()
+const blocked_status Tank::isBlocked()
 {
     return _blockedStatus;
 }

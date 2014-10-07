@@ -1,9 +1,11 @@
-/**
- * \class  Missile
- * \file   Missile.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   2 September 2014
- * \brief  Child class for all missile objects
+//! Entity Class representing the Missile in the game world
+/*! This class  possesses multiple interfaces for interaction with various managers and
+    forms part of the basic model entities
+    \class      Missile
+    \file       Missile.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
  */
 
 #ifndef MISSILE_H_
