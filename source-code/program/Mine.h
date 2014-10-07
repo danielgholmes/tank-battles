@@ -1,10 +1,10 @@
-/**
- * \class  Mine
- * \file   Mine.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   2 September 2014
- * \brief  Child class for all mine objects
- */
+//! Model class for a Mine
+/*! Consists of all virtual functions
+    \file       TrackingManager.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
 #ifndef MINE_H_
 #define MINE_H_
@@ -18,6 +18,7 @@
 
 class InvalidConstructorArgumentsMine{};
 
+/// Model class for a Mine
 class Mine: virtual public Collidable
 {
 public:
