@@ -1,10 +1,11 @@
-/**
- * \class  Collidable
- * \file   Collidable.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   4 September 2014
- * \brief  Parent class for all objects capable of 'Colliding' within the game world
- *
+//! An Abstract-based class forming an interface for all collidable model objects.
+/*! This class is used as an interfacing template by all objects which are capable of
+    colliding. Collidable classes are handled by the CollisionManager which has full
+    access to all member functions within the class interface
+    \file    Collidable.h
+    \author  Daniel Holmes & Jonathan Gerrand
+    \version 2.0
+    \date    4 September 2014
  */
 
 
@@ -32,9 +33,6 @@ public:
     virtual void setUnblocked() = 0;
     ///Set collision state of entity
     virtual void setCollided() = 0;
-
-    //setBlockeDirection
-
     ///Destructor
     virtual ~Collidable() = 0;
 
