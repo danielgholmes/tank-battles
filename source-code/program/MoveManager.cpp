@@ -1,22 +1,40 @@
-/**
- * /file 	MoveManager.cpp
- * /author 	Daniel Holmes & Jonathan Gerrand
- * /date 	2 September 2014
- * /brief 	Implementation for MoveManager class
+//! Manager responsible for moving all movable objects.
+/*! This class is responsible for performing all movement associated logic
+    within the game world. It acts upon all movables and has access to
+    their member functions.
+    \file 	    MoveManager.cpp
+    \author 	Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date 	    2 September 2014
  */
 
 #include "MoveManager.h"
 
+
+//! Constructor
+/*! This constructor is minimal. Entities are associated to MoveManager
+    through the addNewEntities function
+*/
 MoveManager::MoveManager()
 {
 
 }
 
+//! Destructor
+/*! No further implementation defined
+*/
 MoveManager::~MoveManager()
 {
 
 }
 
+//! The MoveManager Logical Management function
+/*! The function works by evaluating the private vector of weak_pointers
+    stored within MoveManager and determining if each one can move or not. A 'blocked'
+    status wil result in an object not being able to move (or it will be reflected in the
+    case of a missile)
+    \param action_data_contatiner :: a data container with all relevant move info for the current management cycle.
+*/
 void MoveManager::manage(const ActionData& action_data_container)
 {
     actions_info managerInstructions = action_data_container.giveActionInfo();
@@ -177,6 +195,12 @@ void MoveManager::manage(const ActionData& action_data_container)
     }//Range-based for
 }//Function
 
+
+//! Removes all deleted entities from move manager
+/*! This function uses the MoveManagers vector of weak pointers which are
+    asked to lock to determine whether or not they still point to an existing
+    object. It the object does not exist, it is erased from the MoveManager vector
+*/
 void MoveManager::removeGarbage()
 {
     auto removable = _movables.begin();
@@ -198,6 +222,10 @@ void MoveManager::removeGarbage()
     }
 }
 
+//! Used to add new weak pointer instances to the MoveManager private vector
+/*! This function allows for new entities to be passed and managed by the MovementManager
+    by adding the weak pointers of created Movable objects to the classes private vector.
+*/
 void MoveManager::addNewEntity(std::weak_ptr<Movable> new_entity)
 {
     _movables.push_back(new_entity);

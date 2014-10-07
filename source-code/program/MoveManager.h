@@ -1,9 +1,11 @@
-/**
- * \class 	MoveManager
- * \file 	MoveManager.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Class that moves all movable objects
+//! Manager responsible for moving all movable objects.
+/*! This class is responsible for performing all movement associated logic
+    within the game world. It acts upon all movables and has access to
+    their member functions.
+    \file 	    MoveManager.h
+    \author 	Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date 	    2 September 2014
  */
 
 #ifndef MOVEMANAGER_H_
