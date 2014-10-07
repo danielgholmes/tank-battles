@@ -1,18 +1,17 @@
-/**
- * \class  Trackable
- * \file   Trackable.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   4 September 2014
- * \brief  Parent class for all objects capable of being 'Tracked' within the game world
- *
+//! An Abstract-based class forming an interface for all Trackable objects within the game
+/*! This class is used as an interfacing template by all objects which are capable of
+    being Tracked. Trackable classes are handled by the taracking manager
+    who has access to all member functions within this class interface.
+    \class      Trackable
+    \file       Trackable.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       4 September 2014
  */
 
 #ifndef TRACKABLE_H_
 #define TRACKABLE_H_
-
-//Forward Declarations
-
-//Includes
+//includes
 #include "Deletable.h"
 #include "SFML/Graphics.hpp"
 

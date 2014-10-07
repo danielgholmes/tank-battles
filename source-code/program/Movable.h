@@ -1,16 +1,15 @@
-/**
- * \class  Movable
- * \file   Moveable.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   2 September 2014
- * \brief  Base class for all objects capable of 'Moving' within the game world
- *
+//! An Abstract-based class forming an interface for all Moveable objects within the game.
+/*! This class is used as an interfacing template by all objects which are capable of
+    moving. Movable classes are handled by the move manager
+    who has access to all member functions within this class interface.
+    \class  Movable
+    \file   Moveable.h
+    \author Daniel Holmes & Jonathan Gerrand
+    \date   2 September 2014
  */
 
 #ifndef MOVABLE_H_
 #define MOVABLE_H_
-
-//Forward Declarations
 
 //Includes
 #include "Deletable.h"
