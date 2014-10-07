@@ -1,9 +1,11 @@
-/**
- * \class  Barrier
- * \file   Barrier.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   2 September 2014
- * \brief  Child class for all barrier objects
+//! A Composition-based class representing a simple barrier object within the game world
+/*! This class provides a base object which can be placed around  and boardering
+    the game map. It is currectly indestructible and blocks all objects which interact
+    with it.
+    \file       Barrier.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
  */
 
 #ifndef BARRIER_H_
@@ -28,8 +30,6 @@ public:
     Barrier(float positionX, float positionY, entity_type barrierTypeSet);
     ///Barrier is able to provide its identification
     virtual const entity_type& getType() const;
-    ///Barrier entity is able to be rendered
-    virtual void draw();
     ///Provide the bounding box for the Barrier entity
 	virtual const rect_corners& getBoundingBox() ;
     ///Get Axis Aligned bounding box of entity
