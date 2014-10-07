@@ -1,9 +1,12 @@
-/**
- * \class  Orientation
- * \file   Orientation.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   17 September 2014
- * \brief  Data class for all game entity's orientation
+//! Class responsible for holding the ordinal data of all model entities within the game.
+/*! As a means to remove SFML from being tightly coupled to each model entity within
+    the game, the Orientation class holds the x_pos, y_pos and rotation of each entity as
+    a compositon of entity classes. Orientiaion is also responsible for producing the bounding
+    boxes of entites used for collision detection.
+    \file   Orientation.h
+    \author Daniel Holmes & Jonathan Gerrand
+    \version 2.0
+    \date   17 September 2014
  */
 
  #include "Structures.h"
@@ -17,6 +20,7 @@ class InvalidStateOfCoordinates{};
 class Orientation
 {
 public:
+
 	///Constructor that initialises all data members of the class
 	Orientation(float origin_x, float origin_y, float width, float height, float rotation, bool controllable);
 	///Returns the entity origin x value

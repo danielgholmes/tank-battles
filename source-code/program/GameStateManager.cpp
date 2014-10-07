@@ -1,6 +1,6 @@
 //! Implementation for GameStateManager class.
 /*! This manager is responsible for managing the timing of the game, which
-    includes tha timer for the game run time. The other timers that it manages
+    includes the timer for the game run time. The other timers that it manages
     have to do with the timing between firing of missiles and laying of mines
     of each of the players' tanks.
     \file       CollisionManager.cpp
