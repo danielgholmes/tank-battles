@@ -1,10 +1,13 @@
-/**
- * \class   GeometryEngine
- * \file 	GeometryEngine.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	27 September 2014
- * \brief 	Class that takes care of all geometrical calculations
- */
+//! Class responisible for handling geometrical calculations.
+/*! This class is performs functions that relate to geometry in a Cartesian plane. It depends
+	heavily upon the rect_corners struct for almost all its functions. It makes use of the
+	separating axis theorem quite extensively.
+    \file       GeometryEngine.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
+
 
 #ifndef GEOMETRYENGINE_H_
 #define GEOMETRYENGINE_H_
@@ -14,6 +17,7 @@
 
 class InvalidRectEntityProvided{};
 
+/// Class responisible for handling geometrical calculations.
 class GeometryEngine
 {
 public:
@@ -33,18 +37,12 @@ public:
     const blocked_status getRelativePosition(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
 
 private:
-
-    ///Helper functions
+    //Helper functions
     bool lowwerPointsAboveTopOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
-
     bool upperPointsBelowBottomOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
-
     bool rightPointsLeftOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
-
     bool leftPointsRightOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity);
-
     bool isValidRectEntity(const rect_corners& rect_entity);
-
 };
 
 #endif // GEOMETRYENGINE_H_

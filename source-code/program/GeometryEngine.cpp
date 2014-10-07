@@ -1,14 +1,24 @@
-/**
- * \file 	GeometryEngine.cpp
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	27 September 2014
- * \brief 	Implementation
- */
+//! Class responisible for handling geometrical calculations.
+/*! This class is performs functions that relate to geometry in a Cartesian plane. It depends
+    heavily upon the rect_corners struct for almost all its functions.  It makes use of the
+    separating axis theorem quite extensively.
+    \file       GeometryEngine.cpp
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       29 September 2014
+*/
 
 #include "GeometryEngine.h"
 #include <vector>
 #include <cmath>
 
+//! Determines if two rectangles have collided
+/*! Throws an exception if invald arguments are given. The function goes through each axis
+    projections checking for an overlap.
+    \param rect_A :: Rectangle A
+    \param rect_B :: Rectangle B
+    \return bool
+*/
 bool GeometryEngine::isCollision(const rect_corners& rect_A,const rect_corners& rect_B)
 {
     if (!isValidRectEntity(rect_A)) throw InvalidRectEntityProvided();
@@ -39,6 +49,16 @@ bool GeometryEngine::isCollision(const rect_corners& rect_A,const rect_corners& 
     return true;
 }
 
+//! Determines rectangle is inline of sight of another.
+/*! Uses the shooter rotation to determine what angle the turret is sitting at. Based on this 
+    angle, the turrt will behave differently. This is because, using the separating axis theorem
+    creates a single axis for two opposites sides of a square. This is why a shooter would detect something 
+    from behind
+    \param rotation :: shooter rotation
+    \param shooter :: rectangle corners of the shooter
+    \param target :: rectangle corners of the target
+    \return bool
+*/
 bool GeometryEngine::isInLineOfFire(const float& rotation, const rect_corners& shooter, const rect_corners& target, const float& shooter_y, const float& target_y)
 {
     coordinate axis;
@@ -69,6 +89,13 @@ bool GeometryEngine::isInLineOfFire(const float& rotation, const rect_corners& s
     return false;
 }
 
+//! Determines if there is an overlap on this axis.
+/*! Overlaps are calculated for axis projected axis. The projections for both reactangles A and B are compared.
+    \param axis :: and x y vector
+    \param rect_A :: rectangle corners of A
+    \param rect_B :: rectangle corners of B
+    \return bool
+*/
 bool GeometryEngine::isRectangleOverlapForAxis(coordinate axis,const rect_corners& rect_A, const rect_corners& rect_B)
 {
 	float max_A = 0.0;
@@ -91,6 +118,12 @@ bool GeometryEngine::isRectangleOverlapForAxis(coordinate axis,const rect_corner
     	return false;
 }
 
+//! Calculates axis projections from rectangle vertices onto an axis.
+/*! \param axis_projections :: holds the projected axis values
+    \param rect :: rectangle whose vertice projections are being calculated from
+    \param axis :: used for the calculations
+    \return bool
+*/
 void GeometryEngine::calculateVectorProjections(std::vector<coordinate>& axis_projections, const rect_corners& rect, const coordinate& axis)
 {
 	coordinate point;
@@ -112,7 +145,15 @@ void GeometryEngine::calculateVectorProjections(std::vector<coordinate>& axis_pr
     axis_projections.push_back(point);
 }
 
-
+//! Determines which projections are the greatest
+/*! Values for A and B are claculated and passed back by reference
+    \param axis_projections :: holds the projected axis values
+    \param rect :: rectangle whose vertice projections are being calculated from
+    \param axis :: used for the calculations
+    \param max :: largest projection value saved here
+    \param min :: smallers projection value saved here
+    \return bool
+*/
 void GeometryEngine::calculateMaxAndMinProjectionMagnitude(const std::vector<coordinate>& axis_projections,const rect_corners& rect,const coordinate& axis, float& max, float& min)
 {
 	std::vector<float> projection_pos; // container that will indicate the projection position along axis
@@ -125,12 +166,27 @@ void GeometryEngine::calculateMaxAndMinProjectionMagnitude(const std::vector<coo
 	max = *std::max_element(projection_pos.begin(), projection_pos.end());
 }
 
-
+//! Calculates vector distance
+/*! Used for determing if some geometrical object falls with a certain radius of the other
+    \param x_coord_1 :: holds the projected axis values
+    \param y_coord_1 :: rectangle whose vertice projections are being calculated from
+    \param x_coord_2 :: used for the calculations
+    \param y_coord_2 :: largest projection value saved here
+    \return const float
+*/
 const float GeometryEngine::calculateVectorLength(const float x_coord_1, const float y_coord_1, const float x_coord_2, const float y_coord_2)
 {
     return (sqrt(pow((x_coord_1 - x_coord_2),2) + pow((y_coord_1 - y_coord_2),2)));
 }
 
+//! Calculates vector distance
+/*! Throws exception if rectangles are not valid data type.
+    \param x_coord_1 :: holds the projected axis values
+    \param y_coord_1 :: rectangle whose vertice projections are being calculated from
+    \param x_coord_2 :: used for the calculations
+    \param y_coord_2 :: largest projection value saved here
+    \return const float
+*/
 const blocked_status GeometryEngine::getRelativePosition(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
     if (!isValidRectEntity(rect_entity)) throw InvalidRectEntityProvided();
@@ -161,6 +217,12 @@ const blocked_status GeometryEngine::getRelativePosition(const rect_corners& rec
     return blocked_state;
 }
 
+//! Compares points of two rectangles
+/*! Compared upper left and right y coordinate points.
+    \param rect_entity :: holds the projected axis values
+    \param compared_rect_entity :: rectangle whose vertice projections are being calculated from
+    \return bool
+*/
 bool GeometryEngine::lowwerPointsAboveTopOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
     if ((rect_entity.upper_left.y >= compared_rect_entity.upper_left.y) &&
@@ -169,6 +231,12 @@ bool GeometryEngine::lowwerPointsAboveTopOfObject(const rect_corners& rect_entit
     else return false;
 }
 
+//! Compares points of two rectangles
+/*! Compared lower left and right y coordinate points.
+    \param rect_entity :: holds the projected axis values
+    \param compared_rect_entity :: rectangle whose vertice projections are being calculated from
+    \return bool
+*/
 bool GeometryEngine::upperPointsBelowBottomOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
     if((rect_entity.lower_left.y <= compared_rect_entity.lower_left.y) &&
@@ -177,6 +245,12 @@ bool GeometryEngine::upperPointsBelowBottomOfObject(const rect_corners& rect_ent
     else return false;
 }
 
+//! Compares points of two rectangles
+/*! Compared lower left and right y coordinate points. Also checks to see if one is right of the other. 
+    \param rect_entity :: holds the projected axis values
+    \param compared_rect_entity :: rectangle whose vertice projections are being calculated from
+    \return bool
+*/
 bool GeometryEngine::rightPointsLeftOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
     if ((rect_entity.lower_left.x <= compared_rect_entity.lower_left.x) &&
@@ -185,6 +259,12 @@ bool GeometryEngine::rightPointsLeftOfObject(const rect_corners& rect_entity, co
     else return false;
 }
 
+//! Compares points of two rectangles
+/*! Compared upper left and right y coordinate points. Also checks to see if one is left of the other.
+    \param rect_entity :: holds the projected axis values
+    \param compared_rect_entity :: rectangle whose vertice projections are being calculated from
+    \return bool
+*/
 bool GeometryEngine::leftPointsRightOfObject(const rect_corners& rect_entity, const rect_corners& compared_rect_entity)
 {
     if ((rect_entity.upper_right.x >= compared_rect_entity.upper_right.x) &&
@@ -193,6 +273,10 @@ bool GeometryEngine::leftPointsRightOfObject(const rect_corners& rect_entity, co
     else return false;
 }
 
+//! Checks if the rectangle enrty is valid
+/*! \param rect_entity :: rectangle that is being checked
+    \return bool
+*/
 bool GeometryEngine::isValidRectEntity(const rect_corners& rect_entity)
 {
     if (rect_entity.lower_left.x < -100) return false;
