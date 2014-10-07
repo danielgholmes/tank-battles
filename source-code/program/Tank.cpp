@@ -7,7 +7,14 @@
 
 #include "Tank.h"
 
-///Default Tank object constructor
+
+//! Constuctor of the Tank Class.
+/*! This constructor utilises excetion handling and seeks to ensure that its state is invariant.
+    \param positionX :: The initial x-axis to construct the tank on.
+    \param positionY :: The initial y-axis to construct the tank on
+    \param rotation :: The initial rotation to construct the tank with
+    \param tankOwner :: used to set the owner of the tank as either p1 or p2
+*/
 Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwner):
     _rotation(rotation),
     _type(tankOwner),
@@ -26,45 +33,69 @@ Tank::Tank(float positionX, float positionY, float rotation, entity_type tankOwn
     _collidedStatus = 0;
 }
 
-///Return the ownership and type of the Tank entity
+
+//!  Returns the owner of the tank
+/*!  This is function is used in many logic instanses where the owner of the
+     tank needs to be determined.
+     \return entity_type
+*/
  const entity_type& Tank::getType() const
  {
      return _type;
  }
 
-///Forward movement for a tank entity
+//!  Moves the tank forward by a constant value
+/*!  This method uses trigonometry to move the tank positively in any 360 degree direction within
+     the game world
+*/
 void Tank::moveForward()
 {
     _tank.move(_tankMovementSpeed*cos((_rotation*PI)/180.0), _tankMovementSpeed*sin((_rotation*PI)/180.0));
 }
 
-///Backward movement for a tank entity
+
+//!  Moves the tank forward by a constant value
+/*!  This method uses trigonometry to move the tank negatively in any 360 degree direction within
+     the game world
+*/
 void Tank::moveBackward()
 {
     _tank.move(-_tankMovementSpeed*cos((_rotation*PI)/180.0), -_tankMovementSpeed*sin((_rotation*PI)/180.0));
 }
 
-///Left rotation for a tank entity
+//!  Rotates the tank left by a constant value
+/*!  This method uses trigonometry to move the tank positively in any degree if rotation
+*/
 void Tank::rotateLeft()
 {
     _rotation += _tankRotationSpeed;
     _tank.rotate(_tankRotationSpeed);
 }
 
-///Right rotation for a tank entity
+
+//!  Rotates the tank right by a constant value
+/*!  This method uses trigonometry to move the tank negatively in any degree if rotation
+*/
 void Tank::rotateRight()
 {
     _rotation -= _tankRotationSpeed;
     _tank.rotate(-_tankRotationSpeed);
 }
 
-///Provide the bounding box for the tank entity
+
+//!  Retrieves the tanks bounding box
+/*!  This function is used in conjunction with collision detection
+*/
 const rect_corners& Tank::getBoundingBox()
 {
     return _tank.getGlobalBounds();
 }
 
-///Instruct the tank entity that it cannot move
+
+//!  Set the movement state of the Tank to be blocked
+/*!  This function sets a boolean value and returns an int describing how manay more times it can be blocked
+     \param obstruction_type :: this is the direction in which the tank becomes blocked
+*/
 const int Tank::setBlocked(const blocked_status obstruction_type)
 {
     _blockedStatus = obstruction_type;
@@ -85,7 +116,7 @@ void Tank::setCollided()
 }
 
 ///Determine the blocked state of the tank entity
-const blocked_status Tank::isBlocked()
+const bl ocked_status Tank::isBlocked()
 {
     return _blockedStatus;
 }
@@ -152,7 +183,7 @@ void Tank::setMovementDirection(const movement_direction Movement_input)
 ///Tank object destructor
 Tank::~Tank()
 {
-    //Set arguments
+
 }
 
 

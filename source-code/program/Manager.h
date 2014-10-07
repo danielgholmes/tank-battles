@@ -1,9 +1,11 @@
-/**
- * \class 	Manager
- * \file 	Manager.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Class that manages all world managers
+//! Abstract-Base Class of Managers
+/*!
+    \class 	    Manager
+    \file 	    Manager.h
+    \author 	Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date 	    2 September 2014
+
  */
 
 

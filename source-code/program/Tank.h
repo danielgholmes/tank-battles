@@ -1,9 +1,10 @@
-/**
- * \class  Tank
- * \file   Tank.h
- * \author Daniel Holmes & Jonathan Gerrand
- * \date   2 September 2014
- * \brief  Child class for all tank objects
+//! Child class of Movable, Collidable, Trackable. The base Tank entity.
+/*! This class  possesses multiple interfaces for interaction with various managers and
+    forms part of the basic model entities
+    \file       Tank.h
+    \author     Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date       2 September 2014
  */
 
 
