@@ -1,10 +1,11 @@
-/**
- * \class   Deletable
- * \file 	Deletable.h
- * \author 	Daniel Holmes & Jonathan Gerrand
- * \date 	2 September 2014
- * \brief 	Base class for all entities within
- *          the battle-tank world.
+//! An Abstract-based class forming an interface for all deletable objects within the game
+/*! This class is used as an interfacing template by all objects which are capable of
+    being destroyed and drawn. Deletable classes are handled by the both deletion and draw managers
+    who have access to all member functions within this class interface.
+    \file 	    Deletable.h
+    \author 	Daniel Holmes & Jonathan Gerrand
+    \version    2.0
+    \date 	    2 September 2014
  */
 
 #ifndef DELETABLE_H_
