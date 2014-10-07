@@ -74,7 +74,7 @@ Battle Tank v1.3:
 	- Release Date: 1/10/2014
 	- Functionality Description:
 		+ Added turrets
-		+ Turret fire when within certain rande and line of sight
+		+ Turrets rotate slowly and fire when within certain rande and line of sight
 
 Battle Tank v1.3.1:
 	- Release Date: 2/10/2014
