@@ -1,0 +1,352 @@
+\hypertarget{classStopWatch}{\section{Stop\-Watch Class Reference}
+\label{classStopWatch}\index{Stop\-Watch@{Stop\-Watch}}
+}
+
+
+Responsible for keeping time.  
+
+
+
+
+{\ttfamily \#include $<$Stop\-Watch.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStopWatch_ad715945060eeb23baa3c036ad19b1edb}{Stop\-Watch} ()
+\begin{DoxyCompactList}\small\item\em Constuctor that initialises private class variables. \end{DoxyCompactList}\item 
+void \hyperlink{classStopWatch_a09a3c8f9ab03d7b28e4f8b90a833974e}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts the stopwatch. \end{DoxyCompactList}\item 
+void \hyperlink{classStopWatch_a6e80b598d9304e37d8768b716e713e0e}{stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the stopwatch. \end{DoxyCompactList}\item 
+void \hyperlink{classStopWatch_a8e25f50201831578ad0b588a4ce16504}{lap} ()
+\begin{DoxyCompactList}\small\item\em Gives the lap time. \end{DoxyCompactList}\item 
+void \hyperlink{classStopWatch_a1c0dcc57c615559f24bc9f8759271a9d}{reset} ()
+\begin{DoxyCompactList}\small\item\em Resets the stopwatch. \end{DoxyCompactList}\item 
+bool \hyperlink{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{is\-Running} ()
+\begin{DoxyCompactList}\small\item\em Check if the stopwatch is running. \end{DoxyCompactList}\item 
+double \hyperlink{classStopWatch_a29945e425c084bb7df859c4c10cbd9fe}{get\-Timer\-Value} ()
+\begin{DoxyCompactList}\small\item\em Gets the time since the stopwatch started. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classStopWatch_a846093607050d32d90d1b359674af5d8}{get\-Process\-Time} ()
+\begin{DoxyCompactList}\small\item\em Returns the amount of time in seconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}{\-\_\-start}
+\begin{DoxyCompactList}\small\item\em Holds the system time from when the stopwatch starts. \end{DoxyCompactList}\item 
+double \hyperlink{classStopWatch_a553fb52b9dc9a4c3f1a388f31ae4d4bf}{\-\_\-stop}
+\begin{DoxyCompactList}\small\item\em Holds the stopped or total clock running time. \end{DoxyCompactList}\item 
+bool \hyperlink{classStopWatch_a65a94d1a957f3f711b6ed41c85e86eca}{\-\_\-running}
+\begin{DoxyCompactList}\small\item\em Used to tell if the stopwatch is running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Responsible for keeping time. 
+
+Definition at line 16 of file Stop\-Watch.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classStopWatch_ad715945060eeb23baa3c036ad19b1edb}{\index{Stop\-Watch@{Stop\-Watch}!Stop\-Watch@{Stop\-Watch}}
+\index{Stop\-Watch@{Stop\-Watch}!StopWatch@{Stop\-Watch}}
+\subsubsection[{Stop\-Watch}]{\setlength{\rightskip}{0pt plus 5cm}Stop\-Watch\-::\-Stop\-Watch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStopWatch_ad715945060eeb23baa3c036ad19b1edb}
+
+
+Constuctor that initialises private class variables. 
+
+
+
+Definition at line 17 of file Stop\-Watch.\-cpp.
+
+
+\begin{DoxyCode}
+17                     :
+18     \hyperlink{classStopWatch_a553fb52b9dc9a4c3f1a388f31ae4d4bf}{\_stop}(0.0),
+19     \hyperlink{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}{\_start}(0.0),
+20     \hyperlink{classStopWatch_a65a94d1a957f3f711b6ed41c85e86eca}{\_running}(\textcolor{keyword}{false})
+21 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classStopWatch_a846093607050d32d90d1b359674af5d8}{\index{Stop\-Watch@{Stop\-Watch}!get\-Process\-Time@{get\-Process\-Time}}
+\index{get\-Process\-Time@{get\-Process\-Time}!StopWatch@{Stop\-Watch}}
+\subsubsection[{get\-Process\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double Stop\-Watch\-::get\-Process\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classStopWatch_a846093607050d32d90d1b359674af5d8}
+
+
+Returns the amount of time in seconds. 
+
+The return time is the tim ethat has passed since the process (i.\-e. the program) started executing \begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file Stop\-Watch.\-cpp.
+
+
+
+Referenced by get\-Timer\-Value(), lap(), start(), and stop().
+
+
+\begin{DoxyCode}
+72 \{
+73     clock\_t time = clock();
+74     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(time)/CLOCKS\_PER\_SEC;
+75 \}
+\end{DoxyCode}
+\hypertarget{classStopWatch_a29945e425c084bb7df859c4c10cbd9fe}{\index{Stop\-Watch@{Stop\-Watch}!get\-Timer\-Value@{get\-Timer\-Value}}
+\index{get\-Timer\-Value@{get\-Timer\-Value}!StopWatch@{Stop\-Watch}}
+\subsubsection[{get\-Timer\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double Stop\-Watch\-::get\-Timer\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStopWatch_a29945e425c084bb7df859c4c10cbd9fe}
+
+
+Gets the time since the stopwatch started. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file Stop\-Watch.\-cpp.
+
+
+
+References \-\_\-start, get\-Process\-Time(), and is\-Running().
+
+
+
+Referenced by Game\-State\-Manager\-::manage(), and Game\-State\-Manager\-::time\-Run\-Out().
+
+
+\begin{DoxyCode}
+91 \{
+92     \textcolor{keywordflow}{if} (\hyperlink{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{isRunning}())
+93         \textcolor{keywordflow}{return} \hyperlink{classStopWatch_a846093607050d32d90d1b359674af5d8}{getProcessTime}() - \hyperlink{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}{\_start};
+94 \}
+\end{DoxyCode}
+\hypertarget{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{\index{Stop\-Watch@{Stop\-Watch}!is\-Running@{is\-Running}}
+\index{is\-Running@{is\-Running}!StopWatch@{Stop\-Watch}}
+\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool Stop\-Watch\-::is\-Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}
+
+
+Check if the stopwatch is running. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file Stop\-Watch.\-cpp.
+
+
+
+References \-\_\-running.
+
+
+
+Referenced by get\-Timer\-Value(), lap(), Game\-State\-Manager\-::manage(), reset(), stop(), and Game\-State\-Manager\-::time\-Run\-Out().
+
+
+\begin{DoxyCode}
+81 \{
+82     \textcolor{keywordflow}{if} (\hyperlink{classStopWatch_a65a94d1a957f3f711b6ed41c85e86eca}{\_running})
+83         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+84     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+85 \}
+\end{DoxyCode}
+\hypertarget{classStopWatch_a8e25f50201831578ad0b588a4ce16504}{\index{Stop\-Watch@{Stop\-Watch}!lap@{lap}}
+\index{lap@{lap}!StopWatch@{Stop\-Watch}}
+\subsubsection[{lap}]{\setlength{\rightskip}{0pt plus 5cm}void Stop\-Watch\-::lap (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStopWatch_a8e25f50201831578ad0b588a4ce16504}
+
+
+Gives the lap time. 
+
+
+
+Definition at line 47 of file Stop\-Watch.\-cpp.
+
+
+
+References \-\_\-start, get\-Process\-Time(), and is\-Running().
+
+
+\begin{DoxyCode}
+48 \{
+49     \textcolor{keywordflow}{if} (\hyperlink{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{isRunning}())
+50         std::cout << \textcolor{stringliteral}{"Lap: "} << (\hyperlink{classStopWatch_a846093607050d32d90d1b359674af5d8}{getProcessTime}() - \hyperlink{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}{\_start}) << std::endl;
+51 
+52 \}
+\end{DoxyCode}
+\hypertarget{classStopWatch_a1c0dcc57c615559f24bc9f8759271a9d}{\index{Stop\-Watch@{Stop\-Watch}!reset@{reset}}
+\index{reset@{reset}!StopWatch@{Stop\-Watch}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void Stop\-Watch\-::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStopWatch_a1c0dcc57c615559f24bc9f8759271a9d}
+
+
+Resets the stopwatch. 
+
+
+
+Definition at line 57 of file Stop\-Watch.\-cpp.
+
+
+
+References \-\_\-stop, is\-Running(), and start().
+
+
+
+Referenced by Game\-State\-Manager\-::time\-Run\-Out().
+
+
+\begin{DoxyCode}
+58 \{
+59     \textcolor{keywordflow}{if} (\hyperlink{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{isRunning}())
+60     \{
+61         \hyperlink{classStopWatch_a553fb52b9dc9a4c3f1a388f31ae4d4bf}{\_stop} = 0.0;
+62         \hyperlink{classStopWatch_a09a3c8f9ab03d7b28e4f8b90a833974e}{start}();
+63     \}
+64 \}
+\end{DoxyCode}
+\hypertarget{classStopWatch_a09a3c8f9ab03d7b28e4f8b90a833974e}{\index{Stop\-Watch@{Stop\-Watch}!start@{start}}
+\index{start@{start}!StopWatch@{Stop\-Watch}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Stop\-Watch\-::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStopWatch_a09a3c8f9ab03d7b28e4f8b90a833974e}
+
+
+Starts the stopwatch. 
+
+Set the running status to true. 
+
+Definition at line 26 of file Stop\-Watch.\-cpp.
+
+
+
+References \-\_\-running, \-\_\-start, \-\_\-stop, and get\-Process\-Time().
+
+
+
+Referenced by Game\-State\-Manager\-::\-Game\-State\-Manager(), Game\-State\-Manager\-::manage(), reset(), and Game\-State\-Manager\-::time\-Run\-Out().
+
+
+\begin{DoxyCode}
+27 \{
+28     \hyperlink{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}{\_start} = \hyperlink{classStopWatch_a846093607050d32d90d1b359674af5d8}{getProcessTime}() - \hyperlink{classStopWatch_a553fb52b9dc9a4c3f1a388f31ae4d4bf}{\_stop};
+29     \hyperlink{classStopWatch_a65a94d1a957f3f711b6ed41c85e86eca}{\_running} = \textcolor{keyword}{true};
+30 \}
+\end{DoxyCode}
+\hypertarget{classStopWatch_a6e80b598d9304e37d8768b716e713e0e}{\index{Stop\-Watch@{Stop\-Watch}!stop@{stop}}
+\index{stop@{stop}!StopWatch@{Stop\-Watch}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void Stop\-Watch\-::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classStopWatch_a6e80b598d9304e37d8768b716e713e0e}
+
+
+Stops the stopwatch. 
+
+Set the running status to false and gets the stop time. 
+
+Definition at line 35 of file Stop\-Watch.\-cpp.
+
+
+
+References \-\_\-running, \-\_\-start, \-\_\-stop, get\-Process\-Time(), and is\-Running().
+
+
+
+Referenced by Game\-State\-Manager\-::manage().
+
+
+\begin{DoxyCode}
+36 \{
+37     \textcolor{keywordflow}{if} (\hyperlink{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{isRunning}())
+38     \{
+39         \hyperlink{classStopWatch_a553fb52b9dc9a4c3f1a388f31ae4d4bf}{\_stop} = \hyperlink{classStopWatch_a846093607050d32d90d1b359674af5d8}{getProcessTime}() - \hyperlink{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}{\_start};
+40         \hyperlink{classStopWatch_a65a94d1a957f3f711b6ed41c85e86eca}{\_running} = \textcolor{keyword}{false};
+41     \}
+42 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classStopWatch_a65a94d1a957f3f711b6ed41c85e86eca}{\index{Stop\-Watch@{Stop\-Watch}!\-\_\-running@{\-\_\-running}}
+\index{\-\_\-running@{\-\_\-running}!StopWatch@{Stop\-Watch}}
+\subsubsection[{\-\_\-running}]{\setlength{\rightskip}{0pt plus 5cm}bool Stop\-Watch\-::\-\_\-running\hspace{0.3cm}{\ttfamily [private]}}}\label{classStopWatch_a65a94d1a957f3f711b6ed41c85e86eca}
+
+
+Used to tell if the stopwatch is running. 
+
+
+
+Definition at line 32 of file Stop\-Watch.\-h.
+
+
+
+Referenced by is\-Running(), start(), and stop().
+
+\hypertarget{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}{\index{Stop\-Watch@{Stop\-Watch}!\-\_\-start@{\-\_\-start}}
+\index{\-\_\-start@{\-\_\-start}!StopWatch@{Stop\-Watch}}
+\subsubsection[{\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}double Stop\-Watch\-::\-\_\-start\hspace{0.3cm}{\ttfamily [private]}}}\label{classStopWatch_a36df11e96fae69eb56ff8feda10f07d2}
+
+
+Holds the system time from when the stopwatch starts. 
+
+
+
+Definition at line 28 of file Stop\-Watch.\-h.
+
+
+
+Referenced by get\-Timer\-Value(), lap(), start(), and stop().
+
+\hypertarget{classStopWatch_a553fb52b9dc9a4c3f1a388f31ae4d4bf}{\index{Stop\-Watch@{Stop\-Watch}!\-\_\-stop@{\-\_\-stop}}
+\index{\-\_\-stop@{\-\_\-stop}!StopWatch@{Stop\-Watch}}
+\subsubsection[{\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}double Stop\-Watch\-::\-\_\-stop\hspace{0.3cm}{\ttfamily [private]}}}\label{classStopWatch_a553fb52b9dc9a4c3f1a388f31ae4d4bf}
+
+
+Holds the stopped or total clock running time. 
+
+
+
+Definition at line 30 of file Stop\-Watch.\-h.
+
+
+
+Referenced by reset(), start(), and stop().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{StopWatch_8h}{Stop\-Watch.\-h}\item 
+\hyperlink{StopWatch_8cpp}{Stop\-Watch.\-cpp}\end{DoxyCompactItemize}

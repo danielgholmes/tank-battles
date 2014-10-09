@@ -1,0 +1,227 @@
+\hypertarget{classTurretManager}{\section{Turret\-Manager Class Reference}
+\label{classTurretManager}\index{Turret\-Manager@{Turret\-Manager}}
+}
+
+
+\hyperlink{classManager}{Manager} responsible for controlling the turrets rotation.  
+
+
+
+
+{\ttfamily \#include $<$Turret\-Manager.\-h$>$}
+
+Inheritance diagram for Turret\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTurretManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTurretManager_a81d31a8afa69beed2e1e9ee92a148b62}{Turret\-Manager} ()
+\item 
+void \hyperlink{classTurretManager_a3339500bc4e12ed437681876ca702bd3}{manage} ()
+\begin{DoxyCompactList}\small\item\em Manage turret movements. \end{DoxyCompactList}\item 
+void \hyperlink{classTurretManager_a61a5c5fe1961ca9483271da3aeac0489}{add\-New\-Entity} (std\-::weak\-\_\-ptr$<$ \hyperlink{classTurret}{Turret} $>$ new\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Add a new weak pointer to a game turrt. \end{DoxyCompactList}\item 
+virtual \hyperlink{classTurretManager_a223f756a6c40df2487a0b98b640c3155}{$\sim$\-Turret\-Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTurretManager_af403fc2ffe83d4c3b017251dbcbd52f6}{remove\-Garbage} ()
+\begin{DoxyCompactList}\small\item\em Removed weak pointers of objects that have been deleted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::weak\-\_\-ptr\\*
+$<$ \hyperlink{classTurret}{Turret} $>$ $>$ \hyperlink{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\-\_\-turretables}
+\begin{DoxyCompactList}\small\item\em Container for all weak pointers to game turret entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classManager}{Manager} responsible for controlling the turrets rotation. 
+
+Definition at line 17 of file Turret\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTurretManager_a81d31a8afa69beed2e1e9ee92a148b62}{\index{Turret\-Manager@{Turret\-Manager}!Turret\-Manager@{Turret\-Manager}}
+\index{Turret\-Manager@{Turret\-Manager}!TurretManager@{Turret\-Manager}}
+\subsubsection[{Turret\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Turret\-Manager\-::\-Turret\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTurretManager_a81d31a8afa69beed2e1e9ee92a148b62}
+
+
+Definition at line 11 of file Turret\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+12 \{
+13 
+14 \}
+\end{DoxyCode}
+\hypertarget{classTurretManager_a223f756a6c40df2487a0b98b640c3155}{\index{Turret\-Manager@{Turret\-Manager}!$\sim$\-Turret\-Manager@{$\sim$\-Turret\-Manager}}
+\index{$\sim$\-Turret\-Manager@{$\sim$\-Turret\-Manager}!TurretManager@{Turret\-Manager}}
+\subsubsection[{$\sim$\-Turret\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Turret\-Manager\-::$\sim$\-Turret\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurretManager_a223f756a6c40df2487a0b98b640c3155}
+
+
+Definition at line 16 of file Turret\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+17 \{
+18 
+19 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTurretManager_a61a5c5fe1961ca9483271da3aeac0489}{\index{Turret\-Manager@{Turret\-Manager}!add\-New\-Entity@{add\-New\-Entity}}
+\index{add\-New\-Entity@{add\-New\-Entity}!TurretManager@{Turret\-Manager}}
+\subsubsection[{add\-New\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Turret\-Manager\-::add\-New\-Entity (
+\begin{DoxyParamCaption}
+\item[{std\-::weak\-\_\-ptr$<$ {\bf Turret} $>$}]{new\-\_\-entity}
+\end{DoxyParamCaption}
+)}}\label{classTurretManager_a61a5c5fe1961ca9483271da3aeac0489}
+
+
+Add a new weak pointer to a game turrt. 
+
+All the turrets have weak pointers stored in the \hyperlink{classTurretManager}{Turret\-Manager} private vector. 
+
+Definition at line 45 of file Turret\-Manager.\-cpp.
+
+
+
+References \-\_\-turretables.
+
+
+
+Referenced by Game\-::add\-Turretable(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+46 \{
+47     \hyperlink{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\_turretables}.push\_back(new\_entity);
+48 \}
+\end{DoxyCode}
+\hypertarget{classTurretManager_a3339500bc4e12ed437681876ca702bd3}{\index{Turret\-Manager@{Turret\-Manager}!manage@{manage}}
+\index{manage@{manage}!TurretManager@{Turret\-Manager}}
+\subsubsection[{manage}]{\setlength{\rightskip}{0pt plus 5cm}void Turret\-Manager\-::manage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTurretManager_a3339500bc4e12ed437681876ca702bd3}
+
+
+Manage turret movements. 
+
+All turrets are simply rotated each time the manager runs 
+
+Definition at line 24 of file Turret\-Manager.\-cpp.
+
+
+
+References \-\_\-turretables, and remove\-Garbage().
+
+
+
+Referenced by Game\-::run\-All\-Managers(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+25 \{
+26     \textcolor{comment}{//Clear the vector of deleted turret entities}
+27     \hyperlink{classTurretManager_af403fc2ffe83d4c3b017251dbcbd52f6}{removeGarbage}();
+28 
+29     \textcolor{keyword}{auto} turret\_iterator = \hyperlink{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\_turretables}.begin();
+30     \textcolor{keywordflow}{for} (; turret\_iterator !=  \hyperlink{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\_turretables}.end(); turret\_iterator ++)
+31     \{
+32         \textcolor{comment}{//Convert iterator to Weak pointer}
+33         std::weak\_ptr<Turret> entity\_tur\_wp = (*turret\_iterator);
+34 
+35         \textcolor{comment}{//Lock as Shared Pointer}
+36         std::shared\_ptr<Turret> entity\_tur\_sp = entity\_tur\_wp.lock();
+37 
+38         entity\_tur\_sp->rotateTurret();
+39     \}
+40 \}
+\end{DoxyCode}
+\hypertarget{classTurretManager_af403fc2ffe83d4c3b017251dbcbd52f6}{\index{Turret\-Manager@{Turret\-Manager}!remove\-Garbage@{remove\-Garbage}}
+\index{remove\-Garbage@{remove\-Garbage}!TurretManager@{Turret\-Manager}}
+\subsubsection[{remove\-Garbage}]{\setlength{\rightskip}{0pt plus 5cm}void Turret\-Manager\-::remove\-Garbage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurretManager_af403fc2ffe83d4c3b017251dbcbd52f6}
+
+
+Removed weak pointers of objects that have been deleted. 
+
+
+
+Definition at line 53 of file Turret\-Manager.\-cpp.
+
+
+
+References \-\_\-turretables.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+54 \{
+55     \textcolor{keyword}{auto} removable = \hyperlink{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\_turretables}.begin();
+56     \textcolor{keywordflow}{for} (; removable != \hyperlink{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\_turretables}.end();)
+57     \{
+58         \textcolor{comment}{//Convert iterator to Weak pointer}
+59         std::weak\_ptr<Turret> removable\_wp = (*removable);
+60         \textcolor{comment}{//Lock as Shared Pointer}
+61         std::shared\_ptr<Turret> removable\_sp = removable\_wp.lock();
+62         \textcolor{comment}{//Test to see if the shared pointer exists}
+63         \textcolor{keywordflow}{if} (removable\_sp)
+64         \{
+65             removable++;
+66         \}
+67         \textcolor{keywordflow}{else}
+68         \{
+69             \hyperlink{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\_turretables}.erase(removable);
+70         \}
+71     \}
+72 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}{\index{Turret\-Manager@{Turret\-Manager}!\-\_\-turretables@{\-\_\-turretables}}
+\index{\-\_\-turretables@{\-\_\-turretables}!TurretManager@{Turret\-Manager}}
+\subsubsection[{\-\_\-turretables}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::weak\-\_\-ptr$<${\bf Turret}$>$ $>$ Turret\-Manager\-::\-\_\-turretables\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurretManager_a1089603cbf805dfb737b2a47d462a9bb}
+
+
+Container for all weak pointers to game turret entities. 
+
+
+
+Definition at line 27 of file Turret\-Manager.\-h.
+
+
+
+Referenced by add\-New\-Entity(), manage(), and remove\-Garbage().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{TurretManager_8h}{Turret\-Manager.\-h}\item 
+\hyperlink{TurretManager_8cpp}{Turret\-Manager.\-cpp}\end{DoxyCompactItemize}

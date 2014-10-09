@@ -1,0 +1,275 @@
+\hypertarget{classSpriteDimensions}{\section{Sprite\-Dimensions Class Reference}
+\label{classSpriteDimensions}\index{Sprite\-Dimensions@{Sprite\-Dimensions}}
+}
+
+
+{\ttfamily \#include $<$Sprite\-Dimensions.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSpriteDimensions_a5ae560281c00f763641653b9e121614f}{Sprite\-Dimensions} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions_a9309ef0f1d831d1ca4e1c65fda492c5f}{$\sim$\-Sprite\-Dimensions} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const float \hyperlink{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}{tank\-\_\-sprite\-\_\-x}
+\item 
+const float \hyperlink{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}{missile\-\_\-sprite\-\_\-x}
+\item 
+const float \hyperlink{classSpriteDimensions_af7f442b00b4a2d9d8b9ad47371a0018f}{mine\-\_\-sprite\-\_\-x}
+\item 
+const float \hyperlink{classSpriteDimensions_a69ff9ddd57b6fe4af120278bcece5439}{map\-\_\-sprite\-\_\-x}
+\item 
+const float \hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\-\_\-sprite\-\_\-x}
+\item 
+const float \hyperlink{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}{turret\-\_\-sprite\-\_\-x}
+\item 
+const float \hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\-\_\-sprite\-\_\-y}
+\item 
+const float \hyperlink{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}{missile\-\_\-sprite\-\_\-y}
+\item 
+const float \hyperlink{classSpriteDimensions_a256b5245430fc54ae2cace272260dbe1}{mine\-\_\-sprite\-\_\-y}
+\item 
+const float \hyperlink{classSpriteDimensions_a33014d94b303afe312e1a4b2fb5e437f}{map\-\_\-sprite\-\_\-y}
+\item 
+const float \hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\-\_\-sprite\-\_\-y}
+\item 
+const float \hyperlink{classSpriteDimensions_a1b808c73bd915776ec6b8c10120adeae}{turret\-\_\-sprite\-\_\-y}
+\item 
+const float \hyperlink{classSpriteDimensions_a01c7c9dc1498f3336671b1ca697a7342}{mine\-\_\-creation\-\_\-offset}
+\item 
+const float \hyperlink{classSpriteDimensions_a59055b28d0d2307c1e4f4b04ad93488e}{missile\-\_\-creation\-\_\-offset}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 15 of file Sprite\-Dimensions.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSpriteDimensions_a5ae560281c00f763641653b9e121614f}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!Sprite\-Dimensions@{Sprite\-Dimensions}}
+\index{Sprite\-Dimensions@{Sprite\-Dimensions}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{Sprite\-Dimensions}]{\setlength{\rightskip}{0pt plus 5cm}Sprite\-Dimensions\-::\-Sprite\-Dimensions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSpriteDimensions_a5ae560281c00f763641653b9e121614f}
+
+
+Constructor. 
+
+Constructor for Sprite Dimensions.
+
+Within the constructor all values are initilised outside of the main braces as to allow for the constant values to be initilised correctly. 
+
+Definition at line 20 of file Sprite\-Dimensions.\-cpp.
+
+
+\begin{DoxyCode}
+20                                   :
+21     \hyperlink{classSpriteDimensions_a69ff9ddd57b6fe4af120278bcece5439}{map\_sprite\_x}(2000),
+22     \hyperlink{classSpriteDimensions_a33014d94b303afe312e1a4b2fb5e437f}{map\_sprite\_y}(2000),
+23     \hyperlink{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}{tank\_sprite\_x}(50),
+24     \hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y}(50),
+25     \hyperlink{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}{missile\_sprite\_x}(7.5),
+26     \hyperlink{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}{missile\_sprite\_y}(7.5),
+27     \hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\_sprite\_x}(50),
+28     \hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\_sprite\_y}(50),
+29     \hyperlink{classSpriteDimensions_af7f442b00b4a2d9d8b9ad47371a0018f}{mine\_sprite\_x}(40),
+30     \hyperlink{classSpriteDimensions_a256b5245430fc54ae2cace272260dbe1}{mine\_sprite\_y}(40),
+31     \hyperlink{classSpriteDimensions_a01c7c9dc1498f3336671b1ca697a7342}{mine\_creation\_offset}(40),
+32     \hyperlink{classSpriteDimensions_a59055b28d0d2307c1e4f4b04ad93488e}{missile\_creation\_offset}(20),
+33     \hyperlink{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}{turret\_sprite\_x}(50),
+34     \hyperlink{classSpriteDimensions_a1b808c73bd915776ec6b8c10120adeae}{turret\_sprite\_y}(50)
+35 
+36     \{\}
+\end{DoxyCode}
+\hypertarget{classSpriteDimensions_a9309ef0f1d831d1ca4e1c65fda492c5f}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!$\sim$\-Sprite\-Dimensions@{$\sim$\-Sprite\-Dimensions}}
+\index{$\sim$\-Sprite\-Dimensions@{$\sim$\-Sprite\-Dimensions}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{$\sim$\-Sprite\-Dimensions}]{\setlength{\rightskip}{0pt plus 5cm}Sprite\-Dimensions\-::$\sim$\-Sprite\-Dimensions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSpriteDimensions_a9309ef0f1d831d1ca4e1c65fda492c5f}
+
+
+Destructor. 
+
+
+
+Definition at line 38 of file Sprite\-Dimensions.\-cpp.
+
+
+\begin{DoxyCode}
+39 \{
+40 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!barrier\-\_\-sprite\-\_\-x@{barrier\-\_\-sprite\-\_\-x}}
+\index{barrier\-\_\-sprite\-\_\-x@{barrier\-\_\-sprite\-\_\-x}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{barrier\-\_\-sprite\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-x}}\label{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}
+
+
+Definition at line 26 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Barrier\-::\-Barrier(), Draw\-Manager\-::get\-Barrier\-Draw\-Info(), Display\-::load\-Textures(), Game\-::read\-Map\-Data(), and T\-E\-S\-T().
+
+\hypertarget{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!barrier\-\_\-sprite\-\_\-y@{barrier\-\_\-sprite\-\_\-y}}
+\index{barrier\-\_\-sprite\-\_\-y@{barrier\-\_\-sprite\-\_\-y}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{barrier\-\_\-sprite\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-y}}\label{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}
+
+
+Definition at line 33 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Barrier\-::\-Barrier(), Draw\-Manager\-::get\-Barrier\-Draw\-Info(), Display\-::load\-Textures(), Game\-::read\-Map\-Data(), and T\-E\-S\-T().
+
+\hypertarget{classSpriteDimensions_a69ff9ddd57b6fe4af120278bcece5439}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!map\-\_\-sprite\-\_\-x@{map\-\_\-sprite\-\_\-x}}
+\index{map\-\_\-sprite\-\_\-x@{map\-\_\-sprite\-\_\-x}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{map\-\_\-sprite\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::map\-\_\-sprite\-\_\-x}}\label{classSpriteDimensions_a69ff9ddd57b6fe4af120278bcece5439}
+
+
+Definition at line 25 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Display\-::load\-Textures().
+
+\hypertarget{classSpriteDimensions_a33014d94b303afe312e1a4b2fb5e437f}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!map\-\_\-sprite\-\_\-y@{map\-\_\-sprite\-\_\-y}}
+\index{map\-\_\-sprite\-\_\-y@{map\-\_\-sprite\-\_\-y}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{map\-\_\-sprite\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::map\-\_\-sprite\-\_\-y}}\label{classSpriteDimensions_a33014d94b303afe312e1a4b2fb5e437f}
+
+
+Definition at line 32 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Display\-::load\-Textures().
+
+\hypertarget{classSpriteDimensions_a01c7c9dc1498f3336671b1ca697a7342}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!mine\-\_\-creation\-\_\-offset@{mine\-\_\-creation\-\_\-offset}}
+\index{mine\-\_\-creation\-\_\-offset@{mine\-\_\-creation\-\_\-offset}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{mine\-\_\-creation\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::mine\-\_\-creation\-\_\-offset}}\label{classSpriteDimensions_a01c7c9dc1498f3336671b1ca697a7342}
+
+
+Definition at line 36 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity().
+
+\hypertarget{classSpriteDimensions_af7f442b00b4a2d9d8b9ad47371a0018f}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!mine\-\_\-sprite\-\_\-x@{mine\-\_\-sprite\-\_\-x}}
+\index{mine\-\_\-sprite\-\_\-x@{mine\-\_\-sprite\-\_\-x}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{mine\-\_\-sprite\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-x}}\label{classSpriteDimensions_af7f442b00b4a2d9d8b9ad47371a0018f}
+
+
+Definition at line 24 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Draw\-Manager\-::get\-Mine\-Draw\-Info(), Display\-::load\-Textures(), and Mine\-::\-Mine().
+
+\hypertarget{classSpriteDimensions_a256b5245430fc54ae2cace272260dbe1}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!mine\-\_\-sprite\-\_\-y@{mine\-\_\-sprite\-\_\-y}}
+\index{mine\-\_\-sprite\-\_\-y@{mine\-\_\-sprite\-\_\-y}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{mine\-\_\-sprite\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-y}}\label{classSpriteDimensions_a256b5245430fc54ae2cace272260dbe1}
+
+
+Definition at line 31 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Draw\-Manager\-::get\-Mine\-Draw\-Info(), Display\-::load\-Textures(), and Mine\-::\-Mine().
+
+\hypertarget{classSpriteDimensions_a59055b28d0d2307c1e4f4b04ad93488e}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!missile\-\_\-creation\-\_\-offset@{missile\-\_\-creation\-\_\-offset}}
+\index{missile\-\_\-creation\-\_\-offset@{missile\-\_\-creation\-\_\-offset}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{missile\-\_\-creation\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::missile\-\_\-creation\-\_\-offset}}\label{classSpriteDimensions_a59055b28d0d2307c1e4f4b04ad93488e}
+
+
+Definition at line 37 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity().
+
+\hypertarget{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!missile\-\_\-sprite\-\_\-x@{missile\-\_\-sprite\-\_\-x}}
+\index{missile\-\_\-sprite\-\_\-x@{missile\-\_\-sprite\-\_\-x}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{missile\-\_\-sprite\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-x}}\label{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}
+
+
+Definition at line 23 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Draw\-Manager\-::get\-Missile\-Draw\-Info(), Display\-::load\-Textures(), and Missile\-::\-Missile().
+
+\hypertarget{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!missile\-\_\-sprite\-\_\-y@{missile\-\_\-sprite\-\_\-y}}
+\index{missile\-\_\-sprite\-\_\-y@{missile\-\_\-sprite\-\_\-y}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{missile\-\_\-sprite\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-y}}\label{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}
+
+
+Definition at line 30 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Draw\-Manager\-::get\-Missile\-Draw\-Info(), Display\-::load\-Textures(), and Missile\-::\-Missile().
+
+\hypertarget{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!tank\-\_\-sprite\-\_\-x@{tank\-\_\-sprite\-\_\-x}}
+\index{tank\-\_\-sprite\-\_\-x@{tank\-\_\-sprite\-\_\-x}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{tank\-\_\-sprite\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-x}}\label{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}
+
+
+Definition at line 22 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Draw\-Manager\-::get\-Tank\-Draw\-Info(), Display\-::load\-Textures(), and Tank\-::\-Tank().
+
+\hypertarget{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!tank\-\_\-sprite\-\_\-y@{tank\-\_\-sprite\-\_\-y}}
+\index{tank\-\_\-sprite\-\_\-y@{tank\-\_\-sprite\-\_\-y}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{tank\-\_\-sprite\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-y}}\label{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}
+
+
+Definition at line 29 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), Draw\-Manager\-::get\-Tank\-Draw\-Info(), Display\-::load\-Textures(), and Tank\-::\-Tank().
+
+\hypertarget{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!turret\-\_\-sprite\-\_\-x@{turret\-\_\-sprite\-\_\-x}}
+\index{turret\-\_\-sprite\-\_\-x@{turret\-\_\-sprite\-\_\-x}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{turret\-\_\-sprite\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-x}}\label{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}
+
+
+Definition at line 27 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Draw\-Manager\-::get\-Turret\-Draw\-Info(), Display\-::load\-Textures(), Game\-::read\-Map\-Data(), and Turret\-::\-Turret().
+
+\hypertarget{classSpriteDimensions_a1b808c73bd915776ec6b8c10120adeae}{\index{Sprite\-Dimensions@{Sprite\-Dimensions}!turret\-\_\-sprite\-\_\-y@{turret\-\_\-sprite\-\_\-y}}
+\index{turret\-\_\-sprite\-\_\-y@{turret\-\_\-sprite\-\_\-y}!SpriteDimensions@{Sprite\-Dimensions}}
+\subsubsection[{turret\-\_\-sprite\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}const float Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-y}}\label{classSpriteDimensions_a1b808c73bd915776ec6b8c10120adeae}
+
+
+Definition at line 34 of file Sprite\-Dimensions.\-h.
+
+
+
+Referenced by Draw\-Manager\-::get\-Turret\-Draw\-Info(), Game\-::read\-Map\-Data(), and Turret\-::\-Turret().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SpriteDimensions_8h}{Sprite\-Dimensions.\-h}\item 
+\hyperlink{SpriteDimensions_8cpp}{Sprite\-Dimensions.\-cpp}\end{DoxyCompactItemize}

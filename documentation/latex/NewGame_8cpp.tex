@@ -1,0 +1,62 @@
+\hypertarget{NewGame_8cpp}{\section{New\-Game.\-cpp File Reference}
+\label{NewGame_8cpp}\index{New\-Game.\-cpp@{New\-Game.\-cpp}}
+}
+
+
+\hyperlink{classGame}{Game} class and the \hyperlink{classGame}{Game} is instansiated within this file.  
+
+
+{\ttfamily \#include \char`\"{}Game.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Display.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{NewGame_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classGame}{Game} class and the \hyperlink{classGame}{Game} is instansiated within this file. \begin{DoxyAuthor}{Author}
+Daniel Holmes \& Jonathan Gerrand 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2 September 2014 
+\end{DoxyDate}
+
+
+Definition in file \hyperlink{NewGame_8cpp_source}{New\-Game.\-cpp}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{NewGame_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{New\-Game.\-cpp@{New\-Game.\-cpp}!main@{main}}
+\index{main@{main}!NewGame.cpp@{New\-Game.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{NewGame_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Definition at line 20 of file New\-Game.\-cpp.
+
+
+
+References Game\-::run\-World().
+
+
+\begin{DoxyCode}
+21 \{
+22     std::shared\_ptr<Display> display(\textcolor{keyword}{new} \hyperlink{classDisplay}{Display}(1200,675));
+23 
+24     \hyperlink{classGame}{Game} TankWorld;
+25     TankWorld.\hyperlink{classGame_a6073fbea287e3bd28ae5eaf350559448}{runWorld}(display);
+26 
+27     std::cout << \textcolor{stringliteral}{"Tanks A Lot for Playing!"} << std::endl;
+28     std::cout << \textcolor{stringliteral}{"see: "} << std::endl << \textcolor{stringliteral}{"https://github.com/danielgholmes/tank-battles"} << std::endl << \textcolor{stringliteral}{"
+      for latest version :D "} << std::endl;
+29 
+30 \}
+\end{DoxyCode}

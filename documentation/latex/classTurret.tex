@@ -1,0 +1,672 @@
+\hypertarget{classTurret}{\section{Turret Class Reference}
+\label{classTurret}\index{Turret@{Turret}}
+}
+
+
+{\ttfamily \#include $<$Turret.\-h$>$}
+
+Inheritance diagram for Turret\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classTurret}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTurret_ad4865ea38c314056d61968609773ec46}{Turret} (float position\-X, float position\-Y, float rotation)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \& \hyperlink{classTurret_a4998bf256706dc75926e683f08862b80}{get\-Type} () const 
+\begin{DoxyCompactList}\small\item\em Provide type. \end{DoxyCompactList}\item 
+virtual const bool \hyperlink{classTurret_a204a0c45ddcc9139cda14dcd1493fd86}{is\-Deleted} ()
+\begin{DoxyCompactList}\small\item\em Determine the life state of the Turrent. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTurret_aecf0bc7d827c8f05f48b730daf00d9e4}{get\-Draw\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the entity's x Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTurret_ab86c156ea9ba76d33458601aa0eb454b}{get\-Draw\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the entity's y Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTurret_a52a79fd86533f6b3d94223a60df41aaa}{get\-Draw\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the entity's Position. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classTurret_a48007e1c8b99645e13b24e24b850fbaa}{get\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get bounding box of entity. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classTurret_ad17a5c236d681627bbea6bb99b2374b0}{get\-Aligned\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get Axis Aligned bounding box of entity. \end{DoxyCompactList}\item 
+virtual const int \hyperlink{classTurret_a047fe39c0367cc0896c43ac6fadfd2b6}{set\-Blocked} (const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} obstruction\-\_\-type)
+\begin{DoxyCompactList}\small\item\em Set blocked state of entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTurret_a1cafbfb89d052d03c8e7db8b0668a75d}{set\-Unblocked} ()
+\begin{DoxyCompactList}\small\item\em Unset the blocked state of the entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTurret_a2f558a151cc9c7e7f2158c71f71261cb}{set\-Collided} ()
+\begin{DoxyCompactList}\small\item\em Set collision state of entity. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTurret_a3e713aaf3b26c4dfc49893b4a7796dfd}{get\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Get the current x co-\/ordinates of \hyperlink{classTrackable}{Trackable} object. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTurret_a9d331d408eec415f38ea8249fb0ad3ef}{get\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Get the current y co-\/ordinates of \hyperlink{classTrackable}{Trackable} object. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTurret_a7a6d4d2ca7bd5c1c4869298e77e3f1f5}{get\-Orientation} ()
+\begin{DoxyCompactList}\small\item\em Get the current orientation of \hyperlink{classTrackable}{Trackable} object. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classTurret_ac39a14672e27fd2399b57386a55b5c04}{get\-Tracking\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get the bounding box relevant for line-\/of-\/fire detection. \end{DoxyCompactList}\item 
+void \hyperlink{classTurret_a7e66153beba3e6526d1c26be106d7269}{rotate\-Turret} ()
+\begin{DoxyCompactList}\small\item\em Rotates the \hyperlink{classTurret}{Turret} by its set value. \end{DoxyCompactList}\item 
+virtual \hyperlink{classTurret_add5c91873b2baa27a3aa7a2a4c55e58c}{$\sim$\-Turret} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTurret_aceb63c533fdc7b332addf9de88336c9c}{\-\_\-collided\-Status}
+\begin{DoxyCompactList}\small\item\em Collision state of the Turrent Entity\-: 1 for collided, 0 for not. \end{DoxyCompactList}\item 
+float \hyperlink{classTurret_a5570f2cbe1ac6bd008a9fa3b79998756}{\-\_\-rotation}
+\begin{DoxyCompactList}\small\item\em The angle of rotation for the Turrnet entity. \end{DoxyCompactList}\item 
+\hyperlink{classOrientation}{Orientation} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\-\_\-turret}
+\begin{DoxyCompactList}\small\item\em Co-\/ordinate system for the Turrnet. \end{DoxyCompactList}\item 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \hyperlink{classTurret_afadbbb1f31cce1eb6b267afebebd14f0}{\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Enumeration type defining the turrnet. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classTurret_aca4002cdadaf5f3e9ae210ba5d2e7244}{\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em Turrent Sprite Dimensions. \end{DoxyCompactList}\item 
+const float \hyperlink{classTurret_abd03fe34cbb67d081002b4fa3b60be71}{\-\_\-rotation\-\_\-rate}
+\begin{DoxyCompactList}\small\item\em Default value for rotation rate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 23 of file Turret.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTurret_ad4865ea38c314056d61968609773ec46}{\index{Turret@{Turret}!Turret@{Turret}}
+\index{Turret@{Turret}!Turret@{Turret}}
+\subsubsection[{Turret}]{\setlength{\rightskip}{0pt plus 5cm}Turret\-::\-Turret (
+\begin{DoxyParamCaption}
+\item[{float}]{position\-X, }
+\item[{float}]{position\-Y, }
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)}}\label{classTurret_ad4865ea38c314056d61968609773ec46}
+
+
+Constructor. 
+
+
+
+Definition at line 13 of file Turret.\-cpp.
+
+
+
+References \-\_\-collided\-Status, \-\_\-sprite\-\_\-dimensions, \-\_\-turret, \-\_\-type, Orientation\-::get\-Origin\-X(), Orientation\-::get\-Origin\-Y(), Orientation\-::get\-Rotation(), Orientation\-::set\-Height(), Orientation\-::set\-Width(), turret, Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-x, and Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-y.
+
+
+\begin{DoxyCode}
+13                                                               :
+14     \hyperlink{classTurret_a5570f2cbe1ac6bd008a9fa3b79998756}{\_rotation}(rotation),
+15     \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}(positionX, positionY, 0, 0,rotation,\textcolor{keyword}{false}),
+16     \hyperlink{classTurret_afadbbb1f31cce1eb6b267afebebd14f0}{\_type}(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}),
+17     \hyperlink{classTurret_aca4002cdadaf5f3e9ae210ba5d2e7244}{\_sprite\_dimensions}(),
+18     \hyperlink{classTurret_abd03fe34cbb67d081002b4fa3b60be71}{\_rotation\_rate}(-2)
+19 \{
+20     \textcolor{comment}{//Error input checking}
+21     \textcolor{keywordflow}{if} (\hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsTurret}{InvalidConstructorArgumentsTurret}();
+22     \textcolor{keywordflow}{if} (\hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsTurret}{InvalidConstructorArgumentsTurret}();
+23     \textcolor{keywordflow}{if} (\hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsTurret}{InvalidConstructorArgumentsTurret}();
+24     \textcolor{keywordflow}{if} (\hyperlink{classTurret_afadbbb1f31cce1eb6b267afebebd14f0}{\_type} != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}) \textcolor{keywordflow}{throw} \hyperlink{classInvalidConstructorArgumentsTurret}{InvalidConstructorArgumentsTurret}
+      ();
+25 
+26     \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}{setWidth}(\hyperlink{classTurret_aca4002cdadaf5f3e9ae210ba5d2e7244}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}{turret\_sprite\_x});
+27     \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a1adca89bc32128e2ca1cb937357f5006}{setHeight}(\hyperlink{classTurret_aca4002cdadaf5f3e9ae210ba5d2e7244}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a1b808c73bd915776ec6b8c10120adeae}{turret\_sprite\_y});
+28     \hyperlink{classTurret_aceb63c533fdc7b332addf9de88336c9c}{\_collidedStatus} = 0;
+29 \}
+\end{DoxyCode}
+\hypertarget{classTurret_add5c91873b2baa27a3aa7a2a4c55e58c}{\index{Turret@{Turret}!$\sim$\-Turret@{$\sim$\-Turret}}
+\index{$\sim$\-Turret@{$\sim$\-Turret}!Turret@{Turret}}
+\subsubsection[{$\sim$\-Turret}]{\setlength{\rightskip}{0pt plus 5cm}Turret\-::$\sim$\-Turret (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_add5c91873b2baa27a3aa7a2a4c55e58c}
+
+
+Destructor. 
+
+
+
+Definition at line 106 of file Turret.\-cpp.
+
+
+\begin{DoxyCode}
+107 \{
+108     \textcolor{comment}{// Can addd some arguments here}
+109 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTurret_ad17a5c236d681627bbea6bb99b2374b0}{\index{Turret@{Turret}!get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}}
+\index{get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}!Turret@{Turret}}
+\subsubsection[{get\-Aligned\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Turret\-::get\-Aligned\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_ad17a5c236d681627bbea6bb99b2374b0}
+
+
+Get Axis Aligned bounding box of entity. 
+
+
+
+Implements \hyperlink{classCollidable_a6909df57a0915f044d5d967a3be086f3}{Collidable}.
+
+
+
+Definition at line 61 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Aligned\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+62 \{
+63     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a5cc606289f774c8561af98d183586199}{getAlignedGlobalBounds}();
+64 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a48007e1c8b99645e13b24e24b850fbaa}{\index{Turret@{Turret}!get\-Bounding\-Box@{get\-Bounding\-Box}}
+\index{get\-Bounding\-Box@{get\-Bounding\-Box}!Turret@{Turret}}
+\subsubsection[{get\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Turret\-::get\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a48007e1c8b99645e13b24e24b850fbaa}
+
+
+Get bounding box of entity. 
+
+
+
+Implements \hyperlink{classCollidable_a3436effdcd9bea230f4a1aa32b8dd8ab}{Collidable}.
+
+
+
+Definition at line 56 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+57 \{
+58     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{getGlobalBounds}();
+59 \}
+\end{DoxyCode}
+\hypertarget{classTurret_aecf0bc7d827c8f05f48b730daf00d9e4}{\index{Turret@{Turret}!get\-Draw\-Position\-X@{get\-Draw\-Position\-X}}
+\index{get\-Draw\-Position\-X@{get\-Draw\-Position\-X}!Turret@{Turret}}
+\subsubsection[{get\-Draw\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Turret\-::get\-Draw\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_aecf0bc7d827c8f05f48b730daf00d9e4}
+
+
+Retrieve the entity's x Position. 
+
+
+
+Implements \hyperlink{classDeletable_ac14ea0c5986d50ba3ba454f89c87b8fe}{Deletable}.
+
+
+
+Definition at line 41 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Origin\-X().
+
+
+\begin{DoxyCode}
+42 \{
+43     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}();
+44 \}
+\end{DoxyCode}
+\hypertarget{classTurret_ab86c156ea9ba76d33458601aa0eb454b}{\index{Turret@{Turret}!get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}}
+\index{get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}!Turret@{Turret}}
+\subsubsection[{get\-Draw\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Turret\-::get\-Draw\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_ab86c156ea9ba76d33458601aa0eb454b}
+
+
+Retrieve the entity's y Position. 
+
+
+
+Implements \hyperlink{classDeletable_a2a88d7e40c56902a3d3d8f668e9d126d}{Deletable}.
+
+
+
+Definition at line 46 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Origin\-Y().
+
+
+\begin{DoxyCode}
+47 \{
+48     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}();
+49 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a52a79fd86533f6b3d94223a60df41aaa}{\index{Turret@{Turret}!get\-Draw\-Rotation@{get\-Draw\-Rotation}}
+\index{get\-Draw\-Rotation@{get\-Draw\-Rotation}!Turret@{Turret}}
+\subsubsection[{get\-Draw\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Turret\-::get\-Draw\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a52a79fd86533f6b3d94223a60df41aaa}
+
+
+Retrieve the entity's Position. 
+
+
+
+Implements \hyperlink{classDeletable_ad7061a6bef3efce030aa5abbc7646d47}{Deletable}.
+
+
+
+Definition at line 51 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Rotation().
+
+
+\begin{DoxyCode}
+52 \{
+53     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+54 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a7a6d4d2ca7bd5c1c4869298e77e3f1f5}{\index{Turret@{Turret}!get\-Orientation@{get\-Orientation}}
+\index{get\-Orientation@{get\-Orientation}!Turret@{Turret}}
+\subsubsection[{get\-Orientation}]{\setlength{\rightskip}{0pt plus 5cm}const float Turret\-::get\-Orientation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a7a6d4d2ca7bd5c1c4869298e77e3f1f5}
+
+
+Get the current orientation of \hyperlink{classTrackable}{Trackable} object. 
+
+
+
+Implements \hyperlink{classTrackable_afc6b5126b82395a5155cfe76250f92dd}{Trackable}.
+
+
+
+Definition at line 91 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Rotation().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+92 \{
+93     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+94 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a3e713aaf3b26c4dfc49893b4a7796dfd}{\index{Turret@{Turret}!get\-Position\-X@{get\-Position\-X}}
+\index{get\-Position\-X@{get\-Position\-X}!Turret@{Turret}}
+\subsubsection[{get\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Turret\-::get\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a3e713aaf3b26c4dfc49893b4a7796dfd}
+
+
+Get the current x co-\/ordinates of \hyperlink{classTrackable}{Trackable} object. 
+
+
+
+Implements \hyperlink{classTrackable_ab167af97aef9656403ee2d28adaf3149}{Trackable}.
+
+
+
+Definition at line 81 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Origin\-X().
+
+
+\begin{DoxyCode}
+82 \{
+83     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}();
+84 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a9d331d408eec415f38ea8249fb0ad3ef}{\index{Turret@{Turret}!get\-Position\-Y@{get\-Position\-Y}}
+\index{get\-Position\-Y@{get\-Position\-Y}!Turret@{Turret}}
+\subsubsection[{get\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Turret\-::get\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a9d331d408eec415f38ea8249fb0ad3ef}
+
+
+Get the current y co-\/ordinates of \hyperlink{classTrackable}{Trackable} object. 
+
+
+
+Implements \hyperlink{classTrackable_add27867f4ebf30f1fe7c3f94b4d7f4d5}{Trackable}.
+
+
+
+Definition at line 86 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Origin\-Y().
+
+
+\begin{DoxyCode}
+87 \{
+88     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}();
+89 \}
+\end{DoxyCode}
+\hypertarget{classTurret_ac39a14672e27fd2399b57386a55b5c04}{\index{Turret@{Turret}!get\-Tracking\-Bounding\-Box@{get\-Tracking\-Bounding\-Box}}
+\index{get\-Tracking\-Bounding\-Box@{get\-Tracking\-Bounding\-Box}!Turret@{Turret}}
+\subsubsection[{get\-Tracking\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Turret\-::get\-Tracking\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_ac39a14672e27fd2399b57386a55b5c04}
+
+
+Get the bounding box relevant for line-\/of-\/fire detection. 
+
+
+
+Implements \hyperlink{classTrackable_a79826040547e1ca65775223f26c37648}{Trackable}.
+
+
+
+Definition at line 96 of file Turret.\-cpp.
+
+
+
+References \-\_\-turret, and Orientation\-::get\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+97 \{
+98     \textcolor{keywordflow}{return} \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{getGlobalBounds}();
+99 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a4998bf256706dc75926e683f08862b80}{\index{Turret@{Turret}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!Turret@{Turret}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf entity\-\_\-type} \& Turret\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a4998bf256706dc75926e683f08862b80}
+
+
+Provide type. 
+
+
+
+Implements \hyperlink{classDeletable_af8a0208abc297180873692f4215fe50f}{Deletable}.
+
+
+
+Definition at line 31 of file Turret.\-cpp.
+
+
+
+References \-\_\-type.
+
+
+\begin{DoxyCode}
+32 \{
+33     \textcolor{keywordflow}{return} \hyperlink{classTurret_afadbbb1f31cce1eb6b267afebebd14f0}{\_type};
+34 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a204a0c45ddcc9139cda14dcd1493fd86}{\index{Turret@{Turret}!is\-Deleted@{is\-Deleted}}
+\index{is\-Deleted@{is\-Deleted}!Turret@{Turret}}
+\subsubsection[{is\-Deleted}]{\setlength{\rightskip}{0pt plus 5cm}const bool Turret\-::is\-Deleted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a204a0c45ddcc9139cda14dcd1493fd86}
+
+
+Determine the life state of the Turrent. 
+
+
+
+Implements \hyperlink{classDeletable_a6572440c291077cf52bf21288c6cd25c}{Deletable}.
+
+
+
+Definition at line 36 of file Turret.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+\begin{DoxyCode}
+37 \{
+38     \textcolor{keywordflow}{return} \hyperlink{classTurret_aceb63c533fdc7b332addf9de88336c9c}{\_collidedStatus};
+39 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a7e66153beba3e6526d1c26be106d7269}{\index{Turret@{Turret}!rotate\-Turret@{rotate\-Turret}}
+\index{rotate\-Turret@{rotate\-Turret}!Turret@{Turret}}
+\subsubsection[{rotate\-Turret}]{\setlength{\rightskip}{0pt plus 5cm}void Turret\-::rotate\-Turret (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTurret_a7e66153beba3e6526d1c26be106d7269}
+
+
+Rotates the \hyperlink{classTurret}{Turret} by its set value. 
+
+
+
+Definition at line 101 of file Turret.\-cpp.
+
+
+
+References \-\_\-rotation\-\_\-rate, \-\_\-turret, and Orientation\-::rotate().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+102 \{
+103     \hyperlink{classTurret_a71caf1801690ed81facba1f4cc99defd}{\_turret}.\hyperlink{classOrientation_aa9e115b7f4ab487e3af532592416b247}{rotate}(\hyperlink{classTurret_abd03fe34cbb67d081002b4fa3b60be71}{\_rotation\_rate});
+104 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a047fe39c0367cc0896c43ac6fadfd2b6}{\index{Turret@{Turret}!set\-Blocked@{set\-Blocked}}
+\index{set\-Blocked@{set\-Blocked}!Turret@{Turret}}
+\subsubsection[{set\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}const int Turret\-::set\-Blocked (
+\begin{DoxyParamCaption}
+\item[{const {\bf blocked\-\_\-status}}]{obstruction\-\_\-type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a047fe39c0367cc0896c43ac6fadfd2b6}
+
+
+Set blocked state of entity. 
+
+
+
+Implements \hyperlink{classCollidable_a6d312198ba82d26b5e360733bb87a2f0}{Collidable}.
+
+
+
+Definition at line 66 of file Turret.\-cpp.
+
+
+\begin{DoxyCode}
+67 \{
+68     \textcolor{keywordflow}{return} 1;
+69 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a2f558a151cc9c7e7f2158c71f71261cb}{\index{Turret@{Turret}!set\-Collided@{set\-Collided}}
+\index{set\-Collided@{set\-Collided}!Turret@{Turret}}
+\subsubsection[{set\-Collided}]{\setlength{\rightskip}{0pt plus 5cm}void Turret\-::set\-Collided (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a2f558a151cc9c7e7f2158c71f71261cb}
+
+
+Set collision state of entity. 
+
+
+
+Implements \hyperlink{classCollidable_a5ea0417bea000712171bbe5531705082}{Collidable}.
+
+
+
+Definition at line 76 of file Turret.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+\begin{DoxyCode}
+77 \{
+78     \hyperlink{classTurret_aceb63c533fdc7b332addf9de88336c9c}{\_collidedStatus} = 1;
+79 \}
+\end{DoxyCode}
+\hypertarget{classTurret_a1cafbfb89d052d03c8e7db8b0668a75d}{\index{Turret@{Turret}!set\-Unblocked@{set\-Unblocked}}
+\index{set\-Unblocked@{set\-Unblocked}!Turret@{Turret}}
+\subsubsection[{set\-Unblocked}]{\setlength{\rightskip}{0pt plus 5cm}void Turret\-::set\-Unblocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTurret_a1cafbfb89d052d03c8e7db8b0668a75d}
+
+
+Unset the blocked state of the entity. 
+
+
+
+Implements \hyperlink{classCollidable_a817d864d0640bc6bcb13bbecf14ddf31}{Collidable}.
+
+
+
+Definition at line 71 of file Turret.\-cpp.
+
+
+\begin{DoxyCode}
+72 \{
+73     \textcolor{comment}{//Do nothing here!}
+74 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTurret_aceb63c533fdc7b332addf9de88336c9c}{\index{Turret@{Turret}!\-\_\-collided\-Status@{\-\_\-collided\-Status}}
+\index{\-\_\-collided\-Status@{\-\_\-collided\-Status}!Turret@{Turret}}
+\subsubsection[{\-\_\-collided\-Status}]{\setlength{\rightskip}{0pt plus 5cm}bool Turret\-::\-\_\-collided\-Status\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurret_aceb63c533fdc7b332addf9de88336c9c}
+
+
+Collision state of the Turrent Entity\-: 1 for collided, 0 for not. 
+
+
+
+Definition at line 65 of file Turret.\-h.
+
+
+
+Referenced by is\-Deleted(), set\-Collided(), and Turret().
+
+\hypertarget{classTurret_a5570f2cbe1ac6bd008a9fa3b79998756}{\index{Turret@{Turret}!\-\_\-rotation@{\-\_\-rotation}}
+\index{\-\_\-rotation@{\-\_\-rotation}!Turret@{Turret}}
+\subsubsection[{\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Turret\-::\-\_\-rotation\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurret_a5570f2cbe1ac6bd008a9fa3b79998756}
+
+
+The angle of rotation for the Turrnet entity. 
+
+
+
+Definition at line 67 of file Turret.\-h.
+
+\hypertarget{classTurret_abd03fe34cbb67d081002b4fa3b60be71}{\index{Turret@{Turret}!\-\_\-rotation\-\_\-rate@{\-\_\-rotation\-\_\-rate}}
+\index{\-\_\-rotation\-\_\-rate@{\-\_\-rotation\-\_\-rate}!Turret@{Turret}}
+\subsubsection[{\-\_\-rotation\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}const float Turret\-::\-\_\-rotation\-\_\-rate\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurret_abd03fe34cbb67d081002b4fa3b60be71}
+
+
+Default value for rotation rate. 
+
+
+
+Definition at line 75 of file Turret.\-h.
+
+
+
+Referenced by rotate\-Turret().
+
+\hypertarget{classTurret_aca4002cdadaf5f3e9ae210ba5d2e7244}{\index{Turret@{Turret}!\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}!Turret@{Turret}}
+\subsubsection[{\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Turret\-::\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurret_aca4002cdadaf5f3e9ae210ba5d2e7244}
+
+
+Turrent Sprite Dimensions. 
+
+
+
+Definition at line 73 of file Turret.\-h.
+
+
+
+Referenced by Turret().
+
+\hypertarget{classTurret_a71caf1801690ed81facba1f4cc99defd}{\index{Turret@{Turret}!\-\_\-turret@{\-\_\-turret}}
+\index{\-\_\-turret@{\-\_\-turret}!Turret@{Turret}}
+\subsubsection[{\-\_\-turret}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Orientation} Turret\-::\-\_\-turret\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurret_a71caf1801690ed81facba1f4cc99defd}
+
+
+Co-\/ordinate system for the Turrnet. 
+
+
+
+Definition at line 69 of file Turret.\-h.
+
+
+
+Referenced by get\-Aligned\-Bounding\-Box(), get\-Bounding\-Box(), get\-Draw\-Position\-X(), get\-Draw\-Position\-Y(), get\-Draw\-Rotation(), get\-Orientation(), get\-Position\-X(), get\-Position\-Y(), get\-Tracking\-Bounding\-Box(), rotate\-Turret(), and Turret().
+
+\hypertarget{classTurret_afadbbb1f31cce1eb6b267afebebd14f0}{\index{Turret@{Turret}!\-\_\-type@{\-\_\-type}}
+\index{\-\_\-type@{\-\_\-type}!Turret@{Turret}}
+\subsubsection[{\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\-\_\-type} Turret\-::\-\_\-type\hspace{0.3cm}{\ttfamily [private]}}}\label{classTurret_afadbbb1f31cce1eb6b267afebebd14f0}
+
+
+Enumeration type defining the turrnet. 
+
+
+
+Definition at line 71 of file Turret.\-h.
+
+
+
+Referenced by get\-Type(), and Turret().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Turret_8h}{Turret.\-h}\item 
+\hyperlink{Turret_8cpp}{Turret.\-cpp}\end{DoxyCompactItemize}

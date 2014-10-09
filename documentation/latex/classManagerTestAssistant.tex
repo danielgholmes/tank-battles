@@ -1,0 +1,57 @@
+\hypertarget{classManagerTestAssistant}{\section{Manager\-Test\-Assistant Class Reference}
+\label{classManagerTestAssistant}\index{Manager\-Test\-Assistant@{Manager\-Test\-Assistant}}
+}
+
+
+{\ttfamily \#include $<$Manager\-Test\-Assistant.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ \hyperlink{classManagerTestAssistant_aba7ce13afa76fd729f46247edc4a73a5}{create\-Deletable\-Entity\-Shared\-Pointer} (const \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} entity)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file Manager\-Test\-Assistant.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classManagerTestAssistant_aba7ce13afa76fd729f46247edc4a73a5}{\index{Manager\-Test\-Assistant@{Manager\-Test\-Assistant}!create\-Deletable\-Entity\-Shared\-Pointer@{create\-Deletable\-Entity\-Shared\-Pointer}}
+\index{create\-Deletable\-Entity\-Shared\-Pointer@{create\-Deletable\-Entity\-Shared\-Pointer}!ManagerTestAssistant@{Manager\-Test\-Assistant}}
+\subsubsection[{create\-Deletable\-Entity\-Shared\-Pointer}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$ Manager\-Test\-Assistant\-::create\-Deletable\-Entity\-Shared\-Pointer (
+\begin{DoxyParamCaption}
+\item[{const {\bf entity\-\_\-type}}]{entity}
+\end{DoxyParamCaption}
+)}}\label{classManagerTestAssistant_aba7ce13afa76fd729f46247edc4a73a5}
+
+
+Definition at line 11 of file Manager\-Test\-Assistant.\-cpp.
+
+
+
+References p1\-\_\-tank.
+
+
+\begin{DoxyCode}
+12 \{
+13     \textcolor{keywordflow}{switch}(entity)
+14     \{
+15         \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+16             \{
+17                 std::shared\_ptr<Deletable> newTank(\textcolor{keyword}{new} \hyperlink{classTank}{Tank}(10,10,0,\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}));
+18                 \textcolor{keywordflow}{return} (newTank);
+19             \}
+20         \textcolor{keywordflow}{break};
+21     \}
+22 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ManagerTestAssistant_8h}{Manager\-Test\-Assistant.\-h}\item 
+\hyperlink{ManagerTestAssistant_8cpp}{Manager\-Test\-Assistant.\-cpp}\end{DoxyCompactItemize}

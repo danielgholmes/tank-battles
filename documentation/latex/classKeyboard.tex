@@ -1,0 +1,123 @@
+\hypertarget{classKeyboard}{\section{Keyboard Class Reference}
+\label{classKeyboard}\index{Keyboard@{Keyboard}}
+}
+
+
+Simple class to act as an interface for S\-F\-M\-L keyboard functions.  
+
+
+
+
+{\ttfamily \#include $<$Keyboard.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{is\-Key\-Pressed} (\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4b}{gameplay\-\_\-keys} key\-\_\-input)
+\begin{DoxyCompactList}\small\item\em Checks keyboard input for both players. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple class to act as an interface for S\-F\-M\-L keyboard functions. 
+
+Definition at line 18 of file Keyboard.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{\index{Keyboard@{Keyboard}!is\-Key\-Pressed@{is\-Key\-Pressed}}
+\index{is\-Key\-Pressed@{is\-Key\-Pressed}!Keyboard@{Keyboard}}
+\subsubsection[{is\-Key\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}bool Keyboard\-::is\-Key\-Pressed (
+\begin{DoxyParamCaption}
+\item[{{\bf gameplay\-\_\-keys}}]{key\-\_\-input}
+\end{DoxyParamCaption}
+)}}\label{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}
+
+
+Checks keyboard input for both players. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\-\_\-input} & \-:\-: Enum for all player controls \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file Keyboard.\-cpp.
+
+
+
+References A, D, Down, L\-Alt, L\-Control, Left, R\-Alt, R\-Control, Right, S, Up, and W.
+
+
+
+Referenced by Game\-::check\-Keyboard\-Input().
+
+
+\begin{DoxyCode}
+18 \{
+19     \textcolor{keywordflow}{switch}(key\_input)
+20     \{
+21     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba9d4d8b0b72fc2659da772d761a3c5ecb}{Left}:
+22         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba9d4d8b0b72fc2659da772d761a3c5ecb}{sf::Keyboard::Left}))
+23             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+24         \textcolor{keywordflow}{break};
+25     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bad48f7af8c070184f3774c8e85854eb66}{Right}:
+26         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bad48f7af8c070184f3774c8e85854eb66}{sf::Keyboard::Right}))
+27             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+28         \textcolor{keywordflow}{break};
+29     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba57a7edcbc04d6175683383cad5c3e0a2}{Up}:
+30         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba57a7edcbc04d6175683383cad5c3e0a2}{sf::Keyboard::Up}))
+31             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+32         \textcolor{keywordflow}{break};
+33     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4babcf8c79e9a5f5f9d606fb35645a0fb27}{Down}:
+34         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4babcf8c79e9a5f5f9d606fb35645a0fb27}{sf::Keyboard::Down}))
+35             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+36         \textcolor{keywordflow}{break};
+37     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab55b14fb799f3cea1c445c7fdb9542e8}{RAlt}:
+38         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab55b14fb799f3cea1c445c7fdb9542e8}{sf::Keyboard::RAlt}))
+39             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+40         \textcolor{keywordflow}{break};
+41     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba529cda409a0b9c8b0a0119f152b2688b}{RControl}:
+42         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba529cda409a0b9c8b0a0119f152b2688b}{sf::Keyboard::RControl}))
+43             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+44         \textcolor{keywordflow}{break};
+45     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba42a4ade1acd55a49164099104990e09f}{A}:
+46         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba42a4ade1acd55a49164099104990e09f}{sf::Keyboard::A}))
+47             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+48         \textcolor{keywordflow}{break};
+49     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba77a6b11f9898c052926f1d49765861e8}{D}:
+50         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba77a6b11f9898c052926f1d49765861e8}{sf::Keyboard::D}))
+51             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+52         \textcolor{keywordflow}{break};
+53     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab722ceeb601c72cd78fbd35f3581fdf7}{W}:
+54         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab722ceeb601c72cd78fbd35f3581fdf7}{sf::Keyboard::W}))
+55             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+56         \textcolor{keywordflow}{break};
+57     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4baf1ce01387d2348f8b858721a7db81670}{S}:
+58         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4baf1ce01387d2348f8b858721a7db81670}{sf::Keyboard::S}))
+59             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+60         \textcolor{keywordflow}{break};
+61     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba751229d0124103f5a3eb8ec500ca744a}{LAlt}:
+62         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba751229d0124103f5a3eb8ec500ca744a}{sf::Keyboard::LAlt}))
+63             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+64         \textcolor{keywordflow}{break};
+65     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba480f096d1c429f97aff5be1c89cb25c6}{LControl}:
+66         \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba480f096d1c429f97aff5be1c89cb25c6}{sf::Keyboard::LControl}))
+67             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+68         \textcolor{keywordflow}{break};
+69     \textcolor{keywordflow}{default}:
+70         \textcolor{keywordflow}{break};
+71     \}
+72     \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \textcolor{comment}{// if the key is not pressed}
+73 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Keyboard_8h}{Keyboard.\-h}\item 
+\hyperlink{Keyboard_8cpp}{Keyboard.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,260 @@
+\hypertarget{classMovable}{\section{Movable Class Reference}
+\label{classMovable}\index{Movable@{Movable}}
+}
+
+
+An Abstract-\/based class forming an interface for all Moveable objects within the game.  
+
+
+
+
+{\ttfamily \#include $<$Movable.\-h$>$}
+
+Inheritance diagram for Movable\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMovable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMovable_a053cf48796f1aef5b6f6cb4c6b22db78}{Movable} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMovable_adefaf61339698c5efec597529bf89310}{move\-Forward} ()=0
+\begin{DoxyCompactList}\small\item\em Move a moveable entity forward. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMovable_a9c03e7ac263902159579d7f83e9b6dee}{move\-Backward} ()=0
+\begin{DoxyCompactList}\small\item\em Move a moveable entity backward. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMovable_a422b71ade02b9034600f51bc55d58c90}{rotate\-Left} ()=0
+\begin{DoxyCompactList}\small\item\em Rotate a moveable entity left. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMovable_a821480cb8ffd047b39a907c6cf07dd84}{rotate\-Right} ()=0
+\begin{DoxyCompactList}\small\item\em Rotate a moveable entity right. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \hyperlink{classMovable_a40db320f27f5be1882553298677702c8}{is\-Blocked} ()=0
+\begin{DoxyCompactList}\small\item\em Check state of entity to see number of times it has been blocked by another object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMovable_a0bb485f10776845305a683ed5e2ba1fc}{set\-Movement\-Direction} (const \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\-\_\-direction} Movement\-\_\-input)=0
+\begin{DoxyCompactList}\small\item\em Set the movement direction of the entity. \end{DoxyCompactList}\item 
+virtual \hyperlink{classMovable_ae629c22458180741deb4b67b9523c794}{$\sim$\-Movable} ()=0
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classMovable_aff7e2a3e3d5a6059c4fe138aa47dc048}{\-\_\-missile\-Movement\-Speed} = 8
+\begin{DoxyCompactList}\small\item\em Define the movement speed of a missile entity. \end{DoxyCompactList}\item 
+static const int \hyperlink{classMovable_a54cb7d3465cc78ad7d8b2f7c2d842732}{\-\_\-tank\-Movement\-Speed} = 3
+\begin{DoxyCompactList}\small\item\em Define the movement speed of a tank entity. \end{DoxyCompactList}\item 
+static const int \hyperlink{classMovable_afde3611f73293d67497a39fed061e3a8}{\-\_\-missile\-Rotation\-Speed} = 45
+\begin{DoxyCompactList}\small\item\em Define the rotation speed of a missile entity. \end{DoxyCompactList}\item 
+static const int \hyperlink{classMovable_ab4ad35a0057bdbc80385c67bec5f1a60}{\-\_\-tank\-Rotation\-Speed} = 5
+\begin{DoxyCompactList}\small\item\em Define the rotatioin speed of a tank entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An Abstract-\/based class forming an interface for all Moveable objects within the game. 
+
+This class is used as an interfacing template by all objects which are capable of moving. \hyperlink{classMovable}{Movable} classes are handled by the move manager who has access to all member functions within this class interface. 
+
+Definition at line 20 of file Movable.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMovable_a053cf48796f1aef5b6f6cb4c6b22db78}{\index{Movable@{Movable}!Movable@{Movable}}
+\index{Movable@{Movable}!Movable@{Movable}}
+\subsubsection[{Movable}]{\setlength{\rightskip}{0pt plus 5cm}Movable\-::\-Movable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMovable_a053cf48796f1aef5b6f6cb4c6b22db78}
+
+
+Constructor. 
+
+
+
+Definition at line 14 of file Movable.\-cpp.
+
+
+\begin{DoxyCode}
+15 \{
+16 
+17 \}
+\end{DoxyCode}
+\hypertarget{classMovable_ae629c22458180741deb4b67b9523c794}{\index{Movable@{Movable}!$\sim$\-Movable@{$\sim$\-Movable}}
+\index{$\sim$\-Movable@{$\sim$\-Movable}!Movable@{Movable}}
+\subsubsection[{$\sim$\-Movable}]{\setlength{\rightskip}{0pt plus 5cm}Movable\-::$\sim$\-Movable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMovable_ae629c22458180741deb4b67b9523c794}
+
+
+Destructor. 
+
+
+
+Definition at line 20 of file Movable.\-cpp.
+
+
+\begin{DoxyCode}
+21 \{
+22 
+23 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMovable_a40db320f27f5be1882553298677702c8}{\index{Movable@{Movable}!is\-Blocked@{is\-Blocked}}
+\index{is\-Blocked@{is\-Blocked}!Movable@{Movable}}
+\subsubsection[{is\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}virtual const {\bf blocked\-\_\-status} Movable\-::is\-Blocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMovable_a40db320f27f5be1882553298677702c8}
+
+
+Check state of entity to see number of times it has been blocked by another object. 
+
+
+
+Implemented in \hyperlink{classTank_a6ca225d5f7a4c3b835da4a157b86c692}{Tank}, and \hyperlink{classMissile_a2c86874bf5e6bde8cb97f4ed1a07c3ea}{Missile}.
+
+\hypertarget{classMovable_a9c03e7ac263902159579d7f83e9b6dee}{\index{Movable@{Movable}!move\-Backward@{move\-Backward}}
+\index{move\-Backward@{move\-Backward}!Movable@{Movable}}
+\subsubsection[{move\-Backward}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Movable\-::move\-Backward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMovable_a9c03e7ac263902159579d7f83e9b6dee}
+
+
+Move a moveable entity backward. 
+
+
+
+Implemented in \hyperlink{classTank_a6fa5abbf02267f1e30e485b043abc1c2}{Tank}, and \hyperlink{classMissile_a8d8348b91961ff0c163d7d24bd9599a8}{Missile}.
+
+\hypertarget{classMovable_adefaf61339698c5efec597529bf89310}{\index{Movable@{Movable}!move\-Forward@{move\-Forward}}
+\index{move\-Forward@{move\-Forward}!Movable@{Movable}}
+\subsubsection[{move\-Forward}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Movable\-::move\-Forward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMovable_adefaf61339698c5efec597529bf89310}
+
+
+Move a moveable entity forward. 
+
+
+
+Implemented in \hyperlink{classTank_a7d4317a50c215c97679cf9d2fb40e223}{Tank}, and \hyperlink{classMissile_a4b6a45a5129b97a6e5383123dffab0c3}{Missile}.
+
+\hypertarget{classMovable_a422b71ade02b9034600f51bc55d58c90}{\index{Movable@{Movable}!rotate\-Left@{rotate\-Left}}
+\index{rotate\-Left@{rotate\-Left}!Movable@{Movable}}
+\subsubsection[{rotate\-Left}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Movable\-::rotate\-Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMovable_a422b71ade02b9034600f51bc55d58c90}
+
+
+Rotate a moveable entity left. 
+
+
+
+Implemented in \hyperlink{classTank_aed009351545e9019140e75bd8365e1ad}{Tank}, and \hyperlink{classMissile_a1c7ed80bd656b0af5b3872f4225978e3}{Missile}.
+
+\hypertarget{classMovable_a821480cb8ffd047b39a907c6cf07dd84}{\index{Movable@{Movable}!rotate\-Right@{rotate\-Right}}
+\index{rotate\-Right@{rotate\-Right}!Movable@{Movable}}
+\subsubsection[{rotate\-Right}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Movable\-::rotate\-Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMovable_a821480cb8ffd047b39a907c6cf07dd84}
+
+
+Rotate a moveable entity right. 
+
+
+
+Implemented in \hyperlink{classTank_a61c8d236aa98a258276654d02820966f}{Tank}, and \hyperlink{classMissile_aeccfdf94a02fa86545296f4c38857ef8}{Missile}.
+
+\hypertarget{classMovable_a0bb485f10776845305a683ed5e2ba1fc}{\index{Movable@{Movable}!set\-Movement\-Direction@{set\-Movement\-Direction}}
+\index{set\-Movement\-Direction@{set\-Movement\-Direction}!Movable@{Movable}}
+\subsubsection[{set\-Movement\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Movable\-::set\-Movement\-Direction (
+\begin{DoxyParamCaption}
+\item[{const {\bf movement\-\_\-direction}}]{Movement\-\_\-input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMovable_a0bb485f10776845305a683ed5e2ba1fc}
+
+
+Set the movement direction of the entity. 
+
+
+
+Implemented in \hyperlink{classTank_ae283f9665d114b742cb521acbf0897fe}{Tank}, and \hyperlink{classMissile_a5bff45d0243e353acdf610fdade02bb0}{Missile}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMovable_aff7e2a3e3d5a6059c4fe138aa47dc048}{\index{Movable@{Movable}!\-\_\-missile\-Movement\-Speed@{\-\_\-missile\-Movement\-Speed}}
+\index{\-\_\-missile\-Movement\-Speed@{\-\_\-missile\-Movement\-Speed}!Movable@{Movable}}
+\subsubsection[{\-\_\-missile\-Movement\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}const int Movable\-::\-\_\-missile\-Movement\-Speed = 8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{classMovable_aff7e2a3e3d5a6059c4fe138aa47dc048}
+
+
+Define the movement speed of a missile entity. 
+
+
+
+Definition at line 44 of file Movable.\-h.
+
+
+
+Referenced by Missile\-::move\-Backward(), and Missile\-::move\-Forward().
+
+\hypertarget{classMovable_afde3611f73293d67497a39fed061e3a8}{\index{Movable@{Movable}!\-\_\-missile\-Rotation\-Speed@{\-\_\-missile\-Rotation\-Speed}}
+\index{\-\_\-missile\-Rotation\-Speed@{\-\_\-missile\-Rotation\-Speed}!Movable@{Movable}}
+\subsubsection[{\-\_\-missile\-Rotation\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}const int Movable\-::\-\_\-missile\-Rotation\-Speed = 45\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{classMovable_afde3611f73293d67497a39fed061e3a8}
+
+
+Define the rotation speed of a missile entity. 
+
+
+
+Definition at line 48 of file Movable.\-h.
+
+\hypertarget{classMovable_a54cb7d3465cc78ad7d8b2f7c2d842732}{\index{Movable@{Movable}!\-\_\-tank\-Movement\-Speed@{\-\_\-tank\-Movement\-Speed}}
+\index{\-\_\-tank\-Movement\-Speed@{\-\_\-tank\-Movement\-Speed}!Movable@{Movable}}
+\subsubsection[{\-\_\-tank\-Movement\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}const int Movable\-::\-\_\-tank\-Movement\-Speed = 3\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{classMovable_a54cb7d3465cc78ad7d8b2f7c2d842732}
+
+
+Define the movement speed of a tank entity. 
+
+
+
+Definition at line 46 of file Movable.\-h.
+
+
+
+Referenced by Tank\-::move\-Backward(), and Tank\-::move\-Forward().
+
+\hypertarget{classMovable_ab4ad35a0057bdbc80385c67bec5f1a60}{\index{Movable@{Movable}!\-\_\-tank\-Rotation\-Speed@{\-\_\-tank\-Rotation\-Speed}}
+\index{\-\_\-tank\-Rotation\-Speed@{\-\_\-tank\-Rotation\-Speed}!Movable@{Movable}}
+\subsubsection[{\-\_\-tank\-Rotation\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}const int Movable\-::\-\_\-tank\-Rotation\-Speed = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{classMovable_ab4ad35a0057bdbc80385c67bec5f1a60}
+
+
+Define the rotatioin speed of a tank entity. 
+
+
+
+Definition at line 50 of file Movable.\-h.
+
+
+
+Referenced by Tank\-::rotate\-Left(), and Tank\-::rotate\-Right().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Movable_8h}{Movable.\-h}\item 
+\hyperlink{Movable_8cpp}{Movable.\-cpp}\end{DoxyCompactItemize}

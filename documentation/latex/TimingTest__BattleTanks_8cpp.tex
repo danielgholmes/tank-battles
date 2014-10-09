@@ -1,0 +1,189 @@
+\hypertarget{TimingTest__BattleTanks_8cpp}{\section{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp File Reference}
+\label{TimingTest__BattleTanks_8cpp}\index{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}S\-F\-M\-L/\-Graphics.\-hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-F\-M\-L/\-Window.\-hpp\char`\"{}}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+{\ttfamily \#include \char`\"{}math.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Structures.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Sprite\-Dimensions.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Tank.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Missile.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Barrier.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Mine.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Turret.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Game\-Management\-Data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Game\-State\-Data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Action\-Data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Display.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Keyboard.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Move\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Collision\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Tracking\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Draw\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Destruction\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Game\-State\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\-:\textbackslash{}\-Users\textbackslash{}\-Priscilla Gerrand\textbackslash{}\-Desktop\textbackslash{}\-Wits 2014\textbackslash{}\-E\-L\-E\-N3009 -\/ Software\textbackslash{}\-Project\textbackslash{}\-Workspace\textbackslash{}tank-\/battles\textbackslash{}source-\/code\textbackslash{}program\textbackslash{}\-Turret\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{TimingTest__BattleTanks_8cpp_a3018c7600b7bb9866400596a56a57af7}{S\-T\-A\-R\-T}~if ( (\hyperlink{TimingTest__BattleTanks_8cpp_a90a475bf6983426ac80fb761fdee06ca}{startm} = clock()) == -\/1) \{printf(\char`\"{}Error calling clock\char`\"{});exit(1);\}
+\item 
+\#define \hyperlink{TimingTest__BattleTanks_8cpp_ae19b6bb2940d2fbe0a79852b070eeafd}{S\-T\-O\-P}~if ( (\hyperlink{TimingTest__BattleTanks_8cpp_ab06cbcfc986dc3871eb7160823a87eb6}{stopm} = clock()) == -\/1) \{printf(\char`\"{}Error calling clock\char`\"{});exit(1);\}
+\item 
+\#define \hyperlink{TimingTest__BattleTanks_8cpp_ac66faa8ee8434d2db8d87026676c4c79}{P\-R\-I\-N\-T\-T\-I\-M\-E}~printf( \char`\"{}\%6.\-3f seconds used by the processor.\char`\"{}, ((double)stopm-\/startm)/\-C\-L\-O\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C);
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{TimingTest__BattleTanks_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+clock\-\_\-t \hyperlink{TimingTest__BattleTanks_8cpp_a90a475bf6983426ac80fb761fdee06ca}{startm}
+\begin{DoxyCompactList}\small\item\em ================================= Code written by blue\-James\-Bond, \href{http://stackoverflow.com/questions/876901/calculating-execution-time-in-c}{\tt http\-://stackoverflow.\-com/questions/876901/calculating-\/execution-\/time-\/in-\/c} =============== \end{DoxyCompactList}\item 
+clock\-\_\-t \hyperlink{TimingTest__BattleTanks_8cpp_ab06cbcfc986dc3871eb7160823a87eb6}{stopm}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{TimingTest__BattleTanks_8cpp_ac66faa8ee8434d2db8d87026676c4c79}{\index{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}!P\-R\-I\-N\-T\-T\-I\-M\-E@{P\-R\-I\-N\-T\-T\-I\-M\-E}}
+\index{P\-R\-I\-N\-T\-T\-I\-M\-E@{P\-R\-I\-N\-T\-T\-I\-M\-E}!TimingTest_BattleTanks.cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}}
+\subsubsection[{P\-R\-I\-N\-T\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-I\-N\-T\-T\-I\-M\-E~printf( \char`\"{}\%6.\-3f seconds used by the processor.\char`\"{}, ((double)stopm-\/startm)/\-C\-L\-O\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C);}}\label{TimingTest__BattleTanks_8cpp_ac66faa8ee8434d2db8d87026676c4c79}
+
+
+Definition at line 43 of file Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp.
+
+\hypertarget{TimingTest__BattleTanks_8cpp_a3018c7600b7bb9866400596a56a57af7}{\index{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}!S\-T\-A\-R\-T@{S\-T\-A\-R\-T}}
+\index{S\-T\-A\-R\-T@{S\-T\-A\-R\-T}!TimingTest_BattleTanks.cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}}
+\subsubsection[{S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A\-R\-T~if ( ({\bf startm} = clock()) == -\/1) \{printf(\char`\"{}Error calling clock\char`\"{});exit(1);\}}}\label{TimingTest__BattleTanks_8cpp_a3018c7600b7bb9866400596a56a57af7}
+
+
+Definition at line 41 of file Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp.
+
+
+
+Referenced by main().
+
+\hypertarget{TimingTest__BattleTanks_8cpp_ae19b6bb2940d2fbe0a79852b070eeafd}{\index{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}!S\-T\-O\-P@{S\-T\-O\-P}}
+\index{S\-T\-O\-P@{S\-T\-O\-P}!TimingTest_BattleTanks.cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}}
+\subsubsection[{S\-T\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-O\-P~if ( ({\bf stopm} = clock()) == -\/1) \{printf(\char`\"{}Error calling clock\char`\"{});exit(1);\}}}\label{TimingTest__BattleTanks_8cpp_ae19b6bb2940d2fbe0a79852b070eeafd}
+
+
+Definition at line 42 of file Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp.
+
+
+
+Referenced by main().
+
+
+
+\subsection{Function Documentation}
+\hypertarget{TimingTest__BattleTanks_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}!main@{main}}
+\index{main@{main}!TimingTest_BattleTanks.cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{TimingTest__BattleTanks_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Definition at line 48 of file Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp.
+
+
+
+References Collision\-Manager\-::add\-New\-Entity(), Destruction\-Manager\-::add\-New\-Entity(), Draw\-Manager\-::add\-New\-Entity(), Move\-Manager\-::add\-New\-Entity(), Collision\-Manager\-::manage(), Destruction\-Manager\-::manage(), Draw\-Manager\-::manage(), Move\-Manager\-::manage(), p1\-\_\-missile, S\-T\-A\-R\-T, startm, S\-T\-O\-P, and stopm.
+
+
+\begin{DoxyCode}
+49 \{
+50     \hyperlink{classGameManagementData}{GameManagementData} data;
+51     std::shared\_ptr<Display> display(\textcolor{keyword}{new} \hyperlink{classDisplay}{Display}(1250,850));
+52 
+53     \hyperlink{classMoveManager}{MoveManager} moveManager;
+54     \hyperlink{classCollisionManager}{CollisionManager} collisionManager;
+55     \hyperlink{classDestructionManager}{DestructionManager} destructionManager;
+56     \hyperlink{classTrackingManager}{TrackingManager} trackingManager;
+57     \hyperlink{classDrawManager}{DrawManager} drawManager;
+58 
+59     ofstream myfile;
+60     myfile.open (\textcolor{stringliteral}{"BattleTanksTiming.txt"});
+61 
+62     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 1; j < 30; j ++)
+63     \{
+64         \textcolor{keywordtype}{int} i = 0;
+65         \textcolor{keywordflow}{for}(; i < 10*j; i++)
+66         \{
+67             std::shared\_ptr<Deletable> missile\_del\_sp(\textcolor{keyword}{new} \hyperlink{classMissile}{Missile}(10, 10, 0, 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}));
+68             std::weak\_ptr<Collidable> missile\_col\_wp = std::dynamic\_pointer\_cast<
+      \hyperlink{classCollidable}{Collidable}>(missile\_del\_sp);
+69             std::weak\_ptr<Movable> missile\_mov\_wp = std::dynamic\_pointer\_cast<
+      \hyperlink{classMovable}{Movable}>(missile\_del\_sp);
+70 
+71             moveManager.\hyperlink{classMoveManager_a9f49f128a880d4f94c529c6aafab880e}{addNewEntity}(missile\_mov\_wp);
+72             destructionManager.\hyperlink{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{addNewEntity}(missile\_del\_sp);
+73             collisionManager.\hyperlink{classCollisionManager_a2ffe03a672702b8f33d8991b5d631e16}{addNewEntity}(missile\_col\_wp);
+74             drawManager.\hyperlink{classDrawManager_aea3804a9564e6185eec3750f5ff4e33f}{addNewEntity}(missile\_del\_sp);
+75         \}
+76 
+77 
+78         \textcolor{comment}{//Timing executions}
+79         cout << endl << endl;
+80         cout << \textcolor{stringliteral}{"Iteration No.: "} << j <<endl;
+81         cout << \textcolor{stringliteral}{"Num of Entities: "} << i*j <<endl;
+82 
+83         myfile << \textcolor{stringliteral}{"Iteration: "} << j << \textcolor{stringliteral}{", "} << \textcolor{stringliteral}{"Num of entities: "} << i*j << \textcolor{stringliteral}{", "};
+84         \hyperlink{TimingTest__BattleTanks_8cpp_a3018c7600b7bb9866400596a56a57af7}{START};
+85 
+86         moveManager.\hyperlink{classMoveManager_a1e21cd4f542f801e84b57fd5f11f1154}{manage}(data);
+87         drawManager.\hyperlink{classDrawManager_a2c48a7d348b9f6961f2b615015dc482f}{manage}(data,display);
+88         collisionManager.\hyperlink{classCollisionManager_a43a05dc775565d23ecfaa1fb2638f6cf}{manage}();
+89         destructionManager.\hyperlink{classDestructionManager_acfb0e5bf3e2d24368918b4246a972394}{manage}(data);
+90 
+91 
+92         \hyperlink{TimingTest__BattleTanks_8cpp_ae19b6bb2940d2fbe0a79852b070eeafd}{STOP};
+93         cout << \textcolor{stringliteral}{"Time: "} << ((double)\hyperlink{TimingTest__BattleTanks_8cpp_ab06cbcfc986dc3871eb7160823a87eb6}{stopm}-\hyperlink{TimingTest__BattleTanks_8cpp_a90a475bf6983426ac80fb761fdee06ca}{startm})/CLOCKS\_PER\_SEC;
+94         myfile << \textcolor{stringliteral}{"Time: "} << ((double)\hyperlink{TimingTest__BattleTanks_8cpp_ab06cbcfc986dc3871eb7160823a87eb6}{stopm}-\hyperlink{TimingTest__BattleTanks_8cpp_a90a475bf6983426ac80fb761fdee06ca}{startm})/CLOCKS\_PER\_SEC << endl;
+95 
+96 
+97     \}
+98     myfile.close();
+99     \textcolor{keywordflow}{return} 0;
+100 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\hypertarget{TimingTest__BattleTanks_8cpp_a90a475bf6983426ac80fb761fdee06ca}{\index{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}!startm@{startm}}
+\index{startm@{startm}!TimingTest_BattleTanks.cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}}
+\subsubsection[{startm}]{\setlength{\rightskip}{0pt plus 5cm}clock\-\_\-t startm}}\label{TimingTest__BattleTanks_8cpp_a90a475bf6983426ac80fb761fdee06ca}
+
+
+================================= Code written by blue\-James\-Bond, \href{http://stackoverflow.com/questions/876901/calculating-execution-time-in-c}{\tt http\-://stackoverflow.\-com/questions/876901/calculating-\/execution-\/time-\/in-\/c} =============== 
+
+
+
+Definition at line 40 of file Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp.
+
+
+
+Referenced by main().
+
+\hypertarget{TimingTest__BattleTanks_8cpp_ab06cbcfc986dc3871eb7160823a87eb6}{\index{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}!stopm@{stopm}}
+\index{stopm@{stopm}!TimingTest_BattleTanks.cpp@{Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp}}
+\subsubsection[{stopm}]{\setlength{\rightskip}{0pt plus 5cm}clock\-\_\-t stopm}}\label{TimingTest__BattleTanks_8cpp_ab06cbcfc986dc3871eb7160823a87eb6}
+
+
+Definition at line 40 of file Timing\-Test\-\_\-\-Battle\-Tanks.\-cpp.
+
+
+
+Referenced by main().
+

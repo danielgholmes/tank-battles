@@ -1,0 +1,777 @@
+\hypertarget{classTrackingManager}{\section{Tracking\-Manager Class Reference}
+\label{classTrackingManager}\index{Tracking\-Manager@{Tracking\-Manager}}
+}
+
+
+\hyperlink{classManager}{Manager} responsible for keeping track of game entity positions.  
+
+
+
+
+{\ttfamily \#include $<$Tracking\-Manager.\-h$>$}
+
+Inheritance diagram for Tracking\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTrackingManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTrackingManager_a9fb18e3ad20bc3eb3e9e3eb2e6b5748c}{Tracking\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructor for Tracking manager. \end{DoxyCompactList}\item 
+void \hyperlink{classTrackingManager_a6331ac24f748ea336db5a7303a3dce60}{manage} (\hyperlink{classActionData}{Action\-Data} \&action\-\_\-data\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Manage function allowing the position of all \hyperlink{classTrackable}{Trackable} entities to be kept. \end{DoxyCompactList}\item 
+void \hyperlink{classTrackingManager_af0102b33b841a415bdce8605b7c0a11b}{add\-New\-Entity} (std\-::weak\-\_\-ptr$<$ \hyperlink{classTrackable}{Trackable} $>$ new\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Add Trackable-\/type shared\-\_\-ptr's to the Tracking\-Managers internal data members. \end{DoxyCompactList}\item 
+const float \hyperlink{classTrackingManager_ab455df1659739739b2be5f42f08e4b26}{get\-P1\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Return x position of P1 \hyperlink{classTank}{Tank}. \end{DoxyCompactList}\item 
+const float \hyperlink{classTrackingManager_ab79ae59918b07ad546cd7d95cfc983f6}{get\-P1\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Return y position of P1 \hyperlink{classTank}{Tank}. \end{DoxyCompactList}\item 
+const float \hyperlink{classTrackingManager_aad99796d4377109c93177204db15d1a8}{get\-P1\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Return rotation of P1 \hyperlink{classTank}{Tank}. \end{DoxyCompactList}\item 
+const float \hyperlink{classTrackingManager_acb6e621ee44b3d4589fd9e5941eb210f}{get\-P2\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Return x position of P2 \hyperlink{classTank}{Tank}. \end{DoxyCompactList}\item 
+const float \hyperlink{classTrackingManager_af4f90d28fce0d8930ae555a3c1fa4bb8}{get\-P2\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Return y position of P2 \hyperlink{classTank}{Tank}. \end{DoxyCompactList}\item 
+const float \hyperlink{classTrackingManager_a61bc8a3a82f0cd4064d5e2aa53677ebb}{get\-P2\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Return rotation of P2 \hyperlink{classTank}{Tank}. \end{DoxyCompactList}\item 
+const std\-::vector$<$ float $>$ \& \hyperlink{classTrackingManager_ab74d90eb6562d1c25a8a3abefa36d588}{get\-Turret\-Positions\-X} ()
+\begin{DoxyCompactList}\small\item\em Return x position of all Turrets. \end{DoxyCompactList}\item 
+const std\-::vector$<$ float $>$ \& \hyperlink{classTrackingManager_a82406f448e4cea6dc036e57b467eafaf}{get\-Turret\-Positions\-Y} ()
+\begin{DoxyCompactList}\small\item\em Return y position of all Turrets. \end{DoxyCompactList}\item 
+const std\-::vector$<$ float $>$ \& \hyperlink{classTrackingManager_ab073910a54a6e8badb90ae3b9e0e3cc7}{get\-Turret\-Rotations} ()
+\begin{DoxyCompactList}\small\item\em Return rotation of all Turrets. \end{DoxyCompactList}\item 
+virtual \hyperlink{classTrackingManager_aab0fa1e178458935019e6459d11ddea2}{$\sim$\-Tracking\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor for Tracking manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTrackingManager_a66f8f6f788618cb5aecfc1c228be2460}{remove\-Garbage} ()
+\begin{DoxyCompactList}\small\item\em Remove all deleted entities from \-\_\-trackables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::weak\-\_\-ptr\\*
+$<$ \hyperlink{classTrackable}{Trackable} $>$ $>$ \hyperlink{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\-\_\-trackables}
+\begin{DoxyCompactList}\small\item\em Pointers to all trackable entities within the game world. \end{DoxyCompactList}\item 
+\hyperlink{classGeometryEngine}{Geometry\-Engine} \hyperlink{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}{\-\_\-geometry\-\_\-engine}
+\begin{DoxyCompactList}\small\item\em Helper Engine. \end{DoxyCompactList}\item 
+float \hyperlink{classTrackingManager_a8c7de22662c27124fac80902d4f8ba41}{\-\_\-p1\-Rotation}
+\begin{DoxyCompactList}\small\item\em Player 1 tank current rotation. \end{DoxyCompactList}\item 
+float \hyperlink{classTrackingManager_a14b43a5e0cd605fff6b3308d0377f697}{\-\_\-p1\-Position\-X}
+\begin{DoxyCompactList}\small\item\em Player 1 tank current x position. \end{DoxyCompactList}\item 
+float \hyperlink{classTrackingManager_aa5b384a370b1ddccf76badc8a55459b1}{\-\_\-p1\-Position\-Y}
+\begin{DoxyCompactList}\small\item\em Player 1 tank current y position. \end{DoxyCompactList}\item 
+\hyperlink{structrect__corners}{rect\-\_\-corners} \hyperlink{classTrackingManager_a4916085aebb34a3921f3592d7ae07767}{\-\_\-p1\-Bounding\-Box}
+\begin{DoxyCompactList}\small\item\em Player 1 Bounding box. \end{DoxyCompactList}\item 
+float \hyperlink{classTrackingManager_a04442a7d5e399370637c9e334a257eb6}{\-\_\-p2\-Rotation}
+\begin{DoxyCompactList}\small\item\em Player 2 tank current rotation. \end{DoxyCompactList}\item 
+float \hyperlink{classTrackingManager_a0f3a043190aba11b137c52052dc2ed3a}{\-\_\-p2\-Position\-X}
+\begin{DoxyCompactList}\small\item\em Player 2tank current x position. \end{DoxyCompactList}\item 
+float \hyperlink{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}{\-\_\-p2\-Position\-Y}
+\begin{DoxyCompactList}\small\item\em Player 2 tank current y position. \end{DoxyCompactList}\item 
+\hyperlink{structrect__corners}{rect\-\_\-corners} \hyperlink{classTrackingManager_a345399f12e52bc4b23786fe73b26a6ff}{\-\_\-p2\-Bounding\-Box}
+\begin{DoxyCompactList}\small\item\em Player 2 Bounding box. \end{DoxyCompactList}\item 
+std\-::vector$<$ float $>$ \hyperlink{classTrackingManager_ad66641438bdcf33e772ef4ec1cdc7e14}{\-\_\-turret\-Positions\-X}
+\begin{DoxyCompactList}\small\item\em All of the Turrets current x positions. \end{DoxyCompactList}\item 
+std\-::vector$<$ float $>$ \hyperlink{classTrackingManager_aaf2aa5d29aa7a7abd3a7e7f27bff7340}{\-\_\-turret\-Positions\-Y}
+\begin{DoxyCompactList}\small\item\em All of the Turrets current y positions. \end{DoxyCompactList}\item 
+std\-::vector$<$ float $>$ \hyperlink{classTrackingManager_adce9702d80c3554e7a359a145a6d2632}{\-\_\-turret\-Rotations}
+\begin{DoxyCompactList}\small\item\em all of the Turrets current Rotations \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classManager}{Manager} responsible for keeping track of game entity positions. 
+
+Definition at line 22 of file Tracking\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTrackingManager_a9fb18e3ad20bc3eb3e9e3eb2e6b5748c}{\index{Tracking\-Manager@{Tracking\-Manager}!Tracking\-Manager@{Tracking\-Manager}}
+\index{Tracking\-Manager@{Tracking\-Manager}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{Tracking\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Tracking\-Manager\-::\-Tracking\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_a9fb18e3ad20bc3eb3e9e3eb2e6b5748c}
+
+
+Constructor for Tracking manager. 
+
+Constructor that initialises the \-\_\-geometry\-\_\-engine. 
+
+Definition at line 15 of file Tracking\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+15                                 :
+16     \hyperlink{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}{\_geometry\_engine}()
+17 \{
+18 
+19 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_aab0fa1e178458935019e6459d11ddea2}{\index{Tracking\-Manager@{Tracking\-Manager}!$\sim$\-Tracking\-Manager@{$\sim$\-Tracking\-Manager}}
+\index{$\sim$\-Tracking\-Manager@{$\sim$\-Tracking\-Manager}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{$\sim$\-Tracking\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Tracking\-Manager\-::$\sim$\-Tracking\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTrackingManager_aab0fa1e178458935019e6459d11ddea2}
+
+
+Destructor for Tracking manager. 
+
+
+
+Definition at line 21 of file Tracking\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+22 \{
+23 
+24 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTrackingManager_af0102b33b841a415bdce8605b7c0a11b}{\index{Tracking\-Manager@{Tracking\-Manager}!add\-New\-Entity@{add\-New\-Entity}}
+\index{add\-New\-Entity@{add\-New\-Entity}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{add\-New\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Tracking\-Manager\-::add\-New\-Entity (
+\begin{DoxyParamCaption}
+\item[{std\-::weak\-\_\-ptr$<$ {\bf Trackable} $>$}]{new\-\_\-entity}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_af0102b33b841a415bdce8605b7c0a11b}
+
+
+Add Trackable-\/type shared\-\_\-ptr's to the Tracking\-Managers internal data members. 
+
+
+
+Definition at line 196 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-trackables.
+
+
+
+Referenced by Game\-::add\-Trackable(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+197 \{
+198     \hyperlink{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\_trackables}.push\_back(new\_entity);
+199 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_ab455df1659739739b2be5f42f08e4b26}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-P1\-Position\-X@{get\-P1\-Position\-X}}
+\index{get\-P1\-Position\-X@{get\-P1\-Position\-X}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-P1\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Tracking\-Manager\-::get\-P1\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_ab455df1659739739b2be5f42f08e4b26}
+
+
+Return x position of P1 \hyperlink{classTank}{Tank}. 
+
+
+
+Definition at line 147 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-p1\-Position\-X.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+148 \{
+149     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_a14b43a5e0cd605fff6b3308d0377f697}{\_p1PositionX};
+150 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_ab79ae59918b07ad546cd7d95cfc983f6}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-P1\-Position\-Y@{get\-P1\-Position\-Y}}
+\index{get\-P1\-Position\-Y@{get\-P1\-Position\-Y}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-P1\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Tracking\-Manager\-::get\-P1\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_ab79ae59918b07ad546cd7d95cfc983f6}
+
+
+Return y position of P1 \hyperlink{classTank}{Tank}. 
+
+
+
+Definition at line 155 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-p1\-Position\-Y.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+156 \{
+157     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_aa5b384a370b1ddccf76badc8a55459b1}{\_p1PositionY};
+158 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_aad99796d4377109c93177204db15d1a8}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-P1\-Rotation@{get\-P1\-Rotation}}
+\index{get\-P1\-Rotation@{get\-P1\-Rotation}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-P1\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Tracking\-Manager\-::get\-P1\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_aad99796d4377109c93177204db15d1a8}
+
+
+Return rotation of P1 \hyperlink{classTank}{Tank}. 
+
+
+
+Definition at line 164 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-p1\-Rotation.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+165 \{
+166     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_a8c7de22662c27124fac80902d4f8ba41}{\_p1Rotation};
+167 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_acb6e621ee44b3d4589fd9e5941eb210f}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-P2\-Position\-X@{get\-P2\-Position\-X}}
+\index{get\-P2\-Position\-X@{get\-P2\-Position\-X}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-P2\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Tracking\-Manager\-::get\-P2\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_acb6e621ee44b3d4589fd9e5941eb210f}
+
+
+Return x position of P2 \hyperlink{classTank}{Tank}. 
+
+
+
+Definition at line 172 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-p2\-Position\-X.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+173 \{
+174     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_a0f3a043190aba11b137c52052dc2ed3a}{\_p2PositionX};
+175 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_af4f90d28fce0d8930ae555a3c1fa4bb8}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-P2\-Position\-Y@{get\-P2\-Position\-Y}}
+\index{get\-P2\-Position\-Y@{get\-P2\-Position\-Y}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-P2\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Tracking\-Manager\-::get\-P2\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_af4f90d28fce0d8930ae555a3c1fa4bb8}
+
+
+Return y position of P2 \hyperlink{classTank}{Tank}. 
+
+
+
+Definition at line 180 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-p2\-Position\-Y.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+181 \{
+182     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}{\_p2PositionY};
+183 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_a61bc8a3a82f0cd4064d5e2aa53677ebb}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-P2\-Rotation@{get\-P2\-Rotation}}
+\index{get\-P2\-Rotation@{get\-P2\-Rotation}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-P2\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Tracking\-Manager\-::get\-P2\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_a61bc8a3a82f0cd4064d5e2aa53677ebb}
+
+
+Return rotation of P2 \hyperlink{classTank}{Tank}. 
+
+
+
+Definition at line 188 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-p2\-Rotation.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+189 \{
+190     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_a04442a7d5e399370637c9e334a257eb6}{\_p2Rotation};
+191 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_ab74d90eb6562d1c25a8a3abefa36d588}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-Turret\-Positions\-X@{get\-Turret\-Positions\-X}}
+\index{get\-Turret\-Positions\-X@{get\-Turret\-Positions\-X}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-Turret\-Positions\-X}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$ float $>$ \& Tracking\-Manager\-::get\-Turret\-Positions\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_ab74d90eb6562d1c25a8a3abefa36d588}
+
+
+Return x position of all Turrets. 
+
+
+
+Definition at line 122 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-turret\-Positions\-X.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+123 \{
+124     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_ad66641438bdcf33e772ef4ec1cdc7e14}{\_turretPositionsX};
+125 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_a82406f448e4cea6dc036e57b467eafaf}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-Turret\-Positions\-Y@{get\-Turret\-Positions\-Y}}
+\index{get\-Turret\-Positions\-Y@{get\-Turret\-Positions\-Y}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-Turret\-Positions\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$ float $>$ \& Tracking\-Manager\-::get\-Turret\-Positions\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_a82406f448e4cea6dc036e57b467eafaf}
+
+
+Return y position of all Turrets. 
+
+
+
+Definition at line 131 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-turret\-Positions\-Y.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+132 \{
+133     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_aaf2aa5d29aa7a7abd3a7e7f27bff7340}{\_turretPositionsY};
+134 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_ab073910a54a6e8badb90ae3b9e0e3cc7}{\index{Tracking\-Manager@{Tracking\-Manager}!get\-Turret\-Rotations@{get\-Turret\-Rotations}}
+\index{get\-Turret\-Rotations@{get\-Turret\-Rotations}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{get\-Turret\-Rotations}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$ float $>$ \& Tracking\-Manager\-::get\-Turret\-Rotations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_ab073910a54a6e8badb90ae3b9e0e3cc7}
+
+
+Return rotation of all Turrets. 
+
+
+
+Definition at line 139 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-turret\-Rotations.
+
+
+
+Referenced by Game\-::add\-New\-World\-Entity().
+
+
+\begin{DoxyCode}
+140 \{
+141     \textcolor{keywordflow}{return} \hyperlink{classTrackingManager_adce9702d80c3554e7a359a145a6d2632}{\_turretRotations};
+142 \}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_a6331ac24f748ea336db5a7303a3dce60}{\index{Tracking\-Manager@{Tracking\-Manager}!manage@{manage}}
+\index{manage@{manage}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{manage}]{\setlength{\rightskip}{0pt plus 5cm}void Tracking\-Manager\-::manage (
+\begin{DoxyParamCaption}
+\item[{{\bf Action\-Data} \&}]{action\-\_\-data\-\_\-container}
+\end{DoxyParamCaption}
+)}}\label{classTrackingManager_a6331ac24f748ea336db5a7303a3dce60}
+
+
+Manage function allowing the position of all \hyperlink{classTrackable}{Trackable} entities to be kept. 
+
+This includes the tracking of the tanks by the turrets. The positions are obtained and then passed to the \-\_\-geometry\-\_\-engine where comparisons are made. 
+\begin{DoxyParams}{Parameters}
+{\em action\-\_\-data\-\_\-container} & \-:\-: Will set turret file in this container if needs be \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-geometry\-\_\-engine, \-\_\-p1\-Bounding\-Box, \-\_\-p1\-Position\-X, \-\_\-p1\-Position\-Y, \-\_\-p1\-Rotation, \-\_\-p2\-Bounding\-Box, \-\_\-p2\-Position\-X, \-\_\-p2\-Position\-Y, \-\_\-p2\-Rotation, \-\_\-trackables, \-\_\-turret\-Positions\-X, \-\_\-turret\-Positions\-Y, \-\_\-turret\-Rotations, Geometry\-Engine\-::calculate\-Vector\-Length(), Geometry\-Engine\-::is\-In\-Line\-Of\-Fire(), p1\-\_\-tank, p2\-\_\-tank, remove\-Garbage(), Action\-Data\-::set\-Turret\-Fire(), and turret.
+
+
+
+Referenced by Game\-::run\-All\-Managers(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+32 \{
+33     \hyperlink{classTrackingManager_a66f8f6f788618cb5aecfc1c228be2460}{removeGarbage}();
+34     \textcolor{comment}{//Clear position vectors for new cycle}
+35     \hyperlink{classTrackingManager_ad66641438bdcf33e772ef4ec1cdc7e14}{\_turretPositionsX}.clear();
+36     \hyperlink{classTrackingManager_aaf2aa5d29aa7a7abd3a7e7f27bff7340}{\_turretPositionsY}.clear();
+37     \hyperlink{classTrackingManager_adce9702d80c3554e7a359a145a6d2632}{\_turretRotations}.clear();
+38 
+39     \textcolor{keyword}{auto} \_trackables\_itterator = \hyperlink{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\_trackables}.begin();
+40     \textcolor{keywordflow}{for}(; \_trackables\_itterator != \hyperlink{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\_trackables}.end(); \_trackables\_itterator++)
+41     \{
+42         \textcolor{comment}{//Convert Itterator to Weak Pointer}
+43         std::weak\_ptr<Trackable> entity\_track\_wp = (*\_trackables\_itterator);
+44         \textcolor{comment}{//Convert Weak Pointer to Shared Pointer}
+45         std::shared\_ptr<Trackable> entity\_track\_sp = entity\_track\_wp.lock();
+46         \textcolor{comment}{//Check to see if entity still exists}
+47 
+48             \textcolor{keywordflow}{if}(entity\_track\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank})
+49             \{
+50                 \hyperlink{classTrackingManager_a14b43a5e0cd605fff6b3308d0377f697}{\_p1PositionX} = entity\_track\_sp->getPositionX();
+51                 \hyperlink{classTrackingManager_aa5b384a370b1ddccf76badc8a55459b1}{\_p1PositionY} = entity\_track\_sp->getPositionY();
+52                 \hyperlink{classTrackingManager_a8c7de22662c27124fac80902d4f8ba41}{\_p1Rotation} = entity\_track\_sp->getOrientation();
+53                 \hyperlink{classTrackingManager_a4916085aebb34a3921f3592d7ae07767}{\_p1BoundingBox} = entity\_track\_sp->getTrackingBoundingBox();
+54             \}
+55 
+56             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(entity\_track\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank})
+57             \{
+58                 \hyperlink{classTrackingManager_a0f3a043190aba11b137c52052dc2ed3a}{\_p2PositionX} = entity\_track\_sp->getPositionX();
+59                 \hyperlink{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}{\_p2PositionY} = entity\_track\_sp->getPositionY();
+60                 \hyperlink{classTrackingManager_a04442a7d5e399370637c9e334a257eb6}{\_p2Rotation} = entity\_track\_sp->getOrientation();
+61                 \hyperlink{classTrackingManager_a345399f12e52bc4b23786fe73b26a6ff}{\_p2BoundingBox} = entity\_track\_sp->getTrackingBoundingBox();
+62             \}
+63 
+64             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(entity\_track\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret})
+65             \{
+66                 \textcolor{comment}{//Temp variables}
+67                 \textcolor{keywordtype}{float} temp\_Turret\_Xpos = entity\_track\_sp->getPositionX();
+68                 \textcolor{keywordtype}{float} temp\_Turret\_Ypos = entity\_track\_sp->getPositionY();
+69                 \textcolor{keywordtype}{float} temp\_Turret\_Rotation = entity\_track\_sp->getOrientation();
+70                 \textcolor{keyword}{auto} temp\_Turret\_BoundingBox = entity\_track\_sp->getTrackingBoundingBox();
+71 
+72                 \textcolor{comment}{//See if turrets are viewing (tank1 or tank2) and it is in proximity}
+73                 \textcolor{comment}{//Using case gaurds}
+74                 \textcolor{keywordflow}{if}((\hyperlink{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}{\_geometry\_engine}.\hyperlink{classGeometryEngine_af21c9c2e172169130af88fa6f3aa5fe7}{isInLineOfFire}(temp\_Turret\_Rotation, 
+      temp\_Turret\_BoundingBox, \hyperlink{classTrackingManager_a4916085aebb34a3921f3592d7ae07767}{\_p1BoundingBox}, temp\_Turret\_Ypos, 
+      \hyperlink{classTrackingManager_aa5b384a370b1ddccf76badc8a55459b1}{\_p1PositionY})) &&
+75                    (\hyperlink{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}{\_geometry\_engine}.\hyperlink{classGeometryEngine_a99634c40d20ab72ab30289a6ff4abe39}{calculateVectorLength}(
+      temp\_Turret\_Xpos,temp\_Turret\_Ypos,\hyperlink{classTrackingManager_a14b43a5e0cd605fff6b3308d0377f697}{\_p1PositionX},\hyperlink{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}{\_p2PositionY}) < 400.0))
+76                 \{
+77                     action\_data\_container.\hyperlink{classActionData_a30502665240f4a0b0e37fbcd6447b590}{setTurretFire}();
+78                     \hyperlink{classTrackingManager_ad66641438bdcf33e772ef4ec1cdc7e14}{\_turretPositionsX}.push\_back(temp\_Turret\_Xpos);
+79                     \hyperlink{classTrackingManager_aaf2aa5d29aa7a7abd3a7e7f27bff7340}{\_turretPositionsY}.push\_back(temp\_Turret\_Ypos);
+80                     \hyperlink{classTrackingManager_adce9702d80c3554e7a359a145a6d2632}{\_turretRotations}.push\_back(temp\_Turret\_Rotation);
+81                 \}
+82 
+83                 \textcolor{keywordflow}{if}((\hyperlink{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}{\_geometry\_engine}.\hyperlink{classGeometryEngine_af21c9c2e172169130af88fa6f3aa5fe7}{isInLineOfFire}(temp\_Turret\_Rotation, 
+      temp\_Turret\_BoundingBox, \hyperlink{classTrackingManager_a345399f12e52bc4b23786fe73b26a6ff}{\_p2BoundingBox}, temp\_Turret\_Ypos, 
+      \hyperlink{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}{\_p2PositionY})) &&
+84                    (\hyperlink{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}{\_geometry\_engine}.\hyperlink{classGeometryEngine_a99634c40d20ab72ab30289a6ff4abe39}{calculateVectorLength}(
+      temp\_Turret\_Xpos,temp\_Turret\_Ypos,\hyperlink{classTrackingManager_a0f3a043190aba11b137c52052dc2ed3a}{\_p2PositionX},\hyperlink{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}{\_p2PositionY}) < 400.0))
+85                 \{
+86                     action\_data\_container.\hyperlink{classActionData_a30502665240f4a0b0e37fbcd6447b590}{setTurretFire}();
+87                     \hyperlink{classTrackingManager_ad66641438bdcf33e772ef4ec1cdc7e14}{\_turretPositionsX}.push\_back(temp\_Turret\_Xpos);
+88                     \hyperlink{classTrackingManager_aaf2aa5d29aa7a7abd3a7e7f27bff7340}{\_turretPositionsY}.push\_back(temp\_Turret\_Ypos);
+89                     \hyperlink{classTrackingManager_adce9702d80c3554e7a359a145a6d2632}{\_turretRotations}.push\_back(temp\_Turret\_Rotation);
+90                 \}
+91             \}
+92     \}\textcolor{comment}{//For}
+93 \}\textcolor{comment}{//function}
+\end{DoxyCode}
+\hypertarget{classTrackingManager_a66f8f6f788618cb5aecfc1c228be2460}{\index{Tracking\-Manager@{Tracking\-Manager}!remove\-Garbage@{remove\-Garbage}}
+\index{remove\-Garbage@{remove\-Garbage}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{remove\-Garbage}]{\setlength{\rightskip}{0pt plus 5cm}void Tracking\-Manager\-::remove\-Garbage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a66f8f6f788618cb5aecfc1c228be2460}
+
+
+Remove all deleted entities from \-\_\-trackables. 
+
+Clear all deleted pointers. 
+
+Definition at line 98 of file Tracking\-Manager.\-cpp.
+
+
+
+References \-\_\-trackables.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+99 \{
+100     \textcolor{comment}{//Clear all deleted entities from the \_trackables vector}
+101     \textcolor{keyword}{auto} removal = \hyperlink{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\_trackables}.begin();
+102     \textcolor{keywordflow}{for} (; removal != \hyperlink{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\_trackables}.end();)
+103     \{
+104         std::weak\_ptr<Trackable> removal\_wp = (*removal);
+105         \textcolor{comment}{//Convert weak\_ptr to shared\_ptr}
+106         std::shared\_ptr<Trackable> removal\_sp = removal\_wp.lock();
+107         \textcolor{comment}{//Test if pointer still valid}
+108         \textcolor{keywordflow}{if}(removal\_sp)
+109         \{
+110             removal++;
+111         \}
+112         \textcolor{keywordflow}{else}
+113         \{
+114             \hyperlink{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\_trackables}.erase(removal);
+115         \}
+116     \}\textcolor{comment}{// if}
+117 \}\textcolor{comment}{//function}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-geometry\-\_\-engine@{\-\_\-geometry\-\_\-engine}}
+\index{\-\_\-geometry\-\_\-engine@{\-\_\-geometry\-\_\-engine}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-geometry\-\_\-engine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Geometry\-Engine} Tracking\-Manager\-::\-\_\-geometry\-\_\-engine\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a9bf3e308977ec91b61c7bf5d269f35dd}
+
+
+Helper Engine. 
+
+
+
+Definition at line 63 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by manage().
+
+\hypertarget{classTrackingManager_a4916085aebb34a3921f3592d7ae07767}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p1\-Bounding\-Box@{\-\_\-p1\-Bounding\-Box}}
+\index{\-\_\-p1\-Bounding\-Box@{\-\_\-p1\-Bounding\-Box}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p1\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rect\-\_\-corners} Tracking\-Manager\-::\-\_\-p1\-Bounding\-Box\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a4916085aebb34a3921f3592d7ae07767}
+
+
+Player 1 Bounding box. 
+
+
+
+Definition at line 72 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by manage().
+
+\hypertarget{classTrackingManager_a14b43a5e0cd605fff6b3308d0377f697}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p1\-Position\-X@{\-\_\-p1\-Position\-X}}
+\index{\-\_\-p1\-Position\-X@{\-\_\-p1\-Position\-X}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p1\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Tracking\-Manager\-::\-\_\-p1\-Position\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a14b43a5e0cd605fff6b3308d0377f697}
+
+
+Player 1 tank current x position. 
+
+
+
+Definition at line 68 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-P1\-Position\-X(), and manage().
+
+\hypertarget{classTrackingManager_aa5b384a370b1ddccf76badc8a55459b1}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p1\-Position\-Y@{\-\_\-p1\-Position\-Y}}
+\index{\-\_\-p1\-Position\-Y@{\-\_\-p1\-Position\-Y}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p1\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Tracking\-Manager\-::\-\_\-p1\-Position\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_aa5b384a370b1ddccf76badc8a55459b1}
+
+
+Player 1 tank current y position. 
+
+
+
+Definition at line 70 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-P1\-Position\-Y(), and manage().
+
+\hypertarget{classTrackingManager_a8c7de22662c27124fac80902d4f8ba41}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p1\-Rotation@{\-\_\-p1\-Rotation}}
+\index{\-\_\-p1\-Rotation@{\-\_\-p1\-Rotation}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p1\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Tracking\-Manager\-::\-\_\-p1\-Rotation\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a8c7de22662c27124fac80902d4f8ba41}
+
+
+Player 1 tank current rotation. 
+
+
+
+Definition at line 66 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-P1\-Rotation(), and manage().
+
+\hypertarget{classTrackingManager_a345399f12e52bc4b23786fe73b26a6ff}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p2\-Bounding\-Box@{\-\_\-p2\-Bounding\-Box}}
+\index{\-\_\-p2\-Bounding\-Box@{\-\_\-p2\-Bounding\-Box}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p2\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rect\-\_\-corners} Tracking\-Manager\-::\-\_\-p2\-Bounding\-Box\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a345399f12e52bc4b23786fe73b26a6ff}
+
+
+Player 2 Bounding box. 
+
+
+
+Definition at line 81 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by manage().
+
+\hypertarget{classTrackingManager_a0f3a043190aba11b137c52052dc2ed3a}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p2\-Position\-X@{\-\_\-p2\-Position\-X}}
+\index{\-\_\-p2\-Position\-X@{\-\_\-p2\-Position\-X}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p2\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Tracking\-Manager\-::\-\_\-p2\-Position\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a0f3a043190aba11b137c52052dc2ed3a}
+
+
+Player 2tank current x position. 
+
+
+
+Definition at line 77 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-P2\-Position\-X(), and manage().
+
+\hypertarget{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p2\-Position\-Y@{\-\_\-p2\-Position\-Y}}
+\index{\-\_\-p2\-Position\-Y@{\-\_\-p2\-Position\-Y}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p2\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Tracking\-Manager\-::\-\_\-p2\-Position\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_ad4d803802447b6c8a1a09104263fd829}
+
+
+Player 2 tank current y position. 
+
+
+
+Definition at line 79 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-P2\-Position\-Y(), and manage().
+
+\hypertarget{classTrackingManager_a04442a7d5e399370637c9e334a257eb6}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-p2\-Rotation@{\-\_\-p2\-Rotation}}
+\index{\-\_\-p2\-Rotation@{\-\_\-p2\-Rotation}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-p2\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Tracking\-Manager\-::\-\_\-p2\-Rotation\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_a04442a7d5e399370637c9e334a257eb6}
+
+
+Player 2 tank current rotation. 
+
+
+
+Definition at line 75 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-P2\-Rotation(), and manage().
+
+\hypertarget{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-trackables@{\-\_\-trackables}}
+\index{\-\_\-trackables@{\-\_\-trackables}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-trackables}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::weak\-\_\-ptr$<${\bf Trackable}$>$ $>$ Tracking\-Manager\-::\-\_\-trackables\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_add21c42cf5a993fbf5a95abd7e36f3dc}
+
+
+Pointers to all trackable entities within the game world. 
+
+
+
+Definition at line 57 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by add\-New\-Entity(), manage(), and remove\-Garbage().
+
+\hypertarget{classTrackingManager_ad66641438bdcf33e772ef4ec1cdc7e14}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-turret\-Positions\-X@{\-\_\-turret\-Positions\-X}}
+\index{\-\_\-turret\-Positions\-X@{\-\_\-turret\-Positions\-X}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-turret\-Positions\-X}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$float$>$ Tracking\-Manager\-::\-\_\-turret\-Positions\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_ad66641438bdcf33e772ef4ec1cdc7e14}
+
+
+All of the Turrets current x positions. 
+
+
+
+Definition at line 84 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-Turret\-Positions\-X(), and manage().
+
+\hypertarget{classTrackingManager_aaf2aa5d29aa7a7abd3a7e7f27bff7340}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-turret\-Positions\-Y@{\-\_\-turret\-Positions\-Y}}
+\index{\-\_\-turret\-Positions\-Y@{\-\_\-turret\-Positions\-Y}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-turret\-Positions\-Y}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$float$>$ Tracking\-Manager\-::\-\_\-turret\-Positions\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_aaf2aa5d29aa7a7abd3a7e7f27bff7340}
+
+
+All of the Turrets current y positions. 
+
+
+
+Definition at line 86 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-Turret\-Positions\-Y(), and manage().
+
+\hypertarget{classTrackingManager_adce9702d80c3554e7a359a145a6d2632}{\index{Tracking\-Manager@{Tracking\-Manager}!\-\_\-turret\-Rotations@{\-\_\-turret\-Rotations}}
+\index{\-\_\-turret\-Rotations@{\-\_\-turret\-Rotations}!TrackingManager@{Tracking\-Manager}}
+\subsubsection[{\-\_\-turret\-Rotations}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$float$>$ Tracking\-Manager\-::\-\_\-turret\-Rotations\hspace{0.3cm}{\ttfamily [private]}}}\label{classTrackingManager_adce9702d80c3554e7a359a145a6d2632}
+
+
+all of the Turrets current Rotations 
+
+
+
+Definition at line 88 of file Tracking\-Manager.\-h.
+
+
+
+Referenced by get\-Turret\-Rotations(), and manage().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{TrackingManager_8h}{Tracking\-Manager.\-h}\item 
+\hyperlink{TrackingManager_8cpp}{Tracking\-Manager.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,740 @@
+\hypertarget{classGeometryEngine}{\section{Geometry\-Engine Class Reference}
+\label{classGeometryEngine}\index{Geometry\-Engine@{Geometry\-Engine}}
+}
+
+
+Class responisible for handling geometrical calculations.  
+
+
+
+
+{\ttfamily \#include $<$Geometry\-Engine.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classGeometryEngine_a049acffe89f53be25fbc9d4018c3b388}{is\-Collision} (const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-\-A, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-\-B)
+\begin{DoxyCompactList}\small\item\em Function that client code can call to check final collision status. \end{DoxyCompactList}\item 
+bool \hyperlink{classGeometryEngine_af21c9c2e172169130af88fa6f3aa5fe7}{is\-In\-Line\-Of\-Fire} (const float \&rotation, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&shooter, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&target, const float \&shooter\-\_\-y, const float \&target\-\_\-y)
+\begin{DoxyCompactList}\small\item\em Function that checks of tank is in turrets line of fire. \end{DoxyCompactList}\item 
+const float \hyperlink{classGeometryEngine_a99634c40d20ab72ab30289a6ff4abe39}{calculate\-Vector\-Length} (const float x\-\_\-coord\-\_\-1, const float y\-\_\-coord\-\_\-1, const float x\-\_\-coord\-\_\-2, const float y\-\_\-coord\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Function to determine the vector lenght between two points. \end{DoxyCompactList}\item 
+bool \hyperlink{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{is\-Rectangle\-Overlap\-For\-Axis} (\hyperlink{structcoordinate}{coordinate} axis, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-\-A, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-\-B)
+\begin{DoxyCompactList}\small\item\em Main function called to check overlap. \end{DoxyCompactList}\item 
+void \hyperlink{classGeometryEngine_aad070884eb5c9380cd3d75a22e95ba8a}{calculate\-Vector\-Projections} (std\-::vector$<$ \hyperlink{structcoordinate}{coordinate} $>$ \&axis\-\_\-projections, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect, const \hyperlink{structcoordinate}{coordinate} \&axis)
+\begin{DoxyCompactList}\small\item\em Calculates the projections of the rectangles vertices vectors onto an axis. \end{DoxyCompactList}\item 
+void \hyperlink{classGeometryEngine_ad5c9132e2ddc165f92ac81c021e21622}{calculate\-Max\-And\-Min\-Projection\-Magnitude} (const std\-::vector$<$ \hyperlink{structcoordinate}{coordinate} $>$ \&axis\-\_\-projections, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect, const \hyperlink{structcoordinate}{coordinate} \&axis, float \&max, float \&min)
+\begin{DoxyCompactList}\small\item\em Calculates which of the projected vectors are furtherest along. \end{DoxyCompactList}\item 
+const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \hyperlink{classGeometryEngine_a662ec9af09fd513700f41d3e7090b1bf}{get\-Relative\-Position} (const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-entity, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&compared\-\_\-rect\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Determine the relative positioning of two objects within the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classGeometryEngine_a8fd91015b4dbafc76217bb256632aedd}{lowwer\-Points\-Above\-Top\-Of\-Object} (const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-entity, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&compared\-\_\-rect\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Compares points of two rectangles. \end{DoxyCompactList}\item 
+bool \hyperlink{classGeometryEngine_a955c93af2213f83674fb80ebbc76529e}{upper\-Points\-Below\-Bottom\-Of\-Object} (const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-entity, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&compared\-\_\-rect\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Compares points of two rectangles. \end{DoxyCompactList}\item 
+bool \hyperlink{classGeometryEngine_a88fe436f5cce8f04bf817b52b33e6735}{right\-Points\-Left\-Of\-Object} (const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-entity, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&compared\-\_\-rect\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Compares points of two rectangles. \end{DoxyCompactList}\item 
+bool \hyperlink{classGeometryEngine_a869816b96ce4df08975363692a4a5f7d}{left\-Points\-Right\-Of\-Object} (const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-entity, const \hyperlink{structrect__corners}{rect\-\_\-corners} \&compared\-\_\-rect\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Compares points of two rectangles. \end{DoxyCompactList}\item 
+bool \hyperlink{classGeometryEngine_a2ad4dc1a141e3f06b78fe862d9738fbc}{is\-Valid\-Rect\-Entity} (const \hyperlink{structrect__corners}{rect\-\_\-corners} \&rect\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Checks if the rectangle enrty is valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class responisible for handling geometrical calculations. 
+
+Definition at line 21 of file Geometry\-Engine.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGeometryEngine_ad5c9132e2ddc165f92ac81c021e21622}{\index{Geometry\-Engine@{Geometry\-Engine}!calculate\-Max\-And\-Min\-Projection\-Magnitude@{calculate\-Max\-And\-Min\-Projection\-Magnitude}}
+\index{calculate\-Max\-And\-Min\-Projection\-Magnitude@{calculate\-Max\-And\-Min\-Projection\-Magnitude}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{calculate\-Max\-And\-Min\-Projection\-Magnitude}]{\setlength{\rightskip}{0pt plus 5cm}void Geometry\-Engine\-::calculate\-Max\-And\-Min\-Projection\-Magnitude (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ {\bf coordinate} $>$ \&}]{axis\-\_\-projections, }
+\item[{const {\bf rect\-\_\-corners} \&}]{rect, }
+\item[{const {\bf coordinate} \&}]{axis, }
+\item[{float \&}]{max, }
+\item[{float \&}]{min}
+\end{DoxyParamCaption}
+)}}\label{classGeometryEngine_ad5c9132e2ddc165f92ac81c021e21622}
+
+
+Calculates which of the projected vectors are furtherest along. 
+
+Determines which projections are the greatest.
+
+Values for A and B are claculated and passed back by reference 
+\begin{DoxyParams}{Parameters}
+{\em axis\-\_\-projections} & \-:\-: holds the projected axis values \\
+\hline
+{\em rect} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+{\em axis} & \-:\-: used for the calculations \\
+\hline
+{\em max} & \-:\-: largest projection value saved here \\
+\hline
+{\em min} & \-:\-: smallers projection value saved here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 157 of file Geometry\-Engine.\-cpp.
+
+
+
+References coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by is\-Rectangle\-Overlap\-For\-Axis().
+
+
+\begin{DoxyCode}
+158 \{
+159     std::vector<float> projection\_pos; \textcolor{comment}{// container that will indicate the projection position along axis}
+160 
+161     \textcolor{keyword}{auto} projection = axis\_projections.begin();
+162     \textcolor{keywordflow}{for} (; projection != axis\_projections.end(); ++projection)
+163         projection\_pos.push\_back(((projection->x)*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}) + ((projection->y)*axis.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}));
+164 
+165     min = *std::min\_element(projection\_pos.begin(), projection\_pos.end());
+166     max = *std::max\_element(projection\_pos.begin(), projection\_pos.end());
+167 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a99634c40d20ab72ab30289a6ff4abe39}{\index{Geometry\-Engine@{Geometry\-Engine}!calculate\-Vector\-Length@{calculate\-Vector\-Length}}
+\index{calculate\-Vector\-Length@{calculate\-Vector\-Length}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{calculate\-Vector\-Length}]{\setlength{\rightskip}{0pt plus 5cm}const float Geometry\-Engine\-::calculate\-Vector\-Length (
+\begin{DoxyParamCaption}
+\item[{const float}]{x\-\_\-coord\-\_\-1, }
+\item[{const float}]{y\-\_\-coord\-\_\-1, }
+\item[{const float}]{x\-\_\-coord\-\_\-2, }
+\item[{const float}]{y\-\_\-coord\-\_\-2}
+\end{DoxyParamCaption}
+)}}\label{classGeometryEngine_a99634c40d20ab72ab30289a6ff4abe39}
+
+
+Function to determine the vector lenght between two points. 
+
+Calculates vector distance.
+
+Used for determing if some geometrical object falls with a certain radius of the other 
+\begin{DoxyParams}{Parameters}
+{\em x\-\_\-coord\-\_\-1} & \-:\-: holds the projected axis values \\
+\hline
+{\em y\-\_\-coord\-\_\-1} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+{\em x\-\_\-coord\-\_\-2} & \-:\-: used for the calculations \\
+\hline
+{\em y\-\_\-coord\-\_\-2} & \-:\-: largest projection value saved here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file Geometry\-Engine.\-cpp.
+
+
+
+Referenced by Tracking\-Manager\-::manage(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+178 \{
+179     \textcolor{keywordflow}{return} (sqrt(pow((x\_coord\_1 - x\_coord\_2),2) + pow((y\_coord\_1 - y\_coord\_2),2)));
+180 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_aad070884eb5c9380cd3d75a22e95ba8a}{\index{Geometry\-Engine@{Geometry\-Engine}!calculate\-Vector\-Projections@{calculate\-Vector\-Projections}}
+\index{calculate\-Vector\-Projections@{calculate\-Vector\-Projections}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{calculate\-Vector\-Projections}]{\setlength{\rightskip}{0pt plus 5cm}void Geometry\-Engine\-::calculate\-Vector\-Projections (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf coordinate} $>$ \&}]{axis\-\_\-projections, }
+\item[{const {\bf rect\-\_\-corners} \&}]{rect, }
+\item[{const {\bf coordinate} \&}]{axis}
+\end{DoxyParamCaption}
+)}}\label{classGeometryEngine_aad070884eb5c9380cd3d75a22e95ba8a}
+
+
+Calculates the projections of the rectangles vertices vectors onto an axis. 
+
+Calculates axis projections from rectangle vertices onto an axis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis\-\_\-projections} & \-:\-: holds the projected axis values \\
+\hline
+{\em rect} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+{\em axis} & \-:\-: used for the calculations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 127 of file Geometry\-Engine.\-cpp.
+
+
+
+References rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::lower\-\_\-right, rect\-\_\-corners\-::upper\-\_\-left, rect\-\_\-corners\-::upper\-\_\-right, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by is\-Rectangle\-Overlap\-For\-Axis().
+
+
+\begin{DoxyCode}
+128 \{
+129     \hyperlink{structcoordinate}{coordinate} point;
+130 
+131     point.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = ((rect.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+132     point.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = ((rect.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+133     axis\_projections.push\_back(point);
+134 
+135     point.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = ((rect.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+136     point.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = ((rect.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+137     axis\_projections.push\_back(point);
+138 
+139     point.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = ((rect.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+140     point.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = ((rect.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+141     axis\_projections.push\_back(point);
+142 
+143     point.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = ((rect.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+144     point.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = ((rect.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}*axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} + rect.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y})/(powf(axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, 2.0) + powf(axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}, 2.0)))*axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+145     axis\_projections.push\_back(point);
+146 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a662ec9af09fd513700f41d3e7090b1bf}{\index{Geometry\-Engine@{Geometry\-Engine}!get\-Relative\-Position@{get\-Relative\-Position}}
+\index{get\-Relative\-Position@{get\-Relative\-Position}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{get\-Relative\-Position}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf blocked\-\_\-status} Geometry\-Engine\-::get\-Relative\-Position (
+\begin{DoxyParamCaption}
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-entity, }
+\item[{const {\bf rect\-\_\-corners} \&}]{compared\-\_\-rect\-\_\-entity}
+\end{DoxyParamCaption}
+)}}\label{classGeometryEngine_a662ec9af09fd513700f41d3e7090b1bf}
+
+
+Determine the relative positioning of two objects within the game. 
+
+Calculates vector distance.
+
+Throws exception if rectangles are not valid data type. 
+\begin{DoxyParams}{Parameters}
+{\em x\-\_\-coord\-\_\-1} & \-:\-: holds the projected axis values \\
+\hline
+{\em y\-\_\-coord\-\_\-1} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+{\em x\-\_\-coord\-\_\-2} & \-:\-: used for the calculations \\
+\hline
+{\em y\-\_\-coord\-\_\-2} & \-:\-: largest projection value saved here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file Geometry\-Engine.\-cpp.
+
+
+
+References blocked\-\_\-horizontally, blocked\-\_\-vertically, is\-Valid\-Rect\-Entity(), left\-Points\-Right\-Of\-Object(), lowwer\-Points\-Above\-Top\-Of\-Object(), right\-Points\-Left\-Of\-Object(), unblocked, and upper\-Points\-Below\-Bottom\-Of\-Object().
+
+
+
+Referenced by Collision\-Manager\-::get\-Resulting\-Blocked\-Status(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+191 \{
+192     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a2ad4dc1a141e3f06b78fe862d9738fbc}{isValidRectEntity}(rect\_entity)) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidRectEntityProvided}{InvalidRectEntityProvided}();
+193     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a2ad4dc1a141e3f06b78fe862d9738fbc}{isValidRectEntity}(compared\_rect\_entity)) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidRectEntityProvided}{InvalidRectEntityProvided}();
+194 
+195     \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\_status} blocked\_state = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked};
+196 
+197     \textcolor{keywordflow}{if}(\hyperlink{classGeometryEngine_a955c93af2213f83674fb80ebbc76529e}{upperPointsBelowBottomOfObject}(rect\_entity,compared\_rect\_entity))
+198     \{
+199         blocked\_state =  \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a5b5e63da31bc787008b9f40686347e45}{blocked\_vertically};
+200     \}
+201 
+202     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classGeometryEngine_a88fe436f5cce8f04bf817b52b33e6735}{rightPointsLeftOfObject}(rect\_entity,compared\_rect\_entity))
+203     \{
+204         blocked\_state = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a582e6420c60bcec29729790197d0459f}{blocked\_horizontally};
+205     \}
+206 
+207     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classGeometryEngine_a869816b96ce4df08975363692a4a5f7d}{leftPointsRightOfObject}(rect\_entity,compared\_rect\_entity))
+208     \{
+209         blocked\_state = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a582e6420c60bcec29729790197d0459f}{blocked\_horizontally};
+210     \}
+211 
+212     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classGeometryEngine_a8fd91015b4dbafc76217bb256632aedd}{lowwerPointsAboveTopOfObject}(rect\_entity,compared\_rect\_entity))
+213     \{
+214         blocked\_state = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a5b5e63da31bc787008b9f40686347e45}{blocked\_vertically};
+215     \}
+216 
+217     \textcolor{keywordflow}{return} blocked\_state;
+218 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a049acffe89f53be25fbc9d4018c3b388}{\index{Geometry\-Engine@{Geometry\-Engine}!is\-Collision@{is\-Collision}}
+\index{is\-Collision@{is\-Collision}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{is\-Collision}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::is\-Collision (
+\begin{DoxyParamCaption}
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-\-A, }
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{classGeometryEngine_a049acffe89f53be25fbc9d4018c3b388}
+
+
+Function that client code can call to check final collision status. 
+
+Determines if two rectangles have collided.
+
+Throws an exception if invald arguments are given. The function goes through each axis projections checking for an overlap. 
+\begin{DoxyParams}{Parameters}
+{\em rect\-\_\-\-A} & \-:\-: Rectangle A \\
+\hline
+{\em rect\-\_\-\-B} & \-:\-: Rectangle B \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file Geometry\-Engine.\-cpp.
+
+
+
+References is\-Rectangle\-Overlap\-For\-Axis(), is\-Valid\-Rect\-Entity(), rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::lower\-\_\-right, rect\-\_\-corners\-::upper\-\_\-left, rect\-\_\-corners\-::upper\-\_\-right, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by Collision\-Manager\-::review\-Collision\-States(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+23 \{
+24     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a2ad4dc1a141e3f06b78fe862d9738fbc}{isValidRectEntity}(rect\_A)) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidRectEntityProvided}{InvalidRectEntityProvided}();
+25     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a2ad4dc1a141e3f06b78fe862d9738fbc}{isValidRectEntity}(rect\_B)) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidRectEntityProvided}{InvalidRectEntityProvided}();
+26 
+27     \hyperlink{structcoordinate}{coordinate} axis;
+28 
+29     axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = rect\_A.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} - rect\_A.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+30     axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = rect\_A.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} - rect\_A.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+31     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{isRectangleOverlapForAxis}(axis, rect\_A, rect\_B))
+32         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+33 
+34     axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = rect\_A.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} - rect\_A.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+35     axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = rect\_A.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} - rect\_A.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+36     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{isRectangleOverlapForAxis}(axis, rect\_A, rect\_B))
+37         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+38 
+39     axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = rect\_B.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} - rect\_B.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+40     axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = rect\_B.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} - rect\_B.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+41     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{isRectangleOverlapForAxis}(axis, rect\_A, rect\_B))
+42         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+43 
+44     axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = rect\_B.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} - rect\_B.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x};
+45     axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = rect\_B.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} - rect\_B.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+46     \textcolor{keywordflow}{if} (!\hyperlink{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{isRectangleOverlapForAxis}(axis, rect\_A, rect\_B))
+47         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+48 
+49     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+50 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_af21c9c2e172169130af88fa6f3aa5fe7}{\index{Geometry\-Engine@{Geometry\-Engine}!is\-In\-Line\-Of\-Fire@{is\-In\-Line\-Of\-Fire}}
+\index{is\-In\-Line\-Of\-Fire@{is\-In\-Line\-Of\-Fire}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{is\-In\-Line\-Of\-Fire}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::is\-In\-Line\-Of\-Fire (
+\begin{DoxyParamCaption}
+\item[{const float \&}]{rotation, }
+\item[{const {\bf rect\-\_\-corners} \&}]{shooter, }
+\item[{const {\bf rect\-\_\-corners} \&}]{target, }
+\item[{const float \&}]{shooter\-\_\-y, }
+\item[{const float \&}]{target\-\_\-y}
+\end{DoxyParamCaption}
+)}}\label{classGeometryEngine_af21c9c2e172169130af88fa6f3aa5fe7}
+
+
+Function that checks of tank is in turrets line of fire. 
+
+Determines rectangle is inline of sight of another.
+
+Uses the shooter rotation to determine what angle the turret is sitting at. Based on this angle, the turrt will behave differently. This is because, using the separating axis theorem creates a single axis for two opposites sides of a square. This is why a shooter would detect something from behind 
+\begin{DoxyParams}{Parameters}
+{\em rotation} & \-:\-: shooter rotation \\
+\hline
+{\em shooter} & \-:\-: rectangle corners of the shooter \\
+\hline
+{\em target} & \-:\-: rectangle corners of the target \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Geometry\-Engine.\-cpp.
+
+
+
+References is\-Rectangle\-Overlap\-For\-Axis(), rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::lower\-\_\-right, rect\-\_\-corners\-::upper\-\_\-left, rect\-\_\-corners\-::upper\-\_\-right, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by Tracking\-Manager\-::manage(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+63 \{
+64     \hyperlink{structcoordinate}{coordinate} axis;
+65 
+66     \textcolor{comment}{//develop axis based on the rotation of the shooter}
+67     axis.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = shooter.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} - shooter.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}; \textcolor{comment}{//axis along the turret
+       barrel}
+68     axis.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = shooter.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} - shooter.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y};
+69 
+70     \textcolor{keywordflow}{if} (rotation >= 180.0 && rotation <= 359.0)
+71     \{
+72         \textcolor{keywordflow}{if} (\hyperlink{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{isRectangleOverlapForAxis}(axis, shooter, target))
+73         \{ \textcolor{comment}{// also check if the target is above the shooter}
+74             \textcolor{keywordflow}{if} ((target\_y <= shooter\_y) && (target.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} <= shooter\_y) && (target.
+      \hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} <= shooter\_y)
+75                                         && (target.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} <= shooter\_y) && (target.
+      \hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} <= shooter\_y))
+76                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+77         \}
+78     \}
+79     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rotation >= 0.0 && rotation <= 179.0)
+80     \{
+81         \textcolor{keywordflow}{if} (\hyperlink{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{isRectangleOverlapForAxis}(axis, shooter, target))
+82         \{ \textcolor{comment}{// also check if the target is below the shooter}
+83             \textcolor{keywordflow}{if} ((target\_y >= shooter\_y) && (target.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} >= shooter\_y) && (target.
+      \hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} >= shooter\_y)
+84                                         && (target.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} >= shooter\_y) && (target.
+      \hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} >= shooter\_y))
+85                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+86         \}
+87     \}
+88 
+89     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+90 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}{\index{Geometry\-Engine@{Geometry\-Engine}!is\-Rectangle\-Overlap\-For\-Axis@{is\-Rectangle\-Overlap\-For\-Axis}}
+\index{is\-Rectangle\-Overlap\-For\-Axis@{is\-Rectangle\-Overlap\-For\-Axis}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{is\-Rectangle\-Overlap\-For\-Axis}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::is\-Rectangle\-Overlap\-For\-Axis (
+\begin{DoxyParamCaption}
+\item[{{\bf coordinate}}]{axis, }
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-\-A, }
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{classGeometryEngine_a1cd3abed45085b76e4145ac91fd1275e}
+
+
+Main function called to check overlap. 
+
+Determines if there is an overlap on this axis.
+
+Overlaps are calculated for axis projected axis. The projections for both reactangles A and B are compared. 
+\begin{DoxyParams}{Parameters}
+{\em axis} & \-:\-: and x y vector \\
+\hline
+{\em rect\-\_\-\-A} & \-:\-: rectangle corners of A \\
+\hline
+{\em rect\-\_\-\-B} & \-:\-: rectangle corners of B \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Geometry\-Engine.\-cpp.
+
+
+
+References calculate\-Max\-And\-Min\-Projection\-Magnitude(), and calculate\-Vector\-Projections().
+
+
+
+Referenced by is\-Collision(), is\-In\-Line\-Of\-Fire(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+100 \{
+101     \textcolor{keywordtype}{float} max\_A = 0.0;
+102     \textcolor{keywordtype}{float} min\_A = 0.0; \textcolor{comment}{// scalar values of dot products between axis and projection}
+103     \textcolor{keywordtype}{float} max\_B = 0.0;
+104     \textcolor{keywordtype}{float} min\_B = 0.0;
+105 
+106     std::vector<coordinate> axis\_projections\_A;
+107     std::vector<coordinate> axis\_projections\_B;
+108 
+109     \hyperlink{classGeometryEngine_aad070884eb5c9380cd3d75a22e95ba8a}{calculateVectorProjections}(axis\_projections\_A, rect\_A, axis);
+110     \hyperlink{classGeometryEngine_aad070884eb5c9380cd3d75a22e95ba8a}{calculateVectorProjections}(axis\_projections\_B, rect\_B, axis);
+111 
+112     \hyperlink{classGeometryEngine_ad5c9132e2ddc165f92ac81c021e21622}{calculateMaxAndMinProjectionMagnitude}(axis\_projections\_A, rect\_A, 
+      axis, max\_A, min\_A);
+113     \hyperlink{classGeometryEngine_ad5c9132e2ddc165f92ac81c021e21622}{calculateMaxAndMinProjectionMagnitude}(axis\_projections\_B, rect\_B, 
+      axis, max\_B, min\_B);
+114 
+115     \textcolor{keywordflow}{if} ((min\_B <= max\_A) && (max\_B >= min\_A))
+116         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+117     \textcolor{keywordflow}{else}
+118         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+119 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a2ad4dc1a141e3f06b78fe862d9738fbc}{\index{Geometry\-Engine@{Geometry\-Engine}!is\-Valid\-Rect\-Entity@{is\-Valid\-Rect\-Entity}}
+\index{is\-Valid\-Rect\-Entity@{is\-Valid\-Rect\-Entity}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{is\-Valid\-Rect\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::is\-Valid\-Rect\-Entity (
+\begin{DoxyParamCaption}
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGeometryEngine_a2ad4dc1a141e3f06b78fe862d9738fbc}
+
+
+Checks if the rectangle enrty is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect\-\_\-entity} & \-:\-: rectangle that is being checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file Geometry\-Engine.\-cpp.
+
+
+
+References rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::lower\-\_\-right, rect\-\_\-corners\-::upper\-\_\-left, rect\-\_\-corners\-::upper\-\_\-right, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by get\-Relative\-Position(), and is\-Collision().
+
+
+\begin{DoxyCode}
+281 \{
+282     \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+283     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+284     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+285     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+286 
+287     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+288     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+289     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+290     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rect\_entity.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} < -100) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+291     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+292 
+293 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a869816b96ce4df08975363692a4a5f7d}{\index{Geometry\-Engine@{Geometry\-Engine}!left\-Points\-Right\-Of\-Object@{left\-Points\-Right\-Of\-Object}}
+\index{left\-Points\-Right\-Of\-Object@{left\-Points\-Right\-Of\-Object}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{left\-Points\-Right\-Of\-Object}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::left\-Points\-Right\-Of\-Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-entity, }
+\item[{const {\bf rect\-\_\-corners} \&}]{compared\-\_\-rect\-\_\-entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGeometryEngine_a869816b96ce4df08975363692a4a5f7d}
+
+
+Compares points of two rectangles. 
+
+Compared upper left and right y coordinate points. Also checks to see if one is left of the other. 
+\begin{DoxyParams}{Parameters}
+{\em rect\-\_\-entity} & \-:\-: holds the projected axis values \\
+\hline
+{\em compared\-\_\-rect\-\_\-entity} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 268 of file Geometry\-Engine.\-cpp.
+
+
+
+References rect\-\_\-corners\-::lower\-\_\-right, rect\-\_\-corners\-::upper\-\_\-right, and coordinate\-::x.
+
+
+
+Referenced by get\-Relative\-Position().
+
+
+\begin{DoxyCode}
+269 \{
+270     \textcolor{keywordflow}{if} ((rect\_entity.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} >= compared\_rect\_entity.
+      \hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}) &&
+271         (rect\_entity.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} >= compared\_rect\_entity.
+      \hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}))
+272             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+273     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+274 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a8fd91015b4dbafc76217bb256632aedd}{\index{Geometry\-Engine@{Geometry\-Engine}!lowwer\-Points\-Above\-Top\-Of\-Object@{lowwer\-Points\-Above\-Top\-Of\-Object}}
+\index{lowwer\-Points\-Above\-Top\-Of\-Object@{lowwer\-Points\-Above\-Top\-Of\-Object}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{lowwer\-Points\-Above\-Top\-Of\-Object}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::lowwer\-Points\-Above\-Top\-Of\-Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-entity, }
+\item[{const {\bf rect\-\_\-corners} \&}]{compared\-\_\-rect\-\_\-entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGeometryEngine_a8fd91015b4dbafc76217bb256632aedd}
+
+
+Compares points of two rectangles. 
+
+Compared upper left and right y coordinate points. 
+\begin{DoxyParams}{Parameters}
+{\em rect\-\_\-entity} & \-:\-: holds the projected axis values \\
+\hline
+{\em compared\-\_\-rect\-\_\-entity} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 226 of file Geometry\-Engine.\-cpp.
+
+
+
+References rect\-\_\-corners\-::upper\-\_\-left, rect\-\_\-corners\-::upper\-\_\-right, and coordinate\-::y.
+
+
+
+Referenced by get\-Relative\-Position().
+
+
+\begin{DoxyCode}
+227 \{
+228     \textcolor{keywordflow}{if} ((rect\_entity.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} >= compared\_rect\_entity.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}) &&
+229         (rect\_entity.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} >= compared\_rect\_entity.
+      \hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}))
+230             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+231     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+232 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a88fe436f5cce8f04bf817b52b33e6735}{\index{Geometry\-Engine@{Geometry\-Engine}!right\-Points\-Left\-Of\-Object@{right\-Points\-Left\-Of\-Object}}
+\index{right\-Points\-Left\-Of\-Object@{right\-Points\-Left\-Of\-Object}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{right\-Points\-Left\-Of\-Object}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::right\-Points\-Left\-Of\-Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-entity, }
+\item[{const {\bf rect\-\_\-corners} \&}]{compared\-\_\-rect\-\_\-entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGeometryEngine_a88fe436f5cce8f04bf817b52b33e6735}
+
+
+Compares points of two rectangles. 
+
+Compared lower left and right y coordinate points. Also checks to see if one is right of the other. 
+\begin{DoxyParams}{Parameters}
+{\em rect\-\_\-entity} & \-:\-: holds the projected axis values \\
+\hline
+{\em compared\-\_\-rect\-\_\-entity} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 254 of file Geometry\-Engine.\-cpp.
+
+
+
+References rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::upper\-\_\-left, and coordinate\-::x.
+
+
+
+Referenced by get\-Relative\-Position().
+
+
+\begin{DoxyCode}
+255 \{
+256     \textcolor{keywordflow}{if} ((rect\_entity.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} <= compared\_rect\_entity.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.
+      \hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}) &&
+257         (rect\_entity.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} <= compared\_rect\_entity.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.
+      \hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}))
+258             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+259     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+260 \}
+\end{DoxyCode}
+\hypertarget{classGeometryEngine_a955c93af2213f83674fb80ebbc76529e}{\index{Geometry\-Engine@{Geometry\-Engine}!upper\-Points\-Below\-Bottom\-Of\-Object@{upper\-Points\-Below\-Bottom\-Of\-Object}}
+\index{upper\-Points\-Below\-Bottom\-Of\-Object@{upper\-Points\-Below\-Bottom\-Of\-Object}!GeometryEngine@{Geometry\-Engine}}
+\subsubsection[{upper\-Points\-Below\-Bottom\-Of\-Object}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Engine\-::upper\-Points\-Below\-Bottom\-Of\-Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf rect\-\_\-corners} \&}]{rect\-\_\-entity, }
+\item[{const {\bf rect\-\_\-corners} \&}]{compared\-\_\-rect\-\_\-entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGeometryEngine_a955c93af2213f83674fb80ebbc76529e}
+
+
+Compares points of two rectangles. 
+
+Compared lower left and right y coordinate points. 
+\begin{DoxyParams}{Parameters}
+{\em rect\-\_\-entity} & \-:\-: holds the projected axis values \\
+\hline
+{\em compared\-\_\-rect\-\_\-entity} & \-:\-: rectangle whose vertice projections are being calculated from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 240 of file Geometry\-Engine.\-cpp.
+
+
+
+References rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::lower\-\_\-right, and coordinate\-::y.
+
+
+
+Referenced by get\-Relative\-Position().
+
+
+\begin{DoxyCode}
+241 \{
+242     \textcolor{keywordflow}{if}((rect\_entity.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} <= compared\_rect\_entity.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}) &&
+243        (rect\_entity.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} <= compared\_rect\_entity.
+      \hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y}))
+244             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+245     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+246 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GeometryEngine_8h}{Geometry\-Engine.\-h}\item 
+\hyperlink{GeometryEngine_8cpp}{Geometry\-Engine.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,202 @@
+\hypertarget{classDestructionManager}{\section{Destruction\-Manager Class Reference}
+\label{classDestructionManager}\index{Destruction\-Manager@{Destruction\-Manager}}
+}
+
+
+\hyperlink{classManager}{Manager} class responsible for deletions of destroyed game entities.  
+
+
+
+
+{\ttfamily \#include $<$Destruction\-Manager.\-h$>$}
+
+Inheritance diagram for Destruction\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDestructionManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDestructionManager_aec752aef0eb6b659293910c011e0fe93}{Destruction\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the Destruction manager. \end{DoxyCompactList}\item 
+void \hyperlink{classDestructionManager_acfb0e5bf3e2d24368918b4246a972394}{manage} (\hyperlink{classGameStateData}{Game\-State\-Data} \&game\-\_\-state\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Destruction management process for the Destruction \hyperlink{classManager}{Manager}. \end{DoxyCompactList}\item 
+void \hyperlink{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{add\-New\-Entity} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ new\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Add Deletable-\/type shared\-\_\-ptr's to the Destruction\-Managers internal data members. \end{DoxyCompactList}\item 
+virtual \hyperlink{classDestructionManager_a0c43cc0724e29a707e5a190c7f0d6761}{$\sim$\-Destruction\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the destruction manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classDeletable}{Deletable} $>$ $>$ \hyperlink{classDestructionManager_a4abb9d43e2508c82519e0fedde734670}{\-\_\-destructables}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classManager}{Manager} class responsible for deletions of destroyed game entities. 
+
+Definition at line 21 of file Destruction\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDestructionManager_aec752aef0eb6b659293910c011e0fe93}{\index{Destruction\-Manager@{Destruction\-Manager}!Destruction\-Manager@{Destruction\-Manager}}
+\index{Destruction\-Manager@{Destruction\-Manager}!DestructionManager@{Destruction\-Manager}}
+\subsubsection[{Destruction\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Destruction\-Manager\-::\-Destruction\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDestructionManager_aec752aef0eb6b659293910c011e0fe93}
+
+
+Constructor for the Destruction manager. 
+
+
+
+Definition at line 13 of file Destruction\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+14  \{
+15 
+16  \}
+\end{DoxyCode}
+\hypertarget{classDestructionManager_a0c43cc0724e29a707e5a190c7f0d6761}{\index{Destruction\-Manager@{Destruction\-Manager}!$\sim$\-Destruction\-Manager@{$\sim$\-Destruction\-Manager}}
+\index{$\sim$\-Destruction\-Manager@{$\sim$\-Destruction\-Manager}!DestructionManager@{Destruction\-Manager}}
+\subsubsection[{$\sim$\-Destruction\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Destruction\-Manager\-::$\sim$\-Destruction\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDestructionManager_a0c43cc0724e29a707e5a190c7f0d6761}
+
+
+Destructor for the destruction manager. 
+
+
+
+Definition at line 52 of file Destruction\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+53 \{
+54     \textcolor{comment}{//Possible arguments to be added here}
+55 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{\index{Destruction\-Manager@{Destruction\-Manager}!add\-New\-Entity@{add\-New\-Entity}}
+\index{add\-New\-Entity@{add\-New\-Entity}!DestructionManager@{Destruction\-Manager}}
+\subsubsection[{add\-New\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Destruction\-Manager\-::add\-New\-Entity (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{new\-\_\-entity}
+\end{DoxyParamCaption}
+)}}\label{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}
+
+
+Add Deletable-\/type shared\-\_\-ptr's to the Destruction\-Managers internal data members. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-entity} & \-:\-: type of new entity that will be addded. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file Destruction\-Manager.\-cpp.
+
+
+
+References \-\_\-destructables.
+
+
+
+Referenced by Game\-::add\-New\-Mine(), Game\-::add\-New\-Missile(), Game\-::add\-New\-Tank(), Game\-::add\-New\-Turret(), Game\-::create\-Barrier(), main(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+61 \{
+62     \hyperlink{classDestructionManager_a4abb9d43e2508c82519e0fedde734670}{\_destructables}.push\_back(new\_entity);
+63 \}
+\end{DoxyCode}
+\hypertarget{classDestructionManager_acfb0e5bf3e2d24368918b4246a972394}{\index{Destruction\-Manager@{Destruction\-Manager}!manage@{manage}}
+\index{manage@{manage}!DestructionManager@{Destruction\-Manager}}
+\subsubsection[{manage}]{\setlength{\rightskip}{0pt plus 5cm}void Destruction\-Manager\-::manage (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-State\-Data} \&}]{game\-\_\-state\-\_\-container}
+\end{DoxyParamCaption}
+)}}\label{classDestructionManager_acfb0e5bf3e2d24368918b4246a972394}
+
+
+Destruction management process for the Destruction \hyperlink{classManager}{Manager}. 
+
+If one of the tanks are destroyed, then opposing player receives an additional point. 
+\begin{DoxyParams}{Parameters}
+{\em game\-\_\-state\-\_\-container} & \-:\-: cotainer that holds the players' score \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file Destruction\-Manager.\-cpp.
+
+
+
+References \-\_\-destructables, Game\-State\-Data\-::increase\-P1\-Score(), Game\-State\-Data\-::increase\-P2\-Score(), p1\-\_\-tank, and p2\-\_\-tank.
+
+
+
+Referenced by main(), Game\-::run\-All\-Managers(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+23 \{
+24     \textcolor{keyword}{auto} i = \hyperlink{classDestructionManager_a4abb9d43e2508c82519e0fedde734670}{\_destructables}.begin();
+25     \textcolor{keywordflow}{for}(; i != \hyperlink{classDestructionManager_a4abb9d43e2508c82519e0fedde734670}{\_destructables}.end();)
+26     \{
+27             std::shared\_ptr<Deletable> entity\_sp = (*i);
+28 
+29             \textcolor{comment}{//The manager checks each entity to see if it has recieved a 'death state'}
+30             \textcolor{keywordflow}{if}(entity\_sp->isDeleted())
+31             \{
+32                 \textcolor{keywordflow}{if} (entity\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank})
+33                 \{
+34                     game\_state\_container.\hyperlink{classGameStateData_a28ec2cf2d7dd89bab394b611a83e7d4c}{increaseP1Score}();
+35                 \}
+36 
+37                 \textcolor{keywordflow}{if} (entity\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank})
+38                 \{
+39                     game\_state\_container.\hyperlink{classGameStateData_a8b2470bafedd2c51cdc32199ae004b13}{increaseP2Score}();
+40                 \}
+41 
+42                 \hyperlink{classDestructionManager_a4abb9d43e2508c82519e0fedde734670}{\_destructables}.erase(i);
+43             \}
+44             \textcolor{keywordflow}{else}
+45             \{
+46                 i++;
+47             \}
+48     \}
+49 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classDestructionManager_a4abb9d43e2508c82519e0fedde734670}{\index{Destruction\-Manager@{Destruction\-Manager}!\-\_\-destructables@{\-\_\-destructables}}
+\index{\-\_\-destructables@{\-\_\-destructables}!DestructionManager@{Destruction\-Manager}}
+\subsubsection[{\-\_\-destructables}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::shared\-\_\-ptr$<${\bf Deletable}$>$ $>$ Destruction\-Manager\-::\-\_\-destructables\hspace{0.3cm}{\ttfamily [private]}}}\label{classDestructionManager_a4abb9d43e2508c82519e0fedde734670}
+
+
+Definition at line 31 of file Destruction\-Manager.\-h.
+
+
+
+Referenced by add\-New\-Entity(), and manage().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{DestructionManager_8h}{Destruction\-Manager.\-h}\item 
+\hyperlink{DestructionManager_8cpp}{Destruction\-Manager.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,884 @@
+\hypertarget{classCollisionManager}{\section{Collision\-Manager Class Reference}
+\label{classCollisionManager}\index{Collision\-Manager@{Collision\-Manager}}
+}
+
+
+\hyperlink{classManager}{Manager} class responsible for managing collisions.  
+
+
+
+
+{\ttfamily \#include $<$Collision\-Manager.\-h$>$}
+
+Inheritance diagram for Collision\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCollisionManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCollisionManager_a81f0b3f0cc0268c80f54714cd7ddb55f}{Collision\-Manager} ()
+\item 
+void \hyperlink{classCollisionManager_a43a05dc775565d23ecfaa1fb2638f6cf}{manage} ()
+\begin{DoxyCompactList}\small\item\em Checks and sets the collision status of all game entities. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_a2ffe03a672702b8f33d8991b5d631e16}{add\-New\-Entity} (std\-::weak\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ new\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Add new entity to collidables. \end{DoxyCompactList}\item 
+virtual \hyperlink{classCollisionManager_acdbb3c842f0ef1c7a028d3f080855766}{$\sim$\-Collision\-Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \hyperlink{classCollisionManager_a9863f3588677449e9b5edd42aa5bbabd}{get\-Resulting\-Blocked\-Status} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Set the collision or blocked states for a barrier collision. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_a84a4ba8a52652b2c7164638f937243c1}{review\-Collision\-States} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-sp, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ obstacle\-\_\-sp, bool \&entity\-\_\-blocked\-\_\-status)
+\begin{DoxyCompactList}\small\item\em Checks to see if two objects have collided base upon their bounding box locations and type. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_a12e52b665a471debc0887deac979ca95}{set\-Collision\-States} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Set collision state based on the types of entities that have collided. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_aace76303f3c3c2097f9794e42fdbe47d}{tank\-Collision\-Reaction} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Implement logic when a tank has collided with a game entity. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_a24cc244fbd482cb7de2585878fee2c89}{missile\-Collision\-Reaction} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Implement logic when a missile has collided with a game entity. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_ad94c2efb613059b9fc66c00b1947e7de}{mine\-Collision\-Reaction} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Implement logic when a mine has collided with a game entity. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_aa06b6597bf3b4636b55e4bad6a641de2}{barrier\-Collision\-Reaction} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Implement logic when a barrier has been collided with a game entity. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_ad175a3730f4c984adae73814706417de}{turret\-Collision\-Reaction} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Implement logic when a turret has collided with a game entity. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_a06e15e9c05a1ae1742a71e6b8b72629a}{turret\-Missile\-Collision\-Reaction} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-1, std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ entity\-\_\-2)
+\begin{DoxyCompactList}\small\item\em Implement logic when a turret missile has collided with a game entity. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_a2d1b6195cdcdf6a0ccf7804baf98c71e}{reset\-Blocked\-State} (std\-::shared\-\_\-ptr$<$ \hyperlink{classCollidable}{Collidable} $>$ \&entity)
+\begin{DoxyCompactList}\small\item\em Resets the blocked states of blocks that were previously blocked, but are not colliding with anything. \end{DoxyCompactList}\item 
+void \hyperlink{classCollisionManager_a8f18fb2f3086dc63603b79afe3f5dc9b}{remove\-Garbage} ()
+\begin{DoxyCompactList}\small\item\em Helper function to remove 'Dead' entities from collision manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::weak\-\_\-ptr\\*
+$<$ \hyperlink{classCollidable}{Collidable} $>$ $>$ \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\-\_\-collidables}
+\begin{DoxyCompactList}\small\item\em Pointers to all collidable entities within the game world. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classManager}{Manager} class responsible for managing collisions. 
+
+Definition at line 20 of file Collision\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCollisionManager_a81f0b3f0cc0268c80f54714cd7ddb55f}{\index{Collision\-Manager@{Collision\-Manager}!Collision\-Manager@{Collision\-Manager}}
+\index{Collision\-Manager@{Collision\-Manager}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{Collision\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Collision\-Manager\-::\-Collision\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCollisionManager_a81f0b3f0cc0268c80f54714cd7ddb55f}
+
+
+Definition at line 15 of file Collision\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+16 \{
+17 
+18 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_acdbb3c842f0ef1c7a028d3f080855766}{\index{Collision\-Manager@{Collision\-Manager}!$\sim$\-Collision\-Manager@{$\sim$\-Collision\-Manager}}
+\index{$\sim$\-Collision\-Manager@{$\sim$\-Collision\-Manager}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{$\sim$\-Collision\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Collision\-Manager\-::$\sim$\-Collision\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCollisionManager_acdbb3c842f0ef1c7a028d3f080855766}
+
+
+Definition at line 431 of file Collision\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+432 \{
+433 
+434 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCollisionManager_a2ffe03a672702b8f33d8991b5d631e16}{\index{Collision\-Manager@{Collision\-Manager}!add\-New\-Entity@{add\-New\-Entity}}
+\index{add\-New\-Entity@{add\-New\-Entity}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{add\-New\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::add\-New\-Entity (
+\begin{DoxyParamCaption}
+\item[{std\-::weak\-\_\-ptr$<$ {\bf Collidable} $>$}]{new\-\_\-entity}
+\end{DoxyParamCaption}
+)}}\label{classCollisionManager_a2ffe03a672702b8f33d8991b5d631e16}
+
+
+Add new entity to collidables. 
+
+A new entity is added to the private collidables vector, which is used in the main manage function. 
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-entity} & \-:\-: Entity to be added to collidables vector \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 109 of file Collision\-Manager.\-cpp.
+
+
+
+References \-\_\-collidables.
+
+
+
+Referenced by Game\-::add\-Collidable(), main(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+110 \{
+111     \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.push\_back(new\_entity);
+112 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_aa06b6597bf3b4636b55e4bad6a641de2}{\index{Collision\-Manager@{Collision\-Manager}!barrier\-Collision\-Reaction@{barrier\-Collision\-Reaction}}
+\index{barrier\-Collision\-Reaction@{barrier\-Collision\-Reaction}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{barrier\-Collision\-Reaction}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::barrier\-Collision\-Reaction (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_aa06b6597bf3b4636b55e4bad6a641de2}
+
+
+Implement logic when a barrier has been collided with a game entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity that will have its status changed \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity that will have its status changed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 149 of file Collision\-Manager.\-cpp.
+
+
+
+References blocked, get\-Resulting\-Blocked\-Status(), p1\-\_\-mine, p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-mine, p2\-\_\-missile, and p2\-\_\-tank.
+
+
+
+Referenced by set\-Collision\-States().
+
+
+\begin{DoxyCode}
+150 \{
+151     \textcolor{keywordflow}{switch}(entity\_2->getType())
+152     \{
+153     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+154         entity\_2->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}); \textcolor{comment}{// tank does not move}
+155         \textcolor{keywordflow}{break};
+156 
+157     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}:
+158         entity\_2->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}); \textcolor{comment}{// tank does not move}
+159         \textcolor{keywordflow}{break};
+160 
+161     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}:
+162         \{
+163             entity\_2->setBlocked(\hyperlink{classCollisionManager_a9863f3588677449e9b5edd42aa5bbabd}{getResultingBlockedStatus}(entity\_2, entity\_1)); \textcolor{comment}{
+      // missile rebounds}
+164         \}
+165         \textcolor{keywordflow}{break};
+166 
+167     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}:
+168         \{
+169             entity\_2->setBlocked(\hyperlink{classCollisionManager_a9863f3588677449e9b5edd42aa5bbabd}{getResultingBlockedStatus}(entity\_2, entity\_1)); \textcolor{comment}{
+      // missile rebounds}
+170         \}
+171         \textcolor{keywordflow}{break};
+172 
+173     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}:
+174         entity\_2->setCollided();
+175         \textcolor{keywordflow}{break};
+176 
+177     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}:
+178         entity\_2->setCollided();
+179         \textcolor{keywordflow}{break};
+180 
+181     \textcolor{keywordflow}{default}:
+182         \textcolor{keywordflow}{break};
+183     \}\textcolor{comment}{//Switch}
+184 
+185 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a9863f3588677449e9b5edd42aa5bbabd}{\index{Collision\-Manager@{Collision\-Manager}!get\-Resulting\-Blocked\-Status@{get\-Resulting\-Blocked\-Status}}
+\index{get\-Resulting\-Blocked\-Status@{get\-Resulting\-Blocked\-Status}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{get\-Resulting\-Blocked\-Status}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf blocked\-\_\-status} Collision\-Manager\-::get\-Resulting\-Blocked\-Status (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a9863f3588677449e9b5edd42aa5bbabd}
+
+
+Set the collision or blocked states for a barrier collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity that will have its status changed \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity that will have its status changed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+blocked\-\_\-status 
+\end{DoxyReturn}
+
+
+Definition at line 352 of file Collision\-Manager.\-cpp.
+
+
+
+References Geometry\-Engine\-::get\-Relative\-Position().
+
+
+
+Referenced by barrier\-Collision\-Reaction(), and missile\-Collision\-Reaction().
+
+
+\begin{DoxyCode}
+353 \{
+354     \textcolor{keyword}{auto} entity\_collision\_box = entity\_1->getAlignedBoundingBox();
+355     \textcolor{keyword}{auto} object\_collision\_box = entity\_2->getAlignedBoundingBox();
+356     \hyperlink{classGeometryEngine}{GeometryEngine} geometry\_engine;
+357     \textcolor{keywordflow}{return} (geometry\_engine.\hyperlink{classGeometryEngine_a662ec9af09fd513700f41d3e7090b1bf}{getRelativePosition}(entity\_collision\_box,
+      object\_collision\_box));
+358 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a43a05dc775565d23ecfaa1fb2638f6cf}{\index{Collision\-Manager@{Collision\-Manager}!manage@{manage}}
+\index{manage@{manage}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{manage}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::manage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCollisionManager_a43a05dc775565d23ecfaa1fb2638f6cf}
+
+
+Checks and sets the collision status of all game entities. 
+
+This is the main function of the \hyperlink{classCollisionManager}{Collision\-Manager}. The manager iterates through all of the collidables and checks it against every other collidable to see if a collision has taken place. If an entity that needs to be compared to another entity is blocked, it's status is temporarily set as false so that a proper comparison can be made. This entity is the entity of the outer for loop. 
+
+Definition at line 27 of file Collision\-Manager.\-cpp.
+
+
+
+References \-\_\-collidables, remove\-Garbage(), and review\-Collision\-States().
+
+
+
+Referenced by main(), Game\-::run\-All\-Managers(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+28 \{
+29 
+30     \textcolor{comment}{//Clear all deleted entities from the \_collidables vector}
+31     \hyperlink{classCollisionManager_a8f18fb2f3086dc63603b79afe3f5dc9b}{removeGarbage}();
+32 
+33     \textcolor{comment}{//Iterator at initial position within vector}
+34     \textcolor{keyword}{auto} i = \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.begin();
+35     \textcolor{keywordflow}{for} (; i != \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.end(); ++i)
+36     \{
+37         \textcolor{keywordtype}{bool} entity\_blocked = \textcolor{keyword}{false};
+38         std::weak\_ptr<Collidable> entity\_wp = (*i);
+39         \textcolor{comment}{//Convert weak\_ptr to shared\_ptr}
+40         std::shared\_ptr<Collidable> entity\_sp = entity\_wp.lock();
+41 
+42         \textcolor{comment}{//Loop through vector of itterators again}
+43         \textcolor{keyword}{auto} j = \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.begin();
+44         \textcolor{keywordflow}{for} (; j != \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.end(); ++j)
+45         \{
+46             \textcolor{keywordflow}{if} (i != j)
+47             \{
+48                 std::weak\_ptr<Collidable> obstacle\_wp = (*j);
+49                 \textcolor{comment}{//Convert weak\_ptr to shared\_ptr}
+50                 std::shared\_ptr<Collidable> obstacle\_sp = obstacle\_wp.lock();
+51 
+52                 \hyperlink{classCollisionManager_a84a4ba8a52652b2c7164638f937243c1}{reviewCollisionStates}(entity\_sp, obstacle\_sp, entity\_blocked);
+53             \}\textcolor{comment}{// if}
+54         \}\textcolor{comment}{//inner-for}
+55     \}\textcolor{comment}{//outer-for}
+56 \}\textcolor{comment}{//Manage function}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_ad94c2efb613059b9fc66c00b1947e7de}{\index{Collision\-Manager@{Collision\-Manager}!mine\-Collision\-Reaction@{mine\-Collision\-Reaction}}
+\index{mine\-Collision\-Reaction@{mine\-Collision\-Reaction}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{mine\-Collision\-Reaction}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::mine\-Collision\-Reaction (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_ad94c2efb613059b9fc66c00b1947e7de}
+
+
+Implement logic when a mine has collided with a game entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity that will have its status changed \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity that will have its status changed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 191 of file Collision\-Manager.\-cpp.
+
+
+
+References barrier, p1\-\_\-mine, p1\-\_\-tank, p2\-\_\-mine, p2\-\_\-tank, and turret.
+
+
+
+Referenced by set\-Collision\-States().
+
+
+\begin{DoxyCode}
+192 \{
+193     \textcolor{keywordflow}{switch}(entity\_2->getType())
+194     \{
+195     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+196         entity\_1->setCollided(); \textcolor{comment}{// mine}
+197         entity\_2->setCollided(); \textcolor{comment}{// tank}
+198         \textcolor{keywordflow}{break};
+199 
+200     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}:
+201         entity\_1->setCollided(); \textcolor{comment}{// mine}
+202         entity\_2->setCollided(); \textcolor{comment}{// tank}
+203         \textcolor{keywordflow}{break};
+204 
+205     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}:
+206         entity\_1->setCollided(); \textcolor{comment}{//mine}
+207         \textcolor{keywordflow}{break};
+208 
+209     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}:
+210         entity\_1->setCollided();
+211         \textcolor{keywordflow}{break};
+212 
+213     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}:
+214         entity\_1->setCollided();
+215 
+216     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}:
+217         entity\_1->setCollided();
+218 
+219     \textcolor{keywordflow}{default}:
+220         \textcolor{keywordflow}{break};
+221     \}
+222 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a24cc244fbd482cb7de2585878fee2c89}{\index{Collision\-Manager@{Collision\-Manager}!missile\-Collision\-Reaction@{missile\-Collision\-Reaction}}
+\index{missile\-Collision\-Reaction@{missile\-Collision\-Reaction}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{missile\-Collision\-Reaction}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::missile\-Collision\-Reaction (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a24cc244fbd482cb7de2585878fee2c89}
+
+
+Implement logic when a missile has collided with a game entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity that will have its status changed \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity that will have its status changed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 228 of file Collision\-Manager.\-cpp.
+
+
+
+References barrier, get\-Resulting\-Blocked\-Status(), p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-missile, p2\-\_\-tank, and turret.
+
+
+
+Referenced by set\-Collision\-States().
+
+
+\begin{DoxyCode}
+229 \{
+230     \textcolor{keywordflow}{switch}(entity\_2->getType())
+231     \{
+232     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+233         entity\_1->setCollided(); \textcolor{comment}{// missile}
+234         entity\_2->setCollided(); \textcolor{comment}{// tank}
+235         \textcolor{keywordflow}{break};
+236 
+237     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}:
+238         entity\_1->setCollided(); \textcolor{comment}{// missile}
+239         entity\_2->setCollided(); \textcolor{comment}{// tank}
+240         \textcolor{keywordflow}{break};
+241 
+242     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}:
+243         entity\_1->setCollided(); \textcolor{comment}{// turret}
+244         entity\_2->setCollided(); \textcolor{comment}{// missile}
+245 
+246     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}:
+247         entity\_1->setCollided(); \textcolor{comment}{// missile}
+248         entity\_2->setCollided(); \textcolor{comment}{// missile}
+249         \textcolor{keywordflow}{break};
+250 
+251     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}:
+252         entity\_1->setCollided(); \textcolor{comment}{// missile}
+253         entity\_2->setCollided(); \textcolor{comment}{// missile}
+254         \textcolor{keywordflow}{break};
+255 
+256     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}:
+257         \textcolor{keywordflow}{if} (entity\_1->setBlocked(\hyperlink{classCollisionManager_a9863f3588677449e9b5edd42aa5bbabd}{getResultingBlockedStatus}(entity\_1, entity\_2)) <=
+       0) \textcolor{comment}{// missile}
+258             entity\_1->setCollided();
+259         \textcolor{keywordflow}{break};
+260 
+261     \textcolor{keywordflow}{default}:
+262         \textcolor{keywordflow}{break};
+263     \}
+264 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a8f18fb2f3086dc63603b79afe3f5dc9b}{\index{Collision\-Manager@{Collision\-Manager}!remove\-Garbage@{remove\-Garbage}}
+\index{remove\-Garbage@{remove\-Garbage}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{remove\-Garbage}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::remove\-Garbage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a8f18fb2f3086dc63603b79afe3f5dc9b}
+
+
+Helper function to remove 'Dead' entities from collision manager. 
+
+
+
+Definition at line 411 of file Collision\-Manager.\-cpp.
+
+
+
+References \-\_\-collidables.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+412 \{
+413     \textcolor{keyword}{auto} removal = \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.begin();
+414     \textcolor{keywordflow}{for} (; removal != \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.end();)
+415     \{
+416         std::weak\_ptr<Collidable> removal\_wp = (*removal);
+417         \textcolor{comment}{//Convert weak\_ptr to shared\_ptr}
+418         std::shared\_ptr<Collidable> removal\_sp = removal\_wp.lock();
+419         \textcolor{comment}{//Test if pointer still valid}
+420         \textcolor{keywordflow}{if}(removal\_sp)
+421         \{
+422             removal++;
+423         \}
+424         \textcolor{keywordflow}{else}
+425         \{
+426             \hyperlink{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\_collidables}.erase(removal);
+427         \}
+428     \}
+429 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a2d1b6195cdcdf6a0ccf7804baf98c71e}{\index{Collision\-Manager@{Collision\-Manager}!reset\-Blocked\-State@{reset\-Blocked\-State}}
+\index{reset\-Blocked\-State@{reset\-Blocked\-State}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{reset\-Blocked\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::reset\-Blocked\-State (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$ \&}]{entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a2d1b6195cdcdf6a0ccf7804baf98c71e}
+
+
+Resets the blocked states of blocks that were previously blocked, but are not colliding with anything. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \-:\-: entity whose blocked state will be changed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file Collision\-Manager.\-cpp.
+
+
+
+Referenced by review\-Collision\-States().
+
+
+\begin{DoxyCode}
+100 \{
+101     entity->setUnblocked();
+102 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a84a4ba8a52652b2c7164638f937243c1}{\index{Collision\-Manager@{Collision\-Manager}!review\-Collision\-States@{review\-Collision\-States}}
+\index{review\-Collision\-States@{review\-Collision\-States}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{review\-Collision\-States}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::review\-Collision\-States (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-sp, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{obstacle\-\_\-sp, }
+\item[{bool \&}]{entity\-\_\-blocked\-\_\-status}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a84a4ba8a52652b2c7164638f937243c1}
+
+
+Checks to see if two objects have collided base upon their bounding box locations and type. 
+
+This function excludes barriers. All other entities will have their collision states reviewed. The points of the four corners of each entity are used to test if there is a collision. 
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-sp} & \-:\-: Shared pointer to one entity \\
+\hline
+{\em obstacle\-\_\-sp} & \-:\-: Shared pointer to the other entity \\
+\hline
+{\em entity\-\_\-blocked\-\_\-status} & \-:\-: blocked status of entity that is being compared to every other entity \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file Collision\-Manager.\-cpp.
+
+
+
+References barrier, Geometry\-Engine\-::is\-Collision(), reset\-Blocked\-State(), and set\-Collision\-States().
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+124 \{
+125     \textcolor{comment}{//This excludes comparing barrier collisions}
+126     \textcolor{keywordflow}{if} ((obstacle\_sp->getType() != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}) || (entity\_sp->getType() != 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}))
+127     \{
+128         \textcolor{keyword}{const} \hyperlink{structrect__corners}{rect\_corners}& entity\_box = (entity\_sp)->getBoundingBox();
+129         \textcolor{keyword}{const} \hyperlink{structrect__corners}{rect\_corners}& obstacle\_box = (obstacle\_sp)->getBoundingBox();
+130 
+131         \hyperlink{classGeometryEngine}{GeometryEngine} geometry\_engine;\textcolor{comment}{// utilise the geometry engine}
+132 
+133         \textcolor{keywordflow}{if} (geometry\_engine.\hyperlink{classGeometryEngine_a049acffe89f53be25fbc9d4018c3b388}{isCollision}(entity\_box, obstacle\_box))
+134         \{
+135             entity\_blocked\_status = \textcolor{keyword}{true};
+136             \hyperlink{classCollisionManager_a12e52b665a471debc0887deac979ca95}{setCollisionStates}(entity\_sp, obstacle\_sp);
+137         \}
+138         \textcolor{keywordflow}{if} (!entity\_blocked\_status)
+139         \{
+140             \hyperlink{classCollisionManager_a2d1b6195cdcdf6a0ccf7804baf98c71e}{resetBlockedState}(entity\_sp);
+141         \}
+142     \}\textcolor{comment}{//Barrier comparison if}
+143 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a12e52b665a471debc0887deac979ca95}{\index{Collision\-Manager@{Collision\-Manager}!set\-Collision\-States@{set\-Collision\-States}}
+\index{set\-Collision\-States@{set\-Collision\-States}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{set\-Collision\-States}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::set\-Collision\-States (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a12e52b665a471debc0887deac979ca95}
+
+
+Set collision state based on the types of entities that have collided. 
+
+Different rules for collision apply to different game entities. Different collision functions are run based on what entities have collided. Rules for collision can be changed or added here. 
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity whose collision state will be set \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity whose collision state will be set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file Collision\-Manager.\-cpp.
+
+
+
+References barrier, barrier\-Collision\-Reaction(), mine\-Collision\-Reaction(), missile\-Collision\-Reaction(), p1\-\_\-mine, p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-mine, p2\-\_\-missile, p2\-\_\-tank, tank\-Collision\-Reaction(), turret, turret\-\_\-missile, turret\-Collision\-Reaction(), and turret\-Missile\-Collision\-Reaction().
+
+
+
+Referenced by review\-Collision\-States().
+
+
+\begin{DoxyCode}
+65 \{
+66     \textcolor{keywordflow}{if} ((entity\_1->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}) || (entity\_1->getType() == 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}))
+67     \{
+68         \hyperlink{classCollisionManager_aace76303f3c3c2097f9794e42fdbe47d}{tankCollisionReaction}(entity\_1,entity\_2);
+69     \}
+70     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((entity\_1->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}) ||(entity\_1->getType() == 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}))
+71     \{
+72         \hyperlink{classCollisionManager_a24cc244fbd482cb7de2585878fee2c89}{missileCollisionReaction}(entity\_1,entity\_2);
+73     \}
+74 
+75     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((entity\_1->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}) || (entity\_1->getType() == 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}))
+76     \{
+77         \hyperlink{classCollisionManager_ad94c2efb613059b9fc66c00b1947e7de}{mineCollisionReaction}(entity\_1,entity\_2);
+78     \}
+79 
+80     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (entity\_1->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier})
+81     \{
+82         \hyperlink{classCollisionManager_aa06b6597bf3b4636b55e4bad6a641de2}{barrierCollisionReaction}(entity\_1,entity\_2);
+83     \}\textcolor{comment}{//Else}
+84 
+85     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (entity\_1->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret})
+86     \{
+87         \hyperlink{classCollisionManager_ad175a3730f4c984adae73814706417de}{turretCollisionReaction}(entity\_1,entity\_2);
+88     \}\textcolor{comment}{//Else}
+89 
+90         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (entity\_1->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile})
+91     \{
+92         \hyperlink{classCollisionManager_a06e15e9c05a1ae1742a71e6b8b72629a}{turretMissileCollisionReaction}(entity\_1,entity\_2);
+93     \}\textcolor{comment}{//Else}
+94 \}\textcolor{comment}{//Function}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_aace76303f3c3c2097f9794e42fdbe47d}{\index{Collision\-Manager@{Collision\-Manager}!tank\-Collision\-Reaction@{tank\-Collision\-Reaction}}
+\index{tank\-Collision\-Reaction@{tank\-Collision\-Reaction}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{tank\-Collision\-Reaction}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::tank\-Collision\-Reaction (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_aace76303f3c3c2097f9794e42fdbe47d}
+
+
+Implement logic when a tank has collided with a game entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity that will have its status changed \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity that will have its status changed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 270 of file Collision\-Manager.\-cpp.
+
+
+
+References barrier, blocked, p1\-\_\-mine, p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-mine, p2\-\_\-missile, p2\-\_\-tank, and turret.
+
+
+
+Referenced by set\-Collision\-States().
+
+
+\begin{DoxyCode}
+271 \{
+272     \textcolor{keywordflow}{switch}(entity\_2->getType())
+273     \{
+274     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+275         entity\_1->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}); \textcolor{comment}{// tank}
+276         \textcolor{keywordflow}{break};
+277 
+278     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}:
+279         entity\_1->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}); \textcolor{comment}{// tank}
+280         \textcolor{keywordflow}{break};
+281 
+282     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}:
+283         entity\_1->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked});
+284         \textcolor{keywordflow}{break};
+285 
+286     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}:
+287         entity\_1->setCollided(); \textcolor{comment}{// tank}
+288         entity\_2->setCollided(); \textcolor{comment}{// missile}
+289         \textcolor{keywordflow}{break};
+290 
+291     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}:
+292         entity\_1->setCollided(); \textcolor{comment}{// tank}
+293         entity\_2->setCollided(); \textcolor{comment}{// missile}
+294         \textcolor{keywordflow}{break};
+295 
+296     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}:
+297         entity\_1->setCollided(); \textcolor{comment}{// tank}
+298         entity\_2->setCollided(); \textcolor{comment}{// mine}
+299         \textcolor{keywordflow}{break};
+300 
+301     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}:
+302         entity\_1->setCollided(); \textcolor{comment}{// tank}
+303         entity\_2->setCollided(); \textcolor{comment}{// mine}
+304         \textcolor{keywordflow}{break};
+305 
+306     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}:
+307         entity\_1->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}); \textcolor{comment}{// tank}
+308         \textcolor{keywordflow}{break};
+309     \textcolor{keywordflow}{default}:
+310         \textcolor{keywordflow}{break};
+311     \}
+312 
+313 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_ad175a3730f4c984adae73814706417de}{\index{Collision\-Manager@{Collision\-Manager}!turret\-Collision\-Reaction@{turret\-Collision\-Reaction}}
+\index{turret\-Collision\-Reaction@{turret\-Collision\-Reaction}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{turret\-Collision\-Reaction}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::turret\-Collision\-Reaction (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_ad175a3730f4c984adae73814706417de}
+
+
+Implement logic when a turret has collided with a game entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity that will have its status changed \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity that will have its status changed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 319 of file Collision\-Manager.\-cpp.
+
+
+
+References blocked, p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-missile, and p2\-\_\-tank.
+
+
+
+Referenced by set\-Collision\-States().
+
+
+\begin{DoxyCode}
+320 \{
+321     \textcolor{keywordflow}{switch}(entity\_2->getType())
+322     \{
+323     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+324         entity\_2->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}); \textcolor{comment}{// tank does not move}
+325         \textcolor{keywordflow}{break};
+326 
+327     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}:
+328         entity\_2->setBlocked(\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}); \textcolor{comment}{// tank does not move}
+329         \textcolor{keywordflow}{break};
+330 
+331     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}:
+332         entity\_1->setCollided();
+333         entity\_2->setCollided();
+334         \textcolor{keywordflow}{break};
+335 
+336     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}:
+337         entity\_1->setCollided();
+338         entity\_2->setCollided();
+339         \textcolor{keywordflow}{break};
+340 
+341     \textcolor{keywordflow}{default}:
+342         \textcolor{keywordflow}{break};
+343     \}\textcolor{comment}{//Switch}
+344 
+345 \}
+\end{DoxyCode}
+\hypertarget{classCollisionManager_a06e15e9c05a1ae1742a71e6b8b72629a}{\index{Collision\-Manager@{Collision\-Manager}!turret\-Missile\-Collision\-Reaction@{turret\-Missile\-Collision\-Reaction}}
+\index{turret\-Missile\-Collision\-Reaction@{turret\-Missile\-Collision\-Reaction}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{turret\-Missile\-Collision\-Reaction}]{\setlength{\rightskip}{0pt plus 5cm}void Collision\-Manager\-::turret\-Missile\-Collision\-Reaction (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-1, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Collidable} $>$}]{entity\-\_\-2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a06e15e9c05a1ae1742a71e6b8b72629a}
+
+
+Implement logic when a turret missile has collided with a game entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-\_\-1} & \-:\-: First entity that will have its status changed \\
+\hline
+{\em entity\-\_\-2} & \-:\-: Second entity that will have its status changed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 364 of file Collision\-Manager.\-cpp.
+
+
+
+References barrier, p1\-\_\-mine, p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-mine, p2\-\_\-missile, p2\-\_\-tank, and turret\-\_\-missile.
+
+
+
+Referenced by set\-Collision\-States().
+
+
+\begin{DoxyCode}
+365 \{
+366     \textcolor{keywordflow}{switch}(entity\_2->getType())
+367     \{
+368     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+369         entity\_1->setCollided();
+370         entity\_2->setCollided();
+371         \textcolor{keywordflow}{break};
+372 
+373     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}:
+374         entity\_1->setCollided();
+375         entity\_2->setCollided();
+376         \textcolor{keywordflow}{break};
+377 
+378     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}:
+379         entity\_1->setCollided();
+380         entity\_2->setCollided();
+381         \textcolor{keywordflow}{break};
+382 
+383     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}:
+384         entity\_1->setCollided();
+385         entity\_2->setCollided();
+386         \textcolor{keywordflow}{break};
+387 
+388     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}:
+389         entity\_1->setCollided();
+390         \textcolor{keywordflow}{break};
+391 
+392     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}:
+393         \textcolor{keywordflow}{break}; \textcolor{comment}{//Do nothing}
+394 
+395     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}:
+396         \textcolor{keywordflow}{break}; \textcolor{comment}{//Do nothing}
+397 
+398     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile}:
+399         entity\_1->setCollided();
+400         entity\_2->setCollided();
+401         \textcolor{keywordflow}{break};
+402 
+403     \textcolor{keywordflow}{default}:
+404         \textcolor{keywordflow}{break};
+405     \}\textcolor{comment}{//Switch}
+406 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}{\index{Collision\-Manager@{Collision\-Manager}!\-\_\-collidables@{\-\_\-collidables}}
+\index{\-\_\-collidables@{\-\_\-collidables}!CollisionManager@{Collision\-Manager}}
+\subsubsection[{\-\_\-collidables}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::weak\-\_\-ptr$<${\bf Collidable}$>$ $>$ Collision\-Manager\-::\-\_\-collidables\hspace{0.3cm}{\ttfamily [private]}}}\label{classCollisionManager_a2a05a1861c85c833f8d229de43a00bb4}
+
+
+Pointers to all collidable entities within the game world. 
+
+
+
+Definition at line 30 of file Collision\-Manager.\-h.
+
+
+
+Referenced by add\-New\-Entity(), manage(), and remove\-Garbage().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{CollisionManager_8h}{Collision\-Manager.\-h}\item 
+\hyperlink{CollisionManager_8cpp}{Collision\-Manager.\-cpp}\end{DoxyCompactItemize}

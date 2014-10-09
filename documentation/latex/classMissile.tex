@@ -1,0 +1,802 @@
+\hypertarget{classMissile}{\section{Missile Class Reference}
+\label{classMissile}\index{Missile@{Missile}}
+}
+
+
+\hyperlink{classMissile}{Missile} Class implementation.  
+
+
+
+
+{\ttfamily \#include $<$Missile.\-h$>$}
+
+Inheritance diagram for Missile\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMissile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMissile_a2f930ea9ba87704d2ba75b0299f698c2}{Missile} (float position\-X, float position\-Y, float rotation, \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} missile\-Owner)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMissile}{Missile} object constructor. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \& \hyperlink{classMissile_a67874a53d50f63065bf1f63803558513}{get\-Type} () const 
+\begin{DoxyCompactList}\small\item\em Return the ownership and type of the \hyperlink{classMissile}{Missile} entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMissile_a4b6a45a5129b97a6e5383123dffab0c3}{move\-Forward} ()
+\begin{DoxyCompactList}\small\item\em Forward movement for a missile entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMissile_a8d8348b91961ff0c163d7d24bd9599a8}{move\-Backward} ()
+\begin{DoxyCompactList}\small\item\em Backward movement for a missile entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMissile_a1c7ed80bd656b0af5b3872f4225978e3}{rotate\-Left} ()
+\begin{DoxyCompactList}\small\item\em Left rotation for a missile entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMissile_aeccfdf94a02fa86545296f4c38857ef8}{rotate\-Right} ()
+\begin{DoxyCompactList}\small\item\em Right rotation for a missile entity. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classMissile_a6f9a14b7e2a2041fbccb566bf2a3b469}{get\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Provide the bounding box for the missile entity. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classMissile_af2a9b1f8503cc2d322f5ab6ea788d393}{get\-Aligned\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get Axis Aligned bounding box of entity. \end{DoxyCompactList}\item 
+virtual const int \hyperlink{classMissile_a4f6e73f8d9f9723a777875efcb9edfa7}{set\-Blocked} (const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} obstruction\-\_\-type)
+\begin{DoxyCompactList}\small\item\em Instruct the missile entity that it cannot move along its trajectory. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMissile_af66d762c4401061f64bcf9b46343c967}{set\-Unblocked} ()
+\begin{DoxyCompactList}\small\item\em Instruct the missile entity that it can move. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMissile_a1a27cc48265f34e3298c780c37ca8a0e}{set\-Collided} ()
+\begin{DoxyCompactList}\small\item\em Instruct the missile entity that it has collided with another object. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \hyperlink{classMissile_a2c86874bf5e6bde8cb97f4ed1a07c3ea}{is\-Blocked} ()
+\begin{DoxyCompactList}\small\item\em Determine the blocked state of the missile entity. \end{DoxyCompactList}\item 
+virtual bool const \hyperlink{classMissile_a96c1240f08fed605ff9e908a0bea50e4}{is\-Deleted} ()
+\begin{DoxyCompactList}\small\item\em Boolean state of the missile entity's life. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classMissile_a8e8d526d7578cfbabbd5bf1bdb9727bc}{get\-Draw\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the missile x Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classMissile_ad609bee2bfaf610824f32c15430fa6d8}{get\-Draw\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the missile y Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classMissile_ab606b0b4f38c821063f210625f926374}{get\-Draw\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Receive the missile rotation. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMissile_a5bff45d0243e353acdf610fdade02bb0}{set\-Movement\-Direction} (const \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\-\_\-direction} Movement\-\_\-input)
+\begin{DoxyCompactList}\small\item\em Set the movement direction of the entity. \end{DoxyCompactList}\item 
+virtual \hyperlink{classMissile_ad42379e48a46ec3556056f98ce8bd912}{$\sim$\-Missile} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMissile}{Missile} object destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \hyperlink{classMissile_a34065d77889cdf8ac998d83dc0b3a242}{\-\_\-blocked\-Status}
+\begin{DoxyCompactList}\small\item\em Movability of the \hyperlink{classMissile}{Missile} entity\-: 1 for blocked, 0 for free. \end{DoxyCompactList}\item 
+bool \hyperlink{classMissile_a52e8aaac3c5db45c8d4c1ac74d001f57}{\-\_\-collided\-Status}
+\begin{DoxyCompactList}\small\item\em Collision state of the \hyperlink{classMissile}{Missile} Entity\-: 1 for collided, 0 for not. \end{DoxyCompactList}\item 
+float \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\-\_\-rotation}
+\begin{DoxyCompactList}\small\item\em The angle of rotation for the \hyperlink{classMissile}{Missile} entity. \end{DoxyCompactList}\item 
+\hyperlink{classOrientation}{Orientation} \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\-\_\-missile}
+\begin{DoxyCompactList}\small\item\em S\-F\-M\-L Co-\/ordinate system for the \hyperlink{classMissile}{Missile}. \end{DoxyCompactList}\item 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \hyperlink{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}{\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Enumeration type defining the \hyperlink{classMissile}{Missile}. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classMissile_a97a02568096e4900a56067e2f2b346fc}{\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMissile}{Missile} Sprite dimensions. \end{DoxyCompactList}\item 
+int \hyperlink{classMissile_afc61d2903e66bc48c42bb70e7ddd55d8}{\-\_\-rebound\-\_\-lives}
+\begin{DoxyCompactList}\small\item\em Defines the number of times the \hyperlink{classMissile}{Missile} can rebound off barriers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classMissile}{Missile} Class implementation. 
+
+Entity Class representing the \hyperlink{classMissile}{Missile} in the game world.
+
+This class possesses multiple interfaces for interaction with various managers and forms part of the basic model entities 
+
+Definition at line 26 of file Missile.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMissile_a2f930ea9ba87704d2ba75b0299f698c2}{\index{Missile@{Missile}!Missile@{Missile}}
+\index{Missile@{Missile}!Missile@{Missile}}
+\subsubsection[{Missile}]{\setlength{\rightskip}{0pt plus 5cm}Missile\-::\-Missile (
+\begin{DoxyParamCaption}
+\item[{float}]{position\-X, }
+\item[{float}]{position\-Y, }
+\item[{float}]{rotation, }
+\item[{{\bf entity\-\_\-type}}]{missile\-Owner}
+\end{DoxyParamCaption}
+)}}\label{classMissile_a2f930ea9ba87704d2ba75b0299f698c2}
+
+
+\hyperlink{classMissile}{Missile} object constructor. 
+
+
+
+Definition at line 15 of file Missile.\-cpp.
+
+
+
+References \-\_\-blocked\-Status, \-\_\-collided\-Status, \-\_\-missile, \-\_\-rebound\-\_\-lives, \-\_\-sprite\-\_\-dimensions, \-\_\-type, Orientation\-::get\-Origin\-X(), Orientation\-::get\-Origin\-Y(), Orientation\-::get\-Rotation(), Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-y, p1\-\_\-missile, p2\-\_\-missile, Orientation\-::set\-Height(), Orientation\-::set\-Width(), turret\-\_\-missile, and unblocked.
+
+
+\begin{DoxyCode}
+15                                                                                           :
+16 
+17     \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation}(rotation),
+18     \hyperlink{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}{\_type}(missileOwner),
+19     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}(positionX,positionY,0,0,rotation, \textcolor{keyword}{false}),
+20     \hyperlink{classMissile_a97a02568096e4900a56067e2f2b346fc}{\_sprite\_dimensions}()
+21 \{
+22     \textcolor{comment}{//Error input checking}
+23     \textcolor{keywordflow}{if} (\hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsMissile}{InvalidConstructorArgumentsMissile}();
+24     \textcolor{keywordflow}{if} (\hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsMissile}{InvalidConstructorArgumentsMissile}();
+25     \textcolor{keywordflow}{if} (\hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsMissile}{InvalidConstructorArgumentsMissile}();
+26     \textcolor{keywordflow}{if} ((\hyperlink{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}{\_type} != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}) && (\hyperlink{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}{\_type} != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}) && (
+      \hyperlink{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}{\_type} != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile})) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsMissile}{InvalidConstructorArgumentsMissile}();
+27 
+28     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}{setWidth}(\hyperlink{classMissile_a97a02568096e4900a56067e2f2b346fc}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}{missile\_sprite\_x});
+29     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_a1adca89bc32128e2ca1cb937357f5006}{setHeight}(\hyperlink{classMissile_a97a02568096e4900a56067e2f2b346fc}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}{missile\_sprite\_y});
+30     \hyperlink{classMissile_a34065d77889cdf8ac998d83dc0b3a242}{\_blockedStatus} = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked};
+31     \hyperlink{classMissile_a52e8aaac3c5db45c8d4c1ac74d001f57}{\_collidedStatus} = 0;
+32     \hyperlink{classMissile_afc61d2903e66bc48c42bb70e7ddd55d8}{\_rebound\_lives} = 7;
+33 \}
+\end{DoxyCode}
+\hypertarget{classMissile_ad42379e48a46ec3556056f98ce8bd912}{\index{Missile@{Missile}!$\sim$\-Missile@{$\sim$\-Missile}}
+\index{$\sim$\-Missile@{$\sim$\-Missile}!Missile@{Missile}}
+\subsubsection[{$\sim$\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}Missile\-::$\sim$\-Missile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_ad42379e48a46ec3556056f98ce8bd912}
+
+
+\hyperlink{classMissile}{Missile} object destructor. 
+
+
+
+Definition at line 141 of file Missile.\-cpp.
+
+
+\begin{DoxyCode}
+142 \{
+143     \textcolor{comment}{//Consider adding something here}
+144 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMissile_af2a9b1f8503cc2d322f5ab6ea788d393}{\index{Missile@{Missile}!get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}}
+\index{get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}!Missile@{Missile}}
+\subsubsection[{get\-Aligned\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Missile\-::get\-Aligned\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_af2a9b1f8503cc2d322f5ab6ea788d393}
+
+
+Get Axis Aligned bounding box of entity. 
+
+
+
+Implements \hyperlink{classCollidable_a6909df57a0915f044d5d967a3be086f3}{Collidable}.
+
+
+
+Definition at line 78 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, and Orientation\-::get\-Aligned\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+79 \{
+80     \textcolor{keywordflow}{return} \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_a5cc606289f774c8561af98d183586199}{getAlignedGlobalBounds}();
+81 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a6f9a14b7e2a2041fbccb566bf2a3b469}{\index{Missile@{Missile}!get\-Bounding\-Box@{get\-Bounding\-Box}}
+\index{get\-Bounding\-Box@{get\-Bounding\-Box}!Missile@{Missile}}
+\subsubsection[{get\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Missile\-::get\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a6f9a14b7e2a2041fbccb566bf2a3b469}
+
+
+Provide the bounding box for the missile entity. 
+
+
+
+Implements \hyperlink{classCollidable_a3436effdcd9bea230f4a1aa32b8dd8ab}{Collidable}.
+
+
+
+Definition at line 73 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, and Orientation\-::get\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+74 \{
+75     \textcolor{keywordflow}{return} \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{getGlobalBounds}();
+76 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a8e8d526d7578cfbabbd5bf1bdb9727bc}{\index{Missile@{Missile}!get\-Draw\-Position\-X@{get\-Draw\-Position\-X}}
+\index{get\-Draw\-Position\-X@{get\-Draw\-Position\-X}!Missile@{Missile}}
+\subsubsection[{get\-Draw\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Missile\-::get\-Draw\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a8e8d526d7578cfbabbd5bf1bdb9727bc}
+
+
+Retrieve the missile x Position. 
+
+Retrieve the \hyperlink{classMissile}{Missile} x Position. 
+
+Implements \hyperlink{classDeletable_ac14ea0c5986d50ba3ba454f89c87b8fe}{Deletable}.
+
+
+
+Definition at line 116 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, and Orientation\-::get\-Origin\-X().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+117 \{
+118     \textcolor{keywordflow}{return} \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}();
+119 \}
+\end{DoxyCode}
+\hypertarget{classMissile_ad609bee2bfaf610824f32c15430fa6d8}{\index{Missile@{Missile}!get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}}
+\index{get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}!Missile@{Missile}}
+\subsubsection[{get\-Draw\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Missile\-::get\-Draw\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_ad609bee2bfaf610824f32c15430fa6d8}
+
+
+Retrieve the missile y Position. 
+
+Retrieve the \hyperlink{classMissile}{Missile} y Position. 
+
+Implements \hyperlink{classDeletable_a2a88d7e40c56902a3d3d8f668e9d126d}{Deletable}.
+
+
+
+Definition at line 122 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, and Orientation\-::get\-Origin\-Y().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+123 \{
+124     \textcolor{keywordflow}{return} \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}();
+125 \}
+\end{DoxyCode}
+\hypertarget{classMissile_ab606b0b4f38c821063f210625f926374}{\index{Missile@{Missile}!get\-Draw\-Rotation@{get\-Draw\-Rotation}}
+\index{get\-Draw\-Rotation@{get\-Draw\-Rotation}!Missile@{Missile}}
+\subsubsection[{get\-Draw\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Missile\-::get\-Draw\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_ab606b0b4f38c821063f210625f926374}
+
+
+Receive the missile rotation. 
+
+Recieve the \hyperlink{classMissile}{Missile} rotation. 
+
+Implements \hyperlink{classDeletable_ad7061a6bef3efce030aa5abbc7646d47}{Deletable}.
+
+
+
+Definition at line 129 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, and Orientation\-::get\-Rotation().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+130 \{
+131     \textcolor{keywordflow}{return} \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+132 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a67874a53d50f63065bf1f63803558513}{\index{Missile@{Missile}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!Missile@{Missile}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf entity\-\_\-type} \& Missile\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a67874a53d50f63065bf1f63803558513}
+
+
+Return the ownership and type of the \hyperlink{classMissile}{Missile} entity. 
+
+
+
+Implements \hyperlink{classDeletable_af8a0208abc297180873692f4215fe50f}{Deletable}.
+
+
+
+Definition at line 36 of file Missile.\-cpp.
+
+
+
+References \-\_\-type.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+37 \{
+38     \textcolor{keywordflow}{return} \hyperlink{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}{\_type};
+39 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a2c86874bf5e6bde8cb97f4ed1a07c3ea}{\index{Missile@{Missile}!is\-Blocked@{is\-Blocked}}
+\index{is\-Blocked@{is\-Blocked}!Missile@{Missile}}
+\subsubsection[{is\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf blocked\-\_\-status} Missile\-::is\-Blocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a2c86874bf5e6bde8cb97f4ed1a07c3ea}
+
+
+Determine the blocked state of the missile entity. 
+
+
+
+Implements \hyperlink{classMovable_a40db320f27f5be1882553298677702c8}{Movable}.
+
+
+
+Definition at line 104 of file Missile.\-cpp.
+
+
+
+References \-\_\-blocked\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+105 \{
+106     \textcolor{keywordflow}{return} \hyperlink{classMissile_a34065d77889cdf8ac998d83dc0b3a242}{\_blockedStatus};
+107 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a96c1240f08fed605ff9e908a0bea50e4}{\index{Missile@{Missile}!is\-Deleted@{is\-Deleted}}
+\index{is\-Deleted@{is\-Deleted}!Missile@{Missile}}
+\subsubsection[{is\-Deleted}]{\setlength{\rightskip}{0pt plus 5cm}const bool Missile\-::is\-Deleted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a96c1240f08fed605ff9e908a0bea50e4}
+
+
+Boolean state of the missile entity's life. 
+
+
+
+Implements \hyperlink{classDeletable_a6572440c291077cf52bf21288c6cd25c}{Deletable}.
+
+
+
+Definition at line 110 of file Missile.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+111 \{
+112     \textcolor{keywordflow}{return} \hyperlink{classMissile_a52e8aaac3c5db45c8d4c1ac74d001f57}{\_collidedStatus};
+113 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a8d8348b91961ff0c163d7d24bd9599a8}{\index{Missile@{Missile}!move\-Backward@{move\-Backward}}
+\index{move\-Backward@{move\-Backward}!Missile@{Missile}}
+\subsubsection[{move\-Backward}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\-::move\-Backward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a8d8348b91961ff0c163d7d24bd9599a8}
+
+
+Backward movement for a missile entity. 
+
+
+
+Implements \hyperlink{classMovable_a9c03e7ac263902159579d7f83e9b6dee}{Movable}.
+
+
+
+Definition at line 49 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, Movable\-::\-\_\-missile\-Movement\-Speed, \-\_\-rotation, Orientation\-::move(), and P\-I.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+50 \{
+51     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ae1c8122591724b1b3bfcb0026b76e809}{move}(-\hyperlink{classMovable_aff7e2a3e3d5a6059c4fe138aa47dc048}{\_missileMovementSpeed}*cos((
+      \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation}*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180.0),-\hyperlink{classMovable_aff7e2a3e3d5a6059c4fe138aa47dc048}{\_missileMovementSpeed}*sin((
+      \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation}*PI)/180.0));
+52 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a4b6a45a5129b97a6e5383123dffab0c3}{\index{Missile@{Missile}!move\-Forward@{move\-Forward}}
+\index{move\-Forward@{move\-Forward}!Missile@{Missile}}
+\subsubsection[{move\-Forward}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\-::move\-Forward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a4b6a45a5129b97a6e5383123dffab0c3}
+
+
+Forward movement for a missile entity. 
+
+
+
+Implements \hyperlink{classMovable_adefaf61339698c5efec597529bf89310}{Movable}.
+
+
+
+Definition at line 43 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, Movable\-::\-\_\-missile\-Movement\-Speed, \-\_\-rotation, Orientation\-::move(), and P\-I.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+44 \{
+45     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ae1c8122591724b1b3bfcb0026b76e809}{move}(\hyperlink{classMovable_aff7e2a3e3d5a6059c4fe138aa47dc048}{\_missileMovementSpeed}*cos((
+      \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation}*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180.0),\hyperlink{classMovable_aff7e2a3e3d5a6059c4fe138aa47dc048}{\_missileMovementSpeed}*sin((
+      \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation}*PI)/180.0));
+46 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a1c7ed80bd656b0af5b3872f4225978e3}{\index{Missile@{Missile}!rotate\-Left@{rotate\-Left}}
+\index{rotate\-Left@{rotate\-Left}!Missile@{Missile}}
+\subsubsection[{rotate\-Left}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\-::rotate\-Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a1c7ed80bd656b0af5b3872f4225978e3}
+
+
+Left rotation for a missile entity. 
+
+
+
+Implements \hyperlink{classMovable_a422b71ade02b9034600f51bc55d58c90}{Movable}.
+
+
+
+Definition at line 55 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, \-\_\-rotation, Orientation\-::get\-Rotation(), and Orientation\-::rotate().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+56 \{
+57     \textcolor{keywordtype}{float} rotationFactor = ((abs(\hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation}-180)-90)*2);
+58     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_aa9e115b7f4ab487e3af532592416b247}{rotate}(rotationFactor);
+59     \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation} = \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+60 
+61 \}
+\end{DoxyCode}
+\hypertarget{classMissile_aeccfdf94a02fa86545296f4c38857ef8}{\index{Missile@{Missile}!rotate\-Right@{rotate\-Right}}
+\index{rotate\-Right@{rotate\-Right}!Missile@{Missile}}
+\subsubsection[{rotate\-Right}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\-::rotate\-Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_aeccfdf94a02fa86545296f4c38857ef8}
+
+
+Right rotation for a missile entity. 
+
+
+
+Implements \hyperlink{classMovable_a821480cb8ffd047b39a907c6cf07dd84}{Movable}.
+
+
+
+Definition at line 64 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, \-\_\-rotation, Orientation\-::get\-Rotation(), and Orientation\-::rotate().
+
+
+\begin{DoxyCode}
+65 \{
+66     \textcolor{keywordtype}{float} rotationFactor = ((180-\hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation})*2);
+67     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_aa9e115b7f4ab487e3af532592416b247}{rotate}(rotationFactor);
+68     \hyperlink{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\_rotation} = \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+69 
+70 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a4f6e73f8d9f9723a777875efcb9edfa7}{\index{Missile@{Missile}!set\-Blocked@{set\-Blocked}}
+\index{set\-Blocked@{set\-Blocked}!Missile@{Missile}}
+\subsubsection[{set\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}const int Missile\-::set\-Blocked (
+\begin{DoxyParamCaption}
+\item[{const {\bf blocked\-\_\-status}}]{obstruction\-\_\-type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a4f6e73f8d9f9723a777875efcb9edfa7}
+
+
+Instruct the missile entity that it cannot move along its trajectory. 
+
+
+
+Implements \hyperlink{classCollidable_a6d312198ba82d26b5e360733bb87a2f0}{Collidable}.
+
+
+
+Definition at line 84 of file Missile.\-cpp.
+
+
+
+References \-\_\-blocked\-Status, and \-\_\-rebound\-\_\-lives.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+85 \{
+86     \hyperlink{classMissile_a34065d77889cdf8ac998d83dc0b3a242}{\_blockedStatus} = obstruction\_type;
+87     \hyperlink{classMissile_afc61d2903e66bc48c42bb70e7ddd55d8}{\_rebound\_lives} -= 1;
+88     \textcolor{keywordflow}{return} \hyperlink{classMissile_afc61d2903e66bc48c42bb70e7ddd55d8}{\_rebound\_lives};
+89 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a1a27cc48265f34e3298c780c37ca8a0e}{\index{Missile@{Missile}!set\-Collided@{set\-Collided}}
+\index{set\-Collided@{set\-Collided}!Missile@{Missile}}
+\subsubsection[{set\-Collided}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\-::set\-Collided (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a1a27cc48265f34e3298c780c37ca8a0e}
+
+
+Instruct the missile entity that it has collided with another object. 
+
+
+
+Implements \hyperlink{classCollidable_a5ea0417bea000712171bbe5531705082}{Collidable}.
+
+
+
+Definition at line 98 of file Missile.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+99 \{
+100     \hyperlink{classMissile_a52e8aaac3c5db45c8d4c1ac74d001f57}{\_collidedStatus} = 1;
+101 \}
+\end{DoxyCode}
+\hypertarget{classMissile_a5bff45d0243e353acdf610fdade02bb0}{\index{Missile@{Missile}!set\-Movement\-Direction@{set\-Movement\-Direction}}
+\index{set\-Movement\-Direction@{set\-Movement\-Direction}!Missile@{Missile}}
+\subsubsection[{set\-Movement\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\-::set\-Movement\-Direction (
+\begin{DoxyParamCaption}
+\item[{const {\bf movement\-\_\-direction}}]{Movement\-\_\-input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_a5bff45d0243e353acdf610fdade02bb0}
+
+
+Set the movement direction of the entity. 
+
+
+
+Implements \hyperlink{classMovable_a0bb485f10776845305a683ed5e2ba1fc}{Movable}.
+
+
+
+Definition at line 135 of file Missile.\-cpp.
+
+
+
+References \-\_\-missile, and Orientation\-::set\-Move\-Direction().
+
+
+\begin{DoxyCode}
+136 \{
+137     \hyperlink{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\_missile}.\hyperlink{classOrientation_a478512ba497cd75f11be3aa3177cca6a}{setMoveDirection}(Movement\_input);
+138 \}
+\end{DoxyCode}
+\hypertarget{classMissile_af66d762c4401061f64bcf9b46343c967}{\index{Missile@{Missile}!set\-Unblocked@{set\-Unblocked}}
+\index{set\-Unblocked@{set\-Unblocked}!Missile@{Missile}}
+\subsubsection[{set\-Unblocked}]{\setlength{\rightskip}{0pt plus 5cm}void Missile\-::set\-Unblocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMissile_af66d762c4401061f64bcf9b46343c967}
+
+
+Instruct the missile entity that it can move. 
+
+Instruct the tank entity that it can move. 
+
+Implements \hyperlink{classCollidable_a817d864d0640bc6bcb13bbecf14ddf31}{Collidable}.
+
+
+
+Definition at line 92 of file Missile.\-cpp.
+
+
+
+References \-\_\-blocked\-Status, and unblocked.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+93 \{
+94     \hyperlink{classMissile_a34065d77889cdf8ac998d83dc0b3a242}{\_blockedStatus} = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked};
+95 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMissile_a34065d77889cdf8ac998d83dc0b3a242}{\index{Missile@{Missile}!\-\_\-blocked\-Status@{\-\_\-blocked\-Status}}
+\index{\-\_\-blocked\-Status@{\-\_\-blocked\-Status}!Missile@{Missile}}
+\subsubsection[{\-\_\-blocked\-Status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf blocked\-\_\-status} Missile\-::\-\_\-blocked\-Status\hspace{0.3cm}{\ttfamily [private]}}}\label{classMissile_a34065d77889cdf8ac998d83dc0b3a242}
+
+
+Movability of the \hyperlink{classMissile}{Missile} entity\-: 1 for blocked, 0 for free. 
+
+
+
+Definition at line 70 of file Missile.\-h.
+
+
+
+Referenced by is\-Blocked(), Missile(), set\-Blocked(), and set\-Unblocked().
+
+\hypertarget{classMissile_a52e8aaac3c5db45c8d4c1ac74d001f57}{\index{Missile@{Missile}!\-\_\-collided\-Status@{\-\_\-collided\-Status}}
+\index{\-\_\-collided\-Status@{\-\_\-collided\-Status}!Missile@{Missile}}
+\subsubsection[{\-\_\-collided\-Status}]{\setlength{\rightskip}{0pt plus 5cm}bool Missile\-::\-\_\-collided\-Status\hspace{0.3cm}{\ttfamily [private]}}}\label{classMissile_a52e8aaac3c5db45c8d4c1ac74d001f57}
+
+
+Collision state of the \hyperlink{classMissile}{Missile} Entity\-: 1 for collided, 0 for not. 
+
+
+
+Definition at line 72 of file Missile.\-h.
+
+
+
+Referenced by is\-Deleted(), Missile(), and set\-Collided().
+
+\hypertarget{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}{\index{Missile@{Missile}!\-\_\-missile@{\-\_\-missile}}
+\index{\-\_\-missile@{\-\_\-missile}!Missile@{Missile}}
+\subsubsection[{\-\_\-missile}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Orientation} Missile\-::\-\_\-missile\hspace{0.3cm}{\ttfamily [private]}}}\label{classMissile_ae8ef6a656e69ac376dbc0db1b7153250}
+
+
+S\-F\-M\-L Co-\/ordinate system for the \hyperlink{classMissile}{Missile}. 
+
+
+
+Definition at line 76 of file Missile.\-h.
+
+
+
+Referenced by get\-Aligned\-Bounding\-Box(), get\-Bounding\-Box(), get\-Draw\-Position\-X(), get\-Draw\-Position\-Y(), get\-Draw\-Rotation(), Missile(), move\-Backward(), move\-Forward(), rotate\-Left(), rotate\-Right(), and set\-Movement\-Direction().
+
+\hypertarget{classMissile_afc61d2903e66bc48c42bb70e7ddd55d8}{\index{Missile@{Missile}!\-\_\-rebound\-\_\-lives@{\-\_\-rebound\-\_\-lives}}
+\index{\-\_\-rebound\-\_\-lives@{\-\_\-rebound\-\_\-lives}!Missile@{Missile}}
+\subsubsection[{\-\_\-rebound\-\_\-lives}]{\setlength{\rightskip}{0pt plus 5cm}int Missile\-::\-\_\-rebound\-\_\-lives\hspace{0.3cm}{\ttfamily [private]}}}\label{classMissile_afc61d2903e66bc48c42bb70e7ddd55d8}
+
+
+Defines the number of times the \hyperlink{classMissile}{Missile} can rebound off barriers. 
+
+
+
+Definition at line 82 of file Missile.\-h.
+
+
+
+Referenced by Missile(), and set\-Blocked().
+
+\hypertarget{classMissile_acd500cfc21ada9701b059cb4a77a5c96}{\index{Missile@{Missile}!\-\_\-rotation@{\-\_\-rotation}}
+\index{\-\_\-rotation@{\-\_\-rotation}!Missile@{Missile}}
+\subsubsection[{\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Missile\-::\-\_\-rotation\hspace{0.3cm}{\ttfamily [private]}}}\label{classMissile_acd500cfc21ada9701b059cb4a77a5c96}
+
+
+The angle of rotation for the \hyperlink{classMissile}{Missile} entity. 
+
+
+
+Definition at line 74 of file Missile.\-h.
+
+
+
+Referenced by move\-Backward(), move\-Forward(), rotate\-Left(), and rotate\-Right().
+
+\hypertarget{classMissile_a97a02568096e4900a56067e2f2b346fc}{\index{Missile@{Missile}!\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}!Missile@{Missile}}
+\subsubsection[{\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Missile\-::\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classMissile_a97a02568096e4900a56067e2f2b346fc}
+
+
+\hyperlink{classMissile}{Missile} Sprite dimensions. 
+
+
+
+Definition at line 80 of file Missile.\-h.
+
+
+
+Referenced by Missile().
+
+\hypertarget{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}{\index{Missile@{Missile}!\-\_\-type@{\-\_\-type}}
+\index{\-\_\-type@{\-\_\-type}!Missile@{Missile}}
+\subsubsection[{\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\-\_\-type} Missile\-::\-\_\-type\hspace{0.3cm}{\ttfamily [private]}}}\label{classMissile_a2cbcb75f29640ba706e64cb620a7c6a7}
+
+
+Enumeration type defining the \hyperlink{classMissile}{Missile}. 
+
+
+
+Definition at line 78 of file Missile.\-h.
+
+
+
+Referenced by get\-Type(), and Missile().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Missile_8h}{Missile.\-h}\item 
+\hyperlink{Missile_8cpp}{Missile.\-cpp}\end{DoxyCompactItemize}

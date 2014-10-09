@@ -1,0 +1,517 @@
+\hypertarget{classMine}{\section{Mine Class Reference}
+\label{classMine}\index{Mine@{Mine}}
+}
+
+
+Model class for a \hyperlink{classMine}{Mine}.  
+
+
+
+
+{\ttfamily \#include $<$Mine.\-h$>$}
+
+Inheritance diagram for Mine\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMine}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMine_ae3d52389f68d1f458e6240a44cbfd85a}{Mine} (float position\-X, float position\-Y, \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} mine\-Owner)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMine}{Mine} entity constructor. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \& \hyperlink{classMine_af435cf100fe7f89e998ec2f7ad40faa1}{get\-Type} () const 
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMine}{Mine} is able to provide its identification. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classMine_a36b2ba160a413d45c9743447f075e99e}{get\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Provide the bounding box for the mine entity. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classMine_a94667c68518d45d9c841501924a83612}{get\-Aligned\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get Axis Aligned bounding box of entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMine_a859fd28c2c57a37b22ec3b88806f1134}{set\-Unblocked} ()
+\begin{DoxyCompactList}\small\item\em This function is not used by the mine. \end{DoxyCompactList}\item 
+virtual const int \hyperlink{classMine_acf2add61f1763222f0d1a7333d2b0633}{set\-Blocked} (const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} obstruction\-\_\-type)
+\begin{DoxyCompactList}\small\item\em This function is not used by mine. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMine_a3a51fbecfcb177529bee4b7e13dd75e2}{set\-Collided} ()
+\begin{DoxyCompactList}\small\item\em Set the colllision state of the mine. \end{DoxyCompactList}\item 
+virtual bool const \hyperlink{classMine_aa19d1827e837944d74fe02ad0fbeffc9}{is\-Deleted} ()
+\begin{DoxyCompactList}\small\item\em Boolean state of the mine entities life. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classMine_a904342dcd8d13f8489c91ed6ba09ec7b}{get\-Draw\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the \hyperlink{classMine}{Mine} x Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classMine_a8abe866b857f781f81b0b3b4e9ef7034}{get\-Draw\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the \hyperlink{classMine}{Mine} y Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classMine_a5b6986a3a3ce5177879359a626cc994b}{get\-Draw\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Recieve the \hyperlink{classMine}{Mine} rotation. \end{DoxyCompactList}\item 
+virtual \hyperlink{classMine_abfde171f93b463d81d5b18f767a3a37c}{$\sim$\-Mine} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMine}{Mine} object destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classOrientation}{Orientation} \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\-\_\-mine}
+\begin{DoxyCompactList}\small\item\em Co-\/cordinate system for \hyperlink{classMine}{Mine} entity. \end{DoxyCompactList}\item 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \hyperlink{classMine_a9f780de0af41828d0b03de8ecff36546}{\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Enumeration type defining the \hyperlink{classMine}{Mine}. \end{DoxyCompactList}\item 
+bool \hyperlink{classMine_a1b68c443899530bad702085dcc52511a}{\-\_\-collided\-Status}
+\begin{DoxyCompactList}\small\item\em Collision state of the \hyperlink{classMine}{Mine} entity\-: 1 for collided, 0 for not. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classMine_a82e6153c008e77eea41dfac4bc665db5}{\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMine}{Mine} sprite dimensions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Model class for a \hyperlink{classMine}{Mine}. 
+
+Definition at line 22 of file Mine.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMine_ae3d52389f68d1f458e6240a44cbfd85a}{\index{Mine@{Mine}!Mine@{Mine}}
+\index{Mine@{Mine}!Mine@{Mine}}
+\subsubsection[{Mine}]{\setlength{\rightskip}{0pt plus 5cm}Mine\-::\-Mine (
+\begin{DoxyParamCaption}
+\item[{float}]{position\-X, }
+\item[{float}]{position\-Y, }
+\item[{{\bf entity\-\_\-type}}]{mine\-Owner}
+\end{DoxyParamCaption}
+)}}\label{classMine_ae3d52389f68d1f458e6240a44cbfd85a}
+
+
+\hyperlink{classMine}{Mine} entity constructor. 
+
+Throws exceptions if wrong tank owner of position. Initialises private data members 
+\begin{DoxyParams}{Parameters}
+{\em position\-X} & \-:\-: mine's x position \\
+\hline
+{\em position\-Y} & \-:\-: mine's y position \\
+\hline
+{\em mine\-Owner} & \-:\-: either player 1 or player 2 will own the mine \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file Mine.\-cpp.
+
+
+
+References \-\_\-collided\-Status, \-\_\-mine, \-\_\-sprite\-\_\-dimensions, \-\_\-type, Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-y, p1\-\_\-mine, p2\-\_\-mine, Orientation\-::set\-Height(), and Orientation\-::set\-Width().
+
+
+\begin{DoxyCode}
+17                                                                  :
+18     \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}(positionX,positionY,0.0,0.0,0.0, \textcolor{keyword}{false}),
+19     \hyperlink{classMine_a82e6153c008e77eea41dfac4bc665db5}{\_sprite\_dimensions}()
+20 \{
+21     \textcolor{comment}{//Keep Class invariant}
+22     \textcolor{keywordflow}{if} ((mineOwner != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}) && (mineOwner != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine})) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsMine}{InvalidConstructorArgumentsMine}();
+23     \textcolor{keywordflow}{if} (positionX < 0) \textcolor{keywordflow}{throw} \hyperlink{classInvalidConstructorArgumentsMine}{InvalidConstructorArgumentsMine}();
+24     \textcolor{keywordflow}{if} (positionY < 0) \textcolor{keywordflow}{throw} \hyperlink{classInvalidConstructorArgumentsMine}{InvalidConstructorArgumentsMine}();
+25 
+26     \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}.\hyperlink{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}{setWidth}(\hyperlink{classMine_a82e6153c008e77eea41dfac4bc665db5}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_af7f442b00b4a2d9d8b9ad47371a0018f}{mine\_sprite\_x});
+27     \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}.\hyperlink{classOrientation_a1adca89bc32128e2ca1cb937357f5006}{setHeight}(\hyperlink{classMine_a82e6153c008e77eea41dfac4bc665db5}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a256b5245430fc54ae2cace272260dbe1}{mine\_sprite\_y});
+28     \hyperlink{classMine_a9f780de0af41828d0b03de8ecff36546}{\_type} = mineOwner;
+29     \hyperlink{classMine_a1b68c443899530bad702085dcc52511a}{\_collidedStatus} = 0;
+30 \}
+\end{DoxyCode}
+\hypertarget{classMine_abfde171f93b463d81d5b18f767a3a37c}{\index{Mine@{Mine}!$\sim$\-Mine@{$\sim$\-Mine}}
+\index{$\sim$\-Mine@{$\sim$\-Mine}!Mine@{Mine}}
+\subsubsection[{$\sim$\-Mine}]{\setlength{\rightskip}{0pt plus 5cm}Mine\-::$\sim$\-Mine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_abfde171f93b463d81d5b18f767a3a37c}
+
+
+\hyperlink{classMine}{Mine} object destructor. 
+
+
+
+Definition at line 115 of file Mine.\-cpp.
+
+
+\begin{DoxyCode}
+116 \{
+117     \textcolor{comment}{//This could possibly be added to}
+118 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMine_a94667c68518d45d9c841501924a83612}{\index{Mine@{Mine}!get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}}
+\index{get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}!Mine@{Mine}}
+\subsubsection[{get\-Aligned\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Mine\-::get\-Aligned\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_a94667c68518d45d9c841501924a83612}
+
+
+Get Axis Aligned bounding box of entity. 
+
+Provide the bounding box for the mine entity.
+
+\begin{DoxyReturn}{Returns}
+const \hyperlink{structrect__corners}{rect\-\_\-corners} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCollidable_a6909df57a0915f044d5d967a3be086f3}{Collidable}.
+
+
+
+Definition at line 51 of file Mine.\-cpp.
+
+
+
+References \-\_\-mine, and Orientation\-::get\-Aligned\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+52 \{
+53     \textcolor{keywordflow}{return} \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}.\hyperlink{classOrientation_a5cc606289f774c8561af98d183586199}{getAlignedGlobalBounds}();
+54 \}
+\end{DoxyCode}
+\hypertarget{classMine_a36b2ba160a413d45c9743447f075e99e}{\index{Mine@{Mine}!get\-Bounding\-Box@{get\-Bounding\-Box}}
+\index{get\-Bounding\-Box@{get\-Bounding\-Box}!Mine@{Mine}}
+\subsubsection[{get\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Mine\-::get\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_a36b2ba160a413d45c9743447f075e99e}
+
+
+Provide the bounding box for the mine entity. 
+
+\begin{DoxyReturn}{Returns}
+const \hyperlink{structrect__corners}{rect\-\_\-corners} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCollidable_a3436effdcd9bea230f4a1aa32b8dd8ab}{Collidable}.
+
+
+
+Definition at line 43 of file Mine.\-cpp.
+
+
+
+References \-\_\-mine, and Orientation\-::get\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+44 \{
+45     \textcolor{keywordflow}{return} \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}.\hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{getGlobalBounds}();
+46 \}
+\end{DoxyCode}
+\hypertarget{classMine_a904342dcd8d13f8489c91ed6ba09ec7b}{\index{Mine@{Mine}!get\-Draw\-Position\-X@{get\-Draw\-Position\-X}}
+\index{get\-Draw\-Position\-X@{get\-Draw\-Position\-X}!Mine@{Mine}}
+\subsubsection[{get\-Draw\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Mine\-::get\-Draw\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_a904342dcd8d13f8489c91ed6ba09ec7b}
+
+
+Retrieve the \hyperlink{classMine}{Mine} x Position. 
+
+
+
+Implements \hyperlink{classDeletable_ac14ea0c5986d50ba3ba454f89c87b8fe}{Deletable}.
+
+
+
+Definition at line 91 of file Mine.\-cpp.
+
+
+
+References \-\_\-mine, and Orientation\-::get\-Origin\-X().
+
+
+\begin{DoxyCode}
+92 \{
+93     \textcolor{keywordflow}{return} \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}();
+94 \}
+\end{DoxyCode}
+\hypertarget{classMine_a8abe866b857f781f81b0b3b4e9ef7034}{\index{Mine@{Mine}!get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}}
+\index{get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}!Mine@{Mine}}
+\subsubsection[{get\-Draw\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Mine\-::get\-Draw\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_a8abe866b857f781f81b0b3b4e9ef7034}
+
+
+Retrieve the \hyperlink{classMine}{Mine} y Position. 
+
+
+
+Implements \hyperlink{classDeletable_a2a88d7e40c56902a3d3d8f668e9d126d}{Deletable}.
+
+
+
+Definition at line 99 of file Mine.\-cpp.
+
+
+
+References \-\_\-mine, and Orientation\-::get\-Origin\-Y().
+
+
+\begin{DoxyCode}
+100 \{
+101     \textcolor{keywordflow}{return} \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}();
+102 \}
+\end{DoxyCode}
+\hypertarget{classMine_a5b6986a3a3ce5177879359a626cc994b}{\index{Mine@{Mine}!get\-Draw\-Rotation@{get\-Draw\-Rotation}}
+\index{get\-Draw\-Rotation@{get\-Draw\-Rotation}!Mine@{Mine}}
+\subsubsection[{get\-Draw\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Mine\-::get\-Draw\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_a5b6986a3a3ce5177879359a626cc994b}
+
+
+Recieve the \hyperlink{classMine}{Mine} rotation. 
+
+
+
+Implements \hyperlink{classDeletable_ad7061a6bef3efce030aa5abbc7646d47}{Deletable}.
+
+
+
+Definition at line 107 of file Mine.\-cpp.
+
+
+
+References \-\_\-mine, and Orientation\-::get\-Rotation().
+
+
+\begin{DoxyCode}
+108 \{
+109     \textcolor{keywordflow}{return} \hyperlink{classMine_ada4e9674ae02b3d3035decc350222aa8}{\_mine}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+110 \}
+\end{DoxyCode}
+\hypertarget{classMine_af435cf100fe7f89e998ec2f7ad40faa1}{\index{Mine@{Mine}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!Mine@{Mine}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf entity\-\_\-type} \& Mine\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_af435cf100fe7f89e998ec2f7ad40faa1}
+
+
+\hyperlink{classMine}{Mine} is able to provide its identification. 
+
+\begin{DoxyReturn}{Returns}
+const entity\-\_\-type 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDeletable_af8a0208abc297180873692f4215fe50f}{Deletable}.
+
+
+
+Definition at line 35 of file Mine.\-cpp.
+
+
+
+References \-\_\-type.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+36 \{
+37     \textcolor{keywordflow}{return} \hyperlink{classMine_a9f780de0af41828d0b03de8ecff36546}{\_type};
+38 \}
+\end{DoxyCode}
+\hypertarget{classMine_aa19d1827e837944d74fe02ad0fbeffc9}{\index{Mine@{Mine}!is\-Deleted@{is\-Deleted}}
+\index{is\-Deleted@{is\-Deleted}!Mine@{Mine}}
+\subsubsection[{is\-Deleted}]{\setlength{\rightskip}{0pt plus 5cm}const bool Mine\-::is\-Deleted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_aa19d1827e837944d74fe02ad0fbeffc9}
+
+
+Boolean state of the mine entities life. 
+
+Boolean state of the mine entities. 
+
+Implements \hyperlink{classDeletable_a6572440c291077cf52bf21288c6cd25c}{Deletable}.
+
+
+
+Definition at line 83 of file Mine.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+84 \{
+85     \textcolor{keywordflow}{return} \hyperlink{classMine_a1b68c443899530bad702085dcc52511a}{\_collidedStatus};
+86 \}
+\end{DoxyCode}
+\hypertarget{classMine_acf2add61f1763222f0d1a7333d2b0633}{\index{Mine@{Mine}!set\-Blocked@{set\-Blocked}}
+\index{set\-Blocked@{set\-Blocked}!Mine@{Mine}}
+\subsubsection[{set\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}const int Mine\-::set\-Blocked (
+\begin{DoxyParamCaption}
+\item[{const {\bf blocked\-\_\-status}}]{obstruction\-\_\-type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_acf2add61f1763222f0d1a7333d2b0633}
+
+
+This function is not used by mine. 
+
+\begin{DoxyReturn}{Returns}
+const int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCollidable_a6d312198ba82d26b5e360733bb87a2f0}{Collidable}.
+
+
+
+Definition at line 59 of file Mine.\-cpp.
+
+
+\begin{DoxyCode}
+60 \{
+61     \textcolor{keywordflow}{return} 1;
+62 \}
+\end{DoxyCode}
+\hypertarget{classMine_a3a51fbecfcb177529bee4b7e13dd75e2}{\index{Mine@{Mine}!set\-Collided@{set\-Collided}}
+\index{set\-Collided@{set\-Collided}!Mine@{Mine}}
+\subsubsection[{set\-Collided}]{\setlength{\rightskip}{0pt plus 5cm}void Mine\-::set\-Collided (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_a3a51fbecfcb177529bee4b7e13dd75e2}
+
+
+Set the colllision state of the mine. 
+
+
+
+Implements \hyperlink{classCollidable_a5ea0417bea000712171bbe5531705082}{Collidable}.
+
+
+
+Definition at line 75 of file Mine.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+76 \{
+77     \hyperlink{classMine_a1b68c443899530bad702085dcc52511a}{\_collidedStatus} = 1;
+78 \}
+\end{DoxyCode}
+\hypertarget{classMine_a859fd28c2c57a37b22ec3b88806f1134}{\index{Mine@{Mine}!set\-Unblocked@{set\-Unblocked}}
+\index{set\-Unblocked@{set\-Unblocked}!Mine@{Mine}}
+\subsubsection[{set\-Unblocked}]{\setlength{\rightskip}{0pt plus 5cm}void Mine\-::set\-Unblocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMine_a859fd28c2c57a37b22ec3b88806f1134}
+
+
+This function is not used by the mine. 
+
+This function is not used by mine. 
+
+Implements \hyperlink{classCollidable_a817d864d0640bc6bcb13bbecf14ddf31}{Collidable}.
+
+
+
+Definition at line 67 of file Mine.\-cpp.
+
+
+\begin{DoxyCode}
+68 \{
+69     \textcolor{comment}{//This should be thought about and worked aound}
+70 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMine_a1b68c443899530bad702085dcc52511a}{\index{Mine@{Mine}!\-\_\-collided\-Status@{\-\_\-collided\-Status}}
+\index{\-\_\-collided\-Status@{\-\_\-collided\-Status}!Mine@{Mine}}
+\subsubsection[{\-\_\-collided\-Status}]{\setlength{\rightskip}{0pt plus 5cm}bool Mine\-::\-\_\-collided\-Status\hspace{0.3cm}{\ttfamily [private]}}}\label{classMine_a1b68c443899530bad702085dcc52511a}
+
+
+Collision state of the \hyperlink{classMine}{Mine} entity\-: 1 for collided, 0 for not. 
+
+
+
+Definition at line 59 of file Mine.\-h.
+
+
+
+Referenced by is\-Deleted(), Mine(), and set\-Collided().
+
+\hypertarget{classMine_ada4e9674ae02b3d3035decc350222aa8}{\index{Mine@{Mine}!\-\_\-mine@{\-\_\-mine}}
+\index{\-\_\-mine@{\-\_\-mine}!Mine@{Mine}}
+\subsubsection[{\-\_\-mine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Orientation} Mine\-::\-\_\-mine\hspace{0.3cm}{\ttfamily [private]}}}\label{classMine_ada4e9674ae02b3d3035decc350222aa8}
+
+
+Co-\/cordinate system for \hyperlink{classMine}{Mine} entity. 
+
+
+
+Definition at line 55 of file Mine.\-h.
+
+
+
+Referenced by get\-Aligned\-Bounding\-Box(), get\-Bounding\-Box(), get\-Draw\-Position\-X(), get\-Draw\-Position\-Y(), get\-Draw\-Rotation(), and Mine().
+
+\hypertarget{classMine_a82e6153c008e77eea41dfac4bc665db5}{\index{Mine@{Mine}!\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}!Mine@{Mine}}
+\subsubsection[{\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Mine\-::\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classMine_a82e6153c008e77eea41dfac4bc665db5}
+
+
+\hyperlink{classMine}{Mine} sprite dimensions. 
+
+
+
+Definition at line 61 of file Mine.\-h.
+
+
+
+Referenced by Mine().
+
+\hypertarget{classMine_a9f780de0af41828d0b03de8ecff36546}{\index{Mine@{Mine}!\-\_\-type@{\-\_\-type}}
+\index{\-\_\-type@{\-\_\-type}!Mine@{Mine}}
+\subsubsection[{\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\-\_\-type} Mine\-::\-\_\-type\hspace{0.3cm}{\ttfamily [private]}}}\label{classMine_a9f780de0af41828d0b03de8ecff36546}
+
+
+Enumeration type defining the \hyperlink{classMine}{Mine}. 
+
+
+
+Definition at line 57 of file Mine.\-h.
+
+
+
+Referenced by get\-Type(), and Mine().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Mine_8h}{Mine.\-h}\item 
+\hyperlink{Mine_8cpp}{Mine.\-cpp}\end{DoxyCompactItemize}

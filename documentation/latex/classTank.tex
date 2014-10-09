@@ -1,0 +1,942 @@
+\hypertarget{classTank}{\section{Tank Class Reference}
+\label{classTank}\index{Tank@{Tank}}
+}
+
+
+{\ttfamily \#include $<$Tank.\-h$>$}
+
+Inheritance diagram for Tank\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classTank}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTank_a6150bd84a309e15815122a050972ada3}{Tank} (float position\-X, float position\-Y, float rotation, \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} tank\-Owner)
+\begin{DoxyCompactList}\small\item\em Default \hyperlink{classTank}{Tank} object constructor. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \& \hyperlink{classTank_a13af6c47c61682ebd1463fd9ef34439b}{get\-Type} () const 
+\begin{DoxyCompactList}\small\item\em Provided ownership. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTank_a7d4317a50c215c97679cf9d2fb40e223}{move\-Forward} ()
+\begin{DoxyCompactList}\small\item\em Forward movement for a tank entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTank_a6fa5abbf02267f1e30e485b043abc1c2}{move\-Backward} ()
+\begin{DoxyCompactList}\small\item\em Backward movement for a tank entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTank_aed009351545e9019140e75bd8365e1ad}{rotate\-Left} ()
+\begin{DoxyCompactList}\small\item\em Left rotation for a tank entity. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTank_a61c8d236aa98a258276654d02820966f}{rotate\-Right} ()
+\begin{DoxyCompactList}\small\item\em Right rotation for a tank entity. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classTank_aeed31f7dcffb3209928a6774c9ec2a16}{get\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Provide the bounding box for the tank entity. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classTank_acacf07f1695303387f1f6b52fd2e2abb}{get\-Aligned\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get Axis Aligned bounding box of entity. \end{DoxyCompactList}\item 
+virtual const int \hyperlink{classTank_a7bedf67f1ae11382f84a3784d9324e60}{set\-Blocked} (const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} obstruction\-\_\-type)
+\begin{DoxyCompactList}\small\item\em Instruct the tank entity that it cannot move. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTank_a5cbdf86621634b0c698edc5abe1a6d5b}{set\-Unblocked} ()
+\begin{DoxyCompactList}\small\item\em Instruct the tank entity that it can move. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTank_a6e06f183cb856f201a7e5790b852f6a6}{set\-Collided} ()
+\begin{DoxyCompactList}\small\item\em Instruct the tank entity that it has collided with another object. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \hyperlink{classTank_a6ca225d5f7a4c3b835da4a157b86c692}{is\-Blocked} ()
+\begin{DoxyCompactList}\small\item\em Determine the blocked state of the tank entity. \end{DoxyCompactList}\item 
+virtual bool const \hyperlink{classTank_a33a62b283cdaf362415fad768d2f6df3}{is\-Deleted} ()
+\begin{DoxyCompactList}\small\item\em Boolean state of the tank entity's life. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTank_ab1e8f987cf6702d0a5f902fcdce2dc38}{get\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Get the current x co-\/ordinate of \hyperlink{classTrackable}{Trackable} object. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTank_ac78e2f8ecc69da315f68f4244f452bde}{get\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Get the current y co-\/ordinate of \hyperlink{classTrackable}{Trackable} object. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTank_a893bb5e1f3ac38bd2960d1f629505ea0}{get\-Orientation} ()
+\begin{DoxyCompactList}\small\item\em Get the current orientation of \hyperlink{classTrackable}{Trackable} object. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classTank_ac3bc1fb6dc7e36c781b6cf8a29ae87eb}{get\-Tracking\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get the bounding box relevant for line-\/of-\/fire detection. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTank_a679ab65e5d46ee6e7fa5fe517101131f}{get\-Draw\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the \hyperlink{classTank}{Tank} x Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTank_a5778b15fc49b6cd1086f3a80383b2a37}{get\-Draw\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the \hyperlink{classTank}{Tank} y Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classTank_aa117515fda912f25f9f7d5a8ce4055d7}{get\-Draw\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Recieve the \hyperlink{classTank}{Tank} rotation. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classTank_ae283f9665d114b742cb521acbf0897fe}{set\-Movement\-Direction} (const \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\-\_\-direction} Movement\-\_\-input)
+\begin{DoxyCompactList}\small\item\em Set the movement direction of the entity. \end{DoxyCompactList}\item 
+virtual \hyperlink{classTank_a9e4fce49ae7fe871894c1a3122c10269}{$\sim$\-Tank} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTank}{Tank} object destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \hyperlink{classTank_a55423a404ce9c8b772462665769141a5}{\-\_\-blocked\-Status}
+\begin{DoxyCompactList}\small\item\em Movability of the \hyperlink{classTank}{Tank} entity\-: 1 for blocked, 0 for free. \end{DoxyCompactList}\item 
+bool \hyperlink{classTank_af2526be40c377df7652b5d7c314c7861}{\-\_\-collided\-Status}
+\begin{DoxyCompactList}\small\item\em Collision state of the \hyperlink{classTank}{Tank} Entity\-: 1 for collided, 0 for not. \end{DoxyCompactList}\item 
+float \hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\-\_\-rotation}
+\begin{DoxyCompactList}\small\item\em The angle of rotation for the \hyperlink{classTank}{Tank} entity. \end{DoxyCompactList}\item 
+\hyperlink{classOrientation}{Orientation} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\-\_\-tank}
+\begin{DoxyCompactList}\small\item\em Co-\/ordinate system for the \hyperlink{classTank}{Tank}. \end{DoxyCompactList}\item 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \hyperlink{classTank_a3758229ef9d41d069e6128b17d414204}{\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Enumeration type defining the tank. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classTank_ae63c3e90ba5e3f9a3bfb8172865716fb}{\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTank}{Tank} Sprite Dimensions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 29 of file Tank.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTank_a6150bd84a309e15815122a050972ada3}{\index{Tank@{Tank}!Tank@{Tank}}
+\index{Tank@{Tank}!Tank@{Tank}}
+\subsubsection[{Tank}]{\setlength{\rightskip}{0pt plus 5cm}Tank\-::\-Tank (
+\begin{DoxyParamCaption}
+\item[{float}]{position\-X, }
+\item[{float}]{position\-Y, }
+\item[{float}]{rotation, }
+\item[{{\bf entity\-\_\-type}}]{tank\-Owner}
+\end{DoxyParamCaption}
+)}}\label{classTank_a6150bd84a309e15815122a050972ada3}
+
+
+Default \hyperlink{classTank}{Tank} object constructor. 
+
+Constuctor of the \hyperlink{classTank}{Tank} Class.
+
+This constructor utilises excetion handling and seeks to ensure that its state is invariant. 
+\begin{DoxyParams}{Parameters}
+{\em position\-X} & \-:\-: The initial x-\/axis to construct the tank on. \\
+\hline
+{\em position\-Y} & \-:\-: The initial y-\/axis to construct the tank on \\
+\hline
+{\em rotation} & \-:\-: The initial rotation to construct the tank with \\
+\hline
+{\em tank\-Owner} & \-:\-: used to set the owner of the tank as either p1 or p2 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file Tank.\-cpp.
+
+
+
+References \-\_\-blocked\-Status, \-\_\-collided\-Status, \-\_\-sprite\-\_\-dimensions, \-\_\-tank, \-\_\-type, Orientation\-::get\-Origin\-X(), Orientation\-::get\-Origin\-Y(), Orientation\-::get\-Rotation(), p1\-\_\-tank, p2\-\_\-tank, Orientation\-::set\-Height(), Orientation\-::set\-Width(), Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-y, and unblocked.
+
+
+\begin{DoxyCode}
+20                                                                                  :
+21     \hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\_rotation}(rotation),
+22     \hyperlink{classTank_a3758229ef9d41d069e6128b17d414204}{\_type}(tankOwner),
+23     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}(positionX,positionY,0,0,rotation, \textcolor{keyword}{true}),
+24     \hyperlink{classTank_ae63c3e90ba5e3f9a3bfb8172865716fb}{\_sprite\_dimensions}()
+25 \{
+26     \textcolor{comment}{//Error input checking}
+27     \textcolor{keywordflow}{if} (\hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsTank}{InvalidConstructorArgumentsTank}();
+28     \textcolor{keywordflow}{if} (\hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsTank}{InvalidConstructorArgumentsTank}();
+29     \textcolor{keywordflow}{if} (\hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}() < 0) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsTank}{InvalidConstructorArgumentsTank}();
+30     \textcolor{keywordflow}{if} ((\hyperlink{classTank_a3758229ef9d41d069e6128b17d414204}{\_type} != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}) && (\hyperlink{classTank_a3758229ef9d41d069e6128b17d414204}{\_type} != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank})) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsTank}{InvalidConstructorArgumentsTank}();
+31 
+32     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}{setWidth}(\hyperlink{classTank_ae63c3e90ba5e3f9a3bfb8172865716fb}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}{tank\_sprite\_x});
+33     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a1adca89bc32128e2ca1cb937357f5006}{setHeight}(\hyperlink{classTank_ae63c3e90ba5e3f9a3bfb8172865716fb}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y});
+34     \hyperlink{classTank_a55423a404ce9c8b772462665769141a5}{\_blockedStatus} = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked};
+35     \hyperlink{classTank_af2526be40c377df7652b5d7c314c7861}{\_collidedStatus} = 0;
+36 \}
+\end{DoxyCode}
+\hypertarget{classTank_a9e4fce49ae7fe871894c1a3122c10269}{\index{Tank@{Tank}!$\sim$\-Tank@{$\sim$\-Tank}}
+\index{$\sim$\-Tank@{$\sim$\-Tank}!Tank@{Tank}}
+\subsubsection[{$\sim$\-Tank}]{\setlength{\rightskip}{0pt plus 5cm}Tank\-::$\sim$\-Tank (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a9e4fce49ae7fe871894c1a3122c10269}
+
+
+\hyperlink{classTank}{Tank} object destructor. 
+
+
+
+Definition at line 186 of file Tank.\-cpp.
+
+
+\begin{DoxyCode}
+187 \{
+188 
+189 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTank_acacf07f1695303387f1f6b52fd2e2abb}{\index{Tank@{Tank}!get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}}
+\index{get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}!Tank@{Tank}}
+\subsubsection[{get\-Aligned\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Tank\-::get\-Aligned\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_acacf07f1695303387f1f6b52fd2e2abb}
+
+
+Get Axis Aligned bounding box of entity. 
+
+
+
+Implements \hyperlink{classCollidable_a6909df57a0915f044d5d967a3be086f3}{Collidable}.
+
+
+
+Definition at line 156 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Aligned\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+157  \{
+158      \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a5cc606289f774c8561af98d183586199}{getAlignedGlobalBounds}();
+159  \}
+\end{DoxyCode}
+\hypertarget{classTank_aeed31f7dcffb3209928a6774c9ec2a16}{\index{Tank@{Tank}!get\-Bounding\-Box@{get\-Bounding\-Box}}
+\index{get\-Bounding\-Box@{get\-Bounding\-Box}!Tank@{Tank}}
+\subsubsection[{get\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Tank\-::get\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_aeed31f7dcffb3209928a6774c9ec2a16}
+
+
+Provide the bounding box for the tank entity. 
+
+Retrieves the tanks bounding box.
+
+This function is used in conjunction with collision detection 
+
+Implements \hyperlink{classCollidable_a3436effdcd9bea230f4a1aa32b8dd8ab}{Collidable}.
+
+
+
+Definition at line 91 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+92 \{
+93     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{getGlobalBounds}();
+94 \}
+\end{DoxyCode}
+\hypertarget{classTank_a679ab65e5d46ee6e7fa5fe517101131f}{\index{Tank@{Tank}!get\-Draw\-Position\-X@{get\-Draw\-Position\-X}}
+\index{get\-Draw\-Position\-X@{get\-Draw\-Position\-X}!Tank@{Tank}}
+\subsubsection[{get\-Draw\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Tank\-::get\-Draw\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a679ab65e5d46ee6e7fa5fe517101131f}
+
+
+Retrieve the \hyperlink{classTank}{Tank} x Position. 
+
+Retrieve the x \hyperlink{classTank}{Tank} Position. 
+
+Implements \hyperlink{classDeletable_ac14ea0c5986d50ba3ba454f89c87b8fe}{Deletable}.
+
+
+
+Definition at line 162 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Origin\-X().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+163 \{
+164     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}();
+165 \}
+\end{DoxyCode}
+\hypertarget{classTank_a5778b15fc49b6cd1086f3a80383b2a37}{\index{Tank@{Tank}!get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}}
+\index{get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}!Tank@{Tank}}
+\subsubsection[{get\-Draw\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Tank\-::get\-Draw\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a5778b15fc49b6cd1086f3a80383b2a37}
+
+
+Retrieve the \hyperlink{classTank}{Tank} y Position. 
+
+Retrieve the y \hyperlink{classTank}{Tank} Position. 
+
+Implements \hyperlink{classDeletable_a2a88d7e40c56902a3d3d8f668e9d126d}{Deletable}.
+
+
+
+Definition at line 168 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Origin\-Y().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+169 \{
+170     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}();
+171 \}
+\end{DoxyCode}
+\hypertarget{classTank_aa117515fda912f25f9f7d5a8ce4055d7}{\index{Tank@{Tank}!get\-Draw\-Rotation@{get\-Draw\-Rotation}}
+\index{get\-Draw\-Rotation@{get\-Draw\-Rotation}!Tank@{Tank}}
+\subsubsection[{get\-Draw\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Tank\-::get\-Draw\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_aa117515fda912f25f9f7d5a8ce4055d7}
+
+
+Recieve the \hyperlink{classTank}{Tank} rotation. 
+
+
+
+Implements \hyperlink{classDeletable_ad7061a6bef3efce030aa5abbc7646d47}{Deletable}.
+
+
+
+Definition at line 174 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Rotation().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+175 \{
+176     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+177 \}
+\end{DoxyCode}
+\hypertarget{classTank_a893bb5e1f3ac38bd2960d1f629505ea0}{\index{Tank@{Tank}!get\-Orientation@{get\-Orientation}}
+\index{get\-Orientation@{get\-Orientation}!Tank@{Tank}}
+\subsubsection[{get\-Orientation}]{\setlength{\rightskip}{0pt plus 5cm}const float Tank\-::get\-Orientation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a893bb5e1f3ac38bd2960d1f629505ea0}
+
+
+Get the current orientation of \hyperlink{classTrackable}{Trackable} object. 
+
+
+
+Implements \hyperlink{classTrackable_afc6b5126b82395a5155cfe76250f92dd}{Trackable}.
+
+
+
+Definition at line 145 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Rotation().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+146 \{
+147     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+148 \}
+\end{DoxyCode}
+\hypertarget{classTank_ab1e8f987cf6702d0a5f902fcdce2dc38}{\index{Tank@{Tank}!get\-Position\-X@{get\-Position\-X}}
+\index{get\-Position\-X@{get\-Position\-X}!Tank@{Tank}}
+\subsubsection[{get\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Tank\-::get\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_ab1e8f987cf6702d0a5f902fcdce2dc38}
+
+
+Get the current x co-\/ordinate of \hyperlink{classTrackable}{Trackable} object. 
+
+Get the current x co-\/ordinates of \hyperlink{classTrackable}{Trackable} object. 
+
+Implements \hyperlink{classTrackable_ab167af97aef9656403ee2d28adaf3149}{Trackable}.
+
+
+
+Definition at line 133 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Origin\-X().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+134 \{
+135     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}();
+136 \}
+\end{DoxyCode}
+\hypertarget{classTank_ac78e2f8ecc69da315f68f4244f452bde}{\index{Tank@{Tank}!get\-Position\-Y@{get\-Position\-Y}}
+\index{get\-Position\-Y@{get\-Position\-Y}!Tank@{Tank}}
+\subsubsection[{get\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Tank\-::get\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_ac78e2f8ecc69da315f68f4244f452bde}
+
+
+Get the current y co-\/ordinate of \hyperlink{classTrackable}{Trackable} object. 
+
+Get the current y co-\/ordinates of \hyperlink{classTrackable}{Trackable} object. 
+
+Implements \hyperlink{classTrackable_add27867f4ebf30f1fe7c3f94b4d7f4d5}{Trackable}.
+
+
+
+Definition at line 139 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Origin\-Y().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+140 \{
+141     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}();
+142 \}
+\end{DoxyCode}
+\hypertarget{classTank_ac3bc1fb6dc7e36c781b6cf8a29ae87eb}{\index{Tank@{Tank}!get\-Tracking\-Bounding\-Box@{get\-Tracking\-Bounding\-Box}}
+\index{get\-Tracking\-Bounding\-Box@{get\-Tracking\-Bounding\-Box}!Tank@{Tank}}
+\subsubsection[{get\-Tracking\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Tank\-::get\-Tracking\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_ac3bc1fb6dc7e36c781b6cf8a29ae87eb}
+
+
+Get the bounding box relevant for line-\/of-\/fire detection. 
+
+
+
+Implements \hyperlink{classTrackable_a79826040547e1ca65775223f26c37648}{Trackable}.
+
+
+
+Definition at line 151 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::get\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+152  \{
+153     \textcolor{keywordflow}{return} \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{getGlobalBounds}();
+154  \}
+\end{DoxyCode}
+\hypertarget{classTank_a13af6c47c61682ebd1463fd9ef34439b}{\index{Tank@{Tank}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!Tank@{Tank}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf entity\-\_\-type} \& Tank\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a13af6c47c61682ebd1463fd9ef34439b}
+
+
+Provided ownership. 
+
+Returns the owner of the tank.
+
+This is function is used in many logic instanses where the owner of the tank needs to be determined. \begin{DoxyReturn}{Returns}
+entity\-\_\-type 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDeletable_af8a0208abc297180873692f4215fe50f}{Deletable}.
+
+
+
+Definition at line 44 of file Tank.\-cpp.
+
+
+
+References \-\_\-type.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+45  \{
+46      \textcolor{keywordflow}{return} \hyperlink{classTank_a3758229ef9d41d069e6128b17d414204}{\_type};
+47  \}
+\end{DoxyCode}
+\hypertarget{classTank_a6ca225d5f7a4c3b835da4a157b86c692}{\index{Tank@{Tank}!is\-Blocked@{is\-Blocked}}
+\index{is\-Blocked@{is\-Blocked}!Tank@{Tank}}
+\subsubsection[{is\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf blocked\-\_\-status} Tank\-::is\-Blocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a6ca225d5f7a4c3b835da4a157b86c692}
+
+
+Determine the blocked state of the tank entity. 
+
+
+
+Implements \hyperlink{classMovable_a40db320f27f5be1882553298677702c8}{Movable}.
+
+
+
+Definition at line 121 of file Tank.\-cpp.
+
+
+
+References \-\_\-blocked\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+122 \{
+123     \textcolor{keywordflow}{return} \hyperlink{classTank_a55423a404ce9c8b772462665769141a5}{\_blockedStatus};
+124 \}
+\end{DoxyCode}
+\hypertarget{classTank_a33a62b283cdaf362415fad768d2f6df3}{\index{Tank@{Tank}!is\-Deleted@{is\-Deleted}}
+\index{is\-Deleted@{is\-Deleted}!Tank@{Tank}}
+\subsubsection[{is\-Deleted}]{\setlength{\rightskip}{0pt plus 5cm}const bool Tank\-::is\-Deleted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a33a62b283cdaf362415fad768d2f6df3}
+
+
+Boolean state of the tank entity's life. 
+
+
+
+Implements \hyperlink{classDeletable_a6572440c291077cf52bf21288c6cd25c}{Deletable}.
+
+
+
+Definition at line 127 of file Tank.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+128 \{
+129     \textcolor{keywordflow}{return} \hyperlink{classTank_af2526be40c377df7652b5d7c314c7861}{\_collidedStatus};
+130 \}
+\end{DoxyCode}
+\hypertarget{classTank_a6fa5abbf02267f1e30e485b043abc1c2}{\index{Tank@{Tank}!move\-Backward@{move\-Backward}}
+\index{move\-Backward@{move\-Backward}!Tank@{Tank}}
+\subsubsection[{move\-Backward}]{\setlength{\rightskip}{0pt plus 5cm}void Tank\-::move\-Backward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a6fa5abbf02267f1e30e485b043abc1c2}
+
+
+Backward movement for a tank entity. 
+
+Moves the tank forward by a constant value.
+
+This method uses trigonometry to move the tank negatively in any 360 degree direction within the game world 
+
+Implements \hyperlink{classMovable_a9c03e7ac263902159579d7f83e9b6dee}{Movable}.
+
+
+
+Definition at line 63 of file Tank.\-cpp.
+
+
+
+References \-\_\-rotation, \-\_\-tank, Movable\-::\-\_\-tank\-Movement\-Speed, Orientation\-::move(), and P\-I.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+64 \{
+65     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ae1c8122591724b1b3bfcb0026b76e809}{move}(-\hyperlink{classMovable_a54cb7d3465cc78ad7d8b2f7c2d842732}{\_tankMovementSpeed}*cos((\hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\_rotation}*
+      \hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180.0), -\hyperlink{classMovable_a54cb7d3465cc78ad7d8b2f7c2d842732}{\_tankMovementSpeed}*sin((\hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\_rotation}*PI)/180.0));
+66 \}
+\end{DoxyCode}
+\hypertarget{classTank_a7d4317a50c215c97679cf9d2fb40e223}{\index{Tank@{Tank}!move\-Forward@{move\-Forward}}
+\index{move\-Forward@{move\-Forward}!Tank@{Tank}}
+\subsubsection[{move\-Forward}]{\setlength{\rightskip}{0pt plus 5cm}void Tank\-::move\-Forward (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a7d4317a50c215c97679cf9d2fb40e223}
+
+
+Forward movement for a tank entity. 
+
+Moves the tank forward by a constant value.
+
+This method uses trigonometry to move the tank positively in any 360 degree direction within the game world 
+
+Implements \hyperlink{classMovable_adefaf61339698c5efec597529bf89310}{Movable}.
+
+
+
+Definition at line 53 of file Tank.\-cpp.
+
+
+
+References \-\_\-rotation, \-\_\-tank, Movable\-::\-\_\-tank\-Movement\-Speed, Orientation\-::move(), and P\-I.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+54 \{
+55     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_ae1c8122591724b1b3bfcb0026b76e809}{move}(\hyperlink{classMovable_a54cb7d3465cc78ad7d8b2f7c2d842732}{\_tankMovementSpeed}*cos((\hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\_rotation}*
+      \hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180.0), \hyperlink{classMovable_a54cb7d3465cc78ad7d8b2f7c2d842732}{\_tankMovementSpeed}*sin((\hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\_rotation}*PI)/180.0));
+56 \}
+\end{DoxyCode}
+\hypertarget{classTank_aed009351545e9019140e75bd8365e1ad}{\index{Tank@{Tank}!rotate\-Left@{rotate\-Left}}
+\index{rotate\-Left@{rotate\-Left}!Tank@{Tank}}
+\subsubsection[{rotate\-Left}]{\setlength{\rightskip}{0pt plus 5cm}void Tank\-::rotate\-Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_aed009351545e9019140e75bd8365e1ad}
+
+
+Left rotation for a tank entity. 
+
+Rotates the tank left by a constant value.
+
+This method uses trigonometry to move the tank positively in any degree if rotation 
+
+Implements \hyperlink{classMovable_a422b71ade02b9034600f51bc55d58c90}{Movable}.
+
+
+
+Definition at line 71 of file Tank.\-cpp.
+
+
+
+References \-\_\-rotation, \-\_\-tank, Movable\-::\-\_\-tank\-Rotation\-Speed, and Orientation\-::rotate().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+72 \{
+73     \hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\_rotation} += \hyperlink{classMovable_ab4ad35a0057bdbc80385c67bec5f1a60}{\_tankRotationSpeed};
+74     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_aa9e115b7f4ab487e3af532592416b247}{rotate}(\hyperlink{classMovable_ab4ad35a0057bdbc80385c67bec5f1a60}{\_tankRotationSpeed});
+75 \}
+\end{DoxyCode}
+\hypertarget{classTank_a61c8d236aa98a258276654d02820966f}{\index{Tank@{Tank}!rotate\-Right@{rotate\-Right}}
+\index{rotate\-Right@{rotate\-Right}!Tank@{Tank}}
+\subsubsection[{rotate\-Right}]{\setlength{\rightskip}{0pt plus 5cm}void Tank\-::rotate\-Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a61c8d236aa98a258276654d02820966f}
+
+
+Right rotation for a tank entity. 
+
+Rotates the tank right by a constant value.
+
+This method uses trigonometry to move the tank negatively in any degree if rotation 
+
+Implements \hyperlink{classMovable_a821480cb8ffd047b39a907c6cf07dd84}{Movable}.
+
+
+
+Definition at line 81 of file Tank.\-cpp.
+
+
+
+References \-\_\-rotation, \-\_\-tank, Movable\-::\-\_\-tank\-Rotation\-Speed, and Orientation\-::rotate().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+82 \{
+83     \hyperlink{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\_rotation} -= \hyperlink{classMovable_ab4ad35a0057bdbc80385c67bec5f1a60}{\_tankRotationSpeed};
+84     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_aa9e115b7f4ab487e3af532592416b247}{rotate}(-\hyperlink{classMovable_ab4ad35a0057bdbc80385c67bec5f1a60}{\_tankRotationSpeed});
+85 \}
+\end{DoxyCode}
+\hypertarget{classTank_a7bedf67f1ae11382f84a3784d9324e60}{\index{Tank@{Tank}!set\-Blocked@{set\-Blocked}}
+\index{set\-Blocked@{set\-Blocked}!Tank@{Tank}}
+\subsubsection[{set\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}const int Tank\-::set\-Blocked (
+\begin{DoxyParamCaption}
+\item[{const {\bf blocked\-\_\-status}}]{obstruction\-\_\-type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a7bedf67f1ae11382f84a3784d9324e60}
+
+
+Instruct the tank entity that it cannot move. 
+
+Set the movement state of the \hyperlink{classTank}{Tank} to be blocked.
+
+This function sets a boolean value and returns an int describing how manay more times it can be blocked 
+\begin{DoxyParams}{Parameters}
+{\em obstruction\-\_\-type} & \-:\-: this is the direction in which the tank becomes blocked \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classCollidable_a6d312198ba82d26b5e360733bb87a2f0}{Collidable}.
+
+
+
+Definition at line 101 of file Tank.\-cpp.
+
+
+
+References \-\_\-blocked\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+102 \{
+103     \hyperlink{classTank_a55423a404ce9c8b772462665769141a5}{\_blockedStatus} = obstruction\_type;
+104     \textcolor{comment}{//Tank intity can be blocked infinitely.}
+105     \textcolor{keywordflow}{return} 1;
+106 \}
+\end{DoxyCode}
+\hypertarget{classTank_a6e06f183cb856f201a7e5790b852f6a6}{\index{Tank@{Tank}!set\-Collided@{set\-Collided}}
+\index{set\-Collided@{set\-Collided}!Tank@{Tank}}
+\subsubsection[{set\-Collided}]{\setlength{\rightskip}{0pt plus 5cm}void Tank\-::set\-Collided (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a6e06f183cb856f201a7e5790b852f6a6}
+
+
+Instruct the tank entity that it has collided with another object. 
+
+
+
+Implements \hyperlink{classCollidable_a5ea0417bea000712171bbe5531705082}{Collidable}.
+
+
+
+Definition at line 115 of file Tank.\-cpp.
+
+
+
+References \-\_\-collided\-Status.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+116 \{
+117     \hyperlink{classTank_af2526be40c377df7652b5d7c314c7861}{\_collidedStatus} = 1;
+118 \}
+\end{DoxyCode}
+\hypertarget{classTank_ae283f9665d114b742cb521acbf0897fe}{\index{Tank@{Tank}!set\-Movement\-Direction@{set\-Movement\-Direction}}
+\index{set\-Movement\-Direction@{set\-Movement\-Direction}!Tank@{Tank}}
+\subsubsection[{set\-Movement\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}void Tank\-::set\-Movement\-Direction (
+\begin{DoxyParamCaption}
+\item[{const {\bf movement\-\_\-direction}}]{Movement\-\_\-input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_ae283f9665d114b742cb521acbf0897fe}
+
+
+Set the movement direction of the entity. 
+
+
+
+Implements \hyperlink{classMovable_a0bb485f10776845305a683ed5e2ba1fc}{Movable}.
+
+
+
+Definition at line 180 of file Tank.\-cpp.
+
+
+
+References \-\_\-tank, and Orientation\-::set\-Move\-Direction().
+
+
+\begin{DoxyCode}
+181 \{
+182     \hyperlink{classTank_ab54320f716bcac8aa4073aab09fc958b}{\_tank}.\hyperlink{classOrientation_a478512ba497cd75f11be3aa3177cca6a}{setMoveDirection}(Movement\_input);
+183 \}
+\end{DoxyCode}
+\hypertarget{classTank_a5cbdf86621634b0c698edc5abe1a6d5b}{\index{Tank@{Tank}!set\-Unblocked@{set\-Unblocked}}
+\index{set\-Unblocked@{set\-Unblocked}!Tank@{Tank}}
+\subsubsection[{set\-Unblocked}]{\setlength{\rightskip}{0pt plus 5cm}void Tank\-::set\-Unblocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTank_a5cbdf86621634b0c698edc5abe1a6d5b}
+
+
+Instruct the tank entity that it can move. 
+
+
+
+Implements \hyperlink{classCollidable_a817d864d0640bc6bcb13bbecf14ddf31}{Collidable}.
+
+
+
+Definition at line 109 of file Tank.\-cpp.
+
+
+
+References \-\_\-blocked\-Status, and unblocked.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+110 \{
+111     \hyperlink{classTank_a55423a404ce9c8b772462665769141a5}{\_blockedStatus} = \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked};
+112 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTank_a55423a404ce9c8b772462665769141a5}{\index{Tank@{Tank}!\-\_\-blocked\-Status@{\-\_\-blocked\-Status}}
+\index{\-\_\-blocked\-Status@{\-\_\-blocked\-Status}!Tank@{Tank}}
+\subsubsection[{\-\_\-blocked\-Status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf blocked\-\_\-status} Tank\-::\-\_\-blocked\-Status\hspace{0.3cm}{\ttfamily [private]}}}\label{classTank_a55423a404ce9c8b772462665769141a5}
+
+
+Movability of the \hyperlink{classTank}{Tank} entity\-: 1 for blocked, 0 for free. 
+
+
+
+Definition at line 81 of file Tank.\-h.
+
+
+
+Referenced by is\-Blocked(), set\-Blocked(), set\-Unblocked(), and Tank().
+
+\hypertarget{classTank_af2526be40c377df7652b5d7c314c7861}{\index{Tank@{Tank}!\-\_\-collided\-Status@{\-\_\-collided\-Status}}
+\index{\-\_\-collided\-Status@{\-\_\-collided\-Status}!Tank@{Tank}}
+\subsubsection[{\-\_\-collided\-Status}]{\setlength{\rightskip}{0pt plus 5cm}bool Tank\-::\-\_\-collided\-Status\hspace{0.3cm}{\ttfamily [private]}}}\label{classTank_af2526be40c377df7652b5d7c314c7861}
+
+
+Collision state of the \hyperlink{classTank}{Tank} Entity\-: 1 for collided, 0 for not. 
+
+
+
+Definition at line 83 of file Tank.\-h.
+
+
+
+Referenced by is\-Deleted(), set\-Collided(), and Tank().
+
+\hypertarget{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}{\index{Tank@{Tank}!\-\_\-rotation@{\-\_\-rotation}}
+\index{\-\_\-rotation@{\-\_\-rotation}!Tank@{Tank}}
+\subsubsection[{\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Tank\-::\-\_\-rotation\hspace{0.3cm}{\ttfamily [private]}}}\label{classTank_a2fe3c5fe01a1faadae727c6a667b7cc9}
+
+
+The angle of rotation for the \hyperlink{classTank}{Tank} entity. 
+
+
+
+Definition at line 85 of file Tank.\-h.
+
+
+
+Referenced by move\-Backward(), move\-Forward(), rotate\-Left(), and rotate\-Right().
+
+\hypertarget{classTank_ae63c3e90ba5e3f9a3bfb8172865716fb}{\index{Tank@{Tank}!\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}!Tank@{Tank}}
+\subsubsection[{\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Tank\-::\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classTank_ae63c3e90ba5e3f9a3bfb8172865716fb}
+
+
+\hyperlink{classTank}{Tank} Sprite Dimensions. 
+
+
+
+Definition at line 91 of file Tank.\-h.
+
+
+
+Referenced by Tank().
+
+\hypertarget{classTank_ab54320f716bcac8aa4073aab09fc958b}{\index{Tank@{Tank}!\-\_\-tank@{\-\_\-tank}}
+\index{\-\_\-tank@{\-\_\-tank}!Tank@{Tank}}
+\subsubsection[{\-\_\-tank}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Orientation} Tank\-::\-\_\-tank\hspace{0.3cm}{\ttfamily [private]}}}\label{classTank_ab54320f716bcac8aa4073aab09fc958b}
+
+
+Co-\/ordinate system for the \hyperlink{classTank}{Tank}. 
+
+
+
+Definition at line 87 of file Tank.\-h.
+
+
+
+Referenced by get\-Aligned\-Bounding\-Box(), get\-Bounding\-Box(), get\-Draw\-Position\-X(), get\-Draw\-Position\-Y(), get\-Draw\-Rotation(), get\-Orientation(), get\-Position\-X(), get\-Position\-Y(), get\-Tracking\-Bounding\-Box(), move\-Backward(), move\-Forward(), rotate\-Left(), rotate\-Right(), set\-Movement\-Direction(), and Tank().
+
+\hypertarget{classTank_a3758229ef9d41d069e6128b17d414204}{\index{Tank@{Tank}!\-\_\-type@{\-\_\-type}}
+\index{\-\_\-type@{\-\_\-type}!Tank@{Tank}}
+\subsubsection[{\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\-\_\-type} Tank\-::\-\_\-type\hspace{0.3cm}{\ttfamily [private]}}}\label{classTank_a3758229ef9d41d069e6128b17d414204}
+
+
+Enumeration type defining the tank. 
+
+
+
+Definition at line 89 of file Tank.\-h.
+
+
+
+Referenced by get\-Type(), and Tank().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Tank_8h}{Tank.\-h}\item 
+\hyperlink{Tank_8cpp}{Tank.\-cpp}\end{DoxyCompactItemize}

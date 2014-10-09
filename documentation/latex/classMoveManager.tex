@@ -1,0 +1,382 @@
+\hypertarget{classMoveManager}{\section{Move\-Manager Class Reference}
+\label{classMoveManager}\index{Move\-Manager@{Move\-Manager}}
+}
+
+
+{\ttfamily \#include $<$Move\-Manager.\-h$>$}
+
+Inheritance diagram for Move\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMoveManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMoveManager_a57ac62af15a2d9f9ed9b9ae96ea7900f}{Move\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classMoveManager_a1e21cd4f542f801e84b57fd5f11f1154}{manage} (const \hyperlink{classActionData}{Action\-Data} \&action\-\_\-data\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Move all movable entities within the world. \end{DoxyCompactList}\item 
+void \hyperlink{classMoveManager_a9f49f128a880d4f94c529c6aafab880e}{add\-New\-Entity} (std\-::weak\-\_\-ptr$<$ \hyperlink{classMovable}{Movable} $>$ new\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Add Movable-\/type shared\-\_\-ptr's to the Move\-Managers internal data members. \end{DoxyCompactList}\item 
+virtual \hyperlink{classMoveManager_a1de20c7414d1511c5b3a58196a557d94}{$\sim$\-Move\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{classMoveManager}{Move\-Manager}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMoveManager_a543e6c5900c59fc90ccef88a1317430a}{remove\-Garbage} ()
+\begin{DoxyCompactList}\small\item\em Removes all deleted entities from move manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::weak\-\_\-ptr\\*
+$<$ \hyperlink{classMovable}{Movable} $>$ $>$ \hyperlink{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\-\_\-movables}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 21 of file Move\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMoveManager_a57ac62af15a2d9f9ed9b9ae96ea7900f}{\index{Move\-Manager@{Move\-Manager}!Move\-Manager@{Move\-Manager}}
+\index{Move\-Manager@{Move\-Manager}!MoveManager@{Move\-Manager}}
+\subsubsection[{Move\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Move\-Manager\-::\-Move\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMoveManager_a57ac62af15a2d9f9ed9b9ae96ea7900f}
+
+
+Constructor. 
+
+This constructor is minimal. Entities are associated to \hyperlink{classMoveManager}{Move\-Manager} through the add\-New\-Entities function 
+
+Definition at line 18 of file Move\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+19 \{
+20 
+21 \}
+\end{DoxyCode}
+\hypertarget{classMoveManager_a1de20c7414d1511c5b3a58196a557d94}{\index{Move\-Manager@{Move\-Manager}!$\sim$\-Move\-Manager@{$\sim$\-Move\-Manager}}
+\index{$\sim$\-Move\-Manager@{$\sim$\-Move\-Manager}!MoveManager@{Move\-Manager}}
+\subsubsection[{$\sim$\-Move\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Move\-Manager\-::$\sim$\-Move\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMoveManager_a1de20c7414d1511c5b3a58196a557d94}
+
+
+Destructor for \hyperlink{classMoveManager}{Move\-Manager}. 
+
+Destructor.
+
+No further implementation defined 
+
+Definition at line 26 of file Move\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+27 \{
+28 
+29 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMoveManager_a9f49f128a880d4f94c529c6aafab880e}{\index{Move\-Manager@{Move\-Manager}!add\-New\-Entity@{add\-New\-Entity}}
+\index{add\-New\-Entity@{add\-New\-Entity}!MoveManager@{Move\-Manager}}
+\subsubsection[{add\-New\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Move\-Manager\-::add\-New\-Entity (
+\begin{DoxyParamCaption}
+\item[{std\-::weak\-\_\-ptr$<$ {\bf Movable} $>$}]{new\-\_\-entity}
+\end{DoxyParamCaption}
+)}}\label{classMoveManager_a9f49f128a880d4f94c529c6aafab880e}
+
+
+Add Movable-\/type shared\-\_\-ptr's to the Move\-Managers internal data members. 
+
+Used to add new weak pointer instances to the \hyperlink{classMoveManager}{Move\-Manager} private vector.
+
+This function allows for new entities to be passed and managed by the Movement\-Manager by adding the weak pointers of created \hyperlink{classMovable}{Movable} objects to the classes private vector. 
+
+Definition at line 229 of file Move\-Manager.\-cpp.
+
+
+
+References \-\_\-movables.
+
+
+
+Referenced by Game\-::add\-Movable(), main(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+230 \{
+231     \hyperlink{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\_movables}.push\_back(new\_entity);
+232 \}
+\end{DoxyCode}
+\hypertarget{classMoveManager_a1e21cd4f542f801e84b57fd5f11f1154}{\index{Move\-Manager@{Move\-Manager}!manage@{manage}}
+\index{manage@{manage}!MoveManager@{Move\-Manager}}
+\subsubsection[{manage}]{\setlength{\rightskip}{0pt plus 5cm}void Move\-Manager\-::manage (
+\begin{DoxyParamCaption}
+\item[{const {\bf Action\-Data} \&}]{action\-\_\-data\-\_\-container}
+\end{DoxyParamCaption}
+)}}\label{classMoveManager_a1e21cd4f542f801e84b57fd5f11f1154}
+
+
+Move all movable entities within the world. 
+
+The \hyperlink{classMoveManager}{Move\-Manager} Logical Management function.
+
+The function works by evaluating the private vector of weak\-\_\-pointers stored within \hyperlink{classMoveManager}{Move\-Manager} and determining if each one can move or not. A 'blocked' status wil result in an object not being able to move (or it will be reflected in the case of a missile) 
+\begin{DoxyParams}{Parameters}
+{\em action\-\_\-data\-\_\-contatiner} & \-:\-: a data container with all relevant move info for the current management cycle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file Move\-Manager.\-cpp.
+
+
+
+References \-\_\-movables, blocked\-\_\-horizontally, blocked\-\_\-vertically, actions\-\_\-info\-::change\-\_\-1, actions\-\_\-info\-::change\-\_\-2, do\-\_\-nothing, forward, Action\-Data\-::give\-Action\-Info(), actions\-\_\-info\-::move\-\_\-1, actions\-\_\-info\-::move\-\_\-2, move\-Backward, move\-Forward, p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-missile, p2\-\_\-tank, remove\-Garbage(), reverse, rotate\-\_\-left, rotate\-\_\-right, rotate\-Left, rotate\-Right, turret\-\_\-missile, and unblocked.
+
+
+
+Referenced by main(), Game\-::run\-All\-Managers(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+39 \{
+40     \hyperlink{structactions__info}{actions\_info} managerInstructions = action\_data\_container.
+      \hyperlink{classActionData_ab2f5b210968c91a01ed1439904b3ffee}{giveActionInfo}();
+41 
+42     \textcolor{comment}{//Remove any "corpses" found within the movable vector}
+43     \hyperlink{classMoveManager_a543e6c5900c59fc90ccef88a1317430a}{removeGarbage}();
+44 
+45 
+46     \textcolor{keyword}{auto} moveables\_iterator = \hyperlink{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\_movables}.begin();
+47     \textcolor{keywordflow}{for}(; moveables\_iterator != \hyperlink{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\_movables}.end(); moveables\_iterator++)
+48     \{
+49         \textcolor{comment}{//Convert iterator to Weak pointer}
+50         std::weak\_ptr<Movable> entity\_mov\_wp = (*moveables\_iterator);
+51 
+52         \textcolor{comment}{//Lock as Shared Pointer}
+53         std::shared\_ptr<Movable> entity\_mov\_sp = entity\_mov\_wp.lock();
+54 
+55         \textcolor{comment}{//Make changes to player 1's tank if movement has been captured}
+56         \textcolor{keywordflow}{if} ((managerInstructions.\hyperlink{structactions__info_a69ac673533838f973f09492a12516816}{change\_1} == \textcolor{keyword}{true}) && (entity\_mov\_sp->getType() == 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}))
+57         \{
+58             \textcolor{keywordflow}{if}(entity\_mov\_sp->isBlocked() == \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked})
+59             \{
+60                 \textcolor{keywordflow}{switch}(managerInstructions.\hyperlink{structactions__info_a5cb853144009b2bfb7e58c7bf43e2a42}{move\_1})
+61                 \{
+62                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}{forward}:
+63                         entity\_mov\_sp->moveForward();
+64                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{moveForward});
+65                         \textcolor{keywordflow}{break};
+66 
+67                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}{reverse}:
+68                         entity\_mov\_sp->moveBackward();
+69                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{moveBackward});
+70                         \textcolor{keywordflow}{break};
+71 
+72                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}{rotate\_left}:
+73                         entity\_mov\_sp->rotateLeft();
+74                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotateLeft});
+75                         \textcolor{keywordflow}{break};
+76 
+77                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}{rotate\_right}:
+78                         entity\_mov\_sp->rotateRight();
+79                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotateRight});
+80                         \textcolor{keywordflow}{break};
+81 
+82                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}{do\_nothing}:
+83                         \textcolor{keywordflow}{break};
+84                 \}
+85             \}
+86             \textcolor{keywordflow}{else} \textcolor{comment}{//if the object is blocked}
+87             \{
+88                 \textcolor{keywordflow}{switch}(managerInstructions.\hyperlink{structactions__info_a5cb853144009b2bfb7e58c7bf43e2a42}{move\_1})
+89                 \{
+90                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}{forward}:
+91                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{moveForward});
+92                     \textcolor{keywordflow}{break};
+93 
+94                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}{reverse}:
+95                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{moveBackward});
+96                         \textcolor{keywordflow}{break};
+97 
+98                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}{rotate\_left}:
+99                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotateLeft});
+100                         \textcolor{keywordflow}{break};
+101 
+102                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}{rotate\_right}:
+103                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotateRight});
+104                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}{do\_nothing}:
+105                         \textcolor{keywordflow}{break};
+106                 \}
+107             \}
+108         \} \textcolor{comment}{// If for P1 tank}
+109 
+110          \textcolor{comment}{//Make changes to player 2's tank if movement has been captured}
+111         \textcolor{keywordflow}{if} ((managerInstructions.\hyperlink{structactions__info_a0f20d9c244d92a71dad9cf8ce10cd2f2}{change\_2} == \textcolor{keyword}{true}) && (entity\_mov\_sp->getType() == 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}))
+112         \{
+113             \textcolor{keywordflow}{if}(entity\_mov\_sp->isBlocked() == \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked})
+114             \{
+115                 \textcolor{keywordflow}{switch}(managerInstructions.\hyperlink{structactions__info_adf9ed4a9ad4b604295846d06872e0ebf}{move\_2})
+116                 \{
+117                   \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}{forward}:
+118                         entity\_mov\_sp->moveForward();
+119                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{moveForward});
+120                         \textcolor{keywordflow}{break};
+121 
+122                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}{reverse}:
+123                         entity\_mov\_sp->moveBackward();
+124                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{moveBackward});
+125                         \textcolor{keywordflow}{break};
+126 
+127                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}{rotate\_left}:
+128                         entity\_mov\_sp->rotateLeft();
+129                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotateLeft});
+130                         \textcolor{keywordflow}{break};
+131 
+132                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}{rotate\_right}:
+133                         entity\_mov\_sp->rotateRight();
+134                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotateRight});
+135                         \textcolor{keywordflow}{break};
+136 
+137                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}{do\_nothing}:
+138                         \textcolor{keywordflow}{break};
+139                 \}
+140             \}
+141             \textcolor{keywordflow}{else} \textcolor{comment}{//if the object is blocked}
+142             \{
+143                 \textcolor{keywordflow}{switch}(managerInstructions.\hyperlink{structactions__info_adf9ed4a9ad4b604295846d06872e0ebf}{move\_2})
+144                 \{
+145                    \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}{forward}:
+146                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{moveForward});
+147                     \textcolor{keywordflow}{break};
+148 
+149                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}{reverse}:
+150                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{moveBackward});
+151                         \textcolor{keywordflow}{break};
+152 
+153                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}{rotate\_left}:
+154                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotateLeft});
+155                         \textcolor{keywordflow}{break};
+156 
+157                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}{rotate\_right}:
+158                         entity\_mov\_sp->setMovementDirection(\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotateRight});
+159                     \textcolor{keywordflow}{case} \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}{do\_nothing}:
+160                         \textcolor{keywordflow}{break};
+161                 \}
+162             \}
+163         \}
+164 
+165         \textcolor{comment}{//Missiles will always move along their trajectory each management cycle}
+166         \textcolor{comment}{//Exception if a missile hits a barrier}
+167 
+168         \textcolor{comment}{//Missile has hit a barrier}
+169         \textcolor{keywordflow}{if} (((entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}) ||
+170             (entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}) ||
+171             (entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile}))
+172              && (entity\_mov\_sp->isBlocked() == \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a582e6420c60bcec29729790197d0459f}{blocked\_horizontally}))
+173         \{
+174             entity\_mov\_sp->rotateLeft();
+175             entity\_mov\_sp->moveForward();
+176         \}
+177 
+178          \textcolor{keywordflow}{if} (((entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}) ||
+179             (entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}) ||
+180             (entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile}))
+181              && (entity\_mov\_sp->isBlocked() == \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a5b5e63da31bc787008b9f40686347e45}{blocked\_vertically}))
+182         \{
+183             entity\_mov\_sp->rotateRight();
+184             entity\_mov\_sp->moveForward();
+185         \}
+186         \textcolor{comment}{//Missile moves forward}
+187         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (((entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}) ||
+188                  (entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}) ||
+189                  (entity\_mov\_sp->getType() == \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile}))
+190                  && (entity\_mov\_sp->isBlocked() == \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked}))
+191         \{
+192             entity\_mov\_sp->moveForward();
+193         \}
+194 
+195     \}\textcolor{comment}{//Range-based for}
+196 \}\textcolor{comment}{//Function}
+\end{DoxyCode}
+\hypertarget{classMoveManager_a543e6c5900c59fc90ccef88a1317430a}{\index{Move\-Manager@{Move\-Manager}!remove\-Garbage@{remove\-Garbage}}
+\index{remove\-Garbage@{remove\-Garbage}!MoveManager@{Move\-Manager}}
+\subsubsection[{remove\-Garbage}]{\setlength{\rightskip}{0pt plus 5cm}void Move\-Manager\-::remove\-Garbage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classMoveManager_a543e6c5900c59fc90ccef88a1317430a}
+
+
+Removes all deleted entities from move manager. 
+
+This function uses the Move\-Managers vector of weak pointers which are asked to lock to determine whether or not they still point to an existing object. It the object does not exist, it is erased from the \hyperlink{classMoveManager}{Move\-Manager} vector 
+
+Definition at line 204 of file Move\-Manager.\-cpp.
+
+
+
+References \-\_\-movables.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+205 \{
+206     \textcolor{keyword}{auto} removable = \hyperlink{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\_movables}.begin();
+207     \textcolor{keywordflow}{for} (; removable != \hyperlink{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\_movables}.end();)
+208     \{
+209         \textcolor{comment}{//Convert iterator to Weak pointer}
+210         std::weak\_ptr<Movable> removable\_wp = (*removable);
+211         \textcolor{comment}{//Lock as Shared Pointer}
+212         std::shared\_ptr<Movable> removable\_sp = removable\_wp.lock();
+213         \textcolor{comment}{//Test to see if the shared pointer exists}
+214         \textcolor{keywordflow}{if} (removable\_sp)
+215         \{
+216             removable++;
+217         \}
+218         \textcolor{keywordflow}{else}
+219         \{
+220             \hyperlink{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\_movables}.erase(removable);
+221         \}
+222     \}
+223 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}{\index{Move\-Manager@{Move\-Manager}!\-\_\-movables@{\-\_\-movables}}
+\index{\-\_\-movables@{\-\_\-movables}!MoveManager@{Move\-Manager}}
+\subsubsection[{\-\_\-movables}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::weak\-\_\-ptr$<${\bf Movable}$>$ $>$ Move\-Manager\-::\-\_\-movables\hspace{0.3cm}{\ttfamily [private]}}}\label{classMoveManager_a7fc3d147dbcc1df9e2099e193bca489d}
+
+
+Definition at line 38 of file Move\-Manager.\-h.
+
+
+
+Referenced by add\-New\-Entity(), manage(), and remove\-Garbage().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{MoveManager_8h}{Move\-Manager.\-h}\item 
+\hyperlink{MoveManager_8cpp}{Move\-Manager.\-cpp}\end{DoxyCompactItemize}

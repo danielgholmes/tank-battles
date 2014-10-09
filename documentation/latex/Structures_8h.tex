@@ -1,0 +1,398 @@
+\hypertarget{Structures_8h}{\section{Structures.\-h File Reference}
+\label{Structures_8h}\index{Structures.\-h@{Structures.\-h}}
+}
+
+
+Keeps all structs in a single file.  
+
+
+{\ttfamily \#include \char`\"{}S\-F\-M\-L/\-Graphics.\-hpp\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structactions__info}{actions\-\_\-info}
+\begin{DoxyCompactList}\small\item\em player\-\_\-action is an enum of the possible actions that the tank can take \end{DoxyCompactList}\item 
+struct \hyperlink{structtextures}{textures}
+\begin{DoxyCompactList}\small\item\em All testures in the game. \end{DoxyCompactList}\item 
+struct \hyperlink{structcoordinate}{coordinate}
+\begin{DoxyCompactList}\small\item\em Basic Cartesian coordinate. \end{DoxyCompactList}\item 
+struct \hyperlink{structrect__corners}{rect\-\_\-corners}
+\begin{DoxyCompactList}\small\item\em Contains x and y corners of a rectangle, used in the algorithm for collision detection. \end{DoxyCompactList}\item 
+struct \hyperlink{structgame__state__info}{game\-\_\-state\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Contains information about the game state. \end{DoxyCompactList}\item 
+struct \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Used for passing information from draw manager to display. \end{DoxyCompactList}\item 
+struct \hyperlink{structdraw__strings}{draw\-\_\-strings}
+\begin{DoxyCompactList}\small\item\em Holds the strings that will be drawn into text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Structures_8h_a7f9af2314f2ee7dcf81d3a2b1b44bc0a}{M\-I\-S\-S\-I\-L\-E\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}~12
+\item 
+\#define \hyperlink{Structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}{T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}~10
+\item 
+\#define \hyperlink{Structures_8h_a8e935f0b53a70e3189267642849fa67c}{M\-I\-S\-S\-I\-L\-E\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}~45
+\item 
+\#define \hyperlink{Structures_8h_a728054e2d14b4ed9a73cd408c0bfe142}{T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}~5
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \{ \\*
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\-\_\-tank} = 1, 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\-\_\-tank}, 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\-\_\-missile}, 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\-\_\-missile}, 
+\\*
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\-\_\-missile}, 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\-\_\-mine}, 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\-\_\-mine}, 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}, 
+\\*
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}
+ \}
+\begin{DoxyCompactList}\small\item\em The different types of game entities. \end{DoxyCompactList}\item 
+enum \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1b}{player\-\_\-action} \{ \\*
+\hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}{forward} = 1, 
+\hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}{reverse}, 
+\hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}{rotate\-\_\-left}, 
+\hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}{rotate\-\_\-right}, 
+\\*
+\hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}{fire\-\_\-missile}, 
+\hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}{lay\-\_\-mine}, 
+\hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}{do\-\_\-nothing}
+ \}
+\begin{DoxyCompactList}\small\item\em The defferent actions that a player can do. \end{DoxyCompactList}\item 
+enum \hyperlink{Structures_8h_a08a7efdbb9788a589bc851698b7858d2}{player\-\_\-number} \{ \hyperlink{Structures_8h_a08a7efdbb9788a589bc851698b7858d2a22e7954f0f67bd13c875ccac1d77835d}{p1} =1, 
+\hyperlink{Structures_8h_a08a7efdbb9788a589bc851698b7858d2af023383ebe0126265f2dbaae87911cf9}{p2}
+ \}
+\begin{DoxyCompactList}\small\item\em Player number. \end{DoxyCompactList}\item 
+enum \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} \{ \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked} = 1, 
+\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a5b5e63da31bc787008b9f40686347e45}{blocked\-\_\-vertically}, 
+\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a582e6420c60bcec29729790197d0459f}{blocked\-\_\-horizontally}, 
+\hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked}
+ \}
+\begin{DoxyCompactList}\small\item\em Blocked status for different orientations. \end{DoxyCompactList}\item 
+enum \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\-\_\-direction} \{ \\*
+\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{move\-Forward} =1, 
+\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{move\-Backward}, 
+\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotate\-Left}, 
+\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotate\-Right}, 
+\\*
+\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac3e0a98cb8e17fd822ecd3166b1a3119}{Move}
+ \}
+\begin{DoxyCompactList}\small\item\em Used to define the controlled movement of the player. \end{DoxyCompactList}\item 
+enum \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4b}{gameplay\-\_\-keys} \{ \\*
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba9d4d8b0b72fc2659da772d761a3c5ecb}{Left} = 1, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bad48f7af8c070184f3774c8e85854eb66}{Right}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba57a7edcbc04d6175683383cad5c3e0a2}{Up}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4babcf8c79e9a5f5f9d606fb35645a0fb27}{Down}, 
+\\*
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab55b14fb799f3cea1c445c7fdb9542e8}{R\-Alt}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba529cda409a0b9c8b0a0119f152b2688b}{R\-Control}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba42a4ade1acd55a49164099104990e09f}{A}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba77a6b11f9898c052926f1d49765861e8}{D}, 
+\\*
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab722ceeb601c72cd78fbd35f3581fdf7}{W}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4baf1ce01387d2348f8b858721a7db81670}{S}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba751229d0124103f5a3eb8ec500ca744a}{L\-Alt}, 
+\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba480f096d1c429f97aff5be1c89cb25c6}{L\-Control}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Keeps all structs in a single file. \begin{DoxyAuthor}{Author}
+Daniel Holmes \& Jonathan Gerrand 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29 September 2014 Description of \hyperlink{classStopWatch}{Stop\-Watch} class 
+\end{DoxyDate}
+
+
+Definition in file \hyperlink{Structures_8h_source}{Structures.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Structures_8h_a7f9af2314f2ee7dcf81d3a2b1b44bc0a}{\index{Structures.\-h@{Structures.\-h}!M\-I\-S\-S\-I\-L\-E\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D@{M\-I\-S\-S\-I\-L\-E\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}}
+\index{M\-I\-S\-S\-I\-L\-E\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D@{M\-I\-S\-S\-I\-L\-E\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}!Structures.h@{Structures.\-h}}
+\subsubsection[{M\-I\-S\-S\-I\-L\-E\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-S\-S\-I\-L\-E\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D~12}}\label{Structures_8h_a7f9af2314f2ee7dcf81d3a2b1b44bc0a}
+
+
+Definition at line 15 of file Structures.\-h.
+
+\hypertarget{Structures_8h_a8e935f0b53a70e3189267642849fa67c}{\index{Structures.\-h@{Structures.\-h}!M\-I\-S\-S\-I\-L\-E\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D@{M\-I\-S\-S\-I\-L\-E\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}}
+\index{M\-I\-S\-S\-I\-L\-E\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D@{M\-I\-S\-S\-I\-L\-E\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}!Structures.h@{Structures.\-h}}
+\subsubsection[{M\-I\-S\-S\-I\-L\-E\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-S\-S\-I\-L\-E\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D~45}}\label{Structures_8h_a8e935f0b53a70e3189267642849fa67c}
+
+
+Definition at line 17 of file Structures.\-h.
+
+\hypertarget{Structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}{\index{Structures.\-h@{Structures.\-h}!T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D@{T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}}
+\index{T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D@{T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}!Structures.h@{Structures.\-h}}
+\subsubsection[{T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D~10}}\label{Structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}
+
+
+Definition at line 16 of file Structures.\-h.
+
+
+
+Referenced by Orientation\-::get\-Relative\-X(), Orientation\-::get\-Relative\-Y(), and T\-E\-S\-T().
+
+\hypertarget{Structures_8h_a728054e2d14b4ed9a73cd408c0bfe142}{\index{Structures.\-h@{Structures.\-h}!T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D@{T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}}
+\index{T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D@{T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}!Structures.h@{Structures.\-h}}
+\subsubsection[{T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D~5}}\label{Structures_8h_a728054e2d14b4ed9a73cd408c0bfe142}
+
+
+Definition at line 18 of file Structures.\-h.
+
+
+
+Referenced by Orientation\-::get\-Relative\-Rotation().
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{\index{Structures.\-h@{Structures.\-h}!blocked\-\_\-status@{blocked\-\_\-status}}
+\index{blocked\-\_\-status@{blocked\-\_\-status}!Structures.h@{Structures.\-h}}
+\subsubsection[{blocked\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf blocked\-\_\-status}}}\label{Structures_8h_a6fef29d9424addfa69bdd2a379424896}
+
+
+Blocked status for different orientations. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{blocked@{blocked}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!blocked@{blocked}}\item[{\em 
+\hypertarget{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked}\label{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}
+}]\index{blocked\-\_\-vertically@{blocked\-\_\-vertically}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!blocked\-\_\-vertically@{blocked\-\_\-vertically}}\item[{\em 
+\hypertarget{Structures_8h_a6fef29d9424addfa69bdd2a379424896a5b5e63da31bc787008b9f40686347e45}{blocked\-\_\-vertically}\label{Structures_8h_a6fef29d9424addfa69bdd2a379424896a5b5e63da31bc787008b9f40686347e45}
+}]\index{blocked\-\_\-horizontally@{blocked\-\_\-horizontally}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!blocked\-\_\-horizontally@{blocked\-\_\-horizontally}}\item[{\em 
+\hypertarget{Structures_8h_a6fef29d9424addfa69bdd2a379424896a582e6420c60bcec29729790197d0459f}{blocked\-\_\-horizontally}\label{Structures_8h_a6fef29d9424addfa69bdd2a379424896a582e6420c60bcec29729790197d0459f}
+}]\index{unblocked@{unblocked}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!unblocked@{unblocked}}\item[{\em 
+\hypertarget{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked}\label{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 51 of file Structures.\-h.
+
+
+\begin{DoxyCode}
+52 \{
+53     \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a9ee4e6c1dfe13f0d0f0cb7b29c62b2eb}{blocked} = 1,
+54     \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a5b5e63da31bc787008b9f40686347e45}{blocked\_vertically},
+55     \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a582e6420c60bcec29729790197d0459f}{blocked\_horizontally},
+56     \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896a1596fbf6035468467c790068b609ced3}{unblocked}
+57 \};
+\end{DoxyCode}
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{\index{Structures.\-h@{Structures.\-h}!entity\-\_\-type@{entity\-\_\-type}}
+\index{entity\-\_\-type@{entity\-\_\-type}!Structures.h@{Structures.\-h}}
+\subsubsection[{entity\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf entity\-\_\-type}}}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}
+
+
+The different types of game entities. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{p1\-\_\-tank@{p1\-\_\-tank}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p1\-\_\-tank@{p1\-\_\-tank}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\-\_\-tank}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}
+}]\index{p2\-\_\-tank@{p2\-\_\-tank}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p2\-\_\-tank@{p2\-\_\-tank}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\-\_\-tank}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}
+}]\index{p1\-\_\-missile@{p1\-\_\-missile}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p1\-\_\-missile@{p1\-\_\-missile}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\-\_\-missile}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}
+}]\index{p2\-\_\-missile@{p2\-\_\-missile}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p2\-\_\-missile@{p2\-\_\-missile}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\-\_\-missile}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}
+}]\index{turret\-\_\-missile@{turret\-\_\-missile}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!turret\-\_\-missile@{turret\-\_\-missile}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\-\_\-missile}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}
+}]\index{p1\-\_\-mine@{p1\-\_\-mine}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p1\-\_\-mine@{p1\-\_\-mine}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\-\_\-mine}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}
+}]\index{p2\-\_\-mine@{p2\-\_\-mine}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p2\-\_\-mine@{p2\-\_\-mine}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\-\_\-mine}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}
+}]\index{barrier@{barrier}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!barrier@{barrier}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}
+}]\index{turret@{turret}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!turret@{turret}}\item[{\em 
+\hypertarget{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}\label{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 21 of file Structures.\-h.
+
+
+\begin{DoxyCode}
+21                  \{
+22     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank} = 1,
+23     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank},
+24     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile},
+25     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile},
+26     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile},
+27     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine},
+28     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine},
+29     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier},
+30     \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}
+31     \};
+\end{DoxyCode}
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4b}{\index{Structures.\-h@{Structures.\-h}!gameplay\-\_\-keys@{gameplay\-\_\-keys}}
+\index{gameplay\-\_\-keys@{gameplay\-\_\-keys}!Structures.h@{Structures.\-h}}
+\subsubsection[{gameplay\-\_\-keys}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf gameplay\-\_\-keys}}}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4b}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Left@{Left}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!Left@{Left}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba9d4d8b0b72fc2659da772d761a3c5ecb}{Left}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba9d4d8b0b72fc2659da772d761a3c5ecb}
+}]\index{Right@{Right}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!Right@{Right}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bad48f7af8c070184f3774c8e85854eb66}{Right}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bad48f7af8c070184f3774c8e85854eb66}
+}]\index{Up@{Up}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!Up@{Up}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba57a7edcbc04d6175683383cad5c3e0a2}{Up}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba57a7edcbc04d6175683383cad5c3e0a2}
+}]\index{Down@{Down}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!Down@{Down}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4babcf8c79e9a5f5f9d606fb35645a0fb27}{Down}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4babcf8c79e9a5f5f9d606fb35645a0fb27}
+}]\index{R\-Alt@{R\-Alt}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!R\-Alt@{R\-Alt}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab55b14fb799f3cea1c445c7fdb9542e8}{R\-Alt}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab55b14fb799f3cea1c445c7fdb9542e8}
+}]\index{R\-Control@{R\-Control}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!R\-Control@{R\-Control}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba529cda409a0b9c8b0a0119f152b2688b}{R\-Control}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba529cda409a0b9c8b0a0119f152b2688b}
+}]\index{A@{A}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!A@{A}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba42a4ade1acd55a49164099104990e09f}{A}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba42a4ade1acd55a49164099104990e09f}
+}]\index{D@{D}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!D@{D}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba77a6b11f9898c052926f1d49765861e8}{D}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba77a6b11f9898c052926f1d49765861e8}
+}]\index{W@{W}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!W@{W}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab722ceeb601c72cd78fbd35f3581fdf7}{W}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab722ceeb601c72cd78fbd35f3581fdf7}
+}]\index{S@{S}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!S@{S}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4baf1ce01387d2348f8b858721a7db81670}{S}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4baf1ce01387d2348f8b858721a7db81670}
+}]\index{L\-Alt@{L\-Alt}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!L\-Alt@{L\-Alt}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba751229d0124103f5a3eb8ec500ca744a}{L\-Alt}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba751229d0124103f5a3eb8ec500ca744a}
+}]\index{L\-Control@{L\-Control}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!L\-Control@{L\-Control}}\item[{\em 
+\hypertarget{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba480f096d1c429f97aff5be1c89cb25c6}{L\-Control}\label{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba480f096d1c429f97aff5be1c89cb25c6}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 139 of file Structures.\-h.
+
+
+\begin{DoxyCode}
+140 \{
+141     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba9d4d8b0b72fc2659da772d761a3c5ecb}{Left} = 1,
+142     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bad48f7af8c070184f3774c8e85854eb66}{Right},
+143     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba57a7edcbc04d6175683383cad5c3e0a2}{Up},
+144     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4babcf8c79e9a5f5f9d606fb35645a0fb27}{Down},
+145     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab55b14fb799f3cea1c445c7fdb9542e8}{RAlt},
+146     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba529cda409a0b9c8b0a0119f152b2688b}{RControl},
+147     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba42a4ade1acd55a49164099104990e09f}{A},
+148     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba77a6b11f9898c052926f1d49765861e8}{D},
+149     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab722ceeb601c72cd78fbd35f3581fdf7}{W},
+150     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4baf1ce01387d2348f8b858721a7db81670}{S},
+151     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba751229d0124103f5a3eb8ec500ca744a}{LAlt},
+152     \hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba480f096d1c429f97aff5be1c89cb25c6}{LControl}
+153 \};
+\end{DoxyCode}
+\hypertarget{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{\index{Structures.\-h@{Structures.\-h}!movement\-\_\-direction@{movement\-\_\-direction}}
+\index{movement\-\_\-direction@{movement\-\_\-direction}!Structures.h@{Structures.\-h}}
+\subsubsection[{movement\-\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf movement\-\_\-direction}}}\label{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}
+
+
+Used to define the controlled movement of the player. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{move\-Forward@{move\-Forward}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!move\-Forward@{move\-Forward}}\item[{\em 
+\hypertarget{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{move\-Forward}\label{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}
+}]\index{move\-Backward@{move\-Backward}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!move\-Backward@{move\-Backward}}\item[{\em 
+\hypertarget{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{move\-Backward}\label{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}
+}]\index{rotate\-Left@{rotate\-Left}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!rotate\-Left@{rotate\-Left}}\item[{\em 
+\hypertarget{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotate\-Left}\label{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}
+}]\index{rotate\-Right@{rotate\-Right}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!rotate\-Right@{rotate\-Right}}\item[{\em 
+\hypertarget{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotate\-Right}\label{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}
+}]\index{Move@{Move}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!Move@{Move}}\item[{\em 
+\hypertarget{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac3e0a98cb8e17fd822ecd3166b1a3119}{Move}\label{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac3e0a98cb8e17fd822ecd3166b1a3119}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 113 of file Structures.\-h.
+
+
+\begin{DoxyCode}
+114 \{
+115     \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{moveForward} =1,
+116     \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{moveBackward},
+117     \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotateLeft},
+118     \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotateRight},
+119     \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac3e0a98cb8e17fd822ecd3166b1a3119}{Move}
+120 \};
+\end{DoxyCode}
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1b}{\index{Structures.\-h@{Structures.\-h}!player\-\_\-action@{player\-\_\-action}}
+\index{player\-\_\-action@{player\-\_\-action}!Structures.h@{Structures.\-h}}
+\subsubsection[{player\-\_\-action}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf player\-\_\-action}}}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1b}
+
+
+The defferent actions that a player can do. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{forward@{forward}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!forward@{forward}}\item[{\em 
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}{forward}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}
+}]\index{reverse@{reverse}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!reverse@{reverse}}\item[{\em 
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}{reverse}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}
+}]\index{rotate\-\_\-left@{rotate\-\_\-left}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!rotate\-\_\-left@{rotate\-\_\-left}}\item[{\em 
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}{rotate\-\_\-left}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}
+}]\index{rotate\-\_\-right@{rotate\-\_\-right}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!rotate\-\_\-right@{rotate\-\_\-right}}\item[{\em 
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}{rotate\-\_\-right}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}
+}]\index{fire\-\_\-missile@{fire\-\_\-missile}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!fire\-\_\-missile@{fire\-\_\-missile}}\item[{\em 
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}{fire\-\_\-missile}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}
+}]\index{lay\-\_\-mine@{lay\-\_\-mine}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!lay\-\_\-mine@{lay\-\_\-mine}}\item[{\em 
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}{lay\-\_\-mine}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}
+}]\index{do\-\_\-nothing@{do\-\_\-nothing}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!do\-\_\-nothing@{do\-\_\-nothing}}\item[{\em 
+\hypertarget{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}{do\-\_\-nothing}\label{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 34 of file Structures.\-h.
+
+
+\begin{DoxyCode}
+34                    \{
+35     \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba726a0af5164861adac8c015a742dcf21}{forward} = 1,
+36     \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba5a40f8ecbed801e00fddb306fc5666f0}{reverse},
+37     \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba980501baf8209a1bfe04fa435e2cbd3e}{rotate\_left},
+38     \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1bae58291f8d743551c95d70a7129b4c544}{rotate\_right},
+39     \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}{fire\_missile},
+40     \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}{lay\_mine},
+41     \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1ba562e0b8966ea62e894cd91a30eccfc8a}{do\_nothing}
+42     \};
+\end{DoxyCode}
+\hypertarget{Structures_8h_a08a7efdbb9788a589bc851698b7858d2}{\index{Structures.\-h@{Structures.\-h}!player\-\_\-number@{player\-\_\-number}}
+\index{player\-\_\-number@{player\-\_\-number}!Structures.h@{Structures.\-h}}
+\subsubsection[{player\-\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf player\-\_\-number}}}\label{Structures_8h_a08a7efdbb9788a589bc851698b7858d2}
+
+
+Player number. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{p1@{p1}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p1@{p1}}\item[{\em 
+\hypertarget{Structures_8h_a08a7efdbb9788a589bc851698b7858d2a22e7954f0f67bd13c875ccac1d77835d}{p1}\label{Structures_8h_a08a7efdbb9788a589bc851698b7858d2a22e7954f0f67bd13c875ccac1d77835d}
+}]\index{p2@{p2}!Structures.\-h@{Structures.\-h}}\index{Structures.\-h@{Structures.\-h}!p2@{p2}}\item[{\em 
+\hypertarget{Structures_8h_a08a7efdbb9788a589bc851698b7858d2af023383ebe0126265f2dbaae87911cf9}{p2}\label{Structures_8h_a08a7efdbb9788a589bc851698b7858d2af023383ebe0126265f2dbaae87911cf9}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 45 of file Structures.\-h.
+
+
+\begin{DoxyCode}
+45                    \{
+46     \hyperlink{Structures_8h_a08a7efdbb9788a589bc851698b7858d2a22e7954f0f67bd13c875ccac1d77835d}{p1} =1,
+47     \hyperlink{Structures_8h_a08a7efdbb9788a589bc851698b7858d2af023383ebe0126265f2dbaae87911cf9}{p2}
+48 \};
+\end{DoxyCode}

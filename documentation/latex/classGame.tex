@@ -1,0 +1,1336 @@
+\hypertarget{classGame}{\section{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+}
+
+
+Main class which runs the program loop.  
+
+
+
+
+{\ttfamily \#include $<$Game.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classGame}{Game} object constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a6073fbea287e3bd28ae5eaf350559448}{run\-World} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDisplay}{Display} $>$ display)
+\begin{DoxyCompactList}\small\item\em Main program loop. \end{DoxyCompactList}\item 
+\hyperlink{classGame_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\-Game} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGame_ad0f1180499fb33b89deb50da6c1fdd78}{setup\-Initial\-Map} ()
+\begin{DoxyCompactList}\small\item\em Sets up the game wolrd map. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_ad43265203e4e3e90ee91eb1fedbc06d4}{get\-Map\-Data} (std\-::vector$<$ std\-::vector$<$ char $>$$>$ \&map\-\_\-vector, std\-::ifstream \&map\-\_\-grid\-\_\-file)
+\begin{DoxyCompactList}\small\item\em Reads map data from text file. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a742dfb46a327c277b5b5711052919d21}{read\-Map\-Data} (const std\-::vector$<$ std\-::vector$<$ char $>$$>$ \&map\-\_\-vector)
+\begin{DoxyCompactList}\small\item\em Reads the map data from the vector. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a9fbdc107c782dba1f2debf7ee347bb7d}{check\-Keyboard\-Input} (\hyperlink{classActionData}{Action\-Data} \&action\-\_\-data\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Checks through all pressed control keys. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a39814b41ab7d5bc1af48bed69500a2be}{run\-All\-Managers} (\hyperlink{classGameManagementData}{Game\-Management\-Data} \&game\-\_\-data\-\_\-container, std\-::shared\-\_\-ptr$<$ \hyperlink{classDisplay}{Display} $>$ display)
+\begin{DoxyCompactList}\small\item\em All managers manage. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_abd126d710f269c525c2f26e290444cf7}{add\-New\-World\-Entity} (\hyperlink{classGameManagementData}{Game\-Management\-Data} \&game\-\_\-data\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Any new game entity is added here. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_ab77bec9aa745c5fb55794d0bbed4b235}{add\-New\-Tank} (\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} player\-\_\-tank, float tank\-\_\-position\-X, float tank\-\_\-position\-Y, float rotation)
+\begin{DoxyCompactList}\small\item\em Adds a new tank object. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a2099d667dbb4574c4c9bed31eab2abb2}{add\-New\-Missile} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ missile\-\_\-del\-\_\-sp)
+\begin{DoxyCompactList}\small\item\em Adds a new missile object. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_afb856cf115b4c22af456a5424a37c915}{add\-New\-Mine} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ mine\-\_\-del\-\_\-sp)
+\begin{DoxyCompactList}\small\item\em Adds a new mine object. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_ada424b3c51aa8eca26cc9b51c2fe3604}{add\-New\-Turret} (float turret\-\_\-position\-X, float turret\-\_\-postion\-Y, float rotation)
+\begin{DoxyCompactList}\small\item\em Adds a new turret object. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a50b0e861ea3d882bf20017c9c759244d}{manage\-Respawns} (\hyperlink{classGameManagementData}{Game\-Management\-Data} \&game\-\_\-data\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Manages when a respawn needs to take place. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a14fce36a80fcf6b59d6eba6af3ee23d2}{create\-Barrier} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Adds a new barrier object. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_abf5f8299e3e0889960a963546976817f}{add\-Deletable} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ deletable\-\_\-sp)
+\begin{DoxyCompactList}\small\item\em Adds entity to deletables vector. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_afece3314d2bda96eddb765a2da9ebdd0}{add\-Collidable} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ collidable\-\_\-sp)
+\begin{DoxyCompactList}\small\item\em Adds entity to collidables. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a42545efdf0cdf4572d97fafba1c20dcd}{add\-Movable} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ movable\-\_\-sp)
+\begin{DoxyCompactList}\small\item\em Adds entity to movables. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_afb1552b97539822cb5aef6fcd08fa7b3}{add\-Trackable} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ trackable\-\_\-sp)
+\begin{DoxyCompactList}\small\item\em Adds entity to trackables. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_a97806aa1b86c7c908763a79b2d739439}{add\-Turretable} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ trackable\-\_\-sp)
+\begin{DoxyCompactList}\small\item\em Adds entity to turrets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classGame_ac3d9582803715a82b0aa03ddc9d9b7f6}{\-\_\-player1\-\_\-start\-X}
+\begin{DoxyCompactList}\small\item\em Player 1 starting x position. \end{DoxyCompactList}\item 
+float \hyperlink{classGame_ac86e7845910feac197a8396c9eedcae9}{\-\_\-player1\-\_\-start\-Y}
+\begin{DoxyCompactList}\small\item\em Player 1 starting y position. \end{DoxyCompactList}\item 
+float \hyperlink{classGame_ac3fb65efc81597149ea1c6951110f1b8}{\-\_\-player2\-\_\-start\-X}
+\begin{DoxyCompactList}\small\item\em Player 2 starting x position. \end{DoxyCompactList}\item 
+float \hyperlink{classGame_a62232949f4969880bad54622e180d9aa}{\-\_\-player2\-\_\-start\-Y}
+\begin{DoxyCompactList}\small\item\em Player 2 starting y position. \end{DoxyCompactList}\item 
+float \hyperlink{classGame_ad7a148e2de0c944863d8aaa78a075f74}{\-\_\-turret\-\_\-start\-X}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTurret}{Turret} starting x position. \end{DoxyCompactList}\item 
+float \hyperlink{classGame_ab875384f85be491849e480d7f91cfe93}{\-\_\-turret\-\_\-start\-Y}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTurret}{Turret} starting y position. \end{DoxyCompactList}\item 
+\hyperlink{classMoveManager}{Move\-Manager} \hyperlink{classGame_a2998c8ca6b641f19bca912c1aba2d54f}{\-\_\-move\-\_\-manager}
+\begin{DoxyCompactList}\small\item\em Private object of the \hyperlink{classMoveManager}{Move\-Manager}. \end{DoxyCompactList}\item 
+\hyperlink{classCollisionManager}{Collision\-Manager} \hyperlink{classGame_a434f5c076c3abc86944fb02e86edc432}{\-\_\-collision\-\_\-manager}
+\begin{DoxyCompactList}\small\item\em Private object of the \hyperlink{classCollisionManager}{Collision\-Manager}. \end{DoxyCompactList}\item 
+\hyperlink{classTrackingManager}{Tracking\-Manager} \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\-\_\-tracking\-\_\-manager}
+\begin{DoxyCompactList}\small\item\em Private object of the \hyperlink{classTrackingManager}{Tracking\-Manager}. \end{DoxyCompactList}\item 
+\hyperlink{classDrawManager}{Draw\-Manager} \hyperlink{classGame_ad554fb786ee2bf6ebb4d317df563fdd9}{\-\_\-draw\-\_\-manager}
+\begin{DoxyCompactList}\small\item\em Private object of the \hyperlink{classDrawManager}{Draw\-Manager}. \end{DoxyCompactList}\item 
+\hyperlink{classDestructionManager}{Destruction\-Manager} \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\-\_\-destruction\-\_\-manager}
+\begin{DoxyCompactList}\small\item\em Private object of the \hyperlink{classDestructionManager}{Destruction\-Manager}. \end{DoxyCompactList}\item 
+\hyperlink{classGameStateManager}{Game\-State\-Manager} \hyperlink{classGame_aed3d39ba9be8eb05ab3b18465ae8e982}{\-\_\-state\-\_\-manager}
+\begin{DoxyCompactList}\small\item\em Private object of the \hyperlink{classGameStateManager}{Game\-State\-Manager}. \end{DoxyCompactList}\item 
+\hyperlink{classTurretManager}{Turret\-Manager} \hyperlink{classGame_ac2f6df412f7efa3eb8750d350dd0261a}{\-\_\-turret\-\_\-manager}
+\begin{DoxyCompactList}\small\item\em Private object of the \hyperlink{classTurretManager}{Turret\-Manager}. \end{DoxyCompactList}\item 
+\hyperlink{classGameManagementData}{Game\-Management\-Data} \hyperlink{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\-\_\-game\-\_\-management\-\_\-data}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classGame}{Game} runtime data. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\-\_\-game\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em Dimensions of all game sprites. \end{DoxyCompactList}\item 
+std\-::vector$<$ std\-::weak\-\_\-ptr\\*
+$<$ \hyperlink{classDeletable}{Deletable} $>$ $>$ \hyperlink{classGame_acedcdfef5913013956cd6454e022afc1}{\-\_\-world\-\_\-entities}
+\begin{DoxyCompactList}\small\item\em Container for all entities on the game world. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classGame_a3fe27799b59753fa9d7d0249b17fc64b}{map\-\_\-grid\-\_\-filename} = \char`\"{}map\-\_\-grid.\-txt\char`\"{}
+\begin{DoxyCompactList}\small\item\em File name for the map grid text file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class which runs the program loop. 
+
+Definition at line 50 of file Game.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGame_ad59df6562a58a614fda24622d3715b65}{\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection[{Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\-::\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame_ad59df6562a58a614fda24622d3715b65}
+
+
+\hyperlink{classGame}{Game} object constructor. 
+
+All private class objects are initialised here, including all the managers. 
+
+Definition at line 19 of file Game.\-cpp.
+
+
+
+References \-\_\-collision\-\_\-manager, \-\_\-destruction\-\_\-manager, \-\_\-draw\-\_\-manager, \-\_\-move\-\_\-manager, \-\_\-state\-\_\-manager, \-\_\-tracking\-\_\-manager, and \-\_\-turret\-\_\-manager.
+
+
+\begin{DoxyCode}
+19           :
+20     \hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}(),
+21     \hyperlink{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\_game\_management\_data}()
+22 \{
+23     \hyperlink{classMoveManager}{MoveManager} \hyperlink{classGame_a2998c8ca6b641f19bca912c1aba2d54f}{\_move\_manager};
+24     \hyperlink{classCollisionManager}{CollisionManager} \hyperlink{classGame_a434f5c076c3abc86944fb02e86edc432}{\_collision\_manager};
+25     \hyperlink{classTrackingManager}{TrackingManager} \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager};
+26     \hyperlink{classDrawManager}{DrawManager} \hyperlink{classGame_ad554fb786ee2bf6ebb4d317df563fdd9}{\_draw\_manager};
+27     \hyperlink{classDestructionManager}{DestructionManager} \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\_destruction\_manager};
+28     \hyperlink{classGameStateManager}{GameStateManager} \hyperlink{classGame_aed3d39ba9be8eb05ab3b18465ae8e982}{\_state\_manager};
+29     \hyperlink{classTurretManager}{TurretManager} \hyperlink{classGame_ac2f6df412f7efa3eb8750d350dd0261a}{\_turret\_manager};
+30 \}
+\end{DoxyCode}
+\hypertarget{classGame_ae3d112ca6e0e55150d2fdbc704474530}{\index{Game@{Game}!$\sim$\-Game@{$\sim$\-Game}}
+\index{$\sim$\-Game@{$\sim$\-Game}!Game@{Game}}
+\subsubsection[{$\sim$\-Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\-::$\sim$\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame_ae3d112ca6e0e55150d2fdbc704474530}
+
+
+Definition at line 478 of file Game.\-cpp.
+
+
+\begin{DoxyCode}
+479 \{
+480 
+481 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGame_afece3314d2bda96eddb765a2da9ebdd0}{\index{Game@{Game}!add\-Collidable@{add\-Collidable}}
+\index{add\-Collidable@{add\-Collidable}!Game@{Game}}
+\subsubsection[{add\-Collidable}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-Collidable (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{deletable\-\_\-sp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_afece3314d2bda96eddb765a2da9ebdd0}
+
+
+Adds entity to collidables. 
+
+Shared pointers are cast as weak pointers. These are then pushed back to the \hyperlink{classCollisionManager}{Collision\-Manager} vector. 
+\begin{DoxyParams}{Parameters}
+{\em deletable\-\_\-sp} & \-:\-: Shared pointer to be cast as weak pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 439 of file Game.\-cpp.
+
+
+
+References \-\_\-collision\-\_\-manager, and Collision\-Manager\-::add\-New\-Entity().
+
+
+
+Referenced by add\-New\-Mine(), add\-New\-Missile(), add\-New\-Tank(), add\-New\-Turret(), and create\-Barrier().
+
+
+\begin{DoxyCode}
+440 \{
+441     std::weak\_ptr<Collidable> collidable\_wp = std::dynamic\_pointer\_cast<
+      \hyperlink{classCollidable}{Collidable}>(deletable\_sp);
+442     \hyperlink{classGame_a434f5c076c3abc86944fb02e86edc432}{\_collision\_manager}.\hyperlink{classCollisionManager_a2ffe03a672702b8f33d8991b5d631e16}{addNewEntity}(collidable\_wp);
+443 \}
+\end{DoxyCode}
+\hypertarget{classGame_abf5f8299e3e0889960a963546976817f}{\index{Game@{Game}!add\-Deletable@{add\-Deletable}}
+\index{add\-Deletable@{add\-Deletable}!Game@{Game}}
+\subsubsection[{add\-Deletable}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-Deletable (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{deletable\-\_\-sp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_abf5f8299e3e0889960a963546976817f}
+
+
+Adds entity to deletables vector. 
+
+Shared pointers are cast as weak pointers. These are then pushed back to the \hyperlink{classDrawManager}{Draw\-Manager} vector. 
+\begin{DoxyParams}{Parameters}
+{\em deletable\-\_\-sp} & \-:\-: Shared pointer to be cast as weak pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 427 of file Game.\-cpp.
+
+
+
+References \-\_\-draw\-\_\-manager, \-\_\-world\-\_\-entities, and Draw\-Manager\-::add\-New\-Entity().
+
+
+
+Referenced by add\-New\-Mine(), add\-New\-Missile(), add\-New\-Tank(), add\-New\-Turret(), and create\-Barrier().
+
+
+\begin{DoxyCode}
+428 \{
+429     std::weak\_ptr<Deletable> deletable\_wp = deletable\_sp;
+430     \hyperlink{classGame_acedcdfef5913013956cd6454e022afc1}{\_world\_entities}.push\_back(deletable\_wp);
+431     \hyperlink{classGame_ad554fb786ee2bf6ebb4d317df563fdd9}{\_draw\_manager}.\hyperlink{classDrawManager_aea3804a9564e6185eec3750f5ff4e33f}{addNewEntity}(deletable\_wp);
+432 \}
+\end{DoxyCode}
+\hypertarget{classGame_a42545efdf0cdf4572d97fafba1c20dcd}{\index{Game@{Game}!add\-Movable@{add\-Movable}}
+\index{add\-Movable@{add\-Movable}!Game@{Game}}
+\subsubsection[{add\-Movable}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-Movable (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{movable\-\_\-sp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a42545efdf0cdf4572d97fafba1c20dcd}
+
+
+Adds entity to movables. 
+
+Shared pointers are cast as weak pointers. These are then pushed back to the \hyperlink{classMoveManager}{Move\-Manager} vector. 
+\begin{DoxyParams}{Parameters}
+{\em movable\-\_\-sp} & \-:\-: Shared pointer to be cast as weak pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 450 of file Game.\-cpp.
+
+
+
+References \-\_\-move\-\_\-manager, and Move\-Manager\-::add\-New\-Entity().
+
+
+
+Referenced by add\-New\-Missile(), and add\-New\-Tank().
+
+
+\begin{DoxyCode}
+451 \{
+452     std::weak\_ptr<Movable> movable\_wp = std::dynamic\_pointer\_cast<\hyperlink{classMovable}{Movable}>(movable\_sp);
+453     \hyperlink{classGame_a2998c8ca6b641f19bca912c1aba2d54f}{\_move\_manager}.\hyperlink{classMoveManager_a9f49f128a880d4f94c529c6aafab880e}{addNewEntity}(movable\_wp);
+454 \}
+\end{DoxyCode}
+\hypertarget{classGame_afb856cf115b4c22af456a5424a37c915}{\index{Game@{Game}!add\-New\-Mine@{add\-New\-Mine}}
+\index{add\-New\-Mine@{add\-New\-Mine}!Game@{Game}}
+\subsubsection[{add\-New\-Mine}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-New\-Mine (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{mine\-\_\-del\-\_\-sp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_afb856cf115b4c22af456a5424a37c915}
+
+
+Adds a new mine object. 
+
+\hyperlink{classTank}{Tank} objects are created as Deletables. Each mine is added to the \hyperlink{classDestructionManager}{Destruction\-Manager} vector. They exists here as shared pointers. 
+\begin{DoxyParams}{Parameters}
+{\em mine\-\_\-del\-\_\-sp} & \-:\-: Shared pointer that points to the mine object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 399 of file Game.\-cpp.
+
+
+
+References \-\_\-destruction\-\_\-manager, add\-Collidable(), add\-Deletable(), and Destruction\-Manager\-::add\-New\-Entity().
+
+
+
+Referenced by add\-New\-World\-Entity().
+
+
+\begin{DoxyCode}
+400 \{
+401     \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\_destruction\_manager}.\hyperlink{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{addNewEntity}(mine\_del\_sp);
+402 
+403     \hyperlink{classGame_abf5f8299e3e0889960a963546976817f}{addDeletable}(mine\_del\_sp);
+404     \hyperlink{classGame_afece3314d2bda96eddb765a2da9ebdd0}{addCollidable}(mine\_del\_sp);
+405 \}
+\end{DoxyCode}
+\hypertarget{classGame_a2099d667dbb4574c4c9bed31eab2abb2}{\index{Game@{Game}!add\-New\-Missile@{add\-New\-Missile}}
+\index{add\-New\-Missile@{add\-New\-Missile}!Game@{Game}}
+\subsubsection[{add\-New\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-New\-Missile (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{missile\-\_\-del\-\_\-sp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a2099d667dbb4574c4c9bed31eab2abb2}
+
+
+Adds a new missile object. 
+
+\hyperlink{classTank}{Tank} objects are created as Deletables. Each missile is added to the \hyperlink{classDestructionManager}{Destruction\-Manager} vector. They exists here as shared pointers. 
+\begin{DoxyParams}{Parameters}
+{\em missile\-\_\-del\-\_\-sp} & \-:\-: Shared pointer that points to the missile object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 385 of file Game.\-cpp.
+
+
+
+References \-\_\-destruction\-\_\-manager, add\-Collidable(), add\-Deletable(), add\-Movable(), and Destruction\-Manager\-::add\-New\-Entity().
+
+
+
+Referenced by add\-New\-World\-Entity().
+
+
+\begin{DoxyCode}
+386 \{
+387     \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\_destruction\_manager}.\hyperlink{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{addNewEntity}(missile\_del\_sp);
+388 
+389     \hyperlink{classGame_abf5f8299e3e0889960a963546976817f}{addDeletable}(missile\_del\_sp);
+390     \hyperlink{classGame_afece3314d2bda96eddb765a2da9ebdd0}{addCollidable}(missile\_del\_sp);
+391     \hyperlink{classGame_a42545efdf0cdf4572d97fafba1c20dcd}{addMovable}(missile\_del\_sp);
+392 \}
+\end{DoxyCode}
+\hypertarget{classGame_ab77bec9aa745c5fb55794d0bbed4b235}{\index{Game@{Game}!add\-New\-Tank@{add\-New\-Tank}}
+\index{add\-New\-Tank@{add\-New\-Tank}!Game@{Game}}
+\subsubsection[{add\-New\-Tank}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-New\-Tank (
+\begin{DoxyParamCaption}
+\item[{{\bf entity\-\_\-type}}]{player\-\_\-tank, }
+\item[{float}]{tank\-\_\-position\-X, }
+\item[{float}]{tank\-\_\-position\-Y, }
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ab77bec9aa745c5fb55794d0bbed4b235}
+
+
+Adds a new tank object. 
+
+\hyperlink{classTank}{Tank} objects are created as Deletables. Each tank is added to the \-\_\-destruction\-\_\-manager vector. They exists here as shared pointers. 
+\begin{DoxyParams}{Parameters}
+{\em player\-\_\-tank} & \-:\-: Information about which players tank is being created. \\
+\hline
+{\em tank\-\_\-position\-X} & \-:\-: \hyperlink{classTank}{Tank} x position \\
+\hline
+{\em tank\-\_\-position\-Y} & \-:\-: \hyperlink{classTank}{Tank} y position \\
+\hline
+{\em rotation} & \-:\-: Tanks current rotation angle \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 351 of file Game.\-cpp.
+
+
+
+References \-\_\-destruction\-\_\-manager, add\-Collidable(), add\-Deletable(), add\-Movable(), Destruction\-Manager\-::add\-New\-Entity(), and add\-Trackable().
+
+
+
+Referenced by manage\-Respawns(), and read\-Map\-Data().
+
+
+\begin{DoxyCode}
+352 \{
+353     std::shared\_ptr<Deletable> new\_tank\_del\_sp(\textcolor{keyword}{new} \hyperlink{classTank}{Tank}(tank\_positionX, tank\_positionY,rotation, 
+      player\_tank));
+354     \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\_destruction\_manager}.\hyperlink{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{addNewEntity}(new\_tank\_del\_sp);
+355 
+356     \hyperlink{classGame_abf5f8299e3e0889960a963546976817f}{addDeletable}(new\_tank\_del\_sp);
+357     \hyperlink{classGame_afece3314d2bda96eddb765a2da9ebdd0}{addCollidable}(new\_tank\_del\_sp);
+358     \hyperlink{classGame_a42545efdf0cdf4572d97fafba1c20dcd}{addMovable}(new\_tank\_del\_sp);
+359     \hyperlink{classGame_afb1552b97539822cb5aef6fcd08fa7b3}{addTrackable}(new\_tank\_del\_sp);
+360 \}
+\end{DoxyCode}
+\hypertarget{classGame_ada424b3c51aa8eca26cc9b51c2fe3604}{\index{Game@{Game}!add\-New\-Turret@{add\-New\-Turret}}
+\index{add\-New\-Turret@{add\-New\-Turret}!Game@{Game}}
+\subsubsection[{add\-New\-Turret}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-New\-Turret (
+\begin{DoxyParamCaption}
+\item[{float}]{turret\-\_\-postion\-X, }
+\item[{float}]{turret\-\_\-position\-Y, }
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ada424b3c51aa8eca26cc9b51c2fe3604}
+
+
+Adds a new turret object. 
+
+\hyperlink{classTank}{Tank} objects are created as Deletables. Each turret is added to the \-\_\-destruction\-\_\-manager vector. They exists here as shared pointers. 
+\begin{DoxyParams}{Parameters}
+{\em turret\-\_\-postion\-X} & \-:\-: \hyperlink{classTurret}{Turret} x position \\
+\hline
+{\em turret\-\_\-position\-Y} & \-:\-: \hyperlink{classTurret}{Turret} y position \\
+\hline
+{\em rotation} & \-:\-: Turrets current rotation angle \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 369 of file Game.\-cpp.
+
+
+
+References \-\_\-destruction\-\_\-manager, add\-Collidable(), add\-Deletable(), Destruction\-Manager\-::add\-New\-Entity(), add\-Trackable(), and add\-Turretable().
+
+
+
+Referenced by read\-Map\-Data().
+
+
+\begin{DoxyCode}
+370 \{
+371     std::shared\_ptr<Deletable> new\_turret\_del\_sp(\textcolor{keyword}{new} \hyperlink{classTurret}{Turret}(turret\_postionX, turret\_positionY, 
+      rotation));
+372     \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\_destruction\_manager}.\hyperlink{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{addNewEntity}(new\_turret\_del\_sp);
+373 
+374     \hyperlink{classGame_abf5f8299e3e0889960a963546976817f}{addDeletable}(new\_turret\_del\_sp);
+375     \hyperlink{classGame_afece3314d2bda96eddb765a2da9ebdd0}{addCollidable}(new\_turret\_del\_sp);
+376     \hyperlink{classGame_afb1552b97539822cb5aef6fcd08fa7b3}{addTrackable}(new\_turret\_del\_sp);
+377     \hyperlink{classGame_a97806aa1b86c7c908763a79b2d739439}{addTurretable}(new\_turret\_del\_sp);
+378 \}
+\end{DoxyCode}
+\hypertarget{classGame_abd126d710f269c525c2f26e290444cf7}{\index{Game@{Game}!add\-New\-World\-Entity@{add\-New\-World\-Entity}}
+\index{add\-New\-World\-Entity@{add\-New\-World\-Entity}!Game@{Game}}
+\subsubsection[{add\-New\-World\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-New\-World\-Entity (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Management\-Data} \&}]{game\-\_\-data\-\_\-container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_abd126d710f269c525c2f26e290444cf7}
+
+
+Any new game entity is added here. 
+
+This also includes respawns of tanks that have been destroyed. This function checks all actions that a user has executed and creates a new entity accordinly. For example, firing a missile or laying a tank would cause a new entity to be created. This function requires a lot of refactoring as it is too long and there are repetitions in several instances. 
+\begin{DoxyParams}{Parameters}
+{\em game\-\_\-data\-\_\-container} & \-:\-: Data about what is happening at this point in the game. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 244 of file Game.\-cpp.
+
+
+
+References \-\_\-game\-\_\-sprite\-\_\-dimensions, \-\_\-tracking\-\_\-manager, add\-New\-Mine(), add\-New\-Missile(), actions\-\_\-info\-::attack\-\_\-1, actions\-\_\-info\-::attack\-\_\-2, actions\-\_\-info\-::change\-\_\-1, actions\-\_\-info\-::change\-\_\-2, fire\-\_\-missile, Tracking\-Manager\-::get\-P1\-Position\-X(), Tracking\-Manager\-::get\-P1\-Position\-Y(), Tracking\-Manager\-::get\-P1\-Rotation(), Tracking\-Manager\-::get\-P2\-Position\-X(), Tracking\-Manager\-::get\-P2\-Position\-Y(), Tracking\-Manager\-::get\-P2\-Rotation(), Tracking\-Manager\-::get\-Turret\-Positions\-X(), Tracking\-Manager\-::get\-Turret\-Positions\-Y(), Tracking\-Manager\-::get\-Turret\-Rotations(), Game\-Management\-Data\-::give\-Action\-Info(), lay\-\_\-mine, manage\-Respawns(), Sprite\-Dimensions\-::mine\-\_\-creation\-\_\-offset, Sprite\-Dimensions\-::missile\-\_\-creation\-\_\-offset, p1\-\_\-mine, p1\-\_\-missile, p2\-\_\-mine, p2\-\_\-missile, P\-I, Game\-Management\-Data\-::reset\-Turret\-Fire(), Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-y, actions\-\_\-info\-::turret\-\_\-fire, and turret\-\_\-missile.
+
+
+
+Referenced by run\-World().
+
+
+\begin{DoxyCode}
+245 \{
+246     \hyperlink{structactions__info}{actions\_info} actions = game\_data\_container.\hyperlink{classGameManagementData_afa213f0d90a9d0878fae317457f5e851}{giveActionInfo}();
+247 
+248     \hyperlink{classGame_a50b0e861ea3d882bf20017c9c759244d}{manageRespawns}(game\_data\_container);
+249 
+250     \textcolor{comment}{//Offset for creating a missile}
+251     \textcolor{keyword}{const} \textcolor{keywordtype}{float} missile\_offset = \hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y}/2 + \hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a59055b28d0d2307c1e4f4b04ad93488e}{missile\_creation\_offset};
+252 
+253     \textcolor{comment}{//Offset for creating a mine}
+254     \textcolor{keyword}{const} \textcolor{keywordtype}{float} mine\_offset = \hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y}/2 + \hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a01c7c9dc1498f3336671b1ca697a7342}{mine\_creation\_offset};
+255 
+256     \textcolor{keywordflow}{if} (actions.\hyperlink{structactions__info_afd5886948959786f75255fccbc965154}{turret\_fire})
+257     \{
+258         \textcolor{keyword}{auto} turret\_xPos\_vec = \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_ab74d90eb6562d1c25a8a3abefa36d588}{getTurretPositionsX}();
+259         \textcolor{keyword}{auto} turret\_yPos\_vec = \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_a82406f448e4cea6dc036e57b467eafaf}{getTurretPositionsY}();
+260         \textcolor{keyword}{auto} turret\_rotation\_vec = \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_ab073910a54a6e8badb90ae3b9e0e3cc7}{getTurretRotations}();
+261 
+262         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i!= turret\_xPos\_vec.size(); i++)
+263         \{
+264             \textcolor{keyword}{const} \textcolor{keywordtype}{float} tur\_x\_component = cos((turret\_rotation\_vec[i]*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180);
+265             \textcolor{keyword}{const} \textcolor{keywordtype}{float} tur\_y\_component = sin((turret\_rotation\_vec[i]*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180);
+266 
+267             std::shared\_ptr<Deletable> tur\_missile\_del\_sp(\textcolor{keyword}{new} \hyperlink{classMissile}{Missile}(turret\_xPos\_vec[i] + 
+      tur\_x\_component*missile\_offset,
+268                                                                     turret\_yPos\_vec[i] + tur\_y\_component*
+      missile\_offset,
+269                                                                     turret\_rotation\_vec[i], 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile}));
+270             \hyperlink{classGame_a2099d667dbb4574c4c9bed31eab2abb2}{addNewMissile}(tur\_missile\_del\_sp);
+271         \}
+272         game\_data\_container.\hyperlink{classGameManagementData_a2e9acf1ddddabee775dc106b478aa2e2}{resetTurretFire}();
+273     \}
+274 
+275     \textcolor{keywordflow}{if} (actions.\hyperlink{structactions__info_a69ac673533838f973f09492a12516816}{change\_1} == \textcolor{keyword}{true})
+276     \{
+277         \textcolor{keyword}{const} \textcolor{keywordtype}{float} p1\_x\_component = cos((\hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_aad99796d4377109c93177204db15d1a8}{getP1Rotation}()*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180);
+278         \textcolor{keyword}{const} \textcolor{keywordtype}{float} p1\_y\_component = sin((\hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_aad99796d4377109c93177204db15d1a8}{getP1Rotation}()*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180);
+279 
+280         \textcolor{keywordflow}{if} (actions.\hyperlink{structactions__info_a722a3805cc06ba6e5f9627b942f9bbf2}{attack\_1} == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}{fire\_missile})
+281         \{   \textcolor{comment}{// will use addNewMissile}
+282             std::shared\_ptr<Deletable> p1\_missile\_del\_sp(\textcolor{keyword}{new} \hyperlink{classMissile}{Missile}(
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_ab455df1659739739b2be5f42f08e4b26}{getP1PositionX}() + p1\_x\_component*missile\_offset,
+283                                                                     
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_ab79ae59918b07ad546cd7d95cfc983f6}{getP1PositionY}() + p1\_y\_component*missile\_offset,
+284                                                                     
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_aad99796d4377109c93177204db15d1a8}{getP1Rotation}(), \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}));
+285             \hyperlink{classGame_a2099d667dbb4574c4c9bed31eab2abb2}{addNewMissile}(p1\_missile\_del\_sp);
+286         \}
+287 
+288         \textcolor{keywordflow}{if} (actions.\hyperlink{structactions__info_a722a3805cc06ba6e5f9627b942f9bbf2}{attack\_1} == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}{lay\_mine})
+289         \{   \textcolor{comment}{// will use addNewMine}
+290             std::shared\_ptr<Deletable> p1\_mine\_del\_sp(\textcolor{keyword}{new} \hyperlink{classMine}{Mine}(
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_ab455df1659739739b2be5f42f08e4b26}{getP1PositionX}() - p1\_x\_component*mine\_offset,
+291                                                                \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_ab79ae59918b07ad546cd7d95cfc983f6}{getP1PositionY}() - p1\_y\_component*mine\_offset,
+292                                                                \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}));
+293             \hyperlink{classGame_afb856cf115b4c22af456a5424a37c915}{addNewMine}(p1\_mine\_del\_sp);
+294         \}
+295     \}
+296 
+297     \textcolor{keywordflow}{if} (actions.\hyperlink{structactions__info_a0f20d9c244d92a71dad9cf8ce10cd2f2}{change\_2} == \textcolor{keyword}{true})
+298 
+299     \{
+300         \textcolor{keyword}{const} \textcolor{keywordtype}{float} p2\_x\_component = cos((\hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_a61bc8a3a82f0cd4064d5e2aa53677ebb}{getP2Rotation}()*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180);
+301         \textcolor{keyword}{const} \textcolor{keywordtype}{float} p2\_y\_component = sin((\hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_a61bc8a3a82f0cd4064d5e2aa53677ebb}{getP2Rotation}()*\hyperlink{ClassTests_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI})/180);
+302 
+303         \textcolor{keywordflow}{if} (actions.\hyperlink{structactions__info_a9bfb93ce33b8969b45fa72a12b89be89}{attack\_2} == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}{fire\_missile})
+304         \{   \textcolor{comment}{// will use addNewMissile}
+305             std::shared\_ptr<Deletable> p2\_missile\_del\_sp(\textcolor{keyword}{new} \hyperlink{classMissile}{Missile}(
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_acb6e621ee44b3d4589fd9e5941eb210f}{getP2PositionX}() + p2\_x\_component*missile\_offset,
+306                                                                     
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_af4f90d28fce0d8930ae555a3c1fa4bb8}{getP2PositionY}() + p2\_y\_component*missile\_offset,
+307                                                                     
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_a61bc8a3a82f0cd4064d5e2aa53677ebb}{getP2Rotation}(), \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}));
+308             \hyperlink{classGame_a2099d667dbb4574c4c9bed31eab2abb2}{addNewMissile}(p2\_missile\_del\_sp);
+309         \}
+310 
+311         \textcolor{keywordflow}{if} (actions.\hyperlink{structactions__info_a9bfb93ce33b8969b45fa72a12b89be89}{attack\_2} == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}{lay\_mine})
+312         \{   \textcolor{comment}{// will use addNewMine}
+313             std::shared\_ptr<Deletable> p2\_mine\_del\_sp(\textcolor{keyword}{new} \hyperlink{classMine}{Mine}(
+      \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_acb6e621ee44b3d4589fd9e5941eb210f}{getP2PositionX}() - p2\_x\_component*mine\_offset,
+314                                                                \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.
+      \hyperlink{classTrackingManager_af4f90d28fce0d8930ae555a3c1fa4bb8}{getP2PositionY}() - p2\_y\_component*mine\_offset,
+315                                                                \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}));
+316             \hyperlink{classGame_afb856cf115b4c22af456a5424a37c915}{addNewMine}(p2\_mine\_del\_sp);
+317         \}
+318     \}
+319     \textcolor{keywordflow}{return};
+320 \}
+\end{DoxyCode}
+\hypertarget{classGame_afb1552b97539822cb5aef6fcd08fa7b3}{\index{Game@{Game}!add\-Trackable@{add\-Trackable}}
+\index{add\-Trackable@{add\-Trackable}!Game@{Game}}
+\subsubsection[{add\-Trackable}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-Trackable (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{trackable\-\_\-sp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_afb1552b97539822cb5aef6fcd08fa7b3}
+
+
+Adds entity to trackables. 
+
+Shared pointers are cast as weak pointers. These are then pushed back to the \hyperlink{classTrackingManager}{Tracking\-Manager} vector. 
+\begin{DoxyParams}{Parameters}
+{\em trackable\-\_\-sp} & \-:\-: Shared pointer to be cast as weak pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 461 of file Game.\-cpp.
+
+
+
+References \-\_\-tracking\-\_\-manager, and Tracking\-Manager\-::add\-New\-Entity().
+
+
+
+Referenced by add\-New\-Tank(), and add\-New\-Turret().
+
+
+\begin{DoxyCode}
+462 \{
+463     std::weak\_ptr<Trackable> trackable\_wp = std::dynamic\_pointer\_cast<\hyperlink{classTrackable}{Trackable}>(trackable\_sp);
+464     \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_af0102b33b841a415bdce8605b7c0a11b}{addNewEntity}(trackable\_wp);
+465 \}
+\end{DoxyCode}
+\hypertarget{classGame_a97806aa1b86c7c908763a79b2d739439}{\index{Game@{Game}!add\-Turretable@{add\-Turretable}}
+\index{add\-Turretable@{add\-Turretable}!Game@{Game}}
+\subsubsection[{add\-Turretable}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-Turretable (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{turret\-\_\-sp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a97806aa1b86c7c908763a79b2d739439}
+
+
+Adds entity to turrets. 
+
+Shared pointers are cast as weak pointers. These are then pushed back to the \hyperlink{classTurretManager}{Turret\-Manager} vector. 
+\begin{DoxyParams}{Parameters}
+{\em turret\-\_\-sp} & \-:\-: Shared pointer to be cast as weak pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 472 of file Game.\-cpp.
+
+
+
+References \-\_\-turret\-\_\-manager, and Turret\-Manager\-::add\-New\-Entity().
+
+
+
+Referenced by add\-New\-Turret().
+
+
+\begin{DoxyCode}
+473 \{
+474     std::weak\_ptr<Turret> turret\_wp = std::dynamic\_pointer\_cast<\hyperlink{classTurret}{Turret}>(turret\_sp);
+475     \hyperlink{classGame_ac2f6df412f7efa3eb8750d350dd0261a}{\_turret\_manager}.\hyperlink{classTurretManager_a61a5c5fe1961ca9483271da3aeac0489}{addNewEntity}(turret\_wp);
+476 \}
+\end{DoxyCode}
+\hypertarget{classGame_a9fbdc107c782dba1f2debf7ee347bb7d}{\index{Game@{Game}!check\-Keyboard\-Input@{check\-Keyboard\-Input}}
+\index{check\-Keyboard\-Input@{check\-Keyboard\-Input}!Game@{Game}}
+\subsubsection[{check\-Keyboard\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::check\-Keyboard\-Input (
+\begin{DoxyParamCaption}
+\item[{{\bf Action\-Data} \&}]{action\-\_\-data\-\_\-container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a9fbdc107c782dba1f2debf7ee347bb7d}
+
+
+Checks through all pressed control keys. 
+
+The keyboard class serves as an interface with \hyperlink{Game_8cpp}{Game.\-cpp} and any other keyboard library. Should a different keyboard library be desired, adjustments should be made to the keyboard enum as well. The action data is changed based on user input. This covers both player 1 and player 2 controls. 
+\begin{DoxyParams}{Parameters}
+{\em action\-\_\-data\-\_\-container} & \-:\-: Information passed by reference about what actions the player has taken. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file Game.\-cpp.
+
+
+
+References A, D, Down, Keyboard\-::is\-Key\-Pressed(), L\-Alt, L\-Control, Left, Action\-Data\-::mine\-Laid\-P1(), Action\-Data\-::mine\-Laid\-P2(), Action\-Data\-::missile\-Fired\-P1(), Action\-Data\-::missile\-Fired\-P2(), Action\-Data\-::move\-Backward\-P1(), Action\-Data\-::move\-Backward\-P2(), Action\-Data\-::move\-Forward\-P1(), Action\-Data\-::move\-Forward\-P2(), R\-Alt, R\-Control, Right, Action\-Data\-::rotate\-Left\-P1(), Action\-Data\-::rotate\-Left\-P2(), Action\-Data\-::rotate\-Right\-P1(), Action\-Data\-::rotate\-Right\-P2(), S, Up, and W.
+
+
+
+Referenced by run\-World().
+
+
+\begin{DoxyCode}
+73 \{
+74     \hyperlink{classKeyboard}{Keyboard} keyboard;
+75 
+76     \textcolor{comment}{// input for tank 1}
+77     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bad48f7af8c070184f3774c8e85854eb66}{Right}))
+78     \{
+79         action\_data\_container.\hyperlink{classActionData_acca33ba2c7ea6df807d7e7b787733178}{rotateLeftP1}(); \textcolor{comment}{// tank 1 rotate left}
+80     \}
+81     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba9d4d8b0b72fc2659da772d761a3c5ecb}{Left}))
+82     \{
+83         action\_data\_container.\hyperlink{classActionData_af780bdc2145493cb28b7f9dbee238328}{rotateRightP1}(); \textcolor{comment}{// tank 1 rotate right}
+84     \}
+85     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba57a7edcbc04d6175683383cad5c3e0a2}{Up}))
+86     \{
+87         action\_data\_container.\hyperlink{classActionData_a002859569085e9868adb7beabd3a2ad8}{moveForwardP1}(); \textcolor{comment}{// tank 1 move forward}
+88     \}
+89     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4babcf8c79e9a5f5f9d606fb35645a0fb27}{Down}))
+90     \{
+91         action\_data\_container.\hyperlink{classActionData_a711265f479e845086896c42d1e906c57}{moveBackwardP1}(); \textcolor{comment}{// tank 1 move backward}
+92     \}
+93     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab55b14fb799f3cea1c445c7fdb9542e8}{RAlt}))
+94     \{
+95         action\_data\_container.\hyperlink{classActionData_a8abc4e84c4e6d676010c7e2497278312}{mineLaidP1}(); \textcolor{comment}{// tank 1 plant mine}
+96     \}
+97     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba529cda409a0b9c8b0a0119f152b2688b}{RControl}))
+98     \{
+99         action\_data\_container.\hyperlink{classActionData_aeb7f1219ff0bf0cc81fee1d669317cdb}{missileFiredP1}(); \textcolor{comment}{// tank 1 fire missile}
+100     \}
+101 
+102     \textcolor{comment}{// input for tank 2}
+103     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba77a6b11f9898c052926f1d49765861e8}{D}))
+104     \{
+105         action\_data\_container.\hyperlink{classActionData_aa67078569c7aa6f0f39449c2e9d20abf}{rotateLeftP2}(); \textcolor{comment}{// tank 2 rotate left}
+106     \}
+107     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba42a4ade1acd55a49164099104990e09f}{A}))
+108     \{
+109         action\_data\_container.\hyperlink{classActionData_aae9de974e0b844d04eec06087d867246}{rotateRightP2}(); \textcolor{comment}{// tank 2 rotate right}
+110     \}
+111     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4bab722ceeb601c72cd78fbd35f3581fdf7}{W}))
+112     \{
+113         action\_data\_container.\hyperlink{classActionData_a30c547419564c80e3764b620bb1833cc}{moveForwardP2}(); \textcolor{comment}{// tank 2 move forward}
+114     \}
+115     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4baf1ce01387d2348f8b858721a7db81670}{S}))
+116     \{
+117         action\_data\_container.\hyperlink{classActionData_a9914514aed490cdf131f4a4be4d0f411}{moveBackwardP2}(); \textcolor{comment}{// tank 2 move backward}
+118     \}
+119     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba751229d0124103f5a3eb8ec500ca744a}{LAlt}))
+120     \{
+121         action\_data\_container.\hyperlink{classActionData_a71c04f577d3c06aa45b7c43d935ca567}{mineLaidP2}(); \textcolor{comment}{// tank 2 plant mine}
+122     \}
+123     \textcolor{keywordflow}{if} (keyboard.\hyperlink{classKeyboard_af9ce238e3d65f0beeae81ff6224b164d}{isKeyPressed}(\hyperlink{Structures_8h_a9d66cf9d9353142caa803c8a93e95e4ba480f096d1c429f97aff5be1c89cb25c6}{LControl}))
+124     \{
+125         action\_data\_container.\hyperlink{classActionData_a5a2d45d0fc03daf8edaacd6a9757fafd}{missileFiredP2}(); \textcolor{comment}{// tank 2 fire missile}
+126     \}
+127 
+128     \textcolor{keywordflow}{return};
+129 \}
+\end{DoxyCode}
+\hypertarget{classGame_a14fce36a80fcf6b59d6eba6af3ee23d2}{\index{Game@{Game}!create\-Barrier@{create\-Barrier}}
+\index{create\-Barrier@{create\-Barrier}!Game@{Game}}
+\subsubsection[{create\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::create\-Barrier (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a14fce36a80fcf6b59d6eba6af3ee23d2}
+
+
+Adds a new barrier object. 
+
+\hyperlink{classTank}{Tank} objects are created as Deletables. Each barrier is added to the \hyperlink{classDestructionManager}{Destruction\-Manager} vector. They exists here as shared pointers. 
+\begin{DoxyParams}{Parameters}
+{\em x} & \-:\-: \hyperlink{classBarrier}{Barrier} x pos \\
+\hline
+{\em y} & \-:\-: \hyperlink{classBarrier}{Barrier} y pos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 413 of file Game.\-cpp.
+
+
+
+References \-\_\-destruction\-\_\-manager, add\-Collidable(), add\-Deletable(), Destruction\-Manager\-::add\-New\-Entity(), and barrier.
+
+
+
+Referenced by read\-Map\-Data().
+
+
+\begin{DoxyCode}
+414 \{
+415     std::shared\_ptr<Deletable> new\_barrier\_del\_sp(\textcolor{keyword}{new} \hyperlink{classBarrier}{Barrier}(x, y, 
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}));
+416     \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\_destruction\_manager}.\hyperlink{classDestructionManager_a666b4ad3ae0c1383e4c9f53a48daf2ce}{addNewEntity}(new\_barrier\_del\_sp);
+417 
+418     \hyperlink{classGame_abf5f8299e3e0889960a963546976817f}{addDeletable}(new\_barrier\_del\_sp);
+419     \hyperlink{classGame_afece3314d2bda96eddb765a2da9ebdd0}{addCollidable}(new\_barrier\_del\_sp);
+420 \}
+\end{DoxyCode}
+\hypertarget{classGame_ad43265203e4e3e90ee91eb1fedbc06d4}{\index{Game@{Game}!get\-Map\-Data@{get\-Map\-Data}}
+\index{get\-Map\-Data@{get\-Map\-Data}!Game@{Game}}
+\subsubsection[{get\-Map\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::get\-Map\-Data (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::vector$<$ char $>$$>$ \&}]{map\-\_\-vector, }
+\item[{std\-::ifstream \&}]{map\-\_\-grid\-\_\-file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ad43265203e4e3e90ee91eb1fedbc06d4}
+
+
+Reads map data from text file. 
+
+The data is read from a textfile and saved to the vector. The file is read line by line and saved to a primary vector. This primary vector is then saved to a secondary vector which holds each line or horizontal set of map block. Each symbol corresponds to a single game entity. 
+\begin{DoxyParams}{Parameters}
+{\em map\-\_\-vector} & \-:\-: Vector that contains the map, which is written to here. \\
+\hline
+{\em map\-\_\-grid\-\_\-file} & \-:\-: Reference to the map file object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file Game.\-cpp.
+
+
+
+Referenced by setup\-Initial\-Map().
+
+
+\begin{DoxyCode}
+155 \{
+156     std::vector<char> grid\_line;
+157 
+158     \textcolor{keywordflow}{if} (map\_grid\_file.is\_open())
+159     \{
+160         std::string line;
+161         \textcolor{keywordflow}{while} ( getline(map\_grid\_file,line) )
+162         \{
+163             std::istringstream ss(line);
+164             \textcolor{keywordtype}{char} symbol;
+165             \textcolor{keywordflow}{while} (ss >> symbol)
+166             \{
+167                 grid\_line.push\_back(symbol);
+168             \}
+169             map\_vector.push\_back(grid\_line);
+170             grid\_line.clear();
+171         \}
+172         map\_grid\_file.close();
+173     \}
+174     \textcolor{keywordflow}{else} std::cout << \textcolor{stringliteral}{"Unable to open map file"};
+175 \}
+\end{DoxyCode}
+\hypertarget{classGame_a50b0e861ea3d882bf20017c9c759244d}{\index{Game@{Game}!manage\-Respawns@{manage\-Respawns}}
+\index{manage\-Respawns@{manage\-Respawns}!Game@{Game}}
+\subsubsection[{manage\-Respawns}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::manage\-Respawns (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Management\-Data} \&}]{game\-\_\-data\-\_\-container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a50b0e861ea3d882bf20017c9c759244d}
+
+
+Manages when a respawn needs to take place. 
+
+Turrets are not respawned in this version. Doing so would reuqired changing \hyperlink{classGameManagementData}{Game\-Management\-Data}. Tanks are respawned at their starting positions. No provision is made in this version for counteracting spawn raids. 
+\begin{DoxyParams}{Parameters}
+{\em game\-\_\-data\-\_\-container} & \-:\-: Data the holds information about what tanks need to be respawned \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 328 of file Game.\-cpp.
+
+
+
+References \-\_\-player1\-\_\-start\-X, \-\_\-player1\-\_\-start\-Y, \-\_\-player2\-\_\-start\-X, \-\_\-player2\-\_\-start\-Y, add\-New\-Tank(), Game\-Management\-Data\-::disable\-P1\-Respawn(), Game\-Management\-Data\-::disable\-P2\-Respawn(), Game\-Management\-Data\-::is\-P1\-Respawn(), Game\-Management\-Data\-::is\-P2\-Respawn(), p1\-\_\-tank, and p2\-\_\-tank.
+
+
+
+Referenced by add\-New\-World\-Entity().
+
+
+\begin{DoxyCode}
+329 \{
+330     \textcolor{keywordflow}{if} (game\_data\_container.\hyperlink{classGameManagementData_a2abb452bd5ecd1f8d09b76dc1f909260}{isP1Respawn}())
+331     \{
+332         \hyperlink{classGame_ab77bec9aa745c5fb55794d0bbed4b235}{addNewTank}(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}, \hyperlink{classGame_ac3d9582803715a82b0aa03ddc9d9b7f6}{\_player1\_startX}, 
+      \hyperlink{classGame_ac86e7845910feac197a8396c9eedcae9}{\_player1\_startY}, 0);
+333         game\_data\_container.\hyperlink{classGameManagementData_a66c80fd2795e9e95fe47ad5a77263a9b}{disableP1Respawn}();
+334     \}
+335 
+336     \textcolor{keywordflow}{if} (game\_data\_container.\hyperlink{classGameManagementData_a3b94efaf212d65515c1c511a17636b5f}{isP2Respawn}())
+337     \{
+338         \hyperlink{classGame_ab77bec9aa745c5fb55794d0bbed4b235}{addNewTank}(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}, \hyperlink{classGame_ac3fb65efc81597149ea1c6951110f1b8}{\_player2\_startX}, 
+      \hyperlink{classGame_a62232949f4969880bad54622e180d9aa}{\_player2\_startY}, 180);
+339         game\_data\_container.\hyperlink{classGameManagementData_a2bcc4361d645773587a722755f53cf29}{disableP2Respawn}();
+340     \}
+341 \}
+\end{DoxyCode}
+\hypertarget{classGame_a742dfb46a327c277b5b5711052919d21}{\index{Game@{Game}!read\-Map\-Data@{read\-Map\-Data}}
+\index{read\-Map\-Data@{read\-Map\-Data}!Game@{Game}}
+\subsubsection[{read\-Map\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::read\-Map\-Data (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ std\-::vector$<$ char $>$$>$ \&}]{map\-\_\-vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a742dfb46a327c277b5b5711052919d21}
+
+
+Reads the map data from the vector. 
+
+The map data is read from the vector and a game entity's position is set accordingly. Any other entities that wish to be added should have a unique symbol that is included in the map. If many symbols are needed then a vector of symbols may be used. 
+\begin{DoxyParams}{Parameters}
+{\em map\-\_\-vector} & \-:\-: Map vector is read only. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 184 of file Game.\-cpp.
+
+
+
+References \-\_\-game\-\_\-sprite\-\_\-dimensions, \-\_\-player1\-\_\-start\-X, \-\_\-player1\-\_\-start\-Y, \-\_\-player2\-\_\-start\-X, \-\_\-player2\-\_\-start\-Y, \-\_\-turret\-\_\-start\-X, \-\_\-turret\-\_\-start\-Y, add\-New\-Tank(), add\-New\-Turret(), Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-y, create\-Barrier(), p1\-\_\-tank, p2\-\_\-tank, Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-x, and Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-y.
+
+
+
+Referenced by setup\-Initial\-Map().
+
+
+\begin{DoxyCode}
+185 \{
+186     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < map\_vector.size(); i++)
+187     \{
+188         \textcolor{keyword}{auto} temp\_vector = map\_vector[i];
+189         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < temp\_vector.size(); j++)
+190         \{
+191             \textcolor{keywordflow}{switch}(temp\_vector[j])
+192             \{
+193             \textcolor{keywordflow}{case} \textcolor{charliteral}{'#'}:
+194                 \hyperlink{classGame_a14fce36a80fcf6b59d6eba6af3ee23d2}{createBarrier}(j*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\_sprite\_x}, i*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\_sprite\_y});
+195                 \textcolor{keywordflow}{break};
+196 
+197             \textcolor{keywordflow}{case} \textcolor{charliteral}{'1'}:
+198                 \hyperlink{classGame_ac3d9582803715a82b0aa03ddc9d9b7f6}{\_player1\_startX} = j*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\_sprite\_x};
+199                 \hyperlink{classGame_ac86e7845910feac197a8396c9eedcae9}{\_player1\_startY} = i*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\_sprite\_y};
+200                 \hyperlink{classGame_ab77bec9aa745c5fb55794d0bbed4b235}{addNewTank}(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}, \hyperlink{classGame_ac3d9582803715a82b0aa03ddc9d9b7f6}{\_player1\_startX}, 
+      \hyperlink{classGame_ac86e7845910feac197a8396c9eedcae9}{\_player1\_startY}, 0);
+201                 \textcolor{keywordflow}{break};
+202 
+203             \textcolor{keywordflow}{case} \textcolor{charliteral}{'2'}:
+204                 \hyperlink{classGame_ac3fb65efc81597149ea1c6951110f1b8}{\_player2\_startX} = j*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\_sprite\_x};
+205                 \hyperlink{classGame_a62232949f4969880bad54622e180d9aa}{\_player2\_startY} = i*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\_sprite\_y};
+206                 \hyperlink{classGame_ab77bec9aa745c5fb55794d0bbed4b235}{addNewTank}(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}, \hyperlink{classGame_ac3fb65efc81597149ea1c6951110f1b8}{\_player2\_startX}, 
+      \hyperlink{classGame_a62232949f4969880bad54622e180d9aa}{\_player2\_startY}, 180);
+207                 \textcolor{keywordflow}{break};
+208 
+209             \textcolor{keywordflow}{case} \textcolor{charliteral}{'T'}:
+210                 \hyperlink{classGame_ad7a148e2de0c944863d8aaa78a075f74}{\_turret\_startX} = j*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}{turret\_sprite\_x};
+211                 \hyperlink{classGame_ab875384f85be491849e480d7f91cfe93}{\_turret\_startY} = i*\hyperlink{classGame_a142a0a8783ff5de45f0377973ab5415a}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a1b808c73bd915776ec6b8c10120adeae}{turret\_sprite\_y};
+212                 \hyperlink{classGame_ada424b3c51aa8eca26cc9b51c2fe3604}{addNewTurret}(\hyperlink{classGame_ad7a148e2de0c944863d8aaa78a075f74}{\_turret\_startX}, 
+      \hyperlink{classGame_ab875384f85be491849e480d7f91cfe93}{\_turret\_startY}, 0);
+213                 \textcolor{keywordflow}{break};
+214             \}
+215         \}
+216     \}
+217 \}
+\end{DoxyCode}
+\hypertarget{classGame_a39814b41ab7d5bc1af48bed69500a2be}{\index{Game@{Game}!run\-All\-Managers@{run\-All\-Managers}}
+\index{run\-All\-Managers@{run\-All\-Managers}!Game@{Game}}
+\subsubsection[{run\-All\-Managers}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::run\-All\-Managers (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Management\-Data} \&}]{game\-\_\-data\-\_\-container, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Display} $>$}]{display}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a39814b41ab7d5bc1af48bed69500a2be}
+
+
+All managers manage. 
+
+Any new manager added should be added here. Note that the only manager that has access to the display is the draw manager. 
+\begin{DoxyParams}{Parameters}
+{\em game\-\_\-data\-\_\-container} & \-:\-: Tempory game data required by the managers. \\
+\hline
+{\em display} & \-:\-: \hyperlink{classDisplay}{Display} object required by the draw manager. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 225 of file Game.\-cpp.
+
+
+
+References \-\_\-collision\-\_\-manager, \-\_\-destruction\-\_\-manager, \-\_\-draw\-\_\-manager, \-\_\-move\-\_\-manager, \-\_\-state\-\_\-manager, \-\_\-tracking\-\_\-manager, \-\_\-turret\-\_\-manager, Turret\-Manager\-::manage(), Collision\-Manager\-::manage(), Destruction\-Manager\-::manage(), Game\-State\-Manager\-::manage(), Draw\-Manager\-::manage(), Move\-Manager\-::manage(), and Tracking\-Manager\-::manage().
+
+
+
+Referenced by run\-World().
+
+
+\begin{DoxyCode}
+226 \{
+227     \hyperlink{classGame_ac2f6df412f7efa3eb8750d350dd0261a}{\_turret\_manager}.\hyperlink{classTurretManager_a3339500bc4e12ed437681876ca702bd3}{manage}();
+228     \hyperlink{classGame_a434f5c076c3abc86944fb02e86edc432}{\_collision\_manager}.\hyperlink{classCollisionManager_a43a05dc775565d23ecfaa1fb2638f6cf}{manage}();
+229     \hyperlink{classGame_a2998c8ca6b641f19bca912c1aba2d54f}{\_move\_manager}.\hyperlink{classMoveManager_a1e21cd4f542f801e84b57fd5f11f1154}{manage}(game\_data\_container);
+230     \hyperlink{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\_tracking\_manager}.\hyperlink{classTrackingManager_a6331ac24f748ea336db5a7303a3dce60}{manage}(game\_data\_container);
+231     \hyperlink{classGame_a623e3b207586fd8680e0304e6b6300a0}{\_destruction\_manager}.\hyperlink{classDestructionManager_acfb0e5bf3e2d24368918b4246a972394}{manage}(game\_data\_container);
+232     \hyperlink{classGame_aed3d39ba9be8eb05ab3b18465ae8e982}{\_state\_manager}.\hyperlink{classGameStateManager_aa113f5c0f62142776ec8cef1bb904ff5}{manage}(game\_data\_container);
+233     \hyperlink{classGame_ad554fb786ee2bf6ebb4d317df563fdd9}{\_draw\_manager}.\hyperlink{classDrawManager_a2c48a7d348b9f6961f2b615015dc482f}{manage}(game\_data\_container, display);
+234 \}
+\end{DoxyCode}
+\hypertarget{classGame_a6073fbea287e3bd28ae5eaf350559448}{\index{Game@{Game}!run\-World@{run\-World}}
+\index{run\-World@{run\-World}!Game@{Game}}
+\subsubsection[{run\-World}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::run\-World (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Display} $>$}]{display}
+\end{DoxyParamCaption}
+)}}\label{classGame_a6073fbea287e3bd28ae5eaf350559448}
+
+
+Main program loop. 
+
+The game begins running within this function. Once the initial map is set up the main game loop begins. Firstly, thsi function checks if the game window is still open. If it is and the game state has not been set as finished, then all main game functions are called. Once the game finishes, the end game screen is displayed in an infinite loop. This runs until the game window is closed. 
+\begin{DoxyParams}{Parameters}
+{\em display} & \-:\-: The display object for drawing and displaying all game entities. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file Game.\-cpp.
+
+
+
+References \-\_\-game\-\_\-management\-\_\-data, add\-New\-World\-Entity(), check\-Keyboard\-Input(), Game\-Management\-Data\-::is\-Game\-Finished(), Game\-Management\-Data\-::reset\-Actions\-Info(), run\-All\-Managers(), and setup\-Initial\-Map().
+
+
+
+Referenced by main().
+
+
+\begin{DoxyCode}
+41 \{
+42     \hyperlink{classGame_ad0f1180499fb33b89deb50da6c1fdd78}{setupInitialMap}();
+43 
+44     \textcolor{keywordflow}{while}(display->isOpen()) \textcolor{comment}{// main game loop}
+45     \{
+46         \textcolor{keywordflow}{if} (!\hyperlink{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\_game\_management\_data}.\hyperlink{classGameManagementData_ac8d6deb9285fe8e5205f9984b0a2622d}{isGameFinished}())
+47         \{
+48             \hyperlink{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\_game\_management\_data}.\hyperlink{classGameManagementData_ae49afd739e313caf0b5cd3799be1b125}{resetActionsInfo}();
+49             display->pollEvents();
+50             \hyperlink{classGame_a9fbdc107c782dba1f2debf7ee347bb7d}{checkKeyboardInput}(\hyperlink{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\_game\_management\_data});
+51             \hyperlink{classGame_a39814b41ab7d5bc1af48bed69500a2be}{runAllManagers}(\hyperlink{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\_game\_management\_data}, display);
+52             \hyperlink{classGame_abd126d710f269c525c2f26e290444cf7}{addNewWorldEntity}(\hyperlink{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\_game\_management\_data});
+53         \}
+54         \textcolor{keywordflow}{else}
+55         \{
+56             display->pollEvents();
+57             display->drawEndScreen();
+58             display->display();
+59         \}
+60     \}
+61 
+62     \textcolor{keywordflow}{return};
+63 \}
+\end{DoxyCode}
+\hypertarget{classGame_ad0f1180499fb33b89deb50da6c1fdd78}{\index{Game@{Game}!setup\-Initial\-Map@{setup\-Initial\-Map}}
+\index{setup\-Initial\-Map@{setup\-Initial\-Map}!Game@{Game}}
+\subsubsection[{setup\-Initial\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::setup\-Initial\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ad0f1180499fb33b89deb50da6c1fdd78}
+
+
+Sets up the game wolrd map. 
+
+Maps are read from a textfile. The textfile name can be changed by changing the map\-\_\-grid\-\_\-filename string in the header. The map is stored as a vector of a vector of chars. This vector is used later on from which the map is drawn. Layout of the game world can be adjusted by changing the map grid file. 
+
+Definition at line 137 of file Game.\-cpp.
+
+
+
+References get\-Map\-Data(), map\-\_\-grid\-\_\-filename, and read\-Map\-Data().
+
+
+
+Referenced by run\-World().
+
+
+\begin{DoxyCode}
+138 \{
+139     std::ifstream map\_grid\_file(\hyperlink{classGame_a3fe27799b59753fa9d7d0249b17fc64b}{map\_grid\_filename});
+140     std::vector<std::vector<char>> map\_vector;
+141 
+142     \hyperlink{classGame_ad43265203e4e3e90ee91eb1fedbc06d4}{getMapData}(map\_vector, map\_grid\_file);
+143     \hyperlink{classGame_a742dfb46a327c277b5b5711052919d21}{readMapData}(map\_vector);
+144 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGame_a434f5c076c3abc86944fb02e86edc432}{\index{Game@{Game}!\-\_\-collision\-\_\-manager@{\-\_\-collision\-\_\-manager}}
+\index{\-\_\-collision\-\_\-manager@{\-\_\-collision\-\_\-manager}!Game@{Game}}
+\subsubsection[{\-\_\-collision\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collision\-Manager} Game\-::\-\_\-collision\-\_\-manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a434f5c076c3abc86944fb02e86edc432}
+
+
+Private object of the \hyperlink{classCollisionManager}{Collision\-Manager}. 
+
+
+
+Definition at line 75 of file Game.\-h.
+
+
+
+Referenced by add\-Collidable(), Game(), and run\-All\-Managers().
+
+\hypertarget{classGame_a623e3b207586fd8680e0304e6b6300a0}{\index{Game@{Game}!\-\_\-destruction\-\_\-manager@{\-\_\-destruction\-\_\-manager}}
+\index{\-\_\-destruction\-\_\-manager@{\-\_\-destruction\-\_\-manager}!Game@{Game}}
+\subsubsection[{\-\_\-destruction\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Destruction\-Manager} Game\-::\-\_\-destruction\-\_\-manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a623e3b207586fd8680e0304e6b6300a0}
+
+
+Private object of the \hyperlink{classDestructionManager}{Destruction\-Manager}. 
+
+
+
+Definition at line 81 of file Game.\-h.
+
+
+
+Referenced by add\-New\-Mine(), add\-New\-Missile(), add\-New\-Tank(), add\-New\-Turret(), create\-Barrier(), Game(), and run\-All\-Managers().
+
+\hypertarget{classGame_ad554fb786ee2bf6ebb4d317df563fdd9}{\index{Game@{Game}!\-\_\-draw\-\_\-manager@{\-\_\-draw\-\_\-manager}}
+\index{\-\_\-draw\-\_\-manager@{\-\_\-draw\-\_\-manager}!Game@{Game}}
+\subsubsection[{\-\_\-draw\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Draw\-Manager} Game\-::\-\_\-draw\-\_\-manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ad554fb786ee2bf6ebb4d317df563fdd9}
+
+
+Private object of the \hyperlink{classDrawManager}{Draw\-Manager}. 
+
+
+
+Definition at line 79 of file Game.\-h.
+
+
+
+Referenced by add\-Deletable(), Game(), and run\-All\-Managers().
+
+\hypertarget{classGame_a8de964fec5603a8ece3fc1737b2581d3}{\index{Game@{Game}!\-\_\-game\-\_\-management\-\_\-data@{\-\_\-game\-\_\-management\-\_\-data}}
+\index{\-\_\-game\-\_\-management\-\_\-data@{\-\_\-game\-\_\-management\-\_\-data}!Game@{Game}}
+\subsubsection[{\-\_\-game\-\_\-management\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Management\-Data} Game\-::\-\_\-game\-\_\-management\-\_\-data\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a8de964fec5603a8ece3fc1737b2581d3}
+
+
+\hyperlink{classGame}{Game} runtime data. 
+
+
+
+Definition at line 88 of file Game.\-h.
+
+
+
+Referenced by run\-World().
+
+\hypertarget{classGame_a142a0a8783ff5de45f0377973ab5415a}{\index{Game@{Game}!\-\_\-game\-\_\-sprite\-\_\-dimensions@{\-\_\-game\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-game\-\_\-sprite\-\_\-dimensions@{\-\_\-game\-\_\-sprite\-\_\-dimensions}!Game@{Game}}
+\subsubsection[{\-\_\-game\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Game\-::\-\_\-game\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a142a0a8783ff5de45f0377973ab5415a}
+
+
+Dimensions of all game sprites. 
+
+
+
+Definition at line 90 of file Game.\-h.
+
+
+
+Referenced by add\-New\-World\-Entity(), and read\-Map\-Data().
+
+\hypertarget{classGame_a2998c8ca6b641f19bca912c1aba2d54f}{\index{Game@{Game}!\-\_\-move\-\_\-manager@{\-\_\-move\-\_\-manager}}
+\index{\-\_\-move\-\_\-manager@{\-\_\-move\-\_\-manager}!Game@{Game}}
+\subsubsection[{\-\_\-move\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Move\-Manager} Game\-::\-\_\-move\-\_\-manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a2998c8ca6b641f19bca912c1aba2d54f}
+
+
+Private object of the \hyperlink{classMoveManager}{Move\-Manager}. 
+
+
+
+Definition at line 73 of file Game.\-h.
+
+
+
+Referenced by add\-Movable(), Game(), and run\-All\-Managers().
+
+\hypertarget{classGame_ac3d9582803715a82b0aa03ddc9d9b7f6}{\index{Game@{Game}!\-\_\-player1\-\_\-start\-X@{\-\_\-player1\-\_\-start\-X}}
+\index{\-\_\-player1\-\_\-start\-X@{\-\_\-player1\-\_\-start\-X}!Game@{Game}}
+\subsubsection[{\-\_\-player1\-\_\-start\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Game\-::\-\_\-player1\-\_\-start\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ac3d9582803715a82b0aa03ddc9d9b7f6}
+
+
+Player 1 starting x position. 
+
+
+
+Definition at line 60 of file Game.\-h.
+
+
+
+Referenced by manage\-Respawns(), and read\-Map\-Data().
+
+\hypertarget{classGame_ac86e7845910feac197a8396c9eedcae9}{\index{Game@{Game}!\-\_\-player1\-\_\-start\-Y@{\-\_\-player1\-\_\-start\-Y}}
+\index{\-\_\-player1\-\_\-start\-Y@{\-\_\-player1\-\_\-start\-Y}!Game@{Game}}
+\subsubsection[{\-\_\-player1\-\_\-start\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Game\-::\-\_\-player1\-\_\-start\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ac86e7845910feac197a8396c9eedcae9}
+
+
+Player 1 starting y position. 
+
+
+
+Definition at line 62 of file Game.\-h.
+
+
+
+Referenced by manage\-Respawns(), and read\-Map\-Data().
+
+\hypertarget{classGame_ac3fb65efc81597149ea1c6951110f1b8}{\index{Game@{Game}!\-\_\-player2\-\_\-start\-X@{\-\_\-player2\-\_\-start\-X}}
+\index{\-\_\-player2\-\_\-start\-X@{\-\_\-player2\-\_\-start\-X}!Game@{Game}}
+\subsubsection[{\-\_\-player2\-\_\-start\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Game\-::\-\_\-player2\-\_\-start\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ac3fb65efc81597149ea1c6951110f1b8}
+
+
+Player 2 starting x position. 
+
+
+
+Definition at line 64 of file Game.\-h.
+
+
+
+Referenced by manage\-Respawns(), and read\-Map\-Data().
+
+\hypertarget{classGame_a62232949f4969880bad54622e180d9aa}{\index{Game@{Game}!\-\_\-player2\-\_\-start\-Y@{\-\_\-player2\-\_\-start\-Y}}
+\index{\-\_\-player2\-\_\-start\-Y@{\-\_\-player2\-\_\-start\-Y}!Game@{Game}}
+\subsubsection[{\-\_\-player2\-\_\-start\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Game\-::\-\_\-player2\-\_\-start\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a62232949f4969880bad54622e180d9aa}
+
+
+Player 2 starting y position. 
+
+
+
+Definition at line 66 of file Game.\-h.
+
+
+
+Referenced by manage\-Respawns(), and read\-Map\-Data().
+
+\hypertarget{classGame_aed3d39ba9be8eb05ab3b18465ae8e982}{\index{Game@{Game}!\-\_\-state\-\_\-manager@{\-\_\-state\-\_\-manager}}
+\index{\-\_\-state\-\_\-manager@{\-\_\-state\-\_\-manager}!Game@{Game}}
+\subsubsection[{\-\_\-state\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-State\-Manager} Game\-::\-\_\-state\-\_\-manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_aed3d39ba9be8eb05ab3b18465ae8e982}
+
+
+Private object of the \hyperlink{classGameStateManager}{Game\-State\-Manager}. 
+
+
+
+Definition at line 83 of file Game.\-h.
+
+
+
+Referenced by Game(), and run\-All\-Managers().
+
+\hypertarget{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}{\index{Game@{Game}!\-\_\-tracking\-\_\-manager@{\-\_\-tracking\-\_\-manager}}
+\index{\-\_\-tracking\-\_\-manager@{\-\_\-tracking\-\_\-manager}!Game@{Game}}
+\subsubsection[{\-\_\-tracking\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tracking\-Manager} Game\-::\-\_\-tracking\-\_\-manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_af8fcc8c3d82a46d37e354de8ddde88c0}
+
+
+Private object of the \hyperlink{classTrackingManager}{Tracking\-Manager}. 
+
+
+
+Definition at line 77 of file Game.\-h.
+
+
+
+Referenced by add\-New\-World\-Entity(), add\-Trackable(), Game(), and run\-All\-Managers().
+
+\hypertarget{classGame_ac2f6df412f7efa3eb8750d350dd0261a}{\index{Game@{Game}!\-\_\-turret\-\_\-manager@{\-\_\-turret\-\_\-manager}}
+\index{\-\_\-turret\-\_\-manager@{\-\_\-turret\-\_\-manager}!Game@{Game}}
+\subsubsection[{\-\_\-turret\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Turret\-Manager} Game\-::\-\_\-turret\-\_\-manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ac2f6df412f7efa3eb8750d350dd0261a}
+
+
+Private object of the \hyperlink{classTurretManager}{Turret\-Manager}. 
+
+
+
+Definition at line 85 of file Game.\-h.
+
+
+
+Referenced by add\-Turretable(), Game(), and run\-All\-Managers().
+
+\hypertarget{classGame_ad7a148e2de0c944863d8aaa78a075f74}{\index{Game@{Game}!\-\_\-turret\-\_\-start\-X@{\-\_\-turret\-\_\-start\-X}}
+\index{\-\_\-turret\-\_\-start\-X@{\-\_\-turret\-\_\-start\-X}!Game@{Game}}
+\subsubsection[{\-\_\-turret\-\_\-start\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Game\-::\-\_\-turret\-\_\-start\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ad7a148e2de0c944863d8aaa78a075f74}
+
+
+\hyperlink{classTurret}{Turret} starting x position. 
+
+
+
+Definition at line 68 of file Game.\-h.
+
+
+
+Referenced by read\-Map\-Data().
+
+\hypertarget{classGame_ab875384f85be491849e480d7f91cfe93}{\index{Game@{Game}!\-\_\-turret\-\_\-start\-Y@{\-\_\-turret\-\_\-start\-Y}}
+\index{\-\_\-turret\-\_\-start\-Y@{\-\_\-turret\-\_\-start\-Y}!Game@{Game}}
+\subsubsection[{\-\_\-turret\-\_\-start\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Game\-::\-\_\-turret\-\_\-start\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ab875384f85be491849e480d7f91cfe93}
+
+
+\hyperlink{classTurret}{Turret} starting y position. 
+
+
+
+Definition at line 70 of file Game.\-h.
+
+
+
+Referenced by read\-Map\-Data().
+
+\hypertarget{classGame_acedcdfef5913013956cd6454e022afc1}{\index{Game@{Game}!\-\_\-world\-\_\-entities@{\-\_\-world\-\_\-entities}}
+\index{\-\_\-world\-\_\-entities@{\-\_\-world\-\_\-entities}!Game@{Game}}
+\subsubsection[{\-\_\-world\-\_\-entities}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::weak\-\_\-ptr$<${\bf Deletable}$>$ $>$ Game\-::\-\_\-world\-\_\-entities\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_acedcdfef5913013956cd6454e022afc1}
+
+
+Container for all entities on the game world. 
+
+
+
+Definition at line 93 of file Game.\-h.
+
+
+
+Referenced by add\-Deletable().
+
+\hypertarget{classGame_a3fe27799b59753fa9d7d0249b17fc64b}{\index{Game@{Game}!map\-\_\-grid\-\_\-filename@{map\-\_\-grid\-\_\-filename}}
+\index{map\-\_\-grid\-\_\-filename@{map\-\_\-grid\-\_\-filename}!Game@{Game}}
+\subsubsection[{map\-\_\-grid\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Game\-::map\-\_\-grid\-\_\-filename = \char`\"{}map\-\_\-grid.\-txt\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a3fe27799b59753fa9d7d0249b17fc64b}
+
+
+File name for the map grid text file. 
+
+
+
+Definition at line 96 of file Game.\-h.
+
+
+
+Referenced by setup\-Initial\-Map().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Game_8h}{Game.\-h}\item 
+\hyperlink{Game_8cpp}{Game.\-cpp}\end{DoxyCompactItemize}

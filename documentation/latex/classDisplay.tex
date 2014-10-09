@@ -1,0 +1,1041 @@
+\hypertarget{classDisplay}{\section{Display Class Reference}
+\label{classDisplay}\index{Display@{Display}}
+}
+
+
+Handles all draw and display functionality.  
+
+
+
+
+{\ttfamily \#include $<$Display.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDisplay_a305a7d8fc20a838a73d5706820935136}{Display} (int window\-\_\-width=800, int window\-\_\-height=600)
+\begin{DoxyCompactList}\small\item\em Constructor for \hyperlink{classDisplay}{Display} object. \end{DoxyCompactList}\item 
+bool \hyperlink{classDisplay_abfcf2f222f42edcfa2c9b3949817ec84}{is\-Open} ()
+\begin{DoxyCompactList}\small\item\em Checks if the game window is still open. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_aa56b082e14b61988f2d0d01617e0c27d}{poll\-Events} ()
+\begin{DoxyCompactList}\small\item\em Checks S\-F\-M\-L window events. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_a14242933dd00fc1d50f9ae70d5121d14}{clear} ()
+\begin{DoxyCompactList}\small\item\em Clears the display window. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_a2db7dc6b0ffa4851cf49f3d37095d185}{draw\-Background} ()
+\begin{DoxyCompactList}\small\item\em Checks S\-F\-M\-L window events. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_a8eff4790fce1c95ad443b224c313488a}{draw\-Entity} (const \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \&entity, const \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info} \&draw\-\_\-info)
+\begin{DoxyCompactList}\small\item\em Draws a game entity. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_a37aef4a33faf48a6f0c777290f5334ce}{draw\-Text} (const \hyperlink{structdraw__strings}{draw\-\_\-strings} \&strings)
+\begin{DoxyCompactList}\small\item\em Draws all text. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_afe5f3569e0746afdb6d3f82fadc123a9}{draw\-End\-Screen} ()
+\begin{DoxyCompactList}\small\item\em Draws the end game screen. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_aa3ab70ec7b76fa3ed139d19e53e72283}{display} ()
+\begin{DoxyCompactList}\small\item\em Displays what has been drawn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDisplay_a5af58e6a5eea9fcf573d2554891de781}{load\-Textures} ()
+\begin{DoxyCompactList}\small\item\em Loads all textures as Rectangles. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_a410deedeb944684de238030348d3feab}{add\-Sprites} ()
+\begin{DoxyCompactList}\small\item\em All pointers to S\-F\-M\-L sprites are made here. \end{DoxyCompactList}\item 
+void \hyperlink{classDisplay_ad831893d7d3656e456c7f5c6915701f1}{setup\-Text} (sf\-::\-Text \&text)
+\begin{DoxyCompactList}\small\item\em Initialises font properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classDisplay_a715bf4b76abf3b8a8cc495cbb7dfd4b0}{\-\_\-window\-\_\-width}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDisplay}{Display} window width. \end{DoxyCompactList}\item 
+int \hyperlink{classDisplay_a3e66e647786a79f49b985d45e1ad4ac2}{\-\_\-window\-\_\-height}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDisplay}{Display} window height. \end{DoxyCompactList}\item 
+sf\-::\-Render\-Window \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\-\_\-window}
+\begin{DoxyCompactList}\small\item\em S\-F\-M\-L window where all sprites are drawn. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\-\_\-game\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em Holds information about all the sprite dimensions. \end{DoxyCompactList}\item 
+\hyperlink{structtextures}{textures} \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\-\_\-game\-\_\-textures}
+\begin{DoxyCompactList}\small\item\em Struct of all textures in the game. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_a4055ddd33815347b986bb7437bdc1c79}{\-\_\-tank1\-\_\-texture\-\_\-file} = \char`\"{}tank\-\_\-blue.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTank}{Tank} 1 texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_a5ab9e2102af414ee9d1d8d5b090ad9da}{\-\_\-tank2\-\_\-texture\-\_\-file} = \char`\"{}tank\-\_\-red.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTank}{Tank} 2 texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_a11a966967d1bfa745d910f25da35b6fb}{\-\_\-missile\-\_\-texture\-\_\-file} = \char`\"{}missile.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Tanks missile texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_a9b6a965f2d1ca97d9c243d4bbd941994}{\-\_\-mine\-\_\-texture\-\_\-file} = \char`\"{}mine.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMine}{Mine} texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_af921ed4131e5d5763e76ea7c54c3fea8}{\-\_\-barrier\-\_\-texture\-\_\-file} = \char`\"{}barrier.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBarrier}{Barrier} texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_a1e2dc0b7ef570f4584b7f171330a209d}{\-\_\-turret\-\_\-texture\-\_\-file} = \char`\"{}turret.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTurret}{Turret} texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_ac3bdb11a00913038ceeee3171fa99ea3}{\-\_\-map\-\_\-texture\-\_\-file} = \char`\"{}map.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Map (background) texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_a4d984df72ac348f13c50357bc58ad797}{\-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file} = \char`\"{}missile\-\_\-turret.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTurret}{Turret} missile texture file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_a69effabf34c7f71ddf83be77977b56f2}{\-\_\-font\-\_\-file} = \char`\"{}futura\-\_\-light.\-ttf\char`\"{}
+\begin{DoxyCompactList}\small\item\em Font file name. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{classDisplay_ac8eb9dbc23ed61c56ea69adfdbfeecde}{\-\_\-end\-\_\-texture\-\_\-file} = \char`\"{}end\-\_\-screen.\-png\char`\"{}
+\begin{DoxyCompactList}\small\item\em End screen texture file name. \end{DoxyCompactList}\item 
+std\-::map$<$ \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type}, \\*
+std\-::shared\-\_\-ptr$<$ sf\-::\-Sprite $>$ $>$ \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\-\_\-sprites}
+\begin{DoxyCompactList}\small\item\em Map container for the sprites that will be drawn. \end{DoxyCompactList}\item 
+sf\-::\-Sprite \hyperlink{classDisplay_a2ec82cf1355d968c3863c9089ab2e511}{\-\_\-map\-\_\-sprite}
+\begin{DoxyCompactList}\small\item\em Map (background) S\-F\-M\-L sprite. \end{DoxyCompactList}\item 
+sf\-::\-Sprite \hyperlink{classDisplay_a3bcec98cfc7e32f4fb46e625d76984a0}{\-\_\-end\-\_\-map\-\_\-sprite}
+\begin{DoxyCompactList}\small\item\em End game screen sprite. \end{DoxyCompactList}\item 
+sf\-::\-Texture \hyperlink{classDisplay_aa98ca168c20ac56fe56def6686cf9f91}{\-\_\-map\-\_\-texture}
+\begin{DoxyCompactList}\small\item\em Map (background) S\-F\-M\-L texture. \end{DoxyCompactList}\item 
+sf\-::\-Texture \hyperlink{classDisplay_ad41d7097510e56a9f16e97d7cc13c5b6}{\-\_\-end\-\_\-map\-\_\-texture}
+\begin{DoxyCompactList}\small\item\em End game screen texture. \end{DoxyCompactList}\item 
+sf\-::\-Text \hyperlink{classDisplay_a36007f3ed0cb7f8174ef601dbde3adab}{\-\_\-game\-\_\-time\-\_\-text}
+\begin{DoxyCompactList}\small\item\em Runtime S\-F\-M\-L text. \end{DoxyCompactList}\item 
+sf\-::\-Text \hyperlink{classDisplay_a0545991d352f9d4e7bda7d2f3b6a0236}{\-\_\-p1\-\_\-score\-\_\-text}
+\begin{DoxyCompactList}\small\item\em Player 1 S\-F\-M\-L score text. \end{DoxyCompactList}\item 
+sf\-::\-Text \hyperlink{classDisplay_a80ea7a2642db4a379d756b0132d26343}{\-\_\-p2\-\_\-score\-\_\-text}
+\begin{DoxyCompactList}\small\item\em Player 2 S\-F\-M\-L score text. \end{DoxyCompactList}\item 
+sf\-::\-Font \hyperlink{classDisplay_a937e4b846d090d1d520e15d6233bbfc0}{\-\_\-font\-\_\-style}
+\begin{DoxyCompactList}\small\item\em S\-F\-M\-L font style. \end{DoxyCompactList}\item 
+const int \hyperlink{classDisplay_ae10066fc5854e77ea65d3a64912b079a}{\-\_\-font\-\_\-size} = 20
+\begin{DoxyCompactList}\small\item\em Constant size for all window fonts. \end{DoxyCompactList}\item 
+const int \hyperlink{classDisplay_ae85ee765b92689445aca8cead24d8184}{\-\_\-text\-\_\-y\-\_\-allignment} = 0
+\begin{DoxyCompactList}\small\item\em Vertical alignment for runtime and player scores. \end{DoxyCompactList}\item 
+const int \hyperlink{classDisplay_ad9b50fa7903081469111841965b995ba}{\-\_\-game\-\_\-time\-\_\-pos} = 550
+\begin{DoxyCompactList}\small\item\em Horzontal position of game time text. \end{DoxyCompactList}\item 
+const int \hyperlink{classDisplay_af7115b9c3e4cdedf1398bcbdbf794270}{\-\_\-p1\-\_\-score\-\_\-pos} = 950
+\begin{DoxyCompactList}\small\item\em Horizontal position of player 1 score text. \end{DoxyCompactList}\item 
+const int \hyperlink{classDisplay_a223efbfb6036d823dbaf09e4180a07fb}{\-\_\-p2\-\_\-score\-\_\-pos} = 100
+\begin{DoxyCompactList}\small\item\em Horizontal position of player 2 score text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles all draw and display functionality. 
+
+Definition at line 20 of file Display.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDisplay_a305a7d8fc20a838a73d5706820935136}{\index{Display@{Display}!Display@{Display}}
+\index{Display@{Display}!Display@{Display}}
+\subsubsection[{Display}]{\setlength{\rightskip}{0pt plus 5cm}Display\-::\-Display (
+\begin{DoxyParamCaption}
+\item[{int}]{window\-\_\-width = {\ttfamily 800}, }
+\item[{int}]{window\-\_\-height = {\ttfamily 600}}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_a305a7d8fc20a838a73d5706820935136}
+
+
+Constructor for \hyperlink{classDisplay}{Display} object. 
+
+Initialises window dimensions as well as other private objects. The game window title can be changed within the \-\_\-window constructor. The rest of the function makes sure that the main map textures are loaded correctly. The text objects for the game are also initialised here. 
+\begin{DoxyParams}{Parameters}
+{\em window\-\_\-width} & \-:\-: default is set to 800 \\
+\hline
+{\em window\-\_\-height} & \-:\-: default is set to 600 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 26 of file Display.\-cpp.
+
+
+
+References \-\_\-end\-\_\-map\-\_\-sprite, \-\_\-end\-\_\-map\-\_\-texture, \-\_\-end\-\_\-texture\-\_\-file, \-\_\-font\-\_\-file, \-\_\-font\-\_\-style, \-\_\-game\-\_\-time\-\_\-pos, \-\_\-game\-\_\-time\-\_\-text, \-\_\-map\-\_\-sprite, \-\_\-map\-\_\-texture, \-\_\-map\-\_\-texture\-\_\-file, \-\_\-p1\-\_\-score\-\_\-pos, \-\_\-p1\-\_\-score\-\_\-text, \-\_\-p2\-\_\-score\-\_\-pos, \-\_\-p2\-\_\-score\-\_\-text, \-\_\-text\-\_\-y\-\_\-allignment, \-\_\-window, add\-Sprites(), load\-Textures(), and setup\-Text().
+
+
+\begin{DoxyCode}
+26                                                    :
+27     \hyperlink{classDisplay_a715bf4b76abf3b8a8cc495cbb7dfd4b0}{\_window\_width}(window\_width),
+28     \hyperlink{classDisplay_a3e66e647786a79f49b985d45e1ad4ac2}{\_window\_height}(window\_height),
+29     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}(sf::VideoMode(\hyperlink{classDisplay_a715bf4b76abf3b8a8cc495cbb7dfd4b0}{\_window\_width},\hyperlink{classDisplay_a3e66e647786a79f49b985d45e1ad4ac2}{\_window\_height}), \textcolor{stringliteral}{"Tank A Lot"}),
+30     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}(),
+31     \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}()
+32 \{
+33     \hyperlink{classDisplay_a5af58e6a5eea9fcf573d2554891de781}{loadTextures}();
+34     \hyperlink{classDisplay_a410deedeb944684de238030348d3feab}{addSprites}();
+35 
+36     \textcolor{keywordflow}{if} (!\hyperlink{classDisplay_aa98ca168c20ac56fe56def6686cf9f91}{\_map\_texture}.loadFromFile(\hyperlink{classDisplay_ac3bdb11a00913038ceeee3171fa99ea3}{\_map\_texture\_file}))
+37         std::cout << \textcolor{stringliteral}{"Unable to load Map file!"} << std::endl;
+38 
+39     \hyperlink{classDisplay_a2ec82cf1355d968c3863c9089ab2e511}{\_map\_sprite}.setTexture(\hyperlink{classDisplay_aa98ca168c20ac56fe56def6686cf9f91}{\_map\_texture});
+40 
+41     \textcolor{keywordflow}{if} (!\hyperlink{classDisplay_ad41d7097510e56a9f16e97d7cc13c5b6}{\_end\_map\_texture}.loadFromFile(\hyperlink{classDisplay_ac8eb9dbc23ed61c56ea69adfdbfeecde}{\_end\_texture\_file}))
+42         std::cout << \textcolor{stringliteral}{"Unable to load Map file!"} << std::endl;
+43 
+44     \hyperlink{classDisplay_a3bcec98cfc7e32f4fb46e625d76984a0}{\_end\_map\_sprite}.setTexture(\hyperlink{classDisplay_ad41d7097510e56a9f16e97d7cc13c5b6}{\_end\_map\_texture});
+45 
+46     \textcolor{keywordflow}{if} (!\hyperlink{classDisplay_a937e4b846d090d1d520e15d6233bbfc0}{\_font\_style}.loadFromFile(\hyperlink{classDisplay_a69effabf34c7f71ddf83be77977b56f2}{\_font\_file}))
+47        std::cout << \textcolor{stringliteral}{"Unable to load font file!"} << std::endl;
+48 
+49     \hyperlink{classDisplay_ad831893d7d3656e456c7f5c6915701f1}{setupText}(\hyperlink{classDisplay_a36007f3ed0cb7f8174ef601dbde3adab}{\_game\_time\_text});
+50     \hyperlink{classDisplay_a36007f3ed0cb7f8174ef601dbde3adab}{\_game\_time\_text}.setPosition(\hyperlink{classDisplay_ad9b50fa7903081469111841965b995ba}{\_game\_time\_pos},
+      \hyperlink{classDisplay_ae85ee765b92689445aca8cead24d8184}{\_text\_y\_allignment});
+51 
+52     \hyperlink{classDisplay_ad831893d7d3656e456c7f5c6915701f1}{setupText}(\hyperlink{classDisplay_a0545991d352f9d4e7bda7d2f3b6a0236}{\_p1\_score\_text});
+53     \hyperlink{classDisplay_a0545991d352f9d4e7bda7d2f3b6a0236}{\_p1\_score\_text}.setPosition(\hyperlink{classDisplay_af7115b9c3e4cdedf1398bcbdbf794270}{\_p1\_score\_pos},
+      \hyperlink{classDisplay_ae85ee765b92689445aca8cead24d8184}{\_text\_y\_allignment});
+54 
+55     \hyperlink{classDisplay_ad831893d7d3656e456c7f5c6915701f1}{setupText}(\hyperlink{classDisplay_a80ea7a2642db4a379d756b0132d26343}{\_p2\_score\_text});
+56     \hyperlink{classDisplay_a80ea7a2642db4a379d756b0132d26343}{\_p2\_score\_text}.setPosition(\hyperlink{classDisplay_a223efbfb6036d823dbaf09e4180a07fb}{\_p2\_score\_pos},
+      \hyperlink{classDisplay_ae85ee765b92689445aca8cead24d8184}{\_text\_y\_allignment});
+57 
+58     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.setFramerateLimit(60);
+59 
+60 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDisplay_a410deedeb944684de238030348d3feab}{\index{Display@{Display}!add\-Sprites@{add\-Sprites}}
+\index{add\-Sprites@{add\-Sprites}!Display@{Display}}
+\subsubsection[{add\-Sprites}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::add\-Sprites (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a410deedeb944684de238030348d3feab}
+
+
+All pointers to S\-F\-M\-L sprites are made here. 
+
+Each sprite is created and accessed via a shared\-\_\-ptr. They are saved in a map so that they can be referenced when drawn. This means that the number of sprites that exist are equal to the number of unique sprites. It is from this map that a copy of the sprite is drawn. Any new sprites that will be drawn can be added here. 
+
+Definition at line 117 of file Display.\-cpp.
+
+
+
+References \-\_\-game\-\_\-textures, \-\_\-sprites, barrier, textures\-::barrier, textures\-::mine, textures\-::missile, p1\-\_\-mine, p1\-\_\-missile, p1\-\_\-tank, p2\-\_\-mine, p2\-\_\-missile, p2\-\_\-tank, textures\-::tank\-\_\-1, textures\-::tank\-\_\-2, turret, textures\-::turret, turret\-\_\-missile, and textures\-::turret\-\_\-missile.
+
+
+
+Referenced by Display().
+
+
+\begin{DoxyCode}
+118 \{
+119     \textcolor{comment}{//Create P\_1 Tank Sprite}
+120     std::shared\_ptr<sf::Sprite> tank1\_sp(\textcolor{keyword}{new}(sf::Sprite));
+121     tank1\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a9287e247a5d108ed875b7b5b89ded524}{tank\_1});
+122     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank},tank1\_sp));
+123 
+124     \textcolor{comment}{//Create P\_2 Tank Sprite}
+125     std::shared\_ptr<sf::Sprite> tank2\_sp(\textcolor{keyword}{new}(sf::Sprite));
+126     tank2\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a3322b3f064640afe1a4ebdb53636b71d}{tank\_2});
+127     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank},tank2\_sp));
+128 
+129     \textcolor{comment}{//Create Barrier Sprite}
+130     std::shared\_ptr<sf::Sprite> barrier\_sp(\textcolor{keyword}{new}(sf::Sprite));
+131     barrier\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a36f35bd26858ecc8eb507e1072bfad7d}{barrier});
+132     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier},barrier\_sp));
+133 
+134     \textcolor{comment}{//Create P\_1 Missile Sprite}
+135     std::shared\_ptr<sf::Sprite> missile1\_sp(\textcolor{keyword}{new}(sf::Sprite));
+136     missile1\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a1d12557e92da80a9809f037edfe72f2f}{missile});
+137     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile},missile1\_sp));
+138 
+139     \textcolor{comment}{//Create P\_2 Missile Sprite}
+140     std::shared\_ptr<sf::Sprite> missile2\_sp(\textcolor{keyword}{new}(sf::Sprite));
+141     missile2\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a1d12557e92da80a9809f037edfe72f2f}{missile});
+142     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile},missile2\_sp));
+143 
+144     \textcolor{comment}{//Create P\_1 Mine Sprite}
+145     std::shared\_ptr<sf::Sprite> mine1\_sp(\textcolor{keyword}{new}(sf::Sprite));
+146     mine1\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a7f5b6643fd47d1bd8d5758c24c32dc9e}{mine});
+147     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine},mine1\_sp));
+148 
+149     \textcolor{comment}{//Create P\_2 Mine Sprite}
+150     std::shared\_ptr<sf::Sprite> mine2\_sp(\textcolor{keyword}{new}(sf::Sprite));
+151     mine2\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a7f5b6643fd47d1bd8d5758c24c32dc9e}{mine});
+152     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine},mine2\_sp));
+153 
+154     \textcolor{comment}{//Create Turret Sprite}
+155     std::shared\_ptr<sf::Sprite> turret\_sp(\textcolor{keyword}{new}(sf::Sprite));
+156     turret\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a8454a0f97657e68ca0076f19c4de6236}{turret});
+157     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret},turret\_sp));
+158 
+159     \textcolor{comment}{//Create Turret Missile Sprite}
+160     std::shared\_ptr<sf::Sprite> turret\_missile\_sp(\textcolor{keyword}{new}(sf::Sprite));
+161     turret\_missile\_sp->setTexture(\hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_aa9ff61d80b32b3520308d8df61a8ea3f}{turret\_missile});
+162     \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.insert(std::pair<\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\_type}, std::shared\_ptr<sf::Sprite>>(
+      \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile},turret\_missile\_sp));
+163 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_a14242933dd00fc1d50f9ae70d5121d14}{\index{Display@{Display}!clear@{clear}}
+\index{clear@{clear}!Display@{Display}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_a14242933dd00fc1d50f9ae70d5121d14}
+
+
+Clears the display window. 
+
+
+
+Definition at line 76 of file Display.\-cpp.
+
+
+
+References \-\_\-window.
+
+
+\begin{DoxyCode}
+77 \{
+78     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.clear();
+79 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_aa3ab70ec7b76fa3ed139d19e53e72283}{\index{Display@{Display}!display@{display}}
+\index{display@{display}!Display@{Display}}
+\subsubsection[{display}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::display (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_aa3ab70ec7b76fa3ed139d19e53e72283}
+
+
+Displays what has been drawn. 
+
+Only after everything has been drawn can it be displayed. 
+
+Definition at line 239 of file Display.\-cpp.
+
+
+
+References \-\_\-window.
+
+
+\begin{DoxyCode}
+240 \{
+241     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.display();
+242 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_a2db7dc6b0ffa4851cf49f3d37095d185}{\index{Display@{Display}!draw\-Background@{draw\-Background}}
+\index{draw\-Background@{draw\-Background}!Display@{Display}}
+\subsubsection[{draw\-Background}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::draw\-Background (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_a2db7dc6b0ffa4851cf49f3d37095d185}
+
+
+Checks S\-F\-M\-L window events. 
+
+The only event included here is the closed window event. If the window is closed, the window in the software is closed too .Other events may be added here. 
+
+Definition at line 184 of file Display.\-cpp.
+
+
+
+References \-\_\-map\-\_\-sprite, and \-\_\-window.
+
+
+\begin{DoxyCode}
+185 \{
+186     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.draw(\hyperlink{classDisplay_a2ec82cf1355d968c3863c9089ab2e511}{\_map\_sprite});
+187 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_afe5f3569e0746afdb6d3f82fadc123a9}{\index{Display@{Display}!draw\-End\-Screen@{draw\-End\-Screen}}
+\index{draw\-End\-Screen@{draw\-End\-Screen}!Display@{Display}}
+\subsubsection[{draw\-End\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::draw\-End\-Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_afe5f3569e0746afdb6d3f82fadc123a9}
+
+
+Draws the end game screen. 
+
+All other sprites are cleared and a single sprite \-\_\-end\-\_\-map\-\_\-sprite is drawn. 
+
+Definition at line 230 of file Display.\-cpp.
+
+
+
+References \-\_\-end\-\_\-map\-\_\-sprite, and \-\_\-window.
+
+
+\begin{DoxyCode}
+231 \{
+232     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.clear();
+233     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.draw(\hyperlink{classDisplay_a3bcec98cfc7e32f4fb46e625d76984a0}{\_end\_map\_sprite});
+234 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_a8eff4790fce1c95ad443b224c313488a}{\index{Display@{Display}!draw\-Entity@{draw\-Entity}}
+\index{draw\-Entity@{draw\-Entity}!Display@{Display}}
+\subsubsection[{draw\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::draw\-Entity (
+\begin{DoxyParamCaption}
+\item[{const {\bf entity\-\_\-type} \&}]{entity, }
+\item[{const {\bf sprite\-\_\-draw\-\_\-info} \&}]{draw\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_a8eff4790fce1c95ad443b224c313488a}
+
+
+Draws a game entity. 
+
+Sprites are located in the map using the entity\-\_\-type. Once that entity is found, it is drawn accordingly. 
+\begin{DoxyParams}{Parameters}
+{\em entity} & \-:\-: Tells \hyperlink{classDisplay}{Display} what entity to draw \\
+\hline
+{\em draw\-\_\-info} & \-:\-: Gives information about where the sprite should be drawn \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 195 of file Display.\-cpp.
+
+
+
+References \-\_\-sprites, \-\_\-window, sprite\-\_\-draw\-\_\-info\-::draw\-\_\-pos, sprite\-\_\-draw\-\_\-info\-::origin, sprite\-\_\-draw\-\_\-info\-::rotation, coordinate\-::x, and coordinate\-::y.
+
+
+\begin{DoxyCode}
+196 \{
+197     std::map<entity\_type,std::shared\_ptr<sf::Sprite>>::iterator sprite\_map\_iterator;
+198 
+199     sprite\_map\_iterator = \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.find(entity);
+200 
+201     \textcolor{comment}{// Search for the desired entity}
+202     \textcolor{keywordflow}{if} (sprite\_map\_iterator != \hyperlink{classDisplay_a975326ca007706c154317ddef67000f4}{\_sprites}.end())
+203     \{
+204         std::shared\_ptr<sf::Sprite> sprite\_sp = sprite\_map\_iterator->second;
+205         sprite\_sp->setOrigin(draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y});
+206         sprite\_sp->setPosition(draw\_info.\hyperlink{structsprite__draw__info_acf0a863cddf497e364e3cdc9c46b8564}{draw\_pos}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x}, draw\_info.\hyperlink{structsprite__draw__info_acf0a863cddf497e364e3cdc9c46b8564}{draw\_pos}.
+      \hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y});
+207         sprite\_sp->setRotation(draw\_info.\hyperlink{structsprite__draw__info_a41292dd9fa6ca00d553a6c93f18e2a40}{rotation});
+208         \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.draw(*sprite\_sp);
+209     \}
+210 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_a37aef4a33faf48a6f0c777290f5334ce}{\index{Display@{Display}!draw\-Text@{draw\-Text}}
+\index{draw\-Text@{draw\-Text}!Display@{Display}}
+\subsubsection[{draw\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::draw\-Text (
+\begin{DoxyParamCaption}
+\item[{const {\bf draw\-\_\-strings} \&}]{strings}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_a37aef4a33faf48a6f0c777290f5334ce}
+
+
+Draws all text. 
+
+All text is received as a string. 
+\begin{DoxyParams}{Parameters}
+{\em strings} & \-:\-: Holds the strings of all the game text fields. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 216 of file Display.\-cpp.
+
+
+
+References \-\_\-game\-\_\-time\-\_\-text, \-\_\-p1\-\_\-score\-\_\-text, \-\_\-p2\-\_\-score\-\_\-text, \-\_\-window, draw\-\_\-strings\-::game\-\_\-time, draw\-\_\-strings\-::p1\-\_\-score, and draw\-\_\-strings\-::p2\-\_\-score.
+
+
+\begin{DoxyCode}
+217 \{
+218     \hyperlink{classDisplay_a36007f3ed0cb7f8174ef601dbde3adab}{\_game\_time\_text}.setString(strings.\hyperlink{structdraw__strings_a4d19f66b000d19861c475694328d9fce}{game\_time});
+219     \hyperlink{classDisplay_a0545991d352f9d4e7bda7d2f3b6a0236}{\_p1\_score\_text}.setString(strings.\hyperlink{structdraw__strings_a0d59a0f9e78f1c539dbe7959dcd9c3bb}{p1\_score});
+220     \hyperlink{classDisplay_a80ea7a2642db4a379d756b0132d26343}{\_p2\_score\_text}.setString(strings.\hyperlink{structdraw__strings_a749fa74ab7403f436f100c546b073be8}{p2\_score});
+221     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.draw(\hyperlink{classDisplay_a36007f3ed0cb7f8174ef601dbde3adab}{\_game\_time\_text});
+222     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.draw(\hyperlink{classDisplay_a0545991d352f9d4e7bda7d2f3b6a0236}{\_p1\_score\_text});
+223     \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.draw(\hyperlink{classDisplay_a80ea7a2642db4a379d756b0132d26343}{\_p2\_score\_text});
+224 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_abfcf2f222f42edcfa2c9b3949817ec84}{\index{Display@{Display}!is\-Open@{is\-Open}}
+\index{is\-Open@{is\-Open}!Display@{Display}}
+\subsubsection[{is\-Open}]{\setlength{\rightskip}{0pt plus 5cm}bool Display\-::is\-Open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_abfcf2f222f42edcfa2c9b3949817ec84}
+
+
+Checks if the game window is still open. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file Display.\-cpp.
+
+
+
+References \-\_\-window.
+
+
+\begin{DoxyCode}
+67 \{
+68     \textcolor{keywordflow}{if} (\hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.isOpen())
+69         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+70     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+71 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_a5af58e6a5eea9fcf573d2554891de781}{\index{Display@{Display}!load\-Textures@{load\-Textures}}
+\index{load\-Textures@{load\-Textures}!Display@{Display}}
+\subsubsection[{load\-Textures}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::load\-Textures (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a5af58e6a5eea9fcf573d2554891de781}
+
+
+Loads all textures as Rectangles. 
+
+Each of the textures are loaded from files. All textures are defined in \hyperlink{Structures_8h}{Structures.\-h} 
+
+Definition at line 97 of file Display.\-cpp.
+
+
+
+References \-\_\-barrier\-\_\-texture\-\_\-file, \-\_\-end\-\_\-texture\-\_\-file, \-\_\-game\-\_\-sprite\-\_\-dimensions, \-\_\-game\-\_\-textures, \-\_\-map\-\_\-texture\-\_\-file, \-\_\-mine\-\_\-texture\-\_\-file, \-\_\-missile\-\_\-texture\-\_\-file, \-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file, \-\_\-tank1\-\_\-texture\-\_\-file, \-\_\-tank2\-\_\-texture\-\_\-file, \-\_\-turret\-\_\-texture\-\_\-file, textures\-::barrier, Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-y, textures\-::end\-\_\-screen, textures\-::map, Sprite\-Dimensions\-::map\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::map\-\_\-sprite\-\_\-y, textures\-::mine, Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-y, textures\-::missile, Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-y, textures\-::tank\-\_\-1, textures\-::tank\-\_\-2, Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-y, textures\-::turret, textures\-::turret\-\_\-missile, and Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-x.
+
+
+
+Referenced by Display().
+
+
+\begin{DoxyCode}
+98 \{
+99     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a9287e247a5d108ed875b7b5b89ded524}{tank\_1}.loadFromFile(\hyperlink{classDisplay_a4055ddd33815347b986bb7437bdc1c79}{\_tank1\_texture\_file}, 
+      sf::IntRect(0,0,\hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}{tank\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y}));
+100     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a3322b3f064640afe1a4ebdb53636b71d}{tank\_2}.loadFromFile(\hyperlink{classDisplay_a5ab9e2102af414ee9d1d8d5b090ad9da}{\_tank2\_texture\_file}, 
+      sf::IntRect(0,0,\hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}{tank\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y}));
+101     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a1d12557e92da80a9809f037edfe72f2f}{missile}.loadFromFile(
+      \hyperlink{classDisplay_a11a966967d1bfa745d910f25da35b6fb}{\_missile\_texture\_file}, sf::IntRect(0,0,
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}{missile\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}{missile\_sprite\_y}));
+102     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a7f5b6643fd47d1bd8d5758c24c32dc9e}{mine}.loadFromFile(\hyperlink{classDisplay_a9b6a965f2d1ca97d9c243d4bbd941994}{\_mine\_texture\_file}, sf::IntRect(0,
+      0,\hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_af7f442b00b4a2d9d8b9ad47371a0018f}{mine\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_a256b5245430fc54ae2cace272260dbe1}{mine\_sprite\_y} ));
+103     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a36f35bd26858ecc8eb507e1072bfad7d}{barrier}.loadFromFile(
+      \hyperlink{classDisplay_af921ed4131e5d5763e76ea7c54c3fea8}{\_barrier\_texture\_file}, sf::IntRect(0,0,
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\_sprite\_y}));
+104     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a8454a0f97657e68ca0076f19c4de6236}{turret}.loadFromFile(\hyperlink{classDisplay_a1e2dc0b7ef570f4584b7f171330a209d}{\_turret\_texture\_file}, 
+      sf::IntRect(0,0,\hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}{turret\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y}));
+105     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a703e4f064d67c1cee84ba8560a6104c6}{map}.loadFromFile(\hyperlink{classDisplay_ac3bdb11a00913038ceeee3171fa99ea3}{\_map\_texture\_file}, sf::IntRect(0,0,
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_a69ff9ddd57b6fe4af120278bcece5439}{map\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_a33014d94b303afe312e1a4b2fb5e437f}{map\_sprite\_y}));
+106     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_aa9ff61d80b32b3520308d8df61a8ea3f}{turret\_missile}.loadFromFile(
+      \hyperlink{classDisplay_a4d984df72ac348f13c50357bc58ad797}{\_missile\_turret\_texture\_file}, sf::IntRect(0,0,
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}{missile\_sprite\_x},
+      \hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.\hyperlink{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}{missile\_sprite\_y}));
+107     \hyperlink{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\_game\_textures}.\hyperlink{structtextures_a6cb62efe7a4e59ebdc681261f22b8cae}{end\_screen}.loadFromFile(
+      \hyperlink{classDisplay_ac8eb9dbc23ed61c56ea69adfdbfeecde}{\_end\_texture\_file}, sf::IntRect(0,0,\hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a69ff9ddd57b6fe4af120278bcece5439}{map\_sprite\_x},\hyperlink{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\_game\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a33014d94b303afe312e1a4b2fb5e437f}{map\_sprite\_y}));
+108 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_aa56b082e14b61988f2d0d01617e0c27d}{\index{Display@{Display}!poll\-Events@{poll\-Events}}
+\index{poll\-Events@{poll\-Events}!Display@{Display}}
+\subsubsection[{poll\-Events}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::poll\-Events (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDisplay_aa56b082e14b61988f2d0d01617e0c27d}
+
+
+Checks S\-F\-M\-L window events. 
+
+The only event included here is the closed window event. If the window is closed, the window in the software is closed too .Other events may be added here. 
+
+Definition at line 169 of file Display.\-cpp.
+
+
+
+References \-\_\-window.
+
+
+\begin{DoxyCode}
+170 \{
+171     sf::Event event;
+172 
+173     \textcolor{keywordflow}{while} (\hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.pollEvent(event))
+174     \{
+175         \textcolor{keywordflow}{if} (event.type == sf::Event::Closed)
+176             \hyperlink{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\_window}.close();
+177     \}
+178 \}
+\end{DoxyCode}
+\hypertarget{classDisplay_ad831893d7d3656e456c7f5c6915701f1}{\index{Display@{Display}!setup\-Text@{setup\-Text}}
+\index{setup\-Text@{setup\-Text}!Display@{Display}}
+\subsubsection[{setup\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-::setup\-Text (
+\begin{DoxyParamCaption}
+\item[{sf\-::\-Text \&}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_ad831893d7d3656e456c7f5c6915701f1}
+
+
+Initialises font properties. 
+
+All fonts are the same size, colour and style 
+\begin{DoxyParams}{Parameters}
+{\em text} & \-:\-: the text to be initialised \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Display.\-cpp.
+
+
+
+References \-\_\-font\-\_\-size, and \-\_\-font\-\_\-style.
+
+
+
+Referenced by Display().
+
+
+\begin{DoxyCode}
+86 \{
+87     text.setFont(\hyperlink{classDisplay_a937e4b846d090d1d520e15d6233bbfc0}{\_font\_style});
+88     text.setCharacterSize(\hyperlink{classDisplay_ae10066fc5854e77ea65d3a64912b079a}{\_font\_size});
+89     text.setColor(sf::Color::White);
+90     text.setStyle(sf::Text::Bold);
+91 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classDisplay_af921ed4131e5d5763e76ea7c54c3fea8}{\index{Display@{Display}!\-\_\-barrier\-\_\-texture\-\_\-file@{\-\_\-barrier\-\_\-texture\-\_\-file}}
+\index{\-\_\-barrier\-\_\-texture\-\_\-file@{\-\_\-barrier\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-barrier\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-barrier\-\_\-texture\-\_\-file = \char`\"{}barrier.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_af921ed4131e5d5763e76ea7c54c3fea8}
+
+
+\hyperlink{classBarrier}{Barrier} texture file name. 
+
+
+
+Definition at line 60 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_a3bcec98cfc7e32f4fb46e625d76984a0}{\index{Display@{Display}!\-\_\-end\-\_\-map\-\_\-sprite@{\-\_\-end\-\_\-map\-\_\-sprite}}
+\index{\-\_\-end\-\_\-map\-\_\-sprite@{\-\_\-end\-\_\-map\-\_\-sprite}!Display@{Display}}
+\subsubsection[{\-\_\-end\-\_\-map\-\_\-sprite}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Sprite Display\-::\-\_\-end\-\_\-map\-\_\-sprite\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a3bcec98cfc7e32f4fb46e625d76984a0}
+
+
+End game screen sprite. 
+
+
+
+Definition at line 78 of file Display.\-h.
+
+
+
+Referenced by Display(), and draw\-End\-Screen().
+
+\hypertarget{classDisplay_ad41d7097510e56a9f16e97d7cc13c5b6}{\index{Display@{Display}!\-\_\-end\-\_\-map\-\_\-texture@{\-\_\-end\-\_\-map\-\_\-texture}}
+\index{\-\_\-end\-\_\-map\-\_\-texture@{\-\_\-end\-\_\-map\-\_\-texture}!Display@{Display}}
+\subsubsection[{\-\_\-end\-\_\-map\-\_\-texture}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Texture Display\-::\-\_\-end\-\_\-map\-\_\-texture\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_ad41d7097510e56a9f16e97d7cc13c5b6}
+
+
+End game screen texture. 
+
+
+
+Definition at line 83 of file Display.\-h.
+
+
+
+Referenced by Display().
+
+\hypertarget{classDisplay_ac8eb9dbc23ed61c56ea69adfdbfeecde}{\index{Display@{Display}!\-\_\-end\-\_\-texture\-\_\-file@{\-\_\-end\-\_\-texture\-\_\-file}}
+\index{\-\_\-end\-\_\-texture\-\_\-file@{\-\_\-end\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-end\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-end\-\_\-texture\-\_\-file = \char`\"{}end\-\_\-screen.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_ac8eb9dbc23ed61c56ea69adfdbfeecde}
+
+
+End screen texture file name. 
+
+
+
+Definition at line 70 of file Display.\-h.
+
+
+
+Referenced by Display(), and load\-Textures().
+
+\hypertarget{classDisplay_a69effabf34c7f71ddf83be77977b56f2}{\index{Display@{Display}!\-\_\-font\-\_\-file@{\-\_\-font\-\_\-file}}
+\index{\-\_\-font\-\_\-file@{\-\_\-font\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-font\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-font\-\_\-file = \char`\"{}futura\-\_\-light.\-ttf\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a69effabf34c7f71ddf83be77977b56f2}
+
+
+Font file name. 
+
+
+
+Definition at line 68 of file Display.\-h.
+
+
+
+Referenced by Display().
+
+\hypertarget{classDisplay_ae10066fc5854e77ea65d3a64912b079a}{\index{Display@{Display}!\-\_\-font\-\_\-size@{\-\_\-font\-\_\-size}}
+\index{\-\_\-font\-\_\-size@{\-\_\-font\-\_\-size}!Display@{Display}}
+\subsubsection[{\-\_\-font\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}const int Display\-::\-\_\-font\-\_\-size = 20\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_ae10066fc5854e77ea65d3a64912b079a}
+
+
+Constant size for all window fonts. 
+
+
+
+Definition at line 93 of file Display.\-h.
+
+
+
+Referenced by setup\-Text().
+
+\hypertarget{classDisplay_a937e4b846d090d1d520e15d6233bbfc0}{\index{Display@{Display}!\-\_\-font\-\_\-style@{\-\_\-font\-\_\-style}}
+\index{\-\_\-font\-\_\-style@{\-\_\-font\-\_\-style}!Display@{Display}}
+\subsubsection[{\-\_\-font\-\_\-style}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Font Display\-::\-\_\-font\-\_\-style\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a937e4b846d090d1d520e15d6233bbfc0}
+
+
+S\-F\-M\-L font style. 
+
+
+
+Definition at line 91 of file Display.\-h.
+
+
+
+Referenced by Display(), and setup\-Text().
+
+\hypertarget{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}{\index{Display@{Display}!\-\_\-game\-\_\-sprite\-\_\-dimensions@{\-\_\-game\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-game\-\_\-sprite\-\_\-dimensions@{\-\_\-game\-\_\-sprite\-\_\-dimensions}!Display@{Display}}
+\subsubsection[{\-\_\-game\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Display\-::\-\_\-game\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_acf0a20ec8a01c1917d62f20ddf2d2f51}
+
+
+Holds information about all the sprite dimensions. 
+
+
+
+Definition at line 47 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_a64ae525710346f1a982efa05b8c53a88}{\index{Display@{Display}!\-\_\-game\-\_\-textures@{\-\_\-game\-\_\-textures}}
+\index{\-\_\-game\-\_\-textures@{\-\_\-game\-\_\-textures}!Display@{Display}}
+\subsubsection[{\-\_\-game\-\_\-textures}]{\setlength{\rightskip}{0pt plus 5cm}{\bf textures} Display\-::\-\_\-game\-\_\-textures\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a64ae525710346f1a982efa05b8c53a88}
+
+
+Struct of all textures in the game. 
+
+
+
+Definition at line 49 of file Display.\-h.
+
+
+
+Referenced by add\-Sprites(), and load\-Textures().
+
+\hypertarget{classDisplay_ad9b50fa7903081469111841965b995ba}{\index{Display@{Display}!\-\_\-game\-\_\-time\-\_\-pos@{\-\_\-game\-\_\-time\-\_\-pos}}
+\index{\-\_\-game\-\_\-time\-\_\-pos@{\-\_\-game\-\_\-time\-\_\-pos}!Display@{Display}}
+\subsubsection[{\-\_\-game\-\_\-time\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}const int Display\-::\-\_\-game\-\_\-time\-\_\-pos = 550\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_ad9b50fa7903081469111841965b995ba}
+
+
+Horzontal position of game time text. 
+
+
+
+Definition at line 98 of file Display.\-h.
+
+
+
+Referenced by Display().
+
+\hypertarget{classDisplay_a36007f3ed0cb7f8174ef601dbde3adab}{\index{Display@{Display}!\-\_\-game\-\_\-time\-\_\-text@{\-\_\-game\-\_\-time\-\_\-text}}
+\index{\-\_\-game\-\_\-time\-\_\-text@{\-\_\-game\-\_\-time\-\_\-text}!Display@{Display}}
+\subsubsection[{\-\_\-game\-\_\-time\-\_\-text}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Text Display\-::\-\_\-game\-\_\-time\-\_\-text\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a36007f3ed0cb7f8174ef601dbde3adab}
+
+
+Runtime S\-F\-M\-L text. 
+
+
+
+Definition at line 85 of file Display.\-h.
+
+
+
+Referenced by Display(), and draw\-Text().
+
+\hypertarget{classDisplay_a2ec82cf1355d968c3863c9089ab2e511}{\index{Display@{Display}!\-\_\-map\-\_\-sprite@{\-\_\-map\-\_\-sprite}}
+\index{\-\_\-map\-\_\-sprite@{\-\_\-map\-\_\-sprite}!Display@{Display}}
+\subsubsection[{\-\_\-map\-\_\-sprite}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Sprite Display\-::\-\_\-map\-\_\-sprite\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a2ec82cf1355d968c3863c9089ab2e511}
+
+
+Map (background) S\-F\-M\-L sprite. 
+
+
+
+Definition at line 76 of file Display.\-h.
+
+
+
+Referenced by Display(), and draw\-Background().
+
+\hypertarget{classDisplay_aa98ca168c20ac56fe56def6686cf9f91}{\index{Display@{Display}!\-\_\-map\-\_\-texture@{\-\_\-map\-\_\-texture}}
+\index{\-\_\-map\-\_\-texture@{\-\_\-map\-\_\-texture}!Display@{Display}}
+\subsubsection[{\-\_\-map\-\_\-texture}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Texture Display\-::\-\_\-map\-\_\-texture\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_aa98ca168c20ac56fe56def6686cf9f91}
+
+
+Map (background) S\-F\-M\-L texture. 
+
+
+
+Definition at line 81 of file Display.\-h.
+
+
+
+Referenced by Display().
+
+\hypertarget{classDisplay_ac3bdb11a00913038ceeee3171fa99ea3}{\index{Display@{Display}!\-\_\-map\-\_\-texture\-\_\-file@{\-\_\-map\-\_\-texture\-\_\-file}}
+\index{\-\_\-map\-\_\-texture\-\_\-file@{\-\_\-map\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-map\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-map\-\_\-texture\-\_\-file = \char`\"{}map.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_ac3bdb11a00913038ceeee3171fa99ea3}
+
+
+Map (background) texture file name. 
+
+
+
+Definition at line 64 of file Display.\-h.
+
+
+
+Referenced by Display(), and load\-Textures().
+
+\hypertarget{classDisplay_a9b6a965f2d1ca97d9c243d4bbd941994}{\index{Display@{Display}!\-\_\-mine\-\_\-texture\-\_\-file@{\-\_\-mine\-\_\-texture\-\_\-file}}
+\index{\-\_\-mine\-\_\-texture\-\_\-file@{\-\_\-mine\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-mine\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-mine\-\_\-texture\-\_\-file = \char`\"{}mine.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a9b6a965f2d1ca97d9c243d4bbd941994}
+
+
+\hyperlink{classMine}{Mine} texture file name. 
+
+
+
+Definition at line 58 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_a11a966967d1bfa745d910f25da35b6fb}{\index{Display@{Display}!\-\_\-missile\-\_\-texture\-\_\-file@{\-\_\-missile\-\_\-texture\-\_\-file}}
+\index{\-\_\-missile\-\_\-texture\-\_\-file@{\-\_\-missile\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-missile\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-missile\-\_\-texture\-\_\-file = \char`\"{}missile.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a11a966967d1bfa745d910f25da35b6fb}
+
+
+Tanks missile texture file name. 
+
+
+
+Definition at line 56 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_a4d984df72ac348f13c50357bc58ad797}{\index{Display@{Display}!\-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file@{\-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file}}
+\index{\-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file@{\-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-missile\-\_\-turret\-\_\-texture\-\_\-file = \char`\"{}missile\-\_\-turret.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a4d984df72ac348f13c50357bc58ad797}
+
+
+\hyperlink{classTurret}{Turret} missile texture file name. 
+
+
+
+Definition at line 66 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_af7115b9c3e4cdedf1398bcbdbf794270}{\index{Display@{Display}!\-\_\-p1\-\_\-score\-\_\-pos@{\-\_\-p1\-\_\-score\-\_\-pos}}
+\index{\-\_\-p1\-\_\-score\-\_\-pos@{\-\_\-p1\-\_\-score\-\_\-pos}!Display@{Display}}
+\subsubsection[{\-\_\-p1\-\_\-score\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}const int Display\-::\-\_\-p1\-\_\-score\-\_\-pos = 950\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_af7115b9c3e4cdedf1398bcbdbf794270}
+
+
+Horizontal position of player 1 score text. 
+
+
+
+Definition at line 100 of file Display.\-h.
+
+
+
+Referenced by Display().
+
+\hypertarget{classDisplay_a0545991d352f9d4e7bda7d2f3b6a0236}{\index{Display@{Display}!\-\_\-p1\-\_\-score\-\_\-text@{\-\_\-p1\-\_\-score\-\_\-text}}
+\index{\-\_\-p1\-\_\-score\-\_\-text@{\-\_\-p1\-\_\-score\-\_\-text}!Display@{Display}}
+\subsubsection[{\-\_\-p1\-\_\-score\-\_\-text}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Text Display\-::\-\_\-p1\-\_\-score\-\_\-text\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a0545991d352f9d4e7bda7d2f3b6a0236}
+
+
+Player 1 S\-F\-M\-L score text. 
+
+
+
+Definition at line 87 of file Display.\-h.
+
+
+
+Referenced by Display(), and draw\-Text().
+
+\hypertarget{classDisplay_a223efbfb6036d823dbaf09e4180a07fb}{\index{Display@{Display}!\-\_\-p2\-\_\-score\-\_\-pos@{\-\_\-p2\-\_\-score\-\_\-pos}}
+\index{\-\_\-p2\-\_\-score\-\_\-pos@{\-\_\-p2\-\_\-score\-\_\-pos}!Display@{Display}}
+\subsubsection[{\-\_\-p2\-\_\-score\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}const int Display\-::\-\_\-p2\-\_\-score\-\_\-pos = 100\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a223efbfb6036d823dbaf09e4180a07fb}
+
+
+Horizontal position of player 2 score text. 
+
+
+
+Definition at line 102 of file Display.\-h.
+
+
+
+Referenced by Display().
+
+\hypertarget{classDisplay_a80ea7a2642db4a379d756b0132d26343}{\index{Display@{Display}!\-\_\-p2\-\_\-score\-\_\-text@{\-\_\-p2\-\_\-score\-\_\-text}}
+\index{\-\_\-p2\-\_\-score\-\_\-text@{\-\_\-p2\-\_\-score\-\_\-text}!Display@{Display}}
+\subsubsection[{\-\_\-p2\-\_\-score\-\_\-text}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Text Display\-::\-\_\-p2\-\_\-score\-\_\-text\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a80ea7a2642db4a379d756b0132d26343}
+
+
+Player 2 S\-F\-M\-L score text. 
+
+
+
+Definition at line 89 of file Display.\-h.
+
+
+
+Referenced by Display(), and draw\-Text().
+
+\hypertarget{classDisplay_a975326ca007706c154317ddef67000f4}{\index{Display@{Display}!\-\_\-sprites@{\-\_\-sprites}}
+\index{\-\_\-sprites@{\-\_\-sprites}!Display@{Display}}
+\subsubsection[{\-\_\-sprites}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<${\bf entity\-\_\-type}, std\-::shared\-\_\-ptr$<$sf\-::\-Sprite$>$ $>$ Display\-::\-\_\-sprites\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a975326ca007706c154317ddef67000f4}
+
+
+Map container for the sprites that will be drawn. 
+
+
+
+Definition at line 73 of file Display.\-h.
+
+
+
+Referenced by add\-Sprites(), and draw\-Entity().
+
+\hypertarget{classDisplay_a4055ddd33815347b986bb7437bdc1c79}{\index{Display@{Display}!\-\_\-tank1\-\_\-texture\-\_\-file@{\-\_\-tank1\-\_\-texture\-\_\-file}}
+\index{\-\_\-tank1\-\_\-texture\-\_\-file@{\-\_\-tank1\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-tank1\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-tank1\-\_\-texture\-\_\-file = \char`\"{}tank\-\_\-blue.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a4055ddd33815347b986bb7437bdc1c79}
+
+
+\hyperlink{classTank}{Tank} 1 texture file name. 
+
+
+
+Definition at line 52 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_a5ab9e2102af414ee9d1d8d5b090ad9da}{\index{Display@{Display}!\-\_\-tank2\-\_\-texture\-\_\-file@{\-\_\-tank2\-\_\-texture\-\_\-file}}
+\index{\-\_\-tank2\-\_\-texture\-\_\-file@{\-\_\-tank2\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-tank2\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-tank2\-\_\-texture\-\_\-file = \char`\"{}tank\-\_\-red.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a5ab9e2102af414ee9d1d8d5b090ad9da}
+
+
+\hyperlink{classTank}{Tank} 2 texture file name. 
+
+
+
+Definition at line 54 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_ae85ee765b92689445aca8cead24d8184}{\index{Display@{Display}!\-\_\-text\-\_\-y\-\_\-allignment@{\-\_\-text\-\_\-y\-\_\-allignment}}
+\index{\-\_\-text\-\_\-y\-\_\-allignment@{\-\_\-text\-\_\-y\-\_\-allignment}!Display@{Display}}
+\subsubsection[{\-\_\-text\-\_\-y\-\_\-allignment}]{\setlength{\rightskip}{0pt plus 5cm}const int Display\-::\-\_\-text\-\_\-y\-\_\-allignment = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_ae85ee765b92689445aca8cead24d8184}
+
+
+Vertical alignment for runtime and player scores. 
+
+
+
+Definition at line 96 of file Display.\-h.
+
+
+
+Referenced by Display().
+
+\hypertarget{classDisplay_a1e2dc0b7ef570f4584b7f171330a209d}{\index{Display@{Display}!\-\_\-turret\-\_\-texture\-\_\-file@{\-\_\-turret\-\_\-texture\-\_\-file}}
+\index{\-\_\-turret\-\_\-texture\-\_\-file@{\-\_\-turret\-\_\-texture\-\_\-file}!Display@{Display}}
+\subsubsection[{\-\_\-turret\-\_\-texture\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Display\-::\-\_\-turret\-\_\-texture\-\_\-file = \char`\"{}turret.\-png\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a1e2dc0b7ef570f4584b7f171330a209d}
+
+
+\hyperlink{classTurret}{Turret} texture file name. 
+
+
+
+Definition at line 62 of file Display.\-h.
+
+
+
+Referenced by load\-Textures().
+
+\hypertarget{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}{\index{Display@{Display}!\-\_\-window@{\-\_\-window}}
+\index{\-\_\-window@{\-\_\-window}!Display@{Display}}
+\subsubsection[{\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}sf\-::\-Render\-Window Display\-::\-\_\-window\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_aeb0bd9ad8ee786de5f4f0f7c738b1b11}
+
+
+S\-F\-M\-L window where all sprites are drawn. 
+
+
+
+Definition at line 44 of file Display.\-h.
+
+
+
+Referenced by clear(), Display(), display(), draw\-Background(), draw\-End\-Screen(), draw\-Entity(), draw\-Text(), is\-Open(), and poll\-Events().
+
+\hypertarget{classDisplay_a3e66e647786a79f49b985d45e1ad4ac2}{\index{Display@{Display}!\-\_\-window\-\_\-height@{\-\_\-window\-\_\-height}}
+\index{\-\_\-window\-\_\-height@{\-\_\-window\-\_\-height}!Display@{Display}}
+\subsubsection[{\-\_\-window\-\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}int Display\-::\-\_\-window\-\_\-height\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a3e66e647786a79f49b985d45e1ad4ac2}
+
+
+\hyperlink{classDisplay}{Display} window height. 
+
+
+
+Definition at line 42 of file Display.\-h.
+
+\hypertarget{classDisplay_a715bf4b76abf3b8a8cc495cbb7dfd4b0}{\index{Display@{Display}!\-\_\-window\-\_\-width@{\-\_\-window\-\_\-width}}
+\index{\-\_\-window\-\_\-width@{\-\_\-window\-\_\-width}!Display@{Display}}
+\subsubsection[{\-\_\-window\-\_\-width}]{\setlength{\rightskip}{0pt plus 5cm}int Display\-::\-\_\-window\-\_\-width\hspace{0.3cm}{\ttfamily [private]}}}\label{classDisplay_a715bf4b76abf3b8a8cc495cbb7dfd4b0}
+
+
+\hyperlink{classDisplay}{Display} window width. 
+
+
+
+Definition at line 40 of file Display.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Display_8h}{Display.\-h}\item 
+\hyperlink{Display_8cpp}{Display.\-cpp}\end{DoxyCompactItemize}

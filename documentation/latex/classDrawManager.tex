@@ -1,0 +1,549 @@
+\hypertarget{classDrawManager}{\section{Draw\-Manager Class Reference}
+\label{classDrawManager}\index{Draw\-Manager@{Draw\-Manager}}
+}
+
+
+\hyperlink{classManager}{Manager} class responsible for preparing draw data.  
+
+
+
+
+{\ttfamily \#include $<$Draw\-Manager.\-h$>$}
+
+Inheritance diagram for Draw\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDrawManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDrawManager_a9a1e8b606471661af565479f7366bf21}{Draw\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Draw manager object constructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classDrawManager_a2c48a7d348b9f6961f2b615015dc482f}{manage} (\hyperlink{classGameStateData}{Game\-State\-Data} \&game\-\_\-state\-\_\-container, std\-::shared\-\_\-ptr$<$ \hyperlink{classDisplay}{Display} $>$ display)
+\begin{DoxyCompactList}\small\item\em Drawing management cycle. \end{DoxyCompactList}\item 
+void \hyperlink{classDrawManager_aea3804a9564e6185eec3750f5ff4e33f}{add\-New\-Entity} (const std\-::weak\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ new\-\_\-entity)
+\begin{DoxyCompactList}\small\item\em Adds a pointer to a drawable object. \end{DoxyCompactList}\item 
+virtual \hyperlink{classDrawManager_ab2cbca4d18cb8838662754bb01585a9a}{$\sim$\-Draw\-Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDrawManager_a450157950bdd23c27bc5dcdafdaa3101}{get\-Tank\-Draw\-Info} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ draw\-\_\-entity\-\_\-sp, \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info} \&draw\-\_\-info)
+\begin{DoxyCompactList}\small\item\em Gets info for tank to be drawn. \end{DoxyCompactList}\item 
+void \hyperlink{classDrawManager_ae85d0a7a0c8b6c2a3abb0a617d8599ea}{get\-Missile\-Draw\-Info} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ draw\-\_\-entity\-\_\-sp, \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info} \&draw\-\_\-info)
+\begin{DoxyCompactList}\small\item\em Gets info for missile to be drawn. \end{DoxyCompactList}\item 
+void \hyperlink{classDrawManager_ac82e7f4f521c0a6eda4551c7182b782e}{get\-Mine\-Draw\-Info} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ draw\-\_\-entity\-\_\-sp, \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info} \&draw\-\_\-info)
+\begin{DoxyCompactList}\small\item\em Gets info for mine to be drawn. \end{DoxyCompactList}\item 
+void \hyperlink{classDrawManager_a41ad9837106a08143f5799c2e50535ff}{get\-Barrier\-Draw\-Info} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ draw\-\_\-entity\-\_\-sp, \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info} \&draw\-\_\-info)
+\begin{DoxyCompactList}\small\item\em Gets info for barrier to be drawn. \end{DoxyCompactList}\item 
+void \hyperlink{classDrawManager_ab63c01f42532b275a095c09e0a06cad9}{get\-Turret\-Draw\-Info} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ draw\-\_\-entity\-\_\-sp, \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info} \&draw\-\_\-info)
+\begin{DoxyCompactList}\small\item\em Gets info for turret to be drawn. \end{DoxyCompactList}\item 
+void \hyperlink{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}{get\-Draw\-Position} (std\-::shared\-\_\-ptr$<$ \hyperlink{classDeletable}{Deletable} $>$ draw\-\_\-entity\-\_\-sp, \hyperlink{structsprite__draw__info}{sprite\-\_\-draw\-\_\-info} \&draw\-\_\-info)
+\begin{DoxyCompactList}\small\item\em Gets info for an entity to be drawn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::weak\-\_\-ptr\\*
+$<$ \hyperlink{classDeletable}{Deletable} $>$ $>$ \hyperlink{classDrawManager_a87982f3a0af2ece0a3a431a8f2fe4478}{\-\_\-drawables}
+\begin{DoxyCompactList}\small\item\em Pointers to all drawable entites within the game world. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em Private data object that holds sprite dimension info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classManager}{Manager} class responsible for preparing draw data. 
+
+Definition at line 24 of file Draw\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDrawManager_a9a1e8b606471661af565479f7366bf21}{\index{Draw\-Manager@{Draw\-Manager}!Draw\-Manager@{Draw\-Manager}}
+\index{Draw\-Manager@{Draw\-Manager}!DrawManager@{Draw\-Manager}}
+\subsubsection[{Draw\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Draw\-Manager\-::\-Draw\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDrawManager_a9a1e8b606471661af565479f7366bf21}
+
+
+Draw manager object constructor. 
+
+Create the sprite dimensions object 
+
+Definition at line 18 of file Draw\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+18                         :
+19     \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}()
+20 \{
+21 
+22 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_ab2cbca4d18cb8838662754bb01585a9a}{\index{Draw\-Manager@{Draw\-Manager}!$\sim$\-Draw\-Manager@{$\sim$\-Draw\-Manager}}
+\index{$\sim$\-Draw\-Manager@{$\sim$\-Draw\-Manager}!DrawManager@{Draw\-Manager}}
+\subsubsection[{$\sim$\-Draw\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Draw\-Manager\-::$\sim$\-Draw\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDrawManager_ab2cbca4d18cb8838662754bb01585a9a}
+
+
+Definition at line 209 of file Draw\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+210 \{
+211 
+212 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDrawManager_aea3804a9564e6185eec3750f5ff4e33f}{\index{Draw\-Manager@{Draw\-Manager}!add\-New\-Entity@{add\-New\-Entity}}
+\index{add\-New\-Entity@{add\-New\-Entity}!DrawManager@{Draw\-Manager}}
+\subsubsection[{add\-New\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::add\-New\-Entity (
+\begin{DoxyParamCaption}
+\item[{const std\-::weak\-\_\-ptr$<$ {\bf Deletable} $>$}]{new\-\_\-entity}
+\end{DoxyParamCaption}
+)}}\label{classDrawManager_aea3804a9564e6185eec3750f5ff4e33f}
+
+
+Adds a pointer to a drawable object. 
+
+A weak pointer is saved to the private vector of the \hyperlink{classDrawManager}{Draw\-Manager} 
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-entity} & \-:\-: weak pointer to entity that will be added \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 203 of file Draw\-Manager.\-cpp.
+
+
+
+References \-\_\-drawables.
+
+
+
+Referenced by Game\-::add\-Deletable(), and main().
+
+
+\begin{DoxyCode}
+204 \{
+205     \hyperlink{classDrawManager_a87982f3a0af2ece0a3a431a8f2fe4478}{\_drawables}.push\_back(new\_entity);
+206 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_a41ad9837106a08143f5799c2e50535ff}{\index{Draw\-Manager@{Draw\-Manager}!get\-Barrier\-Draw\-Info@{get\-Barrier\-Draw\-Info}}
+\index{get\-Barrier\-Draw\-Info@{get\-Barrier\-Draw\-Info}!DrawManager@{Draw\-Manager}}
+\subsubsection[{get\-Barrier\-Draw\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::get\-Barrier\-Draw\-Info (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{draw\-\_\-entity\-\_\-sp, }
+\item[{{\bf sprite\-\_\-draw\-\_\-info} \&}]{draw\-\_\-info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_a41ad9837106a08143f5799c2e50535ff}
+
+
+Gets info for barrier to be drawn. 
+
+This info includs the origin and position of the barrier. 
+\begin{DoxyParams}{Parameters}
+{\em draw\-\_\-entity\-\_\-sp} & \-:\-: shared pointer to the object from which info will be extracted \\
+\hline
+{\em draw\-\_\-info} & \-:\-: Info that will be updated with the entity draw position info. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 144 of file Draw\-Manager.\-cpp.
+
+
+
+References \-\_\-sprite\-\_\-dimensions, Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-y, get\-Draw\-Position(), sprite\-\_\-draw\-\_\-info\-::origin, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+145 \{
+146     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\_sprite\_x}/2;
+147     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\_sprite\_y}/2;
+148     \hyperlink{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}{getDrawPosition}(draw\_entity\_sp, draw\_info);
+149 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}{\index{Draw\-Manager@{Draw\-Manager}!get\-Draw\-Position@{get\-Draw\-Position}}
+\index{get\-Draw\-Position@{get\-Draw\-Position}!DrawManager@{Draw\-Manager}}
+\subsubsection[{get\-Draw\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::get\-Draw\-Position (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{draw\-\_\-entity\-\_\-sp, }
+\item[{{\bf sprite\-\_\-draw\-\_\-info} \&}]{draw\-\_\-info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}
+
+
+Gets info for an entity to be drawn. 
+
+This info includs the origin and position of the entity. 
+\begin{DoxyParams}{Parameters}
+{\em draw\-\_\-entity\-\_\-sp} & \-:\-: shared pointer to the object from which info will be extracted \\
+\hline
+{\em draw\-\_\-info} & \-:\-: Info that will be updated with the entity draw position info. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 192 of file Draw\-Manager.\-cpp.
+
+
+
+References sprite\-\_\-draw\-\_\-info\-::draw\-\_\-pos, sprite\-\_\-draw\-\_\-info\-::rotation, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by get\-Barrier\-Draw\-Info(), get\-Mine\-Draw\-Info(), get\-Missile\-Draw\-Info(), get\-Tank\-Draw\-Info(), and get\-Turret\-Draw\-Info().
+
+
+\begin{DoxyCode}
+193 \{
+194     draw\_info.\hyperlink{structsprite__draw__info_acf0a863cddf497e364e3cdc9c46b8564}{draw\_pos}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = draw\_entity\_sp->getDrawPositionX();
+195     draw\_info.\hyperlink{structsprite__draw__info_acf0a863cddf497e364e3cdc9c46b8564}{draw\_pos}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = draw\_entity\_sp->getDrawPositionY();
+196     draw\_info.\hyperlink{structsprite__draw__info_a41292dd9fa6ca00d553a6c93f18e2a40}{rotation} = draw\_entity\_sp->getDrawRotation();
+197 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_ac82e7f4f521c0a6eda4551c7182b782e}{\index{Draw\-Manager@{Draw\-Manager}!get\-Mine\-Draw\-Info@{get\-Mine\-Draw\-Info}}
+\index{get\-Mine\-Draw\-Info@{get\-Mine\-Draw\-Info}!DrawManager@{Draw\-Manager}}
+\subsubsection[{get\-Mine\-Draw\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::get\-Mine\-Draw\-Info (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{draw\-\_\-entity\-\_\-sp, }
+\item[{{\bf sprite\-\_\-draw\-\_\-info} \&}]{draw\-\_\-info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_ac82e7f4f521c0a6eda4551c7182b782e}
+
+
+Gets info for mine to be drawn. 
+
+This info includs the origin and position of the mine. 
+\begin{DoxyParams}{Parameters}
+{\em draw\-\_\-entity\-\_\-sp} & \-:\-: shared pointer to the object from which info will be extracted \\
+\hline
+{\em draw\-\_\-info} & \-:\-: Info that will be updated with the entity draw position info. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 168 of file Draw\-Manager.\-cpp.
+
+
+
+References \-\_\-sprite\-\_\-dimensions, get\-Draw\-Position(), Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::mine\-\_\-sprite\-\_\-y, sprite\-\_\-draw\-\_\-info\-::origin, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+169 \{
+170     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_af7f442b00b4a2d9d8b9ad47371a0018f}{mine\_sprite\_x}/2;
+171     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a256b5245430fc54ae2cace272260dbe1}{mine\_sprite\_y}/2;
+172     \hyperlink{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}{getDrawPosition}(draw\_entity\_sp, draw\_info);
+173 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_ae85d0a7a0c8b6c2a3abb0a617d8599ea}{\index{Draw\-Manager@{Draw\-Manager}!get\-Missile\-Draw\-Info@{get\-Missile\-Draw\-Info}}
+\index{get\-Missile\-Draw\-Info@{get\-Missile\-Draw\-Info}!DrawManager@{Draw\-Manager}}
+\subsubsection[{get\-Missile\-Draw\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::get\-Missile\-Draw\-Info (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{draw\-\_\-entity\-\_\-sp, }
+\item[{{\bf sprite\-\_\-draw\-\_\-info} \&}]{draw\-\_\-info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_ae85d0a7a0c8b6c2a3abb0a617d8599ea}
+
+
+Gets info for missile to be drawn. 
+
+This info includs the origin and position of the missile. 
+\begin{DoxyParams}{Parameters}
+{\em draw\-\_\-entity\-\_\-sp} & \-:\-: shared pointer to the object from which info will be extracted \\
+\hline
+{\em draw\-\_\-info} & \-:\-: Info that will be updated with the entity draw position info. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file Draw\-Manager.\-cpp.
+
+
+
+References \-\_\-sprite\-\_\-dimensions, get\-Draw\-Position(), Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::missile\-\_\-sprite\-\_\-y, sprite\-\_\-draw\-\_\-info\-::origin, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+157 \{
+158     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a0c406c32caf5ea7841c763100dd83ecf}{missile\_sprite\_x}/2;
+159     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_adcf501d11ae383d24cbbe5b526585f86}{missile\_sprite\_y}/2;
+160     \hyperlink{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}{getDrawPosition}(draw\_entity\_sp, draw\_info);
+161 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_a450157950bdd23c27bc5dcdafdaa3101}{\index{Draw\-Manager@{Draw\-Manager}!get\-Tank\-Draw\-Info@{get\-Tank\-Draw\-Info}}
+\index{get\-Tank\-Draw\-Info@{get\-Tank\-Draw\-Info}!DrawManager@{Draw\-Manager}}
+\subsubsection[{get\-Tank\-Draw\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::get\-Tank\-Draw\-Info (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{draw\-\_\-entity\-\_\-sp, }
+\item[{{\bf sprite\-\_\-draw\-\_\-info} \&}]{draw\-\_\-info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_a450157950bdd23c27bc5dcdafdaa3101}
+
+
+Gets info for tank to be drawn. 
+
+This info includs the origin and position of the tank. 
+\begin{DoxyParams}{Parameters}
+{\em draw\-\_\-entity\-\_\-sp} & \-:\-: shared pointer to the object from which info will be extracted \\
+\hline
+{\em draw\-\_\-info} & \-:\-: Info that will be updated with the entity draw position info. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file Draw\-Manager.\-cpp.
+
+
+
+References \-\_\-sprite\-\_\-dimensions, get\-Draw\-Position(), sprite\-\_\-draw\-\_\-info\-::origin, Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::tank\-\_\-sprite\-\_\-y, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+133 \{
+134     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a9d7ddd6f707798f86ced573e28f9eea0}{tank\_sprite\_x}/2;
+135     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abe1930e59ce44b9bdc0e6b363b668f7d}{tank\_sprite\_y}/2;
+136     \hyperlink{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}{getDrawPosition}(draw\_entity\_sp, draw\_info);
+137 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_ab63c01f42532b275a095c09e0a06cad9}{\index{Draw\-Manager@{Draw\-Manager}!get\-Turret\-Draw\-Info@{get\-Turret\-Draw\-Info}}
+\index{get\-Turret\-Draw\-Info@{get\-Turret\-Draw\-Info}!DrawManager@{Draw\-Manager}}
+\subsubsection[{get\-Turret\-Draw\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::get\-Turret\-Draw\-Info (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Deletable} $>$}]{draw\-\_\-entity\-\_\-sp, }
+\item[{{\bf sprite\-\_\-draw\-\_\-info} \&}]{draw\-\_\-info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_ab63c01f42532b275a095c09e0a06cad9}
+
+
+Gets info for turret to be drawn. 
+
+This info includs the origin and position of the turret. 
+\begin{DoxyParams}{Parameters}
+{\em draw\-\_\-entity\-\_\-sp} & \-:\-: shared pointer to the object from which info will be extracted \\
+\hline
+{\em draw\-\_\-info} & \-:\-: Info that will be updated with the entity draw position info. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 180 of file Draw\-Manager.\-cpp.
+
+
+
+References \-\_\-sprite\-\_\-dimensions, get\-Draw\-Position(), sprite\-\_\-draw\-\_\-info\-::origin, Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::turret\-\_\-sprite\-\_\-y, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+181 \{
+182     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_ad876e1e5dea420fe80462709c8ec2d5c}{turret\_sprite\_x}/2;
+183     draw\_info.\hyperlink{structsprite__draw__info_a7c12e335ba1fc83156a05a568d38a179}{origin}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = \hyperlink{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_a1b808c73bd915776ec6b8c10120adeae}{turret\_sprite\_y}/2;
+184     \hyperlink{classDrawManager_a7ca495b3e5f25cbf2d56cc7e48ff3dce}{getDrawPosition}(draw\_entity\_sp, draw\_info);
+185 \}
+\end{DoxyCode}
+\hypertarget{classDrawManager_a2c48a7d348b9f6961f2b615015dc482f}{\index{Draw\-Manager@{Draw\-Manager}!manage@{manage}}
+\index{manage@{manage}!DrawManager@{Draw\-Manager}}
+\subsubsection[{manage}]{\setlength{\rightskip}{0pt plus 5cm}void Draw\-Manager\-::manage (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-State\-Data} \&}]{game\-\_\-state\-\_\-container, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Display} $>$}]{display}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classDrawManager_a2c48a7d348b9f6961f2b615015dc482f}
+
+
+Drawing management cycle. 
+
+Main function of the \hyperlink{classDrawManager}{Draw\-Manager}. The display object is accessable within here. The \hyperlink{classDrawManager}{Draw\-Manager} first gets the display to clear the window and display the background. Then all drawables are iterated through and drawn. Info is collected based on the entity that will be drawn. This information is passed to the display object which actually performs the drawing. 
+\begin{DoxyParams}{Parameters}
+{\em game\-\_\-state\-\_\-container} & \-:\-: \hyperlink{classGame}{Game} data that hold the time and player scores to be drawn \\
+\hline
+{\em display} & \-:\-: The display to which display information is passed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file Draw\-Manager.\-cpp.
+
+
+
+References \-\_\-drawables, barrier, draw\-\_\-strings\-::game\-\_\-time, get\-Barrier\-Draw\-Info(), Game\-State\-Data\-::get\-Game\-Time(), get\-Mine\-Draw\-Info(), get\-Missile\-Draw\-Info(), Game\-State\-Data\-::get\-P1\-Score(), Game\-State\-Data\-::get\-P2\-Score(), get\-Tank\-Draw\-Info(), get\-Turret\-Draw\-Info(), p1\-\_\-mine, p1\-\_\-missile, draw\-\_\-strings\-::p1\-\_\-score, p1\-\_\-tank, p2\-\_\-mine, p2\-\_\-missile, draw\-\_\-strings\-::p2\-\_\-score, p2\-\_\-tank, turret, and turret\-\_\-missile.
+
+
+
+Referenced by main(), and Game\-::run\-All\-Managers().
+
+
+\begin{DoxyCode}
+33 \{
+34     display->clear();
+35     display->drawBackground();
+36 
+37     \hyperlink{structsprite__draw__info}{sprite\_draw\_info} draw\_info;
+38     \textcolor{comment}{//Used to traverse the vector of drawables held by DrawManager}
+39     \textcolor{keyword}{auto} draw\_itterator = \hyperlink{classDrawManager_a87982f3a0af2ece0a3a431a8f2fe4478}{\_drawables}.begin();
+40 
+41     \textcolor{comment}{//Loop through Array of Drawables and draw the corresponding sprite}
+42     \textcolor{keywordflow}{for}(;draw\_itterator != \hyperlink{classDrawManager_a87982f3a0af2ece0a3a431a8f2fe4478}{\_drawables}.end();)
+43     \{
+44         \textcolor{comment}{//Deref itterator to weak pointer}
+45         std::weak\_ptr<Deletable> draw\_entity\_wp = (*draw\_itterator);
+46         \textcolor{comment}{//Convert to shared pointer}
+47         std::shared\_ptr<Deletable> draw\_entity\_sp = draw\_entity\_wp.lock();
+48         \textcolor{comment}{//Check to see if the entity still exists}
+49         \textcolor{keywordflow}{if}(draw\_entity\_sp)
+50         \{
+51             \textcolor{keywordflow}{switch} (draw\_entity\_sp->getType())
+52             \{
+53                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}:
+54                     \hyperlink{classDrawManager_a450157950bdd23c27bc5dcdafdaa3101}{getTankDrawInfo}(draw\_entity\_sp, draw\_info);
+55                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a31fa78b2b7dd774f5158a16ef230932e}{p1\_tank}, draw\_info);
+56                     \textcolor{keywordflow}{break};
+57 
+58                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}:
+59                     \hyperlink{classDrawManager_a450157950bdd23c27bc5dcdafdaa3101}{getTankDrawInfo}(draw\_entity\_sp, draw\_info);
+60                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a3d48d62c7b88e7ee171698fe56dc9e59}{p2\_tank}, draw\_info);
+61                     \textcolor{keywordflow}{break};
+62 
+63                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}:
+64                     \hyperlink{classDrawManager_a41ad9837106a08143f5799c2e50535ff}{getBarrierDrawInfo}(draw\_entity\_sp, draw\_info);
+65                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}, draw\_info);
+66                     \textcolor{keywordflow}{break};
+67 
+68                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}:
+69                     \hyperlink{classDrawManager_ae85d0a7a0c8b6c2a3abb0a617d8599ea}{getMissileDrawInfo}(draw\_entity\_sp, draw\_info);
+70                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3af89bc631e9b0140ed004b5ce2db5330c}{p1\_missile}, draw\_info);
+71                     \textcolor{keywordflow}{break};
+72 
+73                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}:
+74                     \hyperlink{classDrawManager_ae85d0a7a0c8b6c2a3abb0a617d8599ea}{getMissileDrawInfo}(draw\_entity\_sp, draw\_info);
+75                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a47100170e5852d632dfe65582a18256d}{p2\_missile}, draw\_info);
+76                     \textcolor{keywordflow}{break};
+77 
+78                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}:
+79                     \hyperlink{classDrawManager_ac82e7f4f521c0a6eda4551c7182b782e}{getMineDrawInfo}(draw\_entity\_sp, draw\_info);
+80                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3afc52e626787e982ae5d0a747bed6666d}{p1\_mine}, draw\_info);
+81                     \textcolor{keywordflow}{break};
+82 
+83                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}:
+84                     \hyperlink{classDrawManager_ac82e7f4f521c0a6eda4551c7182b782e}{getMineDrawInfo}(draw\_entity\_sp, draw\_info);
+85                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3ada293b37940e64ec2cf6dbd2ae493d2b}{p2\_mine}, draw\_info);
+86                     \textcolor{keywordflow}{break};
+87 
+88                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}:
+89                     \hyperlink{classDrawManager_ab63c01f42532b275a095c09e0a06cad9}{getTurretDrawInfo}(draw\_entity\_sp, draw\_info);
+90                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a85c730ac9ffc13ac94e6e860579928a1}{turret}, draw\_info);
+91                     \textcolor{keywordflow}{break};
+92 
+93                 \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile}:
+94                     \hyperlink{classDrawManager_ae85d0a7a0c8b6c2a3abb0a617d8599ea}{getMissileDrawInfo}(draw\_entity\_sp, draw\_info);
+95                     display->drawEntity(\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a8f552a1e495ced5aa8775faa1b6a757b}{turret\_missile}, draw\_info);
+96                     \textcolor{keywordflow}{break};
+97 
+98                 \textcolor{keywordflow}{default}:
+99                 \textcolor{keywordflow}{break};
+100 
+101             \} \textcolor{comment}{//Switch}
+102             draw\_itterator++;
+103         \} \textcolor{comment}{//if (pointer still valid)}
+104         \textcolor{keywordflow}{else}
+105             \hyperlink{classDrawManager_a87982f3a0af2ece0a3a431a8f2fe4478}{\_drawables}.erase(draw\_itterator);
+106 
+107     \} \textcolor{comment}{//for}
+108 
+109     \hyperlink{structdraw__strings}{draw\_strings} strings;
+110 
+111     std::ostringstream strs1; \textcolor{comment}{// convert to strings}
+112     strs1 << game\_state\_container.\hyperlink{classGameStateData_a0cb5cf167da9dd1929c719778c5d3506}{getGameTime}();
+113     strings.\hyperlink{structdraw__strings_a4d19f66b000d19861c475694328d9fce}{game\_time} = strs1.str();
+114 
+115     std::ostringstream strs2;
+116     strs2 << game\_state\_container.\hyperlink{classGameStateData_ac4dbf8f19eb4abae6c6e674e1f0ad473}{getP1Score}();
+117     strings.\hyperlink{structdraw__strings_a0d59a0f9e78f1c539dbe7959dcd9c3bb}{p1\_score} = strs2.str();
+118 
+119     std::ostringstream strs3;
+120     strs3 << game\_state\_container.\hyperlink{classGameStateData_a024affaa547433a0feca091d2bc516b6}{getP2Score}();
+121     strings.\hyperlink{structdraw__strings_a749fa74ab7403f436f100c546b073be8}{p2\_score} = strs3.str();
+122 
+123     display->drawText(strings);
+124     display->display();
+125 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classDrawManager_a87982f3a0af2ece0a3a431a8f2fe4478}{\index{Draw\-Manager@{Draw\-Manager}!\-\_\-drawables@{\-\_\-drawables}}
+\index{\-\_\-drawables@{\-\_\-drawables}!DrawManager@{Draw\-Manager}}
+\subsubsection[{\-\_\-drawables}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::weak\-\_\-ptr$<${\bf Deletable}$>$ $>$ Draw\-Manager\-::\-\_\-drawables\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_a87982f3a0af2ece0a3a431a8f2fe4478}
+
+
+Pointers to all drawable entites within the game world. 
+
+
+
+Definition at line 34 of file Draw\-Manager.\-h.
+
+
+
+Referenced by add\-New\-Entity(), and manage().
+
+\hypertarget{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}{\index{Draw\-Manager@{Draw\-Manager}!\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}!DrawManager@{Draw\-Manager}}
+\subsubsection[{\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Draw\-Manager\-::\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classDrawManager_a2cdf54bc1c47a4683f761af0c8ade8e9}
+
+
+Private data object that holds sprite dimension info. 
+
+
+
+Definition at line 36 of file Draw\-Manager.\-h.
+
+
+
+Referenced by get\-Barrier\-Draw\-Info(), get\-Mine\-Draw\-Info(), get\-Missile\-Draw\-Info(), get\-Tank\-Draw\-Info(), and get\-Turret\-Draw\-Info().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{DrawManager_8h}{Draw\-Manager.\-h}\item 
+\hyperlink{DrawManager_8cpp}{Draw\-Manager.\-cpp}\end{DoxyCompactItemize}

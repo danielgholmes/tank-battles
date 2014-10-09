@@ -1,0 +1,983 @@
+\hypertarget{classOrientation}{\section{Orientation Class Reference}
+\label{classOrientation}\index{Orientation@{Orientation}}
+}
+
+
+{\ttfamily \#include $<$Orientation.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classOrientation_ae2df457b68375ea4915f7fa1c161b116}{Orientation} (float origin\-\_\-x, float origin\-\_\-y, float width, float height, float rotation, bool controllable)
+\begin{DoxyCompactList}\small\item\em Constructor that initialises all data members of the class. \end{DoxyCompactList}\item 
+const float \hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{get\-Origin\-X} ()
+\begin{DoxyCompactList}\small\item\em Returns the entity origin x value. \end{DoxyCompactList}\item 
+const float \hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{get\-Origin\-Y} ()
+\begin{DoxyCompactList}\small\item\em Returns the entity origin y value. \end{DoxyCompactList}\item 
+const float \hyperlink{classOrientation_adf3e031c3ce102233782e6fdeb976ef3}{get\-Width} ()
+\begin{DoxyCompactList}\small\item\em Returns the entity width. \end{DoxyCompactList}\item 
+const float \hyperlink{classOrientation_af7c9a2f7547c76ce2408ac6fefacf9e1}{get\-Height} ()
+\begin{DoxyCompactList}\small\item\em Returns the entity height. \end{DoxyCompactList}\item 
+const float \hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{get\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Returns the entity rotation. \end{DoxyCompactList}\item 
+void \hyperlink{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}{set\-Width} (const float width)
+\begin{DoxyCompactList}\small\item\em Set the Width Value. \end{DoxyCompactList}\item 
+void \hyperlink{classOrientation_a1adca89bc32128e2ca1cb937357f5006}{set\-Height} (const float height)
+\begin{DoxyCompactList}\small\item\em Set the Height Value. \end{DoxyCompactList}\item 
+void \hyperlink{classOrientation_ae1c8122591724b1b3bfcb0026b76e809}{move} (float movement\-\_\-in\-\_\-x, float movement\-\_\-in\-\_\-y)
+\begin{DoxyCompactList}\small\item\em Move the entity by a distance. \end{DoxyCompactList}\item 
+void \hyperlink{classOrientation_aa9e115b7f4ab487e3af532592416b247}{rotate} (float angle)
+\begin{DoxyCompactList}\small\item\em Rotate the entity by a supplied angle. \end{DoxyCompactList}\item 
+void \hyperlink{classOrientation_a478512ba497cd75f11be3aa3177cca6a}{set\-Move\-Direction} (const \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\-\_\-direction})
+\begin{DoxyCompactList}\small\item\em Used to set the state of future collision detection. \end{DoxyCompactList}\item 
+\hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{get\-Global\-Bounds} ()
+\begin{DoxyCompactList}\small\item\em Retrieve Rectangular co-\/ordinates for collision detection. \end{DoxyCompactList}\item 
+const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classOrientation_a5cc606289f774c8561af98d183586199}{get\-Aligned\-Global\-Bounds} ()
+\begin{DoxyCompactList}\small\item\em Retrieve Rectangular co-\/ordinated for collision detection (Non-\/rotated) \end{DoxyCompactList}\item 
+virtual \hyperlink{classOrientation_a8c96df6f0b3b9a9edc7f9a0a9cc10741}{$\sim$\-Orientation} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classOrientation_a0195b81c78baadd074301bc019d11db8}{operator==} (\hyperlink{classOrientation}{Orientation} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Equality operator overload for testing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classOrientation_aa1a923fcae4e94c8bbd319b094732d43}{set\-Global\-Bounds} ()
+\begin{DoxyCompactList}\small\item\em Function used to calculate the non-\/axis-\/aligned (Complex) bounding box of the orientation entity. \end{DoxyCompactList}\item 
+float \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{get\-Relative\-X} () const 
+\begin{DoxyCompactList}\small\item\em Used to determine the relative/future position of an orientation object. \end{DoxyCompactList}\item 
+float \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{get\-Relative\-Y} () const 
+\begin{DoxyCompactList}\small\item\em Used to determine the relative/future position of an orientation object. \end{DoxyCompactList}\item 
+float \hyperlink{classOrientation_a3909302fb7aea90a0bc706871f0a072f}{get\-Relative\-Rotation} () const 
+\begin{DoxyCompactList}\small\item\em Used to determine the relative/future rotation of an orientation object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\-\_\-origin\-\_\-x}
+\item 
+float \hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\-\_\-origin\-\_\-y}
+\item 
+float \hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\-\_\-width}
+\item 
+float \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\-\_\-height}
+\item 
+float \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\-\_\-rotation}
+\item 
+\hyperlink{structrect__corners}{rect\-\_\-corners} \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\-\_\-collison\-\_\-box}
+\item 
+bool \hyperlink{classOrientation_ab8577b28d6c1e445d55d113640f1ed07}{\-\_\-controllable}
+\item 
+\hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026}{movement\-\_\-direction} \hyperlink{classOrientation_a548b6090029335848c21f40f87811df9}{\-\_\-movement\-\_\-direction}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 20 of file Orientation.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classOrientation_ae2df457b68375ea4915f7fa1c161b116}{\index{Orientation@{Orientation}!Orientation@{Orientation}}
+\index{Orientation@{Orientation}!Orientation@{Orientation}}
+\subsubsection[{Orientation}]{\setlength{\rightskip}{0pt plus 5cm}Orientation\-::\-Orientation (
+\begin{DoxyParamCaption}
+\item[{float}]{origin\-\_\-x, }
+\item[{float}]{origin\-\_\-y, }
+\item[{float}]{width, }
+\item[{float}]{height, }
+\item[{float}]{rotation, }
+\item[{bool}]{controllable}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_ae2df457b68375ea4915f7fa1c161b116}
+
+
+Constructor that initialises all data members of the class. 
+
+Constructor for \hyperlink{classOrientation}{Orientation} class.
+
+Default constructor for the \hyperlink{classOrientation}{Orientation} class 
+\begin{DoxyParams}{Parameters}
+{\em origin\-\_\-x} & \-:\-: The initial x-\/coordinate of the orientation object \\
+\hline
+{\em origin\-\_\-y} & \-:\-: The initial y-\/coordinate of the orientation object \\
+\hline
+{\em width} & \-:\-: The sprite width which the orientation object will mimic \\
+\hline
+{\em height} & \-:\-: The sprite height which the orientation object will mimic \\
+\hline
+{\em rotation} & \-:\-: The initial rotation held by the orientation object \\
+\hline
+{\em controllable} & \-:\-: This destinguishes what type of bounding box the orientation class should create \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file Orientation.\-cpp.
+
+
+
+References \-\_\-movement\-\_\-direction, Move, and set\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+25                                                                                                            
+               :
+26     \hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x}(origin\_x),
+27     \hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y}(origin\_y),
+28     \hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}(width),
+29     \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}(height),
+30     \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation}(rotation),
+31     \hyperlink{classOrientation_ab8577b28d6c1e445d55d113640f1ed07}{\_controllable}(controllable)
+32     \{
+33         \hyperlink{classOrientation_a548b6090029335848c21f40f87811df9}{\_movement\_direction} = \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac3e0a98cb8e17fd822ecd3166b1a3119}{Move};
+34         \hyperlink{classOrientation_aa1a923fcae4e94c8bbd319b094732d43}{setGlobalBounds}();
+35     \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a8c96df6f0b3b9a9edc7f9a0a9cc10741}{\index{Orientation@{Orientation}!$\sim$\-Orientation@{$\sim$\-Orientation}}
+\index{$\sim$\-Orientation@{$\sim$\-Orientation}!Orientation@{Orientation}}
+\subsubsection[{$\sim$\-Orientation}]{\setlength{\rightskip}{0pt plus 5cm}Orientation\-::$\sim$\-Orientation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classOrientation_a8c96df6f0b3b9a9edc7f9a0a9cc10741}
+
+
+Destructor. 
+
+Class destructor. 
+
+Definition at line 201 of file Orientation.\-cpp.
+
+
+\begin{DoxyCode}
+202 \{
+203     \textcolor{comment}{//Possibly add code}
+204 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classOrientation_a5cc606289f774c8561af98d183586199}{\index{Orientation@{Orientation}!get\-Aligned\-Global\-Bounds@{get\-Aligned\-Global\-Bounds}}
+\index{get\-Aligned\-Global\-Bounds@{get\-Aligned\-Global\-Bounds}!Orientation@{Orientation}}
+\subsubsection[{get\-Aligned\-Global\-Bounds}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Orientation\-::get\-Aligned\-Global\-Bounds (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_a5cc606289f774c8561af98d183586199}
+
+
+Retrieve Rectangular co-\/ordinated for collision detection (Non-\/rotated) 
+
+Function used to calculate the axis-\/aligned (simplified) bounding box of the orientation entity.
+
+The bounding box of the entity is calculated by taking its orientation components and extending four four verticies outwards from its origin \begin{DoxyReturn}{Returns}
+\hyperlink{structrect__corners}{rect\-\_\-corners} 
+\end{DoxyReturn}
+
+
+Definition at line 164 of file Orientation.\-cpp.
+
+
+
+References \-\_\-height, \-\_\-width, get\-Relative\-X(), get\-Relative\-Y(), rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::lower\-\_\-right, rect\-\_\-corners\-::upper\-\_\-left, rect\-\_\-corners\-::upper\-\_\-right, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by Mine\-::get\-Aligned\-Bounding\-Box(), Barrier\-::get\-Aligned\-Bounding\-Box(), Turret\-::get\-Aligned\-Bounding\-Box(), Missile\-::get\-Aligned\-Bounding\-Box(), and Tank\-::get\-Aligned\-Bounding\-Box().
+
+
+\begin{DoxyCode}
+165 \{
+166     \hyperlink{structrect__corners}{rect\_corners} temp\_box;
+167     \textcolor{comment}{//Bottom-left corner assignment}
+168     temp\_box.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (-\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+169     temp\_box.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (-\hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)+ \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+170 
+171     \textcolor{comment}{//Bottom-right corner assignment}
+172     temp\_box.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (+\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+173     temp\_box.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (-\hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)+ \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+174 
+175      \textcolor{comment}{//Top-left corner assignment}
+176     temp\_box.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (-\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+177     temp\_box.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (+\hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)+ \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+178 
+179     \textcolor{comment}{//Top-right corner assignment}
+180     temp\_box.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (+\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+181     temp\_box.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (+\hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)+ \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+182 
+183     \textcolor{keywordflow}{return} temp\_box;
+184 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{\index{Orientation@{Orientation}!get\-Global\-Bounds@{get\-Global\-Bounds}}
+\index{get\-Global\-Bounds@{get\-Global\-Bounds}!Orientation@{Orientation}}
+\subsubsection[{get\-Global\-Bounds}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rect\-\_\-corners} \& Orientation\-::get\-Global\-Bounds (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}
+
+
+Retrieve Rectangular co-\/ordinates for collision detection. 
+
+Provides the non-\/axis-\/aligned bounding box of the orientation entity.
+
+The need for an accurate bounding box is cruxial for collision detection. This function is responsible for fetching this box. \begin{DoxyReturn}{Returns}
+\hyperlink{structrect__corners}{rect\-\_\-corners} 
+\end{DoxyReturn}
+
+
+Definition at line 153 of file Orientation.\-cpp.
+
+
+
+References \-\_\-collison\-\_\-box, and set\-Global\-Bounds().
+
+
+
+Referenced by Mine\-::get\-Bounding\-Box(), Barrier\-::get\-Bounding\-Box(), Turret\-::get\-Bounding\-Box(), Missile\-::get\-Bounding\-Box(), Tank\-::get\-Bounding\-Box(), Turret\-::get\-Tracking\-Bounding\-Box(), Tank\-::get\-Tracking\-Bounding\-Box(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+154 \{
+155     \hyperlink{classOrientation_aa1a923fcae4e94c8bbd319b094732d43}{setGlobalBounds}();
+156     \textcolor{keywordflow}{return} \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box};
+157 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_af7c9a2f7547c76ce2408ac6fefacf9e1}{\index{Orientation@{Orientation}!get\-Height@{get\-Height}}
+\index{get\-Height@{get\-Height}!Orientation@{Orientation}}
+\subsubsection[{get\-Height}]{\setlength{\rightskip}{0pt plus 5cm}const float Orientation\-::get\-Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_af7c9a2f7547c76ce2408ac6fefacf9e1}
+
+
+Returns the entity height. 
+
+Get the current height of the orientation object.
+
+Simple getter method used during drawing methods of the \hyperlink{classDrawManager}{Draw\-Manager} to allow for easy data extraction \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file Orientation.\-cpp.
+
+
+
+References \-\_\-height.
+
+
+
+Referenced by operator==(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+73 \{
+74     \textcolor{keywordflow}{return} \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height};
+75 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{\index{Orientation@{Orientation}!get\-Origin\-X@{get\-Origin\-X}}
+\index{get\-Origin\-X@{get\-Origin\-X}!Orientation@{Orientation}}
+\subsubsection[{get\-Origin\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Orientation\-::get\-Origin\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}
+
+
+Returns the entity origin x value. 
+
+Get the current x-\/coordinate of the orientation object.
+
+Simple getter method with exception handling to prevent an invalid state from occuring \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file Orientation.\-cpp.
+
+
+
+References \-\_\-origin\-\_\-x.
+
+
+
+Referenced by Turret\-::get\-Draw\-Position\-X(), Mine\-::get\-Draw\-Position\-X(), Barrier\-::get\-Draw\-Position\-X(), Missile\-::get\-Draw\-Position\-X(), Tank\-::get\-Draw\-Position\-X(), Turret\-::get\-Position\-X(), Tank\-::get\-Position\-X(), Missile\-::\-Missile(), operator==(), Tank\-::\-Tank(), T\-E\-S\-T(), and Turret\-::\-Turret().
+
+
+\begin{DoxyCode}
+42 \{
+43     \textcolor{keywordflow}{if} (\hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x} < -100) \textcolor{keywordflow}{throw} \hyperlink{classInvalidStateOfCoordinates}{InvalidStateOfCoordinates}();
+44     \textcolor{keywordflow}{return} \hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x};
+45 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{\index{Orientation@{Orientation}!get\-Origin\-Y@{get\-Origin\-Y}}
+\index{get\-Origin\-Y@{get\-Origin\-Y}!Orientation@{Orientation}}
+\subsubsection[{get\-Origin\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Orientation\-::get\-Origin\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}
+
+
+Returns the entity origin y value. 
+
+Get the current y-\/coordinate of the orientation object.
+
+Simple getter method with exception handling to prevent an invalid state from occuring \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file Orientation.\-cpp.
+
+
+
+References \-\_\-origin\-\_\-y.
+
+
+
+Referenced by Turret\-::get\-Draw\-Position\-Y(), Mine\-::get\-Draw\-Position\-Y(), Barrier\-::get\-Draw\-Position\-Y(), Missile\-::get\-Draw\-Position\-Y(), Tank\-::get\-Draw\-Position\-Y(), Turret\-::get\-Position\-Y(), Tank\-::get\-Position\-Y(), Missile\-::\-Missile(), operator==(), Tank\-::\-Tank(), T\-E\-S\-T(), and Turret\-::\-Turret().
+
+
+\begin{DoxyCode}
+52 \{
+53     \textcolor{keywordflow}{if} (\hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y} < -100) \textcolor{keywordflow}{throw} \hyperlink{classInvalidStateOfCoordinates}{InvalidStateOfCoordinates}();
+54     \textcolor{keywordflow}{return} \hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y};
+55 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a3909302fb7aea90a0bc706871f0a072f}{\index{Orientation@{Orientation}!get\-Relative\-Rotation@{get\-Relative\-Rotation}}
+\index{get\-Relative\-Rotation@{get\-Relative\-Rotation}!Orientation@{Orientation}}
+\subsubsection[{get\-Relative\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::get\-Relative\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_a3909302fb7aea90a0bc706871f0a072f}
+
+
+Used to determine the relative/future rotation of an orientation object. 
+
+In order to calculate an accurate collision occuring beforehand, the next value of the rotation needs to be provided to produce a valid bounding box. \begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 306 of file Orientation.\-cpp.
+
+
+
+References \-\_\-controllable, \-\_\-movement\-\_\-direction, \-\_\-rotation, rotate\-Left, rotate\-Right, and T\-A\-N\-K\-\_\-\-R\-O\-T\-A\-T\-I\-O\-N\-\_\-\-S\-P\-E\-E\-D.
+
+
+
+Referenced by set\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+307 \{
+308     \textcolor{keywordtype}{float} returnedRotation = 0.0;
+309     \textcolor{keywordflow}{if}(!\hyperlink{classOrientation_ab8577b28d6c1e445d55d113640f1ed07}{\_controllable})
+310         \textcolor{keywordflow}{return} \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation};
+311     \textcolor{keywordflow}{else}
+312     \{
+313         \textcolor{keywordflow}{switch} (\hyperlink{classOrientation_a548b6090029335848c21f40f87811df9}{\_movement\_direction})
+314         \{
+315         \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026af8f913ac2071c34908f89a0170ff0425}{rotateLeft}:
+316             returnedRotation = \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} + \hyperlink{Structures_8h_a728054e2d14b4ed9a73cd408c0bfe142}{TANK\_ROTATION\_SPEED};
+317             \textcolor{keywordflow}{if} (returnedRotation > 360)
+318                 returnedRotation -= 360;
+319             \textcolor{keywordflow}{break};
+320 
+321         \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a3b81355949ce720f9c0318b01aaf76ee}{rotateRight}:
+322             returnedRotation = \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} - \hyperlink{Structures_8h_a728054e2d14b4ed9a73cd408c0bfe142}{TANK\_ROTATION\_SPEED};
+323             \textcolor{keywordflow}{if} (returnedRotation < 0)
+324                 returnedRotation += 360;
+325             \textcolor{keywordflow}{break};
+326 
+327         \textcolor{keywordflow}{default}:
+328             returnedRotation = \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation};
+329         \}
+330     \textcolor{keywordflow}{return} returnedRotation;
+331     \}
+332 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_aadef2c8638c11919def962831d10934c}{\index{Orientation@{Orientation}!get\-Relative\-X@{get\-Relative\-X}}
+\index{get\-Relative\-X@{get\-Relative\-X}!Orientation@{Orientation}}
+\subsubsection[{get\-Relative\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::get\-Relative\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_aadef2c8638c11919def962831d10934c}
+
+
+Used to determine the relative/future position of an orientation object. 
+
+In order to calculate an accurate collision occuring beforehand, the next value of x and y coordinated need to be provided to produce a valid bounding box. \begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 238 of file Orientation.\-cpp.
+
+
+
+References \-\_\-controllable, \-\_\-movement\-\_\-direction, \-\_\-origin\-\_\-x, \-\_\-rotation, move\-Backward, move\-Forward, P\-I, and T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D.
+
+
+
+Referenced by get\-Aligned\-Global\-Bounds(), and set\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+239 \{
+240     \textcolor{keywordtype}{float} angle = \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation}*(\hyperlink{Orientation_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI}/180);
+241     \textcolor{keywordtype}{float} returnVal = 0.0;
+242 
+243     \textcolor{keywordflow}{if} (!\hyperlink{classOrientation_ab8577b28d6c1e445d55d113640f1ed07}{\_controllable})
+244         \textcolor{keywordflow}{return} \hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x};
+245     \textcolor{keywordflow}{else}
+246     \{
+247         \textcolor{keywordflow}{switch}(\hyperlink{classOrientation_a548b6090029335848c21f40f87811df9}{\_movement\_direction})
+248         \{
+249 
+250         \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{moveForward}:
+251             returnVal = (\hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x} + \hyperlink{Structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}{TANK\_MOVE\_SPEED}*cos(angle));
+252             \textcolor{keywordflow}{break};
+253 
+254         \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{moveBackward}:
+255             returnVal = (\hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x} - \hyperlink{Structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}{TANK\_MOVE\_SPEED}*cos(angle));
+256             \textcolor{keywordflow}{break};
+257 
+258         \textcolor{keywordflow}{default}:
+259             returnVal = \hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x};
+260             \textcolor{keywordflow}{break};
+261         \}
+262 
+263         \textcolor{keywordflow}{return} returnVal;
+264     \}
+265 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a9230d58e08959c61a26876769e9b6df0}{\index{Orientation@{Orientation}!get\-Relative\-Y@{get\-Relative\-Y}}
+\index{get\-Relative\-Y@{get\-Relative\-Y}!Orientation@{Orientation}}
+\subsubsection[{get\-Relative\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::get\-Relative\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_a9230d58e08959c61a26876769e9b6df0}
+
+
+Used to determine the relative/future position of an orientation object. 
+
+In order to calculate an accurate collision occuring beforehand, the next value of x and y coordinated need to be provided to produce a valid bounding box. \begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file Orientation.\-cpp.
+
+
+
+References \-\_\-controllable, \-\_\-movement\-\_\-direction, \-\_\-origin\-\_\-y, \-\_\-rotation, move\-Backward, move\-Forward, P\-I, and T\-A\-N\-K\-\_\-\-M\-O\-V\-E\-\_\-\-S\-P\-E\-E\-D.
+
+
+
+Referenced by get\-Aligned\-Global\-Bounds(), and set\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+273 \{
+274     \textcolor{keywordtype}{float} angle = \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation}*(\hyperlink{Orientation_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI}/180);
+275     \textcolor{keywordtype}{float} returnVal = 0.0;
+276 
+277     \textcolor{keywordflow}{if} (!\hyperlink{classOrientation_ab8577b28d6c1e445d55d113640f1ed07}{\_controllable})
+278         \textcolor{keywordflow}{return} \hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y};
+279     \textcolor{keywordflow}{else}
+280     \{
+281         \textcolor{keywordflow}{switch}(\hyperlink{classOrientation_a548b6090029335848c21f40f87811df9}{\_movement\_direction})
+282         \{
+283 
+284         \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026a4c3e911cdfbc22463cb4e96bd7a50327}{moveForward}:
+285             returnVal = (\hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y} + \hyperlink{Structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}{TANK\_MOVE\_SPEED}*sin(angle));
+286             \textcolor{keywordflow}{break};
+287 
+288         \textcolor{keywordflow}{case} \hyperlink{Structures_8h_a0d0b88f27f3adf9452879b5d9f829026ac32aa98894056eae24f1c8f7af930584}{moveBackward}:
+289             returnVal = (\hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y} - \hyperlink{Structures_8h_abf25f4db4fce2c59cc9d3b0a9e605cab}{TANK\_MOVE\_SPEED}*sin(angle));
+290             \textcolor{keywordflow}{break};
+291 
+292         \textcolor{keywordflow}{default}:
+293             returnVal = \hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y};
+294             \textcolor{keywordflow}{break};
+295         \}
+296 
+297         \textcolor{keywordflow}{return} returnVal;
+298     \}
+299 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{\index{Orientation@{Orientation}!get\-Rotation@{get\-Rotation}}
+\index{get\-Rotation@{get\-Rotation}!Orientation@{Orientation}}
+\subsubsection[{get\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Orientation\-::get\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}
+
+
+Returns the entity rotation. 
+
+Get the current rotation of the orientation object.
+
+Simple getter method used during drawing methods of the \hyperlink{classDrawManager}{Draw\-Manager} to allow for easy data extraction. \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file Orientation.\-cpp.
+
+
+
+References \-\_\-rotation.
+
+
+
+Referenced by Turret\-::get\-Draw\-Rotation(), Mine\-::get\-Draw\-Rotation(), Barrier\-::get\-Draw\-Rotation(), Missile\-::get\-Draw\-Rotation(), Tank\-::get\-Draw\-Rotation(), Turret\-::get\-Orientation(), Tank\-::get\-Orientation(), Missile\-::\-Missile(), operator==(), Missile\-::rotate\-Left(), Missile\-::rotate\-Right(), Tank\-::\-Tank(), T\-E\-S\-T(), and Turret\-::\-Turret().
+
+
+\begin{DoxyCode}
+83 \{
+84     \textcolor{keywordflow}{return} \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation};
+85 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_adf3e031c3ce102233782e6fdeb976ef3}{\index{Orientation@{Orientation}!get\-Width@{get\-Width}}
+\index{get\-Width@{get\-Width}!Orientation@{Orientation}}
+\subsubsection[{get\-Width}]{\setlength{\rightskip}{0pt plus 5cm}const float Orientation\-::get\-Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_adf3e031c3ce102233782e6fdeb976ef3}
+
+
+Returns the entity width. 
+
+Get the current width of the orientation object.
+
+Simple getter method used during drawing methods of the \hyperlink{classDrawManager}{Draw\-Manager} to allow for easy data extraction \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Orientation.\-cpp.
+
+
+
+References \-\_\-width.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+63 \{
+64     \textcolor{keywordflow}{return} \hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width};
+65 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_ae1c8122591724b1b3bfcb0026b76e809}{\index{Orientation@{Orientation}!move@{move}}
+\index{move@{move}!Orientation@{Orientation}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void Orientation\-::move (
+\begin{DoxyParamCaption}
+\item[{float}]{movement\-\_\-in\-\_\-x, }
+\item[{float}]{movement\-\_\-in\-\_\-y}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_ae1c8122591724b1b3bfcb0026b76e809}
+
+
+Move the entity by a distance. 
+
+Move the orientation object positively by (x,y) units.
+
+This method replaces that of S\-F\-::\-Rect\-Int32.\-move(). It takes in cartestian parameters and moves the object relative to its currect position in the positive direction specified. 
+\begin{DoxyParams}{Parameters}
+{\em movement\-\_\-in\-\_\-x} & \-:\-: The movement direction for the x component \\
+\hline
+{\em movement\-\_\-in\-\_\-y} & \-:\-: The movement direction for the y component \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file Orientation.\-cpp.
+
+
+
+References \-\_\-origin\-\_\-x, and \-\_\-origin\-\_\-y.
+
+
+
+Referenced by Missile\-::move\-Backward(), Tank\-::move\-Backward(), Missile\-::move\-Forward(), Tank\-::move\-Forward(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+116 \{
+117     \hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x} += movement\_in\_x;
+118     \hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y} += movement\_in\_y;
+119 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a0195b81c78baadd074301bc019d11db8}{\index{Orientation@{Orientation}!operator==@{operator==}}
+\index{operator==@{operator==}!Orientation@{Orientation}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Orientation\-::operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf Orientation} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classOrientation_a0195b81c78baadd074301bc019d11db8}
+
+
+Equality operator overload for testing. 
+
+Opperator used for testing purposes of the orientation class.
+
+This function is written to allow for comparison of created orientation objects in an efficient manner without the D\-R\-Y principal being violatued. 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \-:\-: an \hyperlink{classOrientation}{Orientation} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 340 of file Orientation.\-cpp.
+
+
+
+References \-\_\-height, \-\_\-origin\-\_\-x, \-\_\-origin\-\_\-y, \-\_\-rotation, \-\_\-width, get\-Height(), get\-Origin\-X(), get\-Origin\-Y(), and get\-Rotation().
+
+
+\begin{DoxyCode}
+341 \{
+342 
+343     \textcolor{keywordflow}{if}(\hyperlink{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\_origin\_x} != rhs.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+344     \textcolor{keywordflow}{if}(\hyperlink{classOrientation_affb8b0093da380404f865772bf52b3eb}{\_origin\_y} != rhs.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+345     \textcolor{keywordflow}{if}(\hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} != rhs.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+346     \textcolor{keywordflow}{if}(\hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height} != rhs.\hyperlink{classOrientation_af7c9a2f7547c76ce2408ac6fefacf9e1}{getHeight}()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+347     \textcolor{keywordflow}{if}(\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width} != rhs.\hyperlink{classOrientation_af7c9a2f7547c76ce2408ac6fefacf9e1}{getHeight}()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+348 
+349     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+350 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_aa9e115b7f4ab487e3af532592416b247}{\index{Orientation@{Orientation}!rotate@{rotate}}
+\index{rotate@{rotate}!Orientation@{Orientation}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}void Orientation\-::rotate (
+\begin{DoxyParamCaption}
+\item[{float}]{angle}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_aa9e115b7f4ab487e3af532592416b247}
+
+
+Rotate the entity by a supplied angle. 
+
+Rotate the orientation object positively by (x) units.
+
+This method replaces that of S\-F\-::\-Rect\-Int32.\-rotate(). It takes in an angular parameters and rotates the object relative to its currect position. Conditional logic is implemented here as a means only to manintain class invariance in the positive direction specified. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & \-:\-: The rotation in degreees \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 128 of file Orientation.\-cpp.
+
+
+
+References \-\_\-rotation.
+
+
+
+Referenced by Missile\-::rotate\-Left(), Tank\-::rotate\-Left(), Missile\-::rotate\-Right(), Tank\-::rotate\-Right(), Turret\-::rotate\-Turret(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+129 \{
+130     \textcolor{comment}{//Positive revolution}
+131     \textcolor{keywordflow}{if} ((\hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation}+angle) >= 360 )
+132     \{
+133        \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} += angle;
+134        \textcolor{keywordflow}{while} (\hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} > 360)
+135        \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} -= 360;
+136     \}
+137     \textcolor{comment}{//Negative revolution}
+138     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((\hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation}+angle) < 0)
+139     \{
+140         \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} += angle;
+141         \textcolor{keywordflow}{while} (\hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} < 0)
+142         \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} += 360;
+143     \}
+144     \textcolor{keywordflow}{else}
+145        \hyperlink{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\_rotation} += angle;
+146 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_aa1a923fcae4e94c8bbd319b094732d43}{\index{Orientation@{Orientation}!set\-Global\-Bounds@{set\-Global\-Bounds}}
+\index{set\-Global\-Bounds@{set\-Global\-Bounds}!Orientation@{Orientation}}
+\subsubsection[{set\-Global\-Bounds}]{\setlength{\rightskip}{0pt plus 5cm}void Orientation\-::set\-Global\-Bounds (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_aa1a923fcae4e94c8bbd319b094732d43}
+
+
+Function used to calculate the non-\/axis-\/aligned (Complex) bounding box of the orientation entity. 
+
+The bounding box of the entity is calculated by taking its orientation components and extending four four verticies outwards within the bounds of a trigometric relationship from its origin. \begin{DoxyReturn}{Returns}
+\hyperlink{structrect__corners}{rect\-\_\-corners} 
+\end{DoxyReturn}
+
+
+Definition at line 211 of file Orientation.\-cpp.
+
+
+
+References \-\_\-collison\-\_\-box, \-\_\-height, \-\_\-width, get\-Relative\-Rotation(), get\-Relative\-X(), get\-Relative\-Y(), rect\-\_\-corners\-::lower\-\_\-left, rect\-\_\-corners\-::lower\-\_\-right, P\-I, rect\-\_\-corners\-::upper\-\_\-left, rect\-\_\-corners\-::upper\-\_\-right, coordinate\-::x, and coordinate\-::y.
+
+
+
+Referenced by get\-Global\-Bounds(), and Orientation().
+
+
+\begin{DoxyCode}
+212 \{
+213     \textcolor{keywordtype}{float} angle = \hyperlink{classOrientation_a3909302fb7aea90a0bc706871f0a072f}{getRelativeRotation}()*(\hyperlink{Orientation_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI}/180);
+214 
+215     \textcolor{comment}{//Bottom-left corner assignment}
+216     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (-\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*cos(angle) - (-
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*sin(angle) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+217     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_a2960e4888d6a9621429044e426950bc8}{lower\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (-\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*sin(angle) + (-
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*cos(angle) + \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+218 
+219     \textcolor{comment}{//Bottom-right corner assignment}
+220     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (+\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*cos(angle) - (-
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*sin(angle) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+221     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_aa499428b9c692d61e1b43d059156a5af}{lower\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (+\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*sin(angle) + (-
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*cos(angle) + \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+222 
+223      \textcolor{comment}{//Top-left corner assignment}
+224     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (-\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*cos(angle) - (+
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*sin(angle) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+225     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_a48cd191550e65bd24a7d8018c7eefd53}{upper\_left}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (-\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*sin(angle) + (+
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*cos(angle) + \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+226 
+227     \textcolor{comment}{//Top-right corner assignment}
+228     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_acde0819ef9d30b7ce25b7d833d3df327}{x} = (+\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*cos(angle) - (+
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*sin(angle) + \hyperlink{classOrientation_aadef2c8638c11919def962831d10934c}{getRelativeX}();
+229     \hyperlink{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\_collison\_box}.\hyperlink{structrect__corners_a631310450f151fd6c92132d5d7216259}{upper\_right}.\hyperlink{structcoordinate_ad48911206c84b1a8306a7023900ff622}{y} = (+\hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width}/2)*sin(angle) + (+
+      \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height}/2)*cos(angle) + \hyperlink{classOrientation_a9230d58e08959c61a26876769e9b6df0}{getRelativeY}();
+230 
+231 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a1adca89bc32128e2ca1cb937357f5006}{\index{Orientation@{Orientation}!set\-Height@{set\-Height}}
+\index{set\-Height@{set\-Height}!Orientation@{Orientation}}
+\subsubsection[{set\-Height}]{\setlength{\rightskip}{0pt plus 5cm}void Orientation\-::set\-Height (
+\begin{DoxyParamCaption}
+\item[{const float}]{height}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_a1adca89bc32128e2ca1cb937357f5006}
+
+
+Set the Height Value. 
+
+Set a new value for an orientation objects height.
+
+Simple setter method used to extract the height of an orientation object. 
+\begin{DoxyParams}{Parameters}
+{\em height} & \-:\-: The new height value to be assigned to the orientation object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file Orientation.\-cpp.
+
+
+
+References \-\_\-height.
+
+
+
+Referenced by Barrier\-::\-Barrier(), Mine\-::\-Mine(), Missile\-::\-Missile(), Tank\-::\-Tank(), and Turret\-::\-Turret().
+
+
+\begin{DoxyCode}
+104 \{
+105     \hyperlink{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\_height} = height;
+106 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a478512ba497cd75f11be3aa3177cca6a}{\index{Orientation@{Orientation}!set\-Move\-Direction@{set\-Move\-Direction}}
+\index{set\-Move\-Direction@{set\-Move\-Direction}!Orientation@{Orientation}}
+\subsubsection[{set\-Move\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}void Orientation\-::set\-Move\-Direction (
+\begin{DoxyParamCaption}
+\item[{const {\bf movement\-\_\-direction}}]{movement\-\_\-command}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_a478512ba497cd75f11be3aa3177cca6a}
+
+
+Used to set the state of future collision detection. 
+
+Function used to set the direction in which the orientation object is currently moving.
+
+The need to know in which direction an orientation object is traveling is vitally importatnt for movable object collision detection. Based upon this value, a different bounding box will be produced for the object. 
+\begin{DoxyParams}{Parameters}
+{\em movement\-\_\-command} & \-:\-: an Enum defining the four cardinal directions \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 192 of file Orientation.\-cpp.
+
+
+
+References \-\_\-movement\-\_\-direction.
+
+
+
+Referenced by Missile\-::set\-Movement\-Direction(), and Tank\-::set\-Movement\-Direction().
+
+
+\begin{DoxyCode}
+193 \{
+194     \hyperlink{classOrientation_a548b6090029335848c21f40f87811df9}{\_movement\_direction} = movement\_command;
+195 \}
+\end{DoxyCode}
+\hypertarget{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}{\index{Orientation@{Orientation}!set\-Width@{set\-Width}}
+\index{set\-Width@{set\-Width}!Orientation@{Orientation}}
+\subsubsection[{set\-Width}]{\setlength{\rightskip}{0pt plus 5cm}void Orientation\-::set\-Width (
+\begin{DoxyParamCaption}
+\item[{const float}]{width}
+\end{DoxyParamCaption}
+)}}\label{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}
+
+
+Set the Width Value. 
+
+Set a new value for an orientation objects width.
+
+Simple setter method used to extract the width of an orientation. object 
+\begin{DoxyParams}{Parameters}
+{\em width} & \-:\-: The new width value to be assigned to the orientation object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 92 of file Orientation.\-cpp.
+
+
+
+References \-\_\-width.
+
+
+
+Referenced by Barrier\-::\-Barrier(), Mine\-::\-Mine(), Missile\-::\-Missile(), Tank\-::\-Tank(), and Turret\-::\-Turret().
+
+
+\begin{DoxyCode}
+93 \{
+94     \hyperlink{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\_width} = width;
+95 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}{\index{Orientation@{Orientation}!\-\_\-collison\-\_\-box@{\-\_\-collison\-\_\-box}}
+\index{\-\_\-collison\-\_\-box@{\-\_\-collison\-\_\-box}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-collison\-\_\-box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rect\-\_\-corners} Orientation\-::\-\_\-collison\-\_\-box\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_a92030f5994ff171542a5b6e5b104f2f1}
+
+
+Definition at line 61 of file Orientation.\-h.
+
+
+
+Referenced by get\-Global\-Bounds(), and set\-Global\-Bounds().
+
+\hypertarget{classOrientation_ab8577b28d6c1e445d55d113640f1ed07}{\index{Orientation@{Orientation}!\-\_\-controllable@{\-\_\-controllable}}
+\index{\-\_\-controllable@{\-\_\-controllable}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-controllable}]{\setlength{\rightskip}{0pt plus 5cm}bool Orientation\-::\-\_\-controllable\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_ab8577b28d6c1e445d55d113640f1ed07}
+
+
+Definition at line 62 of file Orientation.\-h.
+
+
+
+Referenced by get\-Relative\-Rotation(), get\-Relative\-X(), and get\-Relative\-Y().
+
+\hypertarget{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}{\index{Orientation@{Orientation}!\-\_\-height@{\-\_\-height}}
+\index{\-\_\-height@{\-\_\-height}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::\-\_\-height\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_adf3f5a166d15ee16f99612bc5c6ef080}
+
+
+Definition at line 59 of file Orientation.\-h.
+
+
+
+Referenced by get\-Aligned\-Global\-Bounds(), get\-Height(), operator==(), set\-Global\-Bounds(), and set\-Height().
+
+\hypertarget{classOrientation_a548b6090029335848c21f40f87811df9}{\index{Orientation@{Orientation}!\-\_\-movement\-\_\-direction@{\-\_\-movement\-\_\-direction}}
+\index{\-\_\-movement\-\_\-direction@{\-\_\-movement\-\_\-direction}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-movement\-\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf movement\-\_\-direction} Orientation\-::\-\_\-movement\-\_\-direction\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_a548b6090029335848c21f40f87811df9}
+
+
+Definition at line 63 of file Orientation.\-h.
+
+
+
+Referenced by get\-Relative\-Rotation(), get\-Relative\-X(), get\-Relative\-Y(), Orientation(), and set\-Move\-Direction().
+
+\hypertarget{classOrientation_ae7ee03cf18222bb76433d577936d610e}{\index{Orientation@{Orientation}!\-\_\-origin\-\_\-x@{\-\_\-origin\-\_\-x}}
+\index{\-\_\-origin\-\_\-x@{\-\_\-origin\-\_\-x}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-origin\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::\-\_\-origin\-\_\-x\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_ae7ee03cf18222bb76433d577936d610e}
+
+
+Definition at line 56 of file Orientation.\-h.
+
+
+
+Referenced by get\-Origin\-X(), get\-Relative\-X(), move(), and operator==().
+
+\hypertarget{classOrientation_affb8b0093da380404f865772bf52b3eb}{\index{Orientation@{Orientation}!\-\_\-origin\-\_\-y@{\-\_\-origin\-\_\-y}}
+\index{\-\_\-origin\-\_\-y@{\-\_\-origin\-\_\-y}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-origin\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::\-\_\-origin\-\_\-y\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_affb8b0093da380404f865772bf52b3eb}
+
+
+Definition at line 57 of file Orientation.\-h.
+
+
+
+Referenced by get\-Origin\-Y(), get\-Relative\-Y(), move(), and operator==().
+
+\hypertarget{classOrientation_ab75afc35c00f204c390ab2ffe716374a}{\index{Orientation@{Orientation}!\-\_\-rotation@{\-\_\-rotation}}
+\index{\-\_\-rotation@{\-\_\-rotation}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::\-\_\-rotation\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_ab75afc35c00f204c390ab2ffe716374a}
+
+
+Definition at line 60 of file Orientation.\-h.
+
+
+
+Referenced by get\-Relative\-Rotation(), get\-Relative\-X(), get\-Relative\-Y(), get\-Rotation(), operator==(), and rotate().
+
+\hypertarget{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}{\index{Orientation@{Orientation}!\-\_\-width@{\-\_\-width}}
+\index{\-\_\-width@{\-\_\-width}!Orientation@{Orientation}}
+\subsubsection[{\-\_\-width}]{\setlength{\rightskip}{0pt plus 5cm}float Orientation\-::\-\_\-width\hspace{0.3cm}{\ttfamily [private]}}}\label{classOrientation_a5052b45396fc5e6abcf343c60e1fa59d}
+
+
+Definition at line 58 of file Orientation.\-h.
+
+
+
+Referenced by get\-Aligned\-Global\-Bounds(), get\-Width(), operator==(), set\-Global\-Bounds(), and set\-Width().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Orientation_8h}{Orientation.\-h}\item 
+\hyperlink{Orientation_8cpp}{Orientation.\-cpp}\end{DoxyCompactItemize}

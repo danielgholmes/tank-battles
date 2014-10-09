@@ -1,0 +1,313 @@
+\hypertarget{classGameStateData}{\section{Game\-State\-Data Class Reference}
+\label{classGameStateData}\index{Game\-State\-Data@{Game\-State\-Data}}
+}
+
+
+{\ttfamily \#include $<$Game\-State\-Data.\-h$>$}
+
+Inheritance diagram for Game\-State\-Data\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameStateData}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classGameStateData_a28ec2cf2d7dd89bab394b611a83e7d4c}{increase\-P1\-Score} ()=0
+\begin{DoxyCompactList}\small\item\em Increment player 1's score by one. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classGameStateData_a8b2470bafedd2c51cdc32199ae004b13}{increase\-P2\-Score} ()=0
+\begin{DoxyCompactList}\small\item\em Increment player 2's score by one. \end{DoxyCompactList}\item 
+virtual const int \hyperlink{classGameStateData_ac4dbf8f19eb4abae6c6e674e1f0ad473}{get\-P1\-Score} ()=0
+\begin{DoxyCompactList}\small\item\em Retrieve player 1's score. \end{DoxyCompactList}\item 
+virtual const int \hyperlink{classGameStateData_a024affaa547433a0feca091d2bc516b6}{get\-P2\-Score} ()=0
+\begin{DoxyCompactList}\small\item\em Retrieve player 2's score. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classGameStateData_ab8f2d792862e1292c767d5c1b41eb334}{set\-P1\-Respawn} ()=0
+\begin{DoxyCompactList}\small\item\em Allow P1 to be respawed again. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classGameStateData_a3b47e49a56e053a7b346b1eafd5c46b1}{set\-P2\-Respawn} ()=0
+\begin{DoxyCompactList}\small\item\em Allow P2 to be respawned again. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classGameStateData_a0599750aaaa0d272ba8e073d84b0e82b}{disable\-P1\-Respawn} ()=0
+\begin{DoxyCompactList}\small\item\em Disallow P1 to be respawned. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classGameStateData_a5886e86d10a106cf490eaa2433f3e3ea}{disable\-P2\-Respawn} ()=0
+\begin{DoxyCompactList}\small\item\em Disallow P2 to be respawned again. \end{DoxyCompactList}\item 
+virtual const bool \hyperlink{classGameStateData_a1893643563270c9ca0552761d0da1085}{is\-P1\-Respawn} ()=0
+\begin{DoxyCompactList}\small\item\em Chech to see if P1 can be respawned. \end{DoxyCompactList}\item 
+virtual const bool \hyperlink{classGameStateData_af65fd6264b007c67e17ffa23e1b91cdb}{is\-P2\-Respawn} ()=0
+\begin{DoxyCompactList}\small\item\em Check to see if P2 can be respawned. \end{DoxyCompactList}\item 
+virtual const bool \hyperlink{classGameStateData_a96b7a0057780d2fac25569019804428e}{is\-Game\-Finished} ()=0
+\begin{DoxyCompactList}\small\item\em Check to see if the game has reached an end state. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classGameStateData_a304d37bb9b7844df62139139bd9cbb92}{set\-Game\-Finished} ()=0
+\begin{DoxyCompactList}\small\item\em Set the game to a finnished state. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classGameStateData_a1573842cc559d329f894add1678ffb03}{set\-Game\-Time} (const float game\-\_\-time)=0
+\begin{DoxyCompactList}\small\item\em Update the game time for rendering. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classGameStateData_a0cb5cf167da9dd1929c719778c5d3506}{get\-Game\-Time} ()=0
+\begin{DoxyCompactList}\small\item\em Provide the current game time. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGameStateData_a1a607dfe4238a54671e51f1cfab34cd8}{$\sim$\-Game\-State\-Data} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 14 of file Game\-State\-Data.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGameStateData_a1a607dfe4238a54671e51f1cfab34cd8}{\index{Game\-State\-Data@{Game\-State\-Data}!$\sim$\-Game\-State\-Data@{$\sim$\-Game\-State\-Data}}
+\index{$\sim$\-Game\-State\-Data@{$\sim$\-Game\-State\-Data}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{$\sim$\-Game\-State\-Data}]{\setlength{\rightskip}{0pt plus 5cm}virtual Game\-State\-Data\-::$\sim$\-Game\-State\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classGameStateData_a1a607dfe4238a54671e51f1cfab34cd8}
+
+
+Destructor. 
+
+
+
+Definition at line 46 of file Game\-State\-Data.\-h.
+
+
+\begin{DoxyCode}
+46 \{\};
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGameStateData_a0599750aaaa0d272ba8e073d84b0e82b}{\index{Game\-State\-Data@{Game\-State\-Data}!disable\-P1\-Respawn@{disable\-P1\-Respawn}}
+\index{disable\-P1\-Respawn@{disable\-P1\-Respawn}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{disable\-P1\-Respawn}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::disable\-P1\-Respawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a0599750aaaa0d272ba8e073d84b0e82b}
+
+
+Disallow P1 to be respawned. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a66c80fd2795e9e95fe47ad5a77263a9b}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_a5886e86d10a106cf490eaa2433f3e3ea}{\index{Game\-State\-Data@{Game\-State\-Data}!disable\-P2\-Respawn@{disable\-P2\-Respawn}}
+\index{disable\-P2\-Respawn@{disable\-P2\-Respawn}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{disable\-P2\-Respawn}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::disable\-P2\-Respawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a5886e86d10a106cf490eaa2433f3e3ea}
+
+
+Disallow P2 to be respawned again. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a2bcc4361d645773587a722755f53cf29}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_a0cb5cf167da9dd1929c719778c5d3506}{\index{Game\-State\-Data@{Game\-State\-Data}!get\-Game\-Time@{get\-Game\-Time}}
+\index{get\-Game\-Time@{get\-Game\-Time}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{get\-Game\-Time}]{\setlength{\rightskip}{0pt plus 5cm}virtual const float Game\-State\-Data\-::get\-Game\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a0cb5cf167da9dd1929c719778c5d3506}
+
+
+Provide the current game time. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_aa507f9e395464888ad9dc66a90b1bbc3}{Game\-Management\-Data}.
+
+
+
+Referenced by Draw\-Manager\-::manage().
+
+\hypertarget{classGameStateData_ac4dbf8f19eb4abae6c6e674e1f0ad473}{\index{Game\-State\-Data@{Game\-State\-Data}!get\-P1\-Score@{get\-P1\-Score}}
+\index{get\-P1\-Score@{get\-P1\-Score}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{get\-P1\-Score}]{\setlength{\rightskip}{0pt plus 5cm}virtual const int Game\-State\-Data\-::get\-P1\-Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_ac4dbf8f19eb4abae6c6e674e1f0ad473}
+
+
+Retrieve player 1's score. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a2738ec4d85bdb87f957d21e8a314e502}{Game\-Management\-Data}.
+
+
+
+Referenced by Draw\-Manager\-::manage().
+
+\hypertarget{classGameStateData_a024affaa547433a0feca091d2bc516b6}{\index{Game\-State\-Data@{Game\-State\-Data}!get\-P2\-Score@{get\-P2\-Score}}
+\index{get\-P2\-Score@{get\-P2\-Score}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{get\-P2\-Score}]{\setlength{\rightskip}{0pt plus 5cm}virtual const int Game\-State\-Data\-::get\-P2\-Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a024affaa547433a0feca091d2bc516b6}
+
+
+Retrieve player 2's score. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_ad1d991be2ab8b8f814ef6898dd887d15}{Game\-Management\-Data}.
+
+
+
+Referenced by Draw\-Manager\-::manage().
+
+\hypertarget{classGameStateData_a28ec2cf2d7dd89bab394b611a83e7d4c}{\index{Game\-State\-Data@{Game\-State\-Data}!increase\-P1\-Score@{increase\-P1\-Score}}
+\index{increase\-P1\-Score@{increase\-P1\-Score}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{increase\-P1\-Score}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::increase\-P1\-Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a28ec2cf2d7dd89bab394b611a83e7d4c}
+
+
+Increment player 1's score by one. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a7d574170fe76a837c05372c8c52eed63}{Game\-Management\-Data}.
+
+
+
+Referenced by Destruction\-Manager\-::manage().
+
+\hypertarget{classGameStateData_a8b2470bafedd2c51cdc32199ae004b13}{\index{Game\-State\-Data@{Game\-State\-Data}!increase\-P2\-Score@{increase\-P2\-Score}}
+\index{increase\-P2\-Score@{increase\-P2\-Score}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{increase\-P2\-Score}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::increase\-P2\-Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a8b2470bafedd2c51cdc32199ae004b13}
+
+
+Increment player 2's score by one. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a9a7a124ef719be6f9d45c4ec231e7774}{Game\-Management\-Data}.
+
+
+
+Referenced by Destruction\-Manager\-::manage().
+
+\hypertarget{classGameStateData_a96b7a0057780d2fac25569019804428e}{\index{Game\-State\-Data@{Game\-State\-Data}!is\-Game\-Finished@{is\-Game\-Finished}}
+\index{is\-Game\-Finished@{is\-Game\-Finished}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{is\-Game\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}virtual const bool Game\-State\-Data\-::is\-Game\-Finished (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a96b7a0057780d2fac25569019804428e}
+
+
+Check to see if the game has reached an end state. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_ac8d6deb9285fe8e5205f9984b0a2622d}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_a1893643563270c9ca0552761d0da1085}{\index{Game\-State\-Data@{Game\-State\-Data}!is\-P1\-Respawn@{is\-P1\-Respawn}}
+\index{is\-P1\-Respawn@{is\-P1\-Respawn}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{is\-P1\-Respawn}]{\setlength{\rightskip}{0pt plus 5cm}virtual const bool Game\-State\-Data\-::is\-P1\-Respawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a1893643563270c9ca0552761d0da1085}
+
+
+Chech to see if P1 can be respawned. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a2abb452bd5ecd1f8d09b76dc1f909260}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_af65fd6264b007c67e17ffa23e1b91cdb}{\index{Game\-State\-Data@{Game\-State\-Data}!is\-P2\-Respawn@{is\-P2\-Respawn}}
+\index{is\-P2\-Respawn@{is\-P2\-Respawn}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{is\-P2\-Respawn}]{\setlength{\rightskip}{0pt plus 5cm}virtual const bool Game\-State\-Data\-::is\-P2\-Respawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_af65fd6264b007c67e17ffa23e1b91cdb}
+
+
+Check to see if P2 can be respawned. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a3b94efaf212d65515c1c511a17636b5f}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_a304d37bb9b7844df62139139bd9cbb92}{\index{Game\-State\-Data@{Game\-State\-Data}!set\-Game\-Finished@{set\-Game\-Finished}}
+\index{set\-Game\-Finished@{set\-Game\-Finished}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{set\-Game\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::set\-Game\-Finished (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a304d37bb9b7844df62139139bd9cbb92}
+
+
+Set the game to a finnished state. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_afef95ac9618619ca6ec29277fd04c361}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_a1573842cc559d329f894add1678ffb03}{\index{Game\-State\-Data@{Game\-State\-Data}!set\-Game\-Time@{set\-Game\-Time}}
+\index{set\-Game\-Time@{set\-Game\-Time}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{set\-Game\-Time}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::set\-Game\-Time (
+\begin{DoxyParamCaption}
+\item[{const float}]{game\-\_\-time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a1573842cc559d329f894add1678ffb03}
+
+
+Update the game time for rendering. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_ae3ed7d9a9cbed2222ad34c52a4bcfd5c}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_ab8f2d792862e1292c767d5c1b41eb334}{\index{Game\-State\-Data@{Game\-State\-Data}!set\-P1\-Respawn@{set\-P1\-Respawn}}
+\index{set\-P1\-Respawn@{set\-P1\-Respawn}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{set\-P1\-Respawn}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::set\-P1\-Respawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_ab8f2d792862e1292c767d5c1b41eb334}
+
+
+Allow P1 to be respawed again. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a1df14e6642056790f6677cbd779c6815}{Game\-Management\-Data}.
+
+\hypertarget{classGameStateData_a3b47e49a56e053a7b346b1eafd5c46b1}{\index{Game\-State\-Data@{Game\-State\-Data}!set\-P2\-Respawn@{set\-P2\-Respawn}}
+\index{set\-P2\-Respawn@{set\-P2\-Respawn}!GameStateData@{Game\-State\-Data}}
+\subsubsection[{set\-P2\-Respawn}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\-State\-Data\-::set\-P2\-Respawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameStateData_a3b47e49a56e053a7b346b1eafd5c46b1}
+
+
+Allow P2 to be respawned again. 
+
+
+
+Implemented in \hyperlink{classGameManagementData_a31113c80e1caa2604c98db63d565641a}{Game\-Management\-Data}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GameStateData_8h}{Game\-State\-Data.\-h}\end{DoxyCompactItemize}

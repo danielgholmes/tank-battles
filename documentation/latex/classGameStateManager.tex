@@ -1,0 +1,378 @@
+\hypertarget{classGameStateManager}{\section{Game\-State\-Manager Class Reference}
+\label{classGameStateManager}\index{Game\-State\-Manager@{Game\-State\-Manager}}
+}
+
+
+\hyperlink{classManager}{Manager} class responsible for managing state of the game.  
+
+
+
+
+{\ttfamily \#include $<$Game\-State\-Manager.\-h$>$}
+
+Inheritance diagram for Game\-State\-Manager\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameStateManager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameStateManager_aa9769dca27ad070cf5491a7f54c7d85e}{Game\-State\-Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \hyperlink{classGameStateManager}{Game\-State\-Manager}. \end{DoxyCompactList}\item 
+void \hyperlink{classGameStateManager_aa113f5c0f62142776ec8cef1bb904ff5}{manage} (\hyperlink{classGameManagementData}{Game\-Management\-Data} \&game\-\_\-data\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Main manage function. \end{DoxyCompactList}\item 
+\hyperlink{classGameStateManager_ad20961eb5d9ed6b7ef764037d5e11ba5}{$\sim$\-Game\-State\-Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGameStateManager_a5b61abb4ee2058208277bc7e6e19eda9}{manage\-Attack\-Timers} (\hyperlink{classActionData}{Action\-Data} \&action\-\_\-data\-\_\-container)
+\begin{DoxyCompactList}\small\item\em Manage the timers that keep track of firing and laying mines intervals. \end{DoxyCompactList}\item 
+bool \hyperlink{classGameStateManager_af8588ab062f78314e0d22faefae3c834}{time\-Run\-Out} (\hyperlink{classStopWatch}{Stop\-Watch} \&timer)
+\begin{DoxyCompactList}\small\item\em Checks timeout for specific timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStopWatch}{Stop\-Watch} \hyperlink{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}{\-\_\-game\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Keeps track of the overall game time. \end{DoxyCompactList}\item 
+\hyperlink{classStopWatch}{Stop\-Watch} \hyperlink{classGameStateManager_a56b5da52f57018c53a29ee4adef4acff}{\-\_\-p1\-\_\-fire\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Keep tracks of time between firing of missiles for player 1. \end{DoxyCompactList}\item 
+\hyperlink{classStopWatch}{Stop\-Watch} \hyperlink{classGameStateManager_a6ffa94597eef770ae4c812a834daa39c}{\-\_\-p2\-\_\-fire\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Keep tracks of time between firing of missiles for player 2. \end{DoxyCompactList}\item 
+\hyperlink{classStopWatch}{Stop\-Watch} \hyperlink{classGameStateManager_a7e424def0f4a2f1548b5b63629cd66f1}{\-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Keeps track of time between laying mines for player 1. \end{DoxyCompactList}\item 
+\hyperlink{classStopWatch}{Stop\-Watch} \hyperlink{classGameStateManager_a14203d39640e3368bc75c2e9b853a452}{\-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer}
+\begin{DoxyCompactList}\small\item\em Keeps track of time between laying mines for player 2. \end{DoxyCompactList}\item 
+const double \hyperlink{classGameStateManager_a225d7168ceade083143153748bd55264}{\-\_\-game\-\_\-runtime} = 120.\-0
+\begin{DoxyCompactList}\small\item\em The time in seconds of how long the game will last. \end{DoxyCompactList}\item 
+const double \hyperlink{classGameStateManager_a94f553200fdb06e224376f60c0bcec4f}{\-\_\-attack\-\_\-time\-\_\-limit} = 0.\-5
+\begin{DoxyCompactList}\small\item\em Time limit between firing or laying mines for tanks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classManager}{Manager} class responsible for managing state of the game. 
+
+Definition at line 23 of file Game\-State\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGameStateManager_aa9769dca27ad070cf5491a7f54c7d85e}{\index{Game\-State\-Manager@{Game\-State\-Manager}!Game\-State\-Manager@{Game\-State\-Manager}}
+\index{Game\-State\-Manager@{Game\-State\-Manager}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{Game\-State\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Game\-State\-Manager\-::\-Game\-State\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameStateManager_aa9769dca27ad070cf5491a7f54c7d85e}
+
+
+Constructor for \hyperlink{classGameStateManager}{Game\-State\-Manager}. 
+
+Initialises the timer for the whole game. 
+
+Definition at line 17 of file Game\-State\-Manager.\-cpp.
+
+
+
+References \-\_\-game\-\_\-timer, and Stop\-Watch\-::start().
+
+
+\begin{DoxyCode}
+18 \{
+19     \hyperlink{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}{\_game\_timer}.\hyperlink{classStopWatch_a09a3c8f9ab03d7b28e4f8b90a833974e}{start}();
+20 \}
+\end{DoxyCode}
+\hypertarget{classGameStateManager_ad20961eb5d9ed6b7ef764037d5e11ba5}{\index{Game\-State\-Manager@{Game\-State\-Manager}!$\sim$\-Game\-State\-Manager@{$\sim$\-Game\-State\-Manager}}
+\index{$\sim$\-Game\-State\-Manager@{$\sim$\-Game\-State\-Manager}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{$\sim$\-Game\-State\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Game\-State\-Manager\-::$\sim$\-Game\-State\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGameStateManager_ad20961eb5d9ed6b7ef764037d5e11ba5}
+
+
+Definition at line 105 of file Game\-State\-Manager.\-cpp.
+
+
+\begin{DoxyCode}
+106 \{
+107 
+108 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGameStateManager_aa113f5c0f62142776ec8cef1bb904ff5}{\index{Game\-State\-Manager@{Game\-State\-Manager}!manage@{manage}}
+\index{manage@{manage}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{manage}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-State\-Manager\-::manage (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\-Management\-Data} \&}]{game\-\_\-data\-\_\-container}
+\end{DoxyParamCaption}
+)}}\label{classGameStateManager_aa113f5c0f62142776ec8cef1bb904ff5}
+
+
+Main manage function. 
+
+The amount of elapsed time is obtained by getting the timer value and subtracting that from the game runtime variable. Once that timer runs out, the game state will be set to finished. Otherwise the current game time is set. Attack timers are also run. 
+\begin{DoxyParams}{Parameters}
+{\em game\-\_\-data\-\_\-container} & \-:\-: Information that holds the game time which will be changed accordingly \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file Game\-State\-Manager.\-cpp.
+
+
+
+References \-\_\-game\-\_\-runtime, \-\_\-game\-\_\-timer, Stop\-Watch\-::get\-Timer\-Value(), Stop\-Watch\-::is\-Running(), manage\-Attack\-Timers(), Game\-Management\-Data\-::set\-Game\-Finished(), Game\-Management\-Data\-::set\-Game\-Time(), Stop\-Watch\-::start(), and Stop\-Watch\-::stop().
+
+
+
+Referenced by Game\-::run\-All\-Managers(), and T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+29 \{
+30     \textcolor{keywordflow}{if} (!\hyperlink{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}{\_game\_timer}.\hyperlink{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{isRunning}())
+31         \hyperlink{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}{\_game\_timer}.\hyperlink{classStopWatch_a09a3c8f9ab03d7b28e4f8b90a833974e}{start}();
+32 
+33     \textcolor{keywordtype}{double} current\_time = \hyperlink{classGameStateManager_a225d7168ceade083143153748bd55264}{\_game\_runtime} - \hyperlink{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}{\_game\_timer}.
+      \hyperlink{classStopWatch_a29945e425c084bb7df859c4c10cbd9fe}{getTimerValue}();\textcolor{comment}{// makes the timer countdown}
+34 
+35     \textcolor{keywordflow}{if} (current\_time <= 0 )
+36     \{
+37         \hyperlink{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}{\_game\_timer}.\hyperlink{classStopWatch_a6e80b598d9304e37d8768b716e713e0e}{stop}();
+38         game\_data\_container.\hyperlink{classGameManagementData_afef95ac9618619ca6ec29277fd04c361}{setGameFinished}(); \textcolor{comment}{// finish the game}
+39     \}
+40     \textcolor{keywordflow}{else}
+41         game\_data\_container.\hyperlink{classGameManagementData_ae3ed7d9a9cbed2222ad34c52a4bcfd5c}{setGameTime}(current\_time);
+42 
+43     \hyperlink{classGameStateManager_a5b61abb4ee2058208277bc7e6e19eda9}{manageAttackTimers}(game\_data\_container);
+44 \}
+\end{DoxyCode}
+\hypertarget{classGameStateManager_a5b61abb4ee2058208277bc7e6e19eda9}{\index{Game\-State\-Manager@{Game\-State\-Manager}!manage\-Attack\-Timers@{manage\-Attack\-Timers}}
+\index{manage\-Attack\-Timers@{manage\-Attack\-Timers}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{manage\-Attack\-Timers}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-State\-Manager\-::manage\-Attack\-Timers (
+\begin{DoxyParamCaption}
+\item[{{\bf Action\-Data} \&}]{game\-\_\-data\-\_\-container}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a5b61abb4ee2058208277bc7e6e19eda9}
+
+
+Manage the timers that keep track of firing and laying mines intervals. 
+
+Both players' timers are checked. If their time for firing has run out then thay may fire another missile, or lay another mine. 
+\begin{DoxyParams}{Parameters}
+{\em game\-\_\-data\-\_\-container} & \-:\-: Information about whhat attacks the players' desire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Game\-State\-Manager.\-cpp.
+
+
+
+References \-\_\-p1\-\_\-fire\-\_\-timer, \-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer, \-\_\-p2\-\_\-fire\-\_\-timer, \-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer, fire\-\_\-missile, Action\-Data\-::give\-Action\-Info(), lay\-\_\-mine, Action\-Data\-::reset\-P1\-Attack(), Action\-Data\-::reset\-P2\-Attack(), and time\-Run\-Out().
+
+
+
+Referenced by manage().
+
+
+\begin{DoxyCode}
+52 \{
+53     \textcolor{keyword}{auto} actions = game\_data\_container.\hyperlink{classActionData_ab2f5b210968c91a01ed1439904b3ffee}{giveActionInfo}();
+54 
+55     \textcolor{keywordflow}{if} (actions.attack\_1 == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}{fire\_missile})
+56     \{
+57         \textcolor{keywordflow}{if} (!\hyperlink{classGameStateManager_af8588ab062f78314e0d22faefae3c834}{timeRunOut}(\hyperlink{classGameStateManager_a56b5da52f57018c53a29ee4adef4acff}{\_p1\_fire\_timer}))
+58             game\_data\_container.\hyperlink{classActionData_a12925d051a1cd40bddcb18f0be2c2b01}{resetP1Attack}();
+59     \}
+60 
+61     \textcolor{keywordflow}{if} (actions.attack\_2 == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1badfc8afb4acc9eae75dcfdde515861288}{fire\_missile})
+62     \{
+63         \textcolor{keywordflow}{if} (!\hyperlink{classGameStateManager_af8588ab062f78314e0d22faefae3c834}{timeRunOut}(\hyperlink{classGameStateManager_a6ffa94597eef770ae4c812a834daa39c}{\_p2\_fire\_timer}))
+64             game\_data\_container.\hyperlink{classActionData_ab8a96447019bfc7a275903dfa42cfcf5}{resetP2Attack}();
+65     \}
+66 
+67 
+68     \textcolor{keywordflow}{if} (actions.attack\_1 == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}{lay\_mine})
+69     \{
+70         \textcolor{keywordflow}{if} (!\hyperlink{classGameStateManager_af8588ab062f78314e0d22faefae3c834}{timeRunOut}(\hyperlink{classGameStateManager_a7e424def0f4a2f1548b5b63629cd66f1}{\_p1\_lay\_mine\_timer}))
+71             game\_data\_container.\hyperlink{classActionData_a12925d051a1cd40bddcb18f0be2c2b01}{resetP1Attack}();
+72     \}
+73 
+74     \textcolor{keywordflow}{if} (actions.attack\_2 == \hyperlink{Structures_8h_abf3d9daa4559fb2f9e16fc1836fead1baed59f3b92945ae37d3f2f4e7472acacc}{lay\_mine})
+75     \{
+76         \textcolor{keywordflow}{if} (!\hyperlink{classGameStateManager_af8588ab062f78314e0d22faefae3c834}{timeRunOut}(\hyperlink{classGameStateManager_a14203d39640e3368bc75c2e9b853a452}{\_p2\_lay\_mine\_timer}))
+77             game\_data\_container.\hyperlink{classActionData_ab8a96447019bfc7a275903dfa42cfcf5}{resetP2Attack}();
+78     \}
+79 \}
+\end{DoxyCode}
+\hypertarget{classGameStateManager_af8588ab062f78314e0d22faefae3c834}{\index{Game\-State\-Manager@{Game\-State\-Manager}!time\-Run\-Out@{time\-Run\-Out}}
+\index{time\-Run\-Out@{time\-Run\-Out}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{time\-Run\-Out}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\-State\-Manager\-::time\-Run\-Out (
+\begin{DoxyParamCaption}
+\item[{{\bf Stop\-Watch} \&}]{timer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_af8588ab062f78314e0d22faefae3c834}
+
+
+Checks timeout for specific timer. 
+
+If the timer is not running yet, then it is started. If it has started, the attack time is calculated. 
+\begin{DoxyParams}{Parameters}
+{\em timer} & \-:\-: timer to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file Game\-State\-Manager.\-cpp.
+
+
+
+References \-\_\-attack\-\_\-time\-\_\-limit, Stop\-Watch\-::get\-Timer\-Value(), Stop\-Watch\-::is\-Running(), Stop\-Watch\-::reset(), and Stop\-Watch\-::start().
+
+
+
+Referenced by manage\-Attack\-Timers().
+
+
+\begin{DoxyCode}
+88 \{
+89     \textcolor{keywordflow}{if} (!timer.\hyperlink{classStopWatch_a4358045d32002cb83ec62d1ebb9fb5ca}{isRunning}())
+90     \{
+91         timer.\hyperlink{classStopWatch_a09a3c8f9ab03d7b28e4f8b90a833974e}{start}();
+92         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+93     \}
+94 
+95     \textcolor{keywordtype}{double} timer\_time = \hyperlink{classGameStateManager_a94f553200fdb06e224376f60c0bcec4f}{\_attack\_time\_limit} - timer.
+      \hyperlink{classStopWatch_a29945e425c084bb7df859c4c10cbd9fe}{getTimerValue}();
+96     \textcolor{keywordflow}{if} (timer\_time <= 0)
+97     \{
+98         timer.\hyperlink{classStopWatch_a1c0dcc57c615559f24bc9f8759271a9d}{reset}();
+99         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+100     \}
+101     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+102 
+103 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGameStateManager_a94f553200fdb06e224376f60c0bcec4f}{\index{Game\-State\-Manager@{Game\-State\-Manager}!\-\_\-attack\-\_\-time\-\_\-limit@{\-\_\-attack\-\_\-time\-\_\-limit}}
+\index{\-\_\-attack\-\_\-time\-\_\-limit@{\-\_\-attack\-\_\-time\-\_\-limit}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{\-\_\-attack\-\_\-time\-\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}const double Game\-State\-Manager\-::\-\_\-attack\-\_\-time\-\_\-limit = 0.\-5\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a94f553200fdb06e224376f60c0bcec4f}
+
+
+Time limit between firing or laying mines for tanks. 
+
+
+
+Definition at line 44 of file Game\-State\-Manager.\-h.
+
+
+
+Referenced by time\-Run\-Out().
+
+\hypertarget{classGameStateManager_a225d7168ceade083143153748bd55264}{\index{Game\-State\-Manager@{Game\-State\-Manager}!\-\_\-game\-\_\-runtime@{\-\_\-game\-\_\-runtime}}
+\index{\-\_\-game\-\_\-runtime@{\-\_\-game\-\_\-runtime}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{\-\_\-game\-\_\-runtime}]{\setlength{\rightskip}{0pt plus 5cm}const double Game\-State\-Manager\-::\-\_\-game\-\_\-runtime = 120.\-0\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a225d7168ceade083143153748bd55264}
+
+
+The time in seconds of how long the game will last. 
+
+
+
+Definition at line 42 of file Game\-State\-Manager.\-h.
+
+
+
+Referenced by manage().
+
+\hypertarget{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}{\index{Game\-State\-Manager@{Game\-State\-Manager}!\-\_\-game\-\_\-timer@{\-\_\-game\-\_\-timer}}
+\index{\-\_\-game\-\_\-timer@{\-\_\-game\-\_\-timer}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{\-\_\-game\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stop\-Watch} Game\-State\-Manager\-::\-\_\-game\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a059c0be895a3ed3632257fbeb65b86d9}
+
+
+Keeps track of the overall game time. 
+
+
+
+Definition at line 32 of file Game\-State\-Manager.\-h.
+
+
+
+Referenced by Game\-State\-Manager(), and manage().
+
+\hypertarget{classGameStateManager_a56b5da52f57018c53a29ee4adef4acff}{\index{Game\-State\-Manager@{Game\-State\-Manager}!\-\_\-p1\-\_\-fire\-\_\-timer@{\-\_\-p1\-\_\-fire\-\_\-timer}}
+\index{\-\_\-p1\-\_\-fire\-\_\-timer@{\-\_\-p1\-\_\-fire\-\_\-timer}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{\-\_\-p1\-\_\-fire\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stop\-Watch} Game\-State\-Manager\-::\-\_\-p1\-\_\-fire\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a56b5da52f57018c53a29ee4adef4acff}
+
+
+Keep tracks of time between firing of missiles for player 1. 
+
+
+
+Definition at line 34 of file Game\-State\-Manager.\-h.
+
+
+
+Referenced by manage\-Attack\-Timers().
+
+\hypertarget{classGameStateManager_a7e424def0f4a2f1548b5b63629cd66f1}{\index{Game\-State\-Manager@{Game\-State\-Manager}!\-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer@{\-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer}}
+\index{\-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer@{\-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{\-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stop\-Watch} Game\-State\-Manager\-::\-\_\-p1\-\_\-lay\-\_\-mine\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a7e424def0f4a2f1548b5b63629cd66f1}
+
+
+Keeps track of time between laying mines for player 1. 
+
+
+
+Definition at line 38 of file Game\-State\-Manager.\-h.
+
+
+
+Referenced by manage\-Attack\-Timers().
+
+\hypertarget{classGameStateManager_a6ffa94597eef770ae4c812a834daa39c}{\index{Game\-State\-Manager@{Game\-State\-Manager}!\-\_\-p2\-\_\-fire\-\_\-timer@{\-\_\-p2\-\_\-fire\-\_\-timer}}
+\index{\-\_\-p2\-\_\-fire\-\_\-timer@{\-\_\-p2\-\_\-fire\-\_\-timer}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{\-\_\-p2\-\_\-fire\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stop\-Watch} Game\-State\-Manager\-::\-\_\-p2\-\_\-fire\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a6ffa94597eef770ae4c812a834daa39c}
+
+
+Keep tracks of time between firing of missiles for player 2. 
+
+
+
+Definition at line 36 of file Game\-State\-Manager.\-h.
+
+
+
+Referenced by manage\-Attack\-Timers().
+
+\hypertarget{classGameStateManager_a14203d39640e3368bc75c2e9b853a452}{\index{Game\-State\-Manager@{Game\-State\-Manager}!\-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer@{\-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer}}
+\index{\-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer@{\-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer}!GameStateManager@{Game\-State\-Manager}}
+\subsubsection[{\-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stop\-Watch} Game\-State\-Manager\-::\-\_\-p2\-\_\-lay\-\_\-mine\-\_\-timer\hspace{0.3cm}{\ttfamily [private]}}}\label{classGameStateManager_a14203d39640e3368bc75c2e9b853a452}
+
+
+Keeps track of time between laying mines for player 2. 
+
+
+
+Definition at line 40 of file Game\-State\-Manager.\-h.
+
+
+
+Referenced by manage\-Attack\-Timers().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GameStateManager_8h}{Game\-State\-Manager.\-h}\item 
+\hyperlink{GameStateManager_8cpp}{Game\-State\-Manager.\-cpp}\end{DoxyCompactItemize}

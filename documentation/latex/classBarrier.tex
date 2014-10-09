@@ -1,0 +1,532 @@
+\hypertarget{classBarrier}{\section{Barrier Class Reference}
+\label{classBarrier}\index{Barrier@{Barrier}}
+}
+
+
+{\ttfamily \#include $<$Barrier.\-h$>$}
+
+Inheritance diagram for Barrier\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classBarrier}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBarrier_aa5930a2e2b7cfc516a9badd3fcc8babd}{Barrier} (float position\-X, float position\-Y, \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} barrier\-Type\-Set)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBarrier}{Barrier} entity constructor. \end{DoxyCompactList}\item 
+virtual const \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \& \hyperlink{classBarrier_a649b80eadc6948e68947f7516fee258c}{get\-Type} () const 
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBarrier}{Barrier} is able to provide its identification. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classBarrier_a050de6c9ffbb0a321c6d8a2e3d1dd418}{get\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Provide the bounding box for the \hyperlink{classBarrier}{Barrier} entity. \end{DoxyCompactList}\item 
+virtual const \hyperlink{structrect__corners}{rect\-\_\-corners} \& \hyperlink{classBarrier_a5fe813c8e78457566a5ff61235c12ea6}{get\-Aligned\-Bounding\-Box} ()
+\begin{DoxyCompactList}\small\item\em Get Axis Aligned bounding box of entity. \end{DoxyCompactList}\item 
+virtual const int \hyperlink{classBarrier_acff61ab4742c427abdf0d46abd52c832}{set\-Blocked} (const \hyperlink{Structures_8h_a6fef29d9424addfa69bdd2a379424896}{blocked\-\_\-status} obstruction\-\_\-type)
+\begin{DoxyCompactList}\small\item\em This function is not used by barrier. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classBarrier_a863ef65ef677abdcf97373157f86c138}{set\-Unblocked} ()
+\begin{DoxyCompactList}\small\item\em This function is not used by barrier. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classBarrier_adeedae22d7df279613359026ecf9f279}{set\-Collided} ()
+\begin{DoxyCompactList}\small\item\em This function may be implmented later$\ast$$\ast$. \end{DoxyCompactList}\item 
+virtual const bool \hyperlink{classBarrier_a8199ad8a6f070435da55832bdd3893b8}{is\-Deleted} ()
+\begin{DoxyCompactList}\small\item\em Boolean state of the barrier entities life. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classBarrier_a53317aaef27996362c933d65914d663c}{get\-Draw\-Position\-X} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the \hyperlink{classBarrier}{Barrier} x Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classBarrier_af90c9b4b6f28c7710637ccda7148fbd4}{get\-Draw\-Position\-Y} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the \hyperlink{classBarrier}{Barrier} y Position. \end{DoxyCompactList}\item 
+virtual const float \hyperlink{classBarrier_aac579711db52df907e86ef4deea7ba1d}{get\-Draw\-Rotation} ()
+\begin{DoxyCompactList}\small\item\em Recieve the \hyperlink{classBarrier}{Barrier} rotation. \end{DoxyCompactList}\item 
+virtual \hyperlink{classBarrier_a401f40e73302009b305904ffc7825304}{$\sim$\-Barrier} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the Barrrier entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classOrientation}{Orientation} \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\-\_\-barrier}
+\begin{DoxyCompactList}\small\item\em Co-\/cordinate system for \hyperlink{classBarrier}{Barrier} entity. \end{DoxyCompactList}\item 
+\hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3}{entity\-\_\-type} \hyperlink{classBarrier_ab4bfa33b658ab34e4053494c06e9d9a1}{\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Enumeration type defining the \hyperlink{classBarrier}{Barrier}. \end{DoxyCompactList}\item 
+\hyperlink{classSpriteDimensions}{Sprite\-Dimensions} \hyperlink{classBarrier_aec1d9dbf82de85ee800808c16c587ab3}{\-\_\-sprite\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em Dimensions of \hyperlink{classBarrier}{Barrier}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 25 of file Barrier.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBarrier_aa5930a2e2b7cfc516a9badd3fcc8babd}{\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\subsubsection[{Barrier}]{\setlength{\rightskip}{0pt plus 5cm}Barrier\-::\-Barrier (
+\begin{DoxyParamCaption}
+\item[{float}]{position\-X, }
+\item[{float}]{position\-Y, }
+\item[{{\bf entity\-\_\-type}}]{barrier\-Type\-Set}
+\end{DoxyParamCaption}
+)}}\label{classBarrier_aa5930a2e2b7cfc516a9badd3fcc8babd}
+
+
+\hyperlink{classBarrier}{Barrier} entity constructor. 
+
+Constructor for \hyperlink{classBarrier}{Barrier} class.
+
+Default constructor for the \hyperlink{classOrientation}{Orientation} class 
+\begin{DoxyParams}{Parameters}
+{\em position\-X} & \-:\-: The initial x-\/coordinate of the barrier object \\
+\hline
+{\em position\-Y} & \-:\-: The initial y-\/coordinate of the barrier object \\
+\hline
+{\em barrier\-Type\-Set} & \-:\-: An Enum to provide the barrier a specific classification. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file Barrier.\-cpp.
+
+
+
+References \-\_\-barrier, \-\_\-sprite\-\_\-dimensions, \-\_\-type, barrier, Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-x, Sprite\-Dimensions\-::barrier\-\_\-sprite\-\_\-y, Orientation\-::set\-Height(), and Orientation\-::set\-Width().
+
+
+\begin{DoxyCode}
+20                                                                             :
+21     \hyperlink{classBarrier_aec1d9dbf82de85ee800808c16c587ab3}{\_sprite\_dimensions}(),
+22     \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}(positionX,positionY,0,0,0.0,\textcolor{keyword}{false})
+23 \{
+24     \textcolor{keywordflow}{if}(positionX < 0) \textcolor{keywordflow}{throw} \hyperlink{classInvalidConstructorArgumentsBarrier}{InvalidConstructorArgumentsBarrier}();
+25     \textcolor{keywordflow}{if}(positionY < 0) \textcolor{keywordflow}{throw} \hyperlink{classInvalidConstructorArgumentsBarrier}{InvalidConstructorArgumentsBarrier}();
+26     \textcolor{keywordflow}{if}(barrierTypeSet != \hyperlink{Structures_8h_a6d8f83e710b27d4f86c45f0bb77066e3a6fb040c958f554e1d8320926b700b59d}{barrier}) \textcolor{keywordflow}{throw} 
+      \hyperlink{classInvalidConstructorArgumentsBarrier}{InvalidConstructorArgumentsBarrier}();
+27 
+28     \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}.\hyperlink{classOrientation_a1b5cd490e5bbbe2b8d683be389dbcbbe}{setWidth}(\hyperlink{classBarrier_aec1d9dbf82de85ee800808c16c587ab3}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abcc491d376f31d36013e4f2396dbc408}{barrier\_sprite\_x});
+29     \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}.\hyperlink{classOrientation_a1adca89bc32128e2ca1cb937357f5006}{setHeight}(\hyperlink{classBarrier_aec1d9dbf82de85ee800808c16c587ab3}{\_sprite\_dimensions}.
+      \hyperlink{classSpriteDimensions_abad79766e2254e365d3455b3471a5d0a}{barrier\_sprite\_y});
+30     \hyperlink{classBarrier_ab4bfa33b658ab34e4053494c06e9d9a1}{\_type} = barrierTypeSet;
+31 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_a401f40e73302009b305904ffc7825304}{\index{Barrier@{Barrier}!$\sim$\-Barrier@{$\sim$\-Barrier}}
+\index{$\sim$\-Barrier@{$\sim$\-Barrier}!Barrier@{Barrier}}
+\subsubsection[{$\sim$\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}Barrier\-::$\sim$\-Barrier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_a401f40e73302009b305904ffc7825304}
+
+
+Destructor for the Barrrier entity. 
+
+Destructor for \hyperlink{classBarrier}{Barrier}.
+
+Default destructor 
+
+Definition at line 131 of file Barrier.\-cpp.
+
+
+\begin{DoxyCode}
+132 \{
+133 
+134 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBarrier_a5fe813c8e78457566a5ff61235c12ea6}{\index{Barrier@{Barrier}!get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}}
+\index{get\-Aligned\-Bounding\-Box@{get\-Aligned\-Bounding\-Box}!Barrier@{Barrier}}
+\subsubsection[{get\-Aligned\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Barrier\-::get\-Aligned\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_a5fe813c8e78457566a5ff61235c12ea6}
+
+
+Get Axis Aligned bounding box of entity. 
+
+Function used to calculate the axis-\/aligned (simplified) bounding box of the \hyperlink{classBarrier}{Barrier} entity.
+
+The bounding box of the entity is calculated by taking its orientation components and extending four four verticies outwards from its origin \begin{DoxyReturn}{Returns}
+const \hyperlink{structrect__corners}{rect\-\_\-corners} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCollidable_a6909df57a0915f044d5d967a3be086f3}{Collidable}.
+
+
+
+Definition at line 58 of file Barrier.\-cpp.
+
+
+
+References \-\_\-barrier, and Orientation\-::get\-Aligned\-Global\-Bounds().
+
+
+\begin{DoxyCode}
+59 \{
+60     \textcolor{keywordflow}{return} \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}.\hyperlink{classOrientation_a5cc606289f774c8561af98d183586199}{getAlignedGlobalBounds}();
+61 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_a050de6c9ffbb0a321c6d8a2e3d1dd418}{\index{Barrier@{Barrier}!get\-Bounding\-Box@{get\-Bounding\-Box}}
+\index{get\-Bounding\-Box@{get\-Bounding\-Box}!Barrier@{Barrier}}
+\subsubsection[{get\-Bounding\-Box}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf rect\-\_\-corners} \& Barrier\-::get\-Bounding\-Box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_a050de6c9ffbb0a321c6d8a2e3d1dd418}
+
+
+Provide the bounding box for the \hyperlink{classBarrier}{Barrier} entity. 
+
+Function used to calculate the non-\/axis-\/aligned (complex) bounding box of the \hyperlink{classBarrier}{Barrier} entity.
+
+The bounding box of the entity is calculated by extending its origin by the value of of its width and height projected along trigonometric co-\/ordinates \begin{DoxyReturn}{Returns}
+const \hyperlink{structrect__corners}{rect\-\_\-corners} 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCollidable_a3436effdcd9bea230f4a1aa32b8dd8ab}{Collidable}.
+
+
+
+Definition at line 48 of file Barrier.\-cpp.
+
+
+
+References \-\_\-barrier, and Orientation\-::get\-Global\-Bounds().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+49 \{
+50     \textcolor{keywordflow}{return} \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}.\hyperlink{classOrientation_a950dfe84e548582d8c3c573b5ff5fe42}{getGlobalBounds}();
+51 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_a53317aaef27996362c933d65914d663c}{\index{Barrier@{Barrier}!get\-Draw\-Position\-X@{get\-Draw\-Position\-X}}
+\index{get\-Draw\-Position\-X@{get\-Draw\-Position\-X}!Barrier@{Barrier}}
+\subsubsection[{get\-Draw\-Position\-X}]{\setlength{\rightskip}{0pt plus 5cm}const float Barrier\-::get\-Draw\-Position\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_a53317aaef27996362c933d65914d663c}
+
+
+Retrieve the \hyperlink{classBarrier}{Barrier} x Position. 
+
+Retrieve the x-\/coordinate of the barrier object.
+
+This function is used by the \hyperlink{classDrawManager}{Draw\-Manager} to gather the barriers x draw ordinal information \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDeletable_ac14ea0c5986d50ba3ba454f89c87b8fe}{Deletable}.
+
+
+
+Definition at line 105 of file Barrier.\-cpp.
+
+
+
+References \-\_\-barrier, and Orientation\-::get\-Origin\-X().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+106 \{
+107     \textcolor{keywordflow}{return} \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}.\hyperlink{classOrientation_a4d6b853f2ac00965d29e5bc36b94c949}{getOriginX}();
+108 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_af90c9b4b6f28c7710637ccda7148fbd4}{\index{Barrier@{Barrier}!get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}}
+\index{get\-Draw\-Position\-Y@{get\-Draw\-Position\-Y}!Barrier@{Barrier}}
+\subsubsection[{get\-Draw\-Position\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const float Barrier\-::get\-Draw\-Position\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_af90c9b4b6f28c7710637ccda7148fbd4}
+
+
+Retrieve the \hyperlink{classBarrier}{Barrier} y Position. 
+
+Retrieve the y-\/coordinate of the barrier object.
+
+This function is used by the \hyperlink{classDrawManager}{Draw\-Manager} to gather the barriers y draw ordinal information \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDeletable_a2a88d7e40c56902a3d3d8f668e9d126d}{Deletable}.
+
+
+
+Definition at line 114 of file Barrier.\-cpp.
+
+
+
+References \-\_\-barrier, and Orientation\-::get\-Origin\-Y().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+115 \{
+116     \textcolor{keywordflow}{return} \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}.\hyperlink{classOrientation_ae60c88b0525d6e536a1a068d3a99f74c}{getOriginY}();
+117 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_aac579711db52df907e86ef4deea7ba1d}{\index{Barrier@{Barrier}!get\-Draw\-Rotation@{get\-Draw\-Rotation}}
+\index{get\-Draw\-Rotation@{get\-Draw\-Rotation}!Barrier@{Barrier}}
+\subsubsection[{get\-Draw\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}const float Barrier\-::get\-Draw\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_aac579711db52df907e86ef4deea7ba1d}
+
+
+Recieve the \hyperlink{classBarrier}{Barrier} rotation. 
+
+Retrieve the barrier objects rotation.
+
+This function is used by the \hyperlink{classDrawManager}{Draw\-Manager} to record the rotation of a barrier sprite it creates \begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDeletable_ad7061a6bef3efce030aa5abbc7646d47}{Deletable}.
+
+
+
+Definition at line 123 of file Barrier.\-cpp.
+
+
+
+References \-\_\-barrier, and Orientation\-::get\-Rotation().
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+124 \{
+125     \textcolor{keywordflow}{return} \hyperlink{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\_barrier}.\hyperlink{classOrientation_ab3568e037a7dc7799d557f2bc6a3cf7d}{getRotation}();
+126 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_a649b80eadc6948e68947f7516fee258c}{\index{Barrier@{Barrier}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!Barrier@{Barrier}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf entity\-\_\-type} \& Barrier\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_a649b80eadc6948e68947f7516fee258c}
+
+
+\hyperlink{classBarrier}{Barrier} is able to provide its identification. 
+
+Return the entity type of the \hyperlink{classBarrier}{Barrier} object.
+
+This function is used extensively by managers to distinguish various clustered entities from one another. \begin{DoxyReturn}{Returns}
+entity\-\_\-type \-:\-: An Enum representing the barrier type in this instance 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDeletable_af8a0208abc297180873692f4215fe50f}{Deletable}.
+
+
+
+Definition at line 38 of file Barrier.\-cpp.
+
+
+
+References \-\_\-type.
+
+
+
+Referenced by T\-E\-S\-T().
+
+
+\begin{DoxyCode}
+39 \{
+40     \textcolor{keywordflow}{return} \hyperlink{classBarrier_ab4bfa33b658ab34e4053494c06e9d9a1}{\_type};
+41 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_a8199ad8a6f070435da55832bdd3893b8}{\index{Barrier@{Barrier}!is\-Deleted@{is\-Deleted}}
+\index{is\-Deleted@{is\-Deleted}!Barrier@{Barrier}}
+\subsubsection[{is\-Deleted}]{\setlength{\rightskip}{0pt plus 5cm}const bool Barrier\-::is\-Deleted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_a8199ad8a6f070435da55832bdd3893b8}
+
+
+Boolean state of the barrier entities life. 
+
+Function used to delete a barrier.
+
+Barriers currently are not deleted within the game main management loop, however this function provides the scope to do so with destructable barriers. \begin{DoxyReturn}{Returns}
+const bool 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classDeletable_a6572440c291077cf52bf21288c6cd25c}{Deletable}.
+
+
+
+Definition at line 96 of file Barrier.\-cpp.
+
+
+\begin{DoxyCode}
+97 \{
+98     \textcolor{keywordflow}{return} 0;
+99 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_acff61ab4742c427abdf0d46abd52c832}{\index{Barrier@{Barrier}!set\-Blocked@{set\-Blocked}}
+\index{set\-Blocked@{set\-Blocked}!Barrier@{Barrier}}
+\subsubsection[{set\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}const int Barrier\-::set\-Blocked (
+\begin{DoxyParamCaption}
+\item[{const {\bf blocked\-\_\-status}}]{obstruction\-\_\-type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_acff61ab4742c427abdf0d46abd52c832}
+
+
+This function is not used by barrier. 
+
+This function is not currently used by the \hyperlink{classBarrier}{Barrier} class.
+
+Scope exists within this fucnction to add damaging effects to barriers as this method is called within the collision manager 
+\begin{DoxyParams}{Parameters}
+{\em obstruction\-\_\-type} & \-:\-: an Enum describing the direction in which the barrier is blocked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCollidable_a6d312198ba82d26b5e360733bb87a2f0}{Collidable}.
+
+
+
+Definition at line 69 of file Barrier.\-cpp.
+
+
+\begin{DoxyCode}
+70 \{
+71     \textcolor{keywordflow}{return} 1;
+72 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_adeedae22d7df279613359026ecf9f279}{\index{Barrier@{Barrier}!set\-Collided@{set\-Collided}}
+\index{set\-Collided@{set\-Collided}!Barrier@{Barrier}}
+\subsubsection[{set\-Collided}]{\setlength{\rightskip}{0pt plus 5cm}void Barrier\-::set\-Collided (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_adeedae22d7df279613359026ecf9f279}
+
+
+This function may be implmented later$\ast$$\ast$. 
+
+This function is not currently used by the \hyperlink{classBarrier}{Barrier} class.
+
+This can be used to assign a fatal state to a barrier after it has recieved critical damage 
+
+Implements \hyperlink{classCollidable_a5ea0417bea000712171bbe5531705082}{Collidable}.
+
+
+
+Definition at line 86 of file Barrier.\-cpp.
+
+
+\begin{DoxyCode}
+87 \{
+88 
+89 \}
+\end{DoxyCode}
+\hypertarget{classBarrier_a863ef65ef677abdcf97373157f86c138}{\index{Barrier@{Barrier}!set\-Unblocked@{set\-Unblocked}}
+\index{set\-Unblocked@{set\-Unblocked}!Barrier@{Barrier}}
+\subsubsection[{set\-Unblocked}]{\setlength{\rightskip}{0pt plus 5cm}void Barrier\-::set\-Unblocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBarrier_a863ef65ef677abdcf97373157f86c138}
+
+
+This function is not used by barrier. 
+
+This function is not currently used by the \hyperlink{classBarrier}{Barrier} class.
+
+Barriers currently cannot become blocked but this function can be implemented to add an effect of regenerative barriers which can be broken over time 
+
+Implements \hyperlink{classCollidable_a817d864d0640bc6bcb13bbecf14ddf31}{Collidable}.
+
+
+
+Definition at line 78 of file Barrier.\-cpp.
+
+
+\begin{DoxyCode}
+79 \{
+80 
+81 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}{\index{Barrier@{Barrier}!\-\_\-barrier@{\-\_\-barrier}}
+\index{\-\_\-barrier@{\-\_\-barrier}!Barrier@{Barrier}}
+\subsubsection[{\-\_\-barrier}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Orientation} Barrier\-::\-\_\-barrier\hspace{0.3cm}{\ttfamily [private]}}}\label{classBarrier_a880a45ede41ab4829f1eda852ffb7e6b}
+
+
+Co-\/cordinate system for \hyperlink{classBarrier}{Barrier} entity. 
+
+
+
+Definition at line 58 of file Barrier.\-h.
+
+
+
+Referenced by Barrier(), get\-Aligned\-Bounding\-Box(), get\-Bounding\-Box(), get\-Draw\-Position\-X(), get\-Draw\-Position\-Y(), and get\-Draw\-Rotation().
+
+\hypertarget{classBarrier_aec1d9dbf82de85ee800808c16c587ab3}{\index{Barrier@{Barrier}!\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}}
+\index{\-\_\-sprite\-\_\-dimensions@{\-\_\-sprite\-\_\-dimensions}!Barrier@{Barrier}}
+\subsubsection[{\-\_\-sprite\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite\-Dimensions} Barrier\-::\-\_\-sprite\-\_\-dimensions\hspace{0.3cm}{\ttfamily [private]}}}\label{classBarrier_aec1d9dbf82de85ee800808c16c587ab3}
+
+
+Dimensions of \hyperlink{classBarrier}{Barrier}. 
+
+
+
+Definition at line 62 of file Barrier.\-h.
+
+
+
+Referenced by Barrier().
+
+\hypertarget{classBarrier_ab4bfa33b658ab34e4053494c06e9d9a1}{\index{Barrier@{Barrier}!\-\_\-type@{\-\_\-type}}
+\index{\-\_\-type@{\-\_\-type}!Barrier@{Barrier}}
+\subsubsection[{\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf entity\-\_\-type} Barrier\-::\-\_\-type\hspace{0.3cm}{\ttfamily [private]}}}\label{classBarrier_ab4bfa33b658ab34e4053494c06e9d9a1}
+
+
+Enumeration type defining the \hyperlink{classBarrier}{Barrier}. 
+
+
+
+Definition at line 60 of file Barrier.\-h.
+
+
+
+Referenced by Barrier(), and get\-Type().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Barrier_8h}{Barrier.\-h}\item 
+\hyperlink{Barrier_8cpp}{Barrier.\-cpp}\end{DoxyCompactItemize}
